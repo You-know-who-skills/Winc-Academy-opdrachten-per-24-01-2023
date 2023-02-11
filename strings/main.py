@@ -30,7 +30,7 @@ chant = (F'{name_short[3:] * 8}' [:-1]) # = Vraag 5
 print(chant)
 print(chant[1])
 print(chant[-1])
-print(chant[-1] != ' ')
+#print(chant[-1] != ' ')
 
 
 
