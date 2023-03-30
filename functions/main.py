@@ -51,4 +51,4 @@ negatief_3 = negative(0)
 print(negatief_1)
 print(negatief_2)
 print(negatief_3)
-variabel = 'tekst'
+
