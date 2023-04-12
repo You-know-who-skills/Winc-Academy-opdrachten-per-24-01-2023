@@ -69,6 +69,8 @@ print(farm_action('windy', 'night', True, 'cowshed', 'winter', True, True))
 
 print(farm_action('sunny', 'day', True, 'pasture', 'spring', False, True))
 
+# Test om mijn bestanden te puschen vanuit VSC.
+
 """take cows to cowshed
 milk cows
 take cows back to pasture"""
