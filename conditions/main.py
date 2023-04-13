@@ -18,17 +18,12 @@ def farm_action(
 
     # Take cows to cowshed
     if location_of_the_cows == 'pasture' and time_of_day == 'night' or weather == 'rainy':
-         action += 'take cows to cowshed\n'
-
+         action = 'take cows to cowshed\n'
+         
     # Milk cows
     elif cow_milking_status == True and location_of_the_cows == 'cowshed':
-         action += 'milk couws\n'
-         action += 'take cows back to pasture\n'
+         action = 'milk couws\n'
          
-         if location_of_the_cows == 'pasture':
-              action += 'take cows to cowshed\n'
-              action += 'milk cows\n'
-              action += 'take cows back to pasture\n'
              
     # Fertilize pasture         
     elif slurry_tank == True and weather != 'sunny' and weather != 'windy' and location_of_the_cows == 'cowshed':
