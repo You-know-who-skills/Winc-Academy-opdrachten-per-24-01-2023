@@ -27,29 +27,29 @@ def farm_action(
              
     # Fertilize pasture         
     elif slurry_tank == True and weather != 'sunny' and weather != 'windy' and location_of_the_cows == 'cowshed':
-         action += 'fertilze pasture\n'
+         action = 'fertilze pasture\n'
          
          if location_of_the_cows == 'pasture':
-              action += 'take cows to cowshed\n'
-              action += 'fertilze pasture\n'
-              action += 'take cows back to pasture\n'
+              action = 'take cows to cowshed\n'
+              action = 'fertilze pasture\n'
+              action = 'take cows back to pasture\n'
           
          else:
-              action += 'take cows to cowshed\n'
+              action = 'take cows to cowshed\n'
     
     # Mow grass
     elif grass_status == True and season == 'spring' and weather == 'sunny' and location_of_the_cows != 'pasture':
-         action += 'mow grass\n'
-         action += 'take cows to cowshed\n'
-         action += 'take cows back to pasture\n'
+         action = 'mow grass\n'
+         action = 'take cows to cowshed\n'
+         action = 'take cows back to pasture\n'
 
      # Winpy check
     if weather == 'sunny' and time_of_day == 'day' and cow_milking_status == True and location_of_the_cows == 'pasture' and season == 'spring' and slurry_tank == False and grass_status == True:
-         action += 'take cows to cowshed\n'
+         action = 'take cows to cowshed\n'
     
     # Wait
     else:
-         action += 'wait'
+         action = 'wait'
     
     return action
 
