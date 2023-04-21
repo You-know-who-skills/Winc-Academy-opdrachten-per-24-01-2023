@@ -6,4 +6,14 @@ __human_name__ = 'lists'
 
 
 # Vraag 1
-def alphabetical_order():
+def alphabetical_order(film_names) -> str:
+
+    film_names = ['d', 's', 'a', 'e']
+    
+    film_names.sort()
+
+    return film_names
+
+print(alphabetical_order(film_names))
+
+
