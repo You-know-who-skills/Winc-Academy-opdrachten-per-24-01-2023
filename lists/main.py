@@ -11,9 +11,11 @@ def alphabetical_order(film_names) -> str:
     film_names = ['d', 's', 'a', 'e']
     
     film_names.sort()
-
+    
+    print(alphabetical_order(film_names))
+    
     return film_names
 
-print(alphabetical_order(film_names))
+
 
 
