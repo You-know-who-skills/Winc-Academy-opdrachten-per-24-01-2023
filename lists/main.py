@@ -6,16 +6,42 @@ __human_name__ = 'lists'
 
 
 # Vraag 1
-def alphabetical_order(film_names) -> str:
+def alphabetical_order(film_names: list) -> str:
 
-    film_names = ['d', 's', 'a', 'e']
+    film_names = ['jaws', 'star wars: episode iv -- a new hope', 'e.t. the extra-terrestrial', 'memoirs of a Geisha']
     
-    film_names.sort()
+    film_names = sorted(film_names)
+
+    print(film_names)
     
-    print(alphabetical_order(film_names))
-    
-    return film_names
+    return True
+
+    # return film_names
+
+    print(film_names)
 
 
+# Vraag 2
+# def  won_golden_globe (film_names) -> bool:
+
+#     film_names = ['d', 's', 'a', 'e']
+    
+#     film_names.sort()
+    
+#     print(alphabetical_order(film_names))
+    
+#     return film_names
+
+
+# Vraag 3
+# def remove_toto_albums(film_names) -> str:
+
+#     film_names = ['d', 's', 'a', 'e']
+    
+#     film_names.sort()
+    
+#     print(alphabetical_order(film_names))
+    
+#     return film_names
 
 
