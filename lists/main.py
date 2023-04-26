@@ -4,42 +4,80 @@ __human_name__ = 'lists'
 
 # Add your code after this line
 
-films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha', 'Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
+# Vraag 1
+films = []
 
-make_films_lower = [films.lower() for films in films]
+# Vraag 2
+gg_films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha']
 
-print(make_films_lower)
+gg_films_lower = [gg_films.lower() for gg_films in gg_films]
 
-del films[:]
+won = ''
 
-print(films)
+wrong_list = ['jaws', 'star sars: episode iv -- a new hope', 'e.t. the extra-terrestrial', 'memoirs of a geisha', 'fahrenheit', 'the seventh one', 'toto xx', 'falling in between', 'foto xIV', 'old is new']
+
+correct_list = ['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
+
+capitalized = [wrong_list.capitalize() for wrong_list in wrong_list]
+
+# print(capitalized)
+
+tidy_list = ''
+
+# print(gg_films_lower)
+
+
+
+
+# print(films_lower)
+
+# del films[:]
+
+# print(films)
 
 
 # Vraag 1
-def alphabetical_order(film_names: list) -> list:
+def alphabetical_order(films: list) -> list:
 
-    film_names.sort()
+    films.sort()
 
-    print(film_names)
-    
-    return film_names
+    return films
 
-
-# print(alphabetical_order)
+print(alphabetical_order(films))
 
 
 # Vraag 2
-# def  won_golden_globe (won_golden_globes_for) -> bool:
-
-#     won_golden_globes_for = ['jaws', 'star wars: episode iv -- a new hope', 'e.t. the extra-terrestrial', 'memoirs of a Geisha']
+def won_golden_globe(won: list) -> bool:
     
-#     return film_names
+    gg_films_lower = [gg_films.lower() for gg_films in gg_films]
+  
+    if won.lower() in gg_films_lower:
+       print(won, "is", True)
+       return True
+    
+    else:
+       print(won, "is", False)
+    
+    return False
+
+# won_golden_globe("jaws")
+# won_golden_globe("jeff")
+
+# print(won_golden_globe(gg_films))
 
 
 # Vraag 3
-# def remove_toto_albums(albums_to_be_removed) -> str:
+def remove_toto_albums(tidy_list) -> list:
+    [wrong_list.capitalize() for wrong_list in wrong_list]
+    
+    if correct_list in wrong_list.capitalize:
 
-#     albums_to_be_removed = ['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
+     del wrong_list['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
+    
+    print(wrong_list)
+
+
+#     albums_to_be_removed = 
     
 #     return film_names
 
