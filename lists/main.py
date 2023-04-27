@@ -20,6 +20,10 @@ correct_list = ['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between'
 
 capitalized = [wrong_list.capitalize() for wrong_list in wrong_list]
 
+# test = wrong_list[.find('Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New')]
+
+
+
 # print(capitalized)
 
 tidy_list = ''
@@ -70,15 +74,19 @@ def won_golden_globe(won: list) -> bool:
 def remove_toto_albums(tidy_list) -> list:
     [wrong_list.capitalize() for wrong_list in wrong_list]
     
-    if correct_list in wrong_list.capitalize:
-
-     del wrong_list['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
-    
-    print(wrong_list)
+    if correct_list == wrong_list:
+       wrong_list.remove(wrong_list)
+       print('gelukt')
+       # print(wrong_list)
+       return tidy_list
 
 
 #     albums_to_be_removed = 
     
 #     return film_names
 
+# del wrong_list['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
 
+# tidy_list = remove_toto_albums(wrong_list)
+
+# print(tidy_list)
