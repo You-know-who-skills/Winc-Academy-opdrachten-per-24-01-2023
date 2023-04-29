@@ -4,48 +4,20 @@ __human_name__ = 'lists'
 
 # Add your code after this line
 
-# Vraag 1
+
+# Vraag 1 = alphabetical_order
 films = []
 
-# Vraag 2
+
+# Vraag 2 = won_golden_globe
 gg_films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha']
 
-# gg_films_lower = [gg_films.lower() for gg_films in gg_films]
 
-# print(gg_films_lower)
-
-
-
-# won = ''
-
-# Vraag 3
+# Vraag 3 = remove_toto_albums
 tidy_list = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha', 'Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
 
-# tidy_list = wrong_list.capitalize() # for wrong_list in wrong_list
 
-# test = wrong_list[.find('Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New')]
-
-
-
-# print(capitalized)
-
-# print(tidy_list)
-
-# tidy_list = ''
-
-# print(gg_films_lower)
-
-
-
-
-# print(films_lower)
-
-# del films[:]
-
-# print(films)
-
-
-# Vraag 1
+# Vraag 1 = alphabetical_order
 def alphabetical_order(films: list) -> list:
 
     films.sort()
@@ -53,31 +25,29 @@ def alphabetical_order(films: list) -> list:
     return films
 
 print(alphabetical_order(films))
-print('\n')
+# print('\n')
 
-# Vraag 2
+
+# Vraag 2 = won_golden_globe
 def won_golden_globe(won: list) -> bool:
 
     gg_films_lower = [gg_films.lower() for gg_films in gg_films]
 
     if won in gg_films_lower:
-       print(won, "is", True)
+    #    print(won, "is", True)
        return True
     
     else:
-       print(won, "is", False)
-    
-    return False
+        # print(won, "is", False)
+        return False
+        
+print(won_golden_globe('jaws'))
+print(won_golden_globe('jeff'))
 
-won_golden_globe("jaws")
-won_golden_globe("jeff")
-print('\n')
-
-print(won_golden_globe(gg_films))
-print('\n')
+# print('\n')
 
 
-# Vraag 3
+# Vraag 3 = remove_toto_albums
 def remove_toto_albums(tidy_list) -> list:
     
     if "Fahrenheit" in tidy_list:
@@ -97,12 +67,10 @@ def remove_toto_albums(tidy_list) -> list:
 
     if "Old Is New" in tidy_list:
         tidy_list.remove("Old Is New")
-
-    
     
     return tidy_list
 
-print('\n')
+# print('\n')
 print(remove_toto_albums(tidy_list))
 
 
