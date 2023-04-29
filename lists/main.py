@@ -8,16 +8,6 @@ __human_name__ = 'lists'
 # Vraag 1 = alphabetical_order
 films = []
 
-
-# Vraag 2 = won_golden_globe
-gg_films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha']
-
-
-# Vraag 3 = remove_toto_albums
-tidy_list = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha', 'Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
-
-
-# Vraag 1 = alphabetical_order
 def alphabetical_order(films: list) -> list:
 
     films.sort()
@@ -29,16 +19,20 @@ print(alphabetical_order(films))
 
 
 # Vraag 2 = won_golden_globe
+gg_films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha']
+
+won = ''
+
 def won_golden_globe(won: list) -> bool:
 
     gg_films_lower = [gg_films.lower() for gg_films in gg_films]
 
     if won in gg_films_lower:
-    #    print(won, "is", True)
+       print(won, "is", True)
        return True
     
     else:
-        # print(won, "is", False)
+        print(won, "is", False)
         return False
         
 print(won_golden_globe('jaws'))
@@ -48,6 +42,8 @@ print(won_golden_globe('jeff'))
 
 
 # Vraag 3 = remove_toto_albums
+tidy_list = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha', 'Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
+
 def remove_toto_albums(tidy_list) -> list:
     
     if "Fahrenheit" in tidy_list:
@@ -72,17 +68,3 @@ def remove_toto_albums(tidy_list) -> list:
 
 # print('\n')
 print(remove_toto_albums(tidy_list))
-
-
-
-
-
-# #     albums_to_be_removed = 
-    
-# #     return film_names
-
-# # del wrong_list['Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
-
-# # tidy_list = remove_toto_albums(wrong_list)
-
-# # print(tidy_list)
