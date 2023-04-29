@@ -15,30 +15,31 @@ def alphabetical_order(films: list) -> list:
     return films
 
 print(alphabetical_order(films))
-# print('\n')
+print('\n')
 
 
 # Vraag 2 = won_golden_globe
 gg_films = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha']
 
-won = ''
-
 def won_golden_globe(won: list) -> bool:
 
     gg_films_lower = [gg_films.lower() for gg_films in gg_films]
 
-    if won in gg_films_lower:
+    if won.lower() in gg_films_lower:
        print(won, "is", True)
+       print('\n')
        return True
     
     else:
         print(won, "is", False)
+        print('\n')
         return False
         
 print(won_golden_globe('jaws'))
+print('\n')
 print(won_golden_globe('jeff'))
 
-# print('\n')
+print('\n')
 
 
 # Vraag 3 = remove_toto_albums
@@ -66,5 +67,5 @@ def remove_toto_albums(tidy_list) -> list:
     
     return tidy_list
 
-# print('\n')
+print('\n')
 print(remove_toto_albums(tidy_list))
