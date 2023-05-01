@@ -6,10 +6,10 @@ __human_name__ = 'lists'
 
 
 # Vraag 1 = alphabetical_order
-films = []
+films = [] 
 
 def alphabetical_order(films: list) -> list:
-
+    
     films.sort()
 
     return films
@@ -35,9 +35,9 @@ def won_golden_globe(won: list) -> bool:
         print('\n')
         return False
         
-print(won_golden_globe('jaws'))
-print('\n')
-print(won_golden_globe('jeff'))
+# print(won_golden_globe('jaws'))
+# print('\n')
+# print(won_golden_globe('jeff'))
 
 print('\n')
 
