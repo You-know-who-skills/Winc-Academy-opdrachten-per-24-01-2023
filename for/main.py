@@ -10,43 +10,29 @@ __human_name__ = "for"
 
 """" Ik heb onderstaande code zo universeel mogelijk proberen te maken"""
 
-# Vraag 1 = kortste namen
+# Vraag 1 = kortste land namen
 
 def shortest_names (sc_names: list) -> list: # sc = shortest countries
-    
-    longest_country_name = [max(sc_names, key=len)] # Deze code zoekt altijd naar het land met de meeste karakters in de countries lijst.
-    print(longest_country_name)
-
-    total_characters_lcn = len(longest_country_name) # Deze code geeft altijd het totaal aantal karakters van het het land met de meeste karakters in de countries lijst (lcn = longest country name).
-    print(total_characters_lcn)
-    
-    shortest_country_name = [min(sc_names, key=len)] # Deze code zoekt altijd naar het land met de minste karakters in de countries lijst.
+        
+    shortest_country_name = min(sc_names, key=len) # Deze code zoekt naar het land met de minste karakters in de countries lijst.
     print(shortest_country_name)
+    print('\n')
     
-    total_characters_scn = len(shortest_country_name) # Deze code geeft altijd het totaal aantal karakters van het het land met de minste karakters in de countries lijst (scn = shortest country name).
+    total_characters_scn = len(shortest_country_name) # Deze code geeft het totaal aantal karakters van het het land met de minste karakters in de countries lijst (scn = shortest country name).
     print(total_characters_scn)
+    print('\n')
+    print('Dit zijn alle landen met de kortste naam in de \'countries\' lijst:')
     
-    shortest_countries_list = [] # Dit is een lijst van alle landen met de minste karakters in de countries lijst.
+    shortest_countries_list = [] # In deze lijst komen alle landen die even veel karakters hebben als het land met de minste karakters.
     
-
-    for shortest_countries in sc_names: # Dit is een loop van de countries lijst.
-        # print(shortest_countries)
-        # print(len(shortest_countries))
-        # print(total_characters_lcn)
-
-        if len(shortest_countries) == total_characters_scn: # lcn = longest country name
-            print(shortest_countries)
+    for shortest_countries in sc_names: # Dit is een loop op de countries lijst.
+        
+        if len(shortest_countries) == total_characters_scn: # Met de 'len' code zoekt de variabel 'shortest_countries' naar alle landen die dezelfde lengte hebben als het land met de minste karakters (= de variabel total_characters_scn) (scn = shortest country name).
             
-            # total_characters_lcn = len(shortest_countries)
-            # print(total_characters_lcn)
-
-            # shortest_countries_list = [shortest_countries]
-            # print(shortest_countries_list)
-
-        elif shortest_countries_list.append(shortest_countries):
-    
-            print(shortest_countries_list)
-    
+            print(shortest_countries)
+                        
+        elif shortest_countries_list.append(shortest_countries): # Deze code voegt alle landen die even veel karakters hebben als het land met de minste karakters toe aan de lijst / variabel: shortest_countries_list.
+                
             return shortest_countries_list
 
 
@@ -66,7 +52,7 @@ if __name__ == "__main__":
     
     """ Write the calls to your functions here. """
 
-    print(shortest_names(countries))
+print(shortest_names(countries))
 
 
 # sc_names = [min(countries, key=len)]
