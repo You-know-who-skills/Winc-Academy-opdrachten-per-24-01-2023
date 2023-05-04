@@ -23,17 +23,16 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
     print('\n')
     print('Dit zijn alle landen met de kortste naam in de \'countries\' lijst:')
     
-    shortest_countries_list = [] # In deze lijst komen alle landen die even veel karakters hebben als het land met de minste karakters.
+    shortest_country_list = [] # In deze lijst komen alle landen die even veel karakters hebben als het land met de minste karakters.
     
-    for shortest_countries in sc_names: # Dit is een loop op de countries lijst.
+    for country in sc_names: # Dit is een loop op de countries lijst met de validatie genaamd 'country'.
         
-        if len(shortest_countries) == total_characters_scn: # Met de 'len' code zoekt de variabel 'shortest_countries' naar alle landen die dezelfde lengte hebben als het land met de minste karakters (= de variabel total_characters_scn) (scn = shortest country name).
+        if len(country) == total_characters_scn: # Met de 'len' en de '==' (= is gelijk aan) code zoekt de variabel 'country' naar alle landen die dezelfde lengte hebben als het land met de minste karakters (= de variabel total_characters_scn) (scn = shortest country name).
             
-            print(shortest_countries)
-                        
-        elif shortest_countries_list.append(shortest_countries): # Deze code voegt alle landen die even veel karakters hebben als het land met de minste karakters toe aan de lijst / variabel: shortest_countries_list.
-                
-            return shortest_countries_list
+            shortest_country_list.append(country) # Met de '.append' code voegt 
+            # print(country)
+
+    return shortest_country_list
 
 
 # Vraag 2 = meeste klinkers
@@ -52,7 +51,7 @@ if __name__ == "__main__":
     
     """ Write the calls to your functions here. """
 
-print(shortest_names(countries))
+    print(shortest_names(countries))
 
 
 # sc_names = [min(countries, key=len)]
