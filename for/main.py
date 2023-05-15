@@ -39,8 +39,11 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
 # Vraag 2 = meeste klinkers
 def most_vowels (top_three: list) -> list:
     
-    vowels = 'aeiou' + 'AEIOU' # Dez variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd met de plus (+) operator, want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
-    ranking = []
+    vowels = 'aeiouAEIOU' # Dez variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd met de plus (+) operator, want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
+    
+    ranking_vowels = []
+    top_drie = []
+
     for country_name in top_three:  # 'Country_name' is een loop door alle landen heen (= de countries lijst die ik nu top_three heb genoemd). En de variabele 'country_name' bevat de namen van de landen waar ik mee ga werken.
         # print(country_name)
 
@@ -49,15 +52,65 @@ def most_vowels (top_three: list) -> list:
 
         for vowel_search in country_name: # Dit is een loop die naar elke letter van een landnaam gaat kijken.
 
-            if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zit.
+            if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zitten.
                 
                 vowels_in_country += 1  # Deze variabel selecteert alle klinkers die in een landnaam voor komen.
-                # print('Deze "check" zin wordt even vaak geprint als het aantal klinkers in het betreffende land.')
 
         # print(country_name, vowels_in_country)
         # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
 
-                ranking = (f'{country_name} + {vowels_in_country}')
+        ranking_vowels.append([vowels_in_country, country_name])
+        # print(ranking_vowels)
+
+        ranking_vowels.sort(reverse = True)
+        # print(ranking_sorted_reversed)
+
+
+            for top_drie in ranking_vowels:
+                
+                
+        # top_drie = ranking_vowels.sort(reverse = True, [0:3])
+        # print(top_drie)
+        # break
+        
+
+            
+
+    return ranking_vowels
+
+
+
+
+        
+        
+                # vowels_in_country = sorted(str(vowels_in_country, reverse = True))
+                # print(vowels_in_country)
+
+                
+
+                
+
+                # vowels_in_country = sorted(str(vowels_in_country, reverse = True))
+                # print(vowels_in_country)
+
+                # country_and_vowels =  country_name + str(vowels_in_country) # country_name + str(vowels_in_country)
+                # ranking.append(country_and_vowels)
+                # print(sorted(ranking, reverse=True))
+                # break
+
+        # print(country_name, vowels_in_country)
+        # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
+
+                
+                
+                # ranking = [country_name + vowels_in_country]
+                
+                # ranking = (f'{list[ranking.append(country_name)]} + {list[ranking.append(vowels_in_country)]}')
+                # print(ranking)
+                # break
+
+                # ranking = (f'{country_name} + {vowels_in_country}')
+
 
                 # NIET VERGETEN OM DE .SPLIT CODE TE GEBRUIKEN OM VAN DE LANDNAAM EN HET AANTAL KLINKERS 1 LIJST TE MAKEN
 
