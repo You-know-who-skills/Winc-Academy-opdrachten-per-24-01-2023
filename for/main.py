@@ -15,7 +15,7 @@ __human_name__ = "for"
 def shortest_names (sc_names: list) -> list: # sc = shortest countries
         
     shortest_country_name = min(sc_names, key=len) # Deze code zoekt naar het land met de minste karakters in de countries lijst.
-    print(f'{shortest_country_name} = het land met de minste karakters')
+    print(f'{shortest_country_name} = het land met de minste karakters.')
     print('\n')
     
     total_characters_scn = len(shortest_country_name) # Deze code geeft het totaal aantal karakters van het het land met de minste karakters in de countries lijst (scn = shortest country name).
@@ -40,11 +40,11 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
 
 # Vraag 2 = meeste klinkers
 def most_vowels (top_three: list) -> list:
-    
-    vowels = 'aeiouAEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
-    
-    ranking_vowels = [] # In deze lijst komen 
-    ranking_top_three = []
+
+    vowels = 'aeiou' + 'AEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
+
+    ranking_vowels = [] # In deze lijst komt een gesorteerde lijst van alle landen inclusief het aantal klinkers per land en deze lijst is gesorteerd op de klinkers van hoog naar laag.
+    ranking_top_three = [] # In deze lijst komt de top 3 van de landen met de meeste klinkers.
 
     for country_name in top_three:  # 'Country_name' is een loop door alle landen heen (= de countries lijst die ik nu top_three heb genoemd). En de variabele 'country_name' bevat de namen van de landen waar ik mee ga werken.
         # print(country_name)
@@ -53,29 +53,29 @@ def most_vowels (top_three: list) -> list:
         # print(vowels_in_country)
 
         for vowel_search in country_name: # Dit is een loop die naar elke letter van een landnaam gaat kijken.
-
+            
             if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zitten.
                 
                 vowels_in_country += 1  # Deze variabel selecteert alle klinkers die in een landnaam voor komen.
 
         # print(country_name, vowels_in_country)
-        # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
-
-    ranking_vowels.append([vowels_in_country, country_name])
-    print(ranking_vowels)
-
-    ranking_vowels.sort(reverse = True)
-                # print(ranking_sorted_reversed)
+        print(f'{country_name} heeft {vowels_in_country} klinker(s)')
         
-    for ranking in ranking_vowels[:3]:
+
+        ranking_vowels.append([vowels_in_country, country_name]) # Met deze code zet ik 2 validaties: het aantal klinkers én de naam van het land, in de 'ranking_vowels' lijst.
+    # print(ranking_vowels)
+    print('\n')
+    ranking_vowels.sort(reverse = True)
+    print('Hieronder staat een lijst met het aantal klinkers in een landnmaam inclusief de landnaam. De lijst is gesorteerd op klinkers: van meeste naar minste.')
+    print('\n')
+    print(ranking_vowels)
+    print('\n')
+
+    for ranking in ranking_vowels[:3]: # Met deze code 
 
         ranking_top_three.append(ranking[1])
-        
-
-    # print(ranking)
 
     return ranking_top_three
-    # return ranking
 
 
 # Vraag 3 = alfabet vormen
