@@ -15,11 +15,12 @@ __human_name__ = "for"
 def shortest_names (sc_names: list) -> list: # sc = shortest countries
         
     shortest_country_name = min(sc_names, key=len) # Deze code zoekt naar het land met de minste karakters in de countries lijst.
-    print(shortest_country_name)
+    print(f'{shortest_country_name} = het land met de minste karakters')
     print('\n')
     
     total_characters_scn = len(shortest_country_name) # Deze code geeft het totaal aantal karakters van het het land met de minste karakters in de countries lijst (scn = shortest country name).
-    print(total_characters_scn)
+    print(f'{total_characters_scn} = het totaal aantal karakters van het land met de minste karakters.')
+    # print(total_characters_scn )
     print('\n')
     print('Dit zijn alle landen met de kortste naam in de \'countries\' lijst:')
     
@@ -28,7 +29,8 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
 
     for country in sc_names: # Dit is een loop op de countries lijst met de variabel genaamd 'country'.
         
-        if len(country) == total_characters_scn: # Met de 'len' en de '==' (= is gelijk aan) code zoekt de variabel 'country' naar alle landen die dezelfde lengte hebben als het land met de minste karakters (= de variabel total_characters_scn) (scn = shortest country name).
+        if len(country) == len(shortest_country_name): # Met de 'len' en de '==' (= is gelijk aan) code zoekt de variabel 'country' naar alle landen die dezelfde lengte hebben als het land met de minste karakters (= de variabel total_characters_scn) (scn = shortest country name).
+        # if len(country) == total_characters_scn: # Op deze manier kan je ook zoeken naar alle landen die dezelfde lengte hebben als het land met de minste karakters, maar met deze code kijk je dan letterlijk naar het aantal karakters die ik met een tussenstap met variabel 'total_characters_scn' heb aangemaakt i.p.v. het gevonden land met variabel 'shortest_country_name'.
             
             shortest_country_list.append(country) # Hier heb ik de variabel 'shortest_country_list' weer gebruikt om met de '.append' code alle andere landen met even veel karakters als in de variabel 'total_characters_scn' aan de lijst toe te voegen.
             # print(country)
@@ -39,10 +41,10 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
 # Vraag 2 = meeste klinkers
 def most_vowels (top_three: list) -> list:
     
-    vowels = 'aeiouAEIOU' # Dez variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd met de plus (+) operator, want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
+    vowels = 'aeiouAEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
     
-    ranking_vowels = []
-    top_drie = []
+    ranking_vowels = [] # In deze lijst komen 
+    ranking_top_three = []
 
     for country_name in top_three:  # 'Country_name' is een loop door alle landen heen (= de countries lijst die ik nu top_three heb genoemd). En de variabele 'country_name' bevat de namen van de landen waar ik mee ga werken.
         # print(country_name)
@@ -59,154 +61,22 @@ def most_vowels (top_three: list) -> list:
         # print(country_name, vowels_in_country)
         # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
 
-        ranking_vowels.append([vowels_in_country, country_name])
-        # print(ranking_vowels)
+    ranking_vowels.append([vowels_in_country, country_name])
+    print(ranking_vowels)
 
-        ranking_vowels.sort(reverse = True)
-        # print(ranking_sorted_reversed)
+    ranking_vowels.sort(reverse = True)
+                # print(ranking_sorted_reversed)
+        
+    for ranking in ranking_vowels[:3]:
 
-
-            for top_drie in ranking_vowels:
-                
-                
-        # top_drie = ranking_vowels.sort(reverse = True, [0:3])
-        # print(top_drie)
-        # break
+        ranking_top_three.append(ranking[1])
         
 
-            
+    # print(ranking)
 
-    return ranking_vowels
+    return ranking_top_three
+    # return ranking
 
-
-
-
-        
-        
-                # vowels_in_country = sorted(str(vowels_in_country, reverse = True))
-                # print(vowels_in_country)
-
-                
-
-                
-
-                # vowels_in_country = sorted(str(vowels_in_country, reverse = True))
-                # print(vowels_in_country)
-
-                # country_and_vowels =  country_name + str(vowels_in_country) # country_name + str(vowels_in_country)
-                # ranking.append(country_and_vowels)
-                # print(sorted(ranking, reverse=True))
-                # break
-
-        # print(country_name, vowels_in_country)
-        # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
-
-                
-                
-                # ranking = [country_name + vowels_in_country]
-                
-                # ranking = (f'{list[ranking.append(country_name)]} + {list[ranking.append(vowels_in_country)]}')
-                # print(ranking)
-                # break
-
-                # ranking = (f'{country_name} + {vowels_in_country}')
-
-
-                # NIET VERGETEN OM DE .SPLIT CODE TE GEBRUIKEN OM VAN DE LANDNAAM EN HET AANTAL KLINKERS 1 LIJST TE MAKEN
-
-
-        # ranking.append(vowels_in_country)
-        # print(ranking)
-        
-        # ranking.sort(reverse = True)
-
-        # ranking.split()
-        # print(ranking)
-
-        
-
-        
-
-
-        # for top_three_list in range[0:2]:
-        #     print(top_three_list)
-
-
-
-        
-        
-        #     top_three_list.sort(reverse = True)
-        
-        # print(ranking)
-        
-        
-        # for ranking in vowels_in_country: # position = geeft de positie van de item in de lijst aan, range = geeft aan welke waardes er tussen de nul de opgegeven getal zitten.
-
-        #     if ranking
-            
-
-        #     if vowels_in_country >= leaderboard[position][1]: 
-        #     #    print("leaderboard land:", leaderboard[position][1])
-
-        #         leaderboard.insert(position, (country_name, vowels_in_country))
-        #         break
-
-        #     if position >2:
-        #         break
-
-        # print(leaderboard)
-        # print(leaderboard[:10], 'uitslag')
-        
-        # definitieve_lijst = []
-
-
-        # for i in leaderboard[:10]:
-        #     definitief_land = i[0]
-        #     definitieve_lijst += [definitief_land]
-        
-        # definitieve_lijst = definitieve_lijst [:-1]
-            # print(definitieve_lijst)
-
-
-
-            # print(position, 'postitie')
-            # print(leaderboard[position], 'test')
-        # print(leaderboard)
-        # print(range(len(leaderboard)))
-        # print(len(leaderboard))
-        # return definitieve_lijst
-
-
-
-
-
-
-# Vraag 2 = meeste klinkers
-# def most_vowels (top_three: list) -> list:
-    
-#     number_of_vowels = 'aeiou'
-    
-
-#     for number_of_vowels in top_three:
-#         print(number_of_vowels)
-        
-#         for char in number_of_vowels:
-
-
-
-        # for number_of_vowels in top_three:
-
-        # if number_of_vowels == 'a' 'e' 'i' 'o' 'u':
-            
-            
-        # if number_of_vowels == 'a' 'e' 'i' 'o' 'u':
-        
-            # print(top_three, aantal_klinkers)
-            # print('\n')
-
-    # return top_three
-
-    
 
 # Vraag 3 = alfabet vormen
 # def alphabet_set(complete_alphabet: list) -> list:
@@ -223,9 +93,4 @@ if __name__ == "__main__":
     print(shortest_names(countries))
     print('\n')
     print(most_vowels(countries))
-
-
-# sc_names = [min(countries, key=len)]
-
-# print(sc_names)
 

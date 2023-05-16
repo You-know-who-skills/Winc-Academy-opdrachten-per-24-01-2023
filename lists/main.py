@@ -46,7 +46,7 @@ print('\n')
 tidy_list = ['Jaws', 'Star Wars: Episode iv -- A New Hope', 'E.T. The Extra-Terrestrial', 'Memoirs of a Geisha', 'Fahrenheit', 'The Seventh One', 'Toto XX', 'Falling in Between', 'Toto XIV', 'Old Is New']
 
 def remove_toto_albums(tidy_list) -> list:
-    
+        
     if "Fahrenheit" in tidy_list:
         tidy_list.remove("Fahrenheit")
     
