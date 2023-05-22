@@ -83,25 +83,35 @@ __human_name__ = "for"
 # Vraag 3 = alfabet vormen
 def alphabet_set(country_alphabet: list) -> list:
 
-    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'N', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    alphabet = ['abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
     # letters = 'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Nn', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Mm', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'
     # letters = 'abcdefnghijklmnmopqrstuvwxyz' + 'ABCDEFNGHIJKLMNOPQRSTUVWXYZ'
     
     alphabet_countries = [] # In deze lijst komen alle landen die ik kan gebruiken voor het alfabet.
-    alphabet_letter_countries = [] # In deze komt de alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
+    alphabet_letters_needed = [] # In deze komt de alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
 
     for alphabet_country in country_alphabet:
         
-        for alphabet_letter_search in alphabet_country:
+        country_alphabet.sort(key = len, reverse = True)
+        alphabet_countries.append(alphabet_country)
+
+        print(alphabet_country)
+        
+        
+        # for alphabet_letter_search in range(alphabet):
             
-                if alphabet_letter_search in alphabet:
+            # alphabet_letter_search = 
+
+            # if alphabet_letter_search in alphabet:
+
+                    # alphabet_countries.append(alphabet_letter_search)
                     
                     # print([alphabet_letter_search, country_alphabet])
                     # print(alphabet_letter_search)
 
-                    alphabet_countries.append(alphabet_letter_search)
+                    # alphabet_countries.append(alphabet_letter_search)
         
-        print(alphabet_countries)
+        # print(alphabet_countries)
 
 
         # print(alphabet_letter_search)
@@ -137,6 +147,6 @@ if __name__ == "__main__":
     # print(shortest_names(countries))
     # print('\n')
     # print(most_vowels(countries))
-    print('\n')
+    # print('\n')
     print(alphabet_set(countries))
 
