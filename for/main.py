@@ -41,43 +41,47 @@ __human_name__ = "for"
 # Vraag 2 = meeste klinkers
 # def most_vowels (top_three: list) -> list:
 
-#     vowels = 'aeiou' + 'AEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
+    # vowels = 'aeiou' + 'AEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
 
-#     ranking_vowels = [] # In deze lijst komt een gesorteerde lijst van alle landen inclusief het aantal klinkers per land en deze lijst is gesorteerd op de klinkers van hoog naar laag.
-#     ranking_top_three = [] # In deze lijst komt de top 3 van de landen met de meeste klinkers.
+    # ranking_vowels = [] # In deze lijst komt een gesorteerde lijst van alle landen inclusief het aantal klinkers per land en deze lijst is gesorteerd op de klinkers van hoog naar laag.
+    # ranking_top_three = [] # In deze lijst komt de top 3 van de landen met de meeste klinkers.
 
-#     for country_name in top_three:  # 'Country_name' is een loop door alle landen heen (= de countries lijst die ik nu top_three heb genoemd). En de variabele 'country_name' bevat de namen van de landen waar ik mee ga werken.
-#         # print(country_name)
+    # for country_name in top_three: # Deze for loop loopt door alle landen heen (= de countries lijst die ik nu top_three heb genoemd). En de variabele 'country_name' bevat de namen van de landen waar ik mee ga werken.
+        # print(country_name)
 
-#         vowels_in_country = 0  # Met deze variabel geef ik aan dat de telling van de zoektocht naar klinkers in de landnamen bij het getal 0 (nul) moet beginnen.
-#         # print(vowels_in_country)
+        # vowels_in_country = 0  # Deze variabel geeft aan dat de telling van de zoektocht naar klinkers in de landnamen bij 0 (nul) moet beginnen.
+        # print(vowels_in_country)
 
-#         for vowel_search in country_name: # Dit is een loop die naar elke letter van een landnaam gaat kijken.
+        # for vowel_search in country_name: # Deze for loop kijkt naar elke letter van een landnaam.
             
-#             if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zitten.
+        #     if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zitten.
                 
-#                 vowels_in_country += 1  # Deze variabel selecteert alle klinkers die in een landnaam voor komen.
+        #         vowels_in_country += 1  # Deze variabel selecteert alle klinkers die in een landnaam voor komen.
 
-#         # print(country_name, vowels_in_country)
-#         print(f'{country_name} heeft {vowels_in_country} klinker(s)')
+        # print(country_name, vowels_in_country)
+        # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
         
 
-#         ranking_vowels.append([vowels_in_country, country_name]) # Met deze code zet ik 2 validaties: het aantal klinkers én de naam van het land, in de 'ranking_vowels' lijst.
-#     print(ranking_vowels)
-#     print('\n')
-#     ranking_vowels.sort(reverse = True)
-#     print('Hieronder staat een lijst met het aantal klinkers in een landnmaam inclusief de landnaam. De lijst is gesorteerd op klinkers: van meeste klinkers naar minste klinkers.')
-#     print('\n')
-#     print(ranking_vowels)
-#     print('\n')
-#     print('Hieronder staat een lijst met de top 3 van landen met de meeste klinkers:')
-#     print('\n')
+        # ranking_vowels.append([vowels_in_country, country_name]) # Met deze code zet ik 2 validaties in de 'ranking_vowels' lijst: 1= het aantal klinkers én 2= de naam van het land.
+    # print(ranking_vowels)
+    # print('\n')
 
-#     for ranking in ranking_vowels[:3]:
+    # ranking_vowels.sort(reverse = True) # Met deze code sorteer ik de ranking_vowels lijst van hoog naar laag.
+
+    # print('Hieronder staat een lijst met het aantal klinkers in een landnmaam inclusief de landnaam. De lijst is gesorteerd op klinkers: van meeste klinkers naar minste klinkers.')
+    # print('\n')
+
+    # print(ranking_vowels)
+    # print('\n')
+
+    # print('Hieronder staat een lijst met de top 3 van landen met de meeste klinkers:')
+    # print('\n')
+
+    # for ranking in ranking_vowels[:3]: # Deze code selecteert de eerste 3 items in de 'ranking_vowels' lijst en de 3 items bestaan uit: de hoeveelheid klinkers (uitgedrukt in een getal) én de landnaam.
         
-#         ranking_top_three.append(ranking[1])
+    #     ranking_top_three.append(ranking[1]) # Deze code selecteert alleen de landnamen van de top 3 door de [1] index waarbij de 1 staat voor: selecteer uit de top 3 alleen de item na de komma, want de hoeveelheid klinkers = 0 en de landnaam = 1.
 
-#     return ranking_top_three
+    # return ranking_top_three
 
 
 # Vraag 3 = alfabet vormen
@@ -85,24 +89,28 @@ def alphabet_set(country_alphabet: list) -> list:
 
     alphabet = ['abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
     # letters = 'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Nn', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Mm', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'
-    # letters = 'abcdefnghijklmnmopqrstuvwxyz' + 'ABCDEFNGHIJKLMNOPQRSTUVWXYZ'
+        
+    used_countries = [] # In deze lijst komen alle landen die ik kan gebruiken voor het alfabet.
+    alphabet_letters_needed = [] # In deze lijst komt het alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
+    alphabet_countries = country_alphabet.sort(key = len, reverse = True) # Deze variabel heb ik buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
     
-    alphabet_countries = [] # In deze lijst komen alle landen die ik kan gebruiken voor het alfabet.
-    alphabet_letters_needed = [] # In deze komt de alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
+    for alphabet_countries in country_alphabet:
+        
+        used_countries.append(alphabet_countries)
+    # print(used_countries)
 
-    for alphabet_country in country_alphabet:
+    for alphabet_letter_search in used_countries:
+        # print(alphabet_letter_search)
         
-        country_alphabet.sort(key = len, reverse = True)
-        alphabet_countries.append(alphabet_country)
-
-        print(alphabet_country)
-        
-        
-        # for alphabet_letter_search in range(alphabet):
+        # if alphabet in alphabet_letter_search:
+        # if alphabet_letter_search in alphabet:
+        if alphabet_letter_search == alphabet:
             
-            # alphabet_letter_search = 
+            alphabet_letters_needed.append(alphabet_letter_search)
+        # print(alphabet_letters_needed)
+        print(alphabet_letter_search)
+        
 
-            # if alphabet_letter_search in alphabet:
 
                     # alphabet_countries.append(alphabet_letter_search)
                     
@@ -116,6 +124,8 @@ def alphabet_set(country_alphabet: list) -> list:
 
         # print(alphabet_letter_search)
         # break
+    
+    # return alphabet_letters_needed
 
 
 
@@ -147,6 +157,6 @@ if __name__ == "__main__":
     # print(shortest_names(countries))
     # print('\n')
     # print(most_vowels(countries))
-    # print('\n')
+    print('\n')
     print(alphabet_set(countries))
 
