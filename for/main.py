@@ -85,30 +85,38 @@ __human_name__ = "for"
 
 
 # Vraag 3 = alfabet vormen
-def alphabet_set(country_alphabet: list) -> list:
+def alphabet_set(countries: list) -> list:
 
-    alphabet = ['abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+    alphabet = list('abcdefghijklmnopqrstuvwxyz')
+    print(alphabet)
     # letters = 'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Nn', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Mm', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'
         
     used_countries = [] # In deze lijst komen alle landen die ik kan gebruiken voor het alfabet.
     alphabet_letters_needed = [] # In deze lijst komt het alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
-    alphabet_countries = country_alphabet.sort(key = len, reverse = True) # Deze variabel heb ik buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
+    countries.sort(key = len, reverse = True) # Deze variabel heb ik buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
     
-    for alphabet_countries in country_alphabet:
+    for country in countries:
         
-        used_countries.append(alphabet_countries)
-    # print(used_countries)
+        for letter in country.lower():
+            if letter in alphabet:
+                alphabet.remove(letter)
+                if country not in used_countries:
+                    used_countries.append(country)
+    print(used_countries)
 
-    for alphabet_letter_search in used_countries:
+
+
+
         # print(alphabet_letter_search)
         
+
         # if alphabet in alphabet_letter_search:
         # if alphabet_letter_search in alphabet:
-        if alphabet_letter_search == alphabet:
+        #     if alphabet_letter_search == used_countries in:
             
-            alphabet_letters_needed.append(alphabet_letter_search)
-        # print(alphabet_letters_needed)
-        print(alphabet_letter_search)
+        #     alphabet_letters_needed.append(alphabet_letter_search)
+        # # print(alphabet_letters_needed)
+        # print(alphabet_letter_search)
         
 
 
