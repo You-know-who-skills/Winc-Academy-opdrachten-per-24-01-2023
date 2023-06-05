@@ -87,13 +87,12 @@ __human_name__ = "for"
 # Vraag 3 = alfabet vormen
 def alphabet_set(countries: list) -> list:
 
-    alphabet = list('abcdefghijklmnopqrstuvwxyz')
+    alphabet = list('abcdefghijklmnopqrstuvwxyz') # Ik heb deze string gecast door er 'list' voor te zetten zodat de string itereerbaar / herhaalbaar wordt voor de for loop. Door deze string te casten met de 'list' object zorg je ervoor dat Python van elke letter in deze string een aparte item maakt én dus itereerbaar is.
     print(alphabet)
-    # letters = 'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Nn', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Mm', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'
-        
-    used_countries = [] # In deze lijst komen alle landen die ik kan gebruiken voor het alfabet.
-    alphabet_letters_needed = [] # In deze lijst komt het alfabet letter én het land waaruit ik de betreffende letter heb gehaald.
-    countries.sort(key = len, reverse = True) # Deze variabel heb ik buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
+    print('\n')
+
+    used_countries = [] # In deze lijst komen alle landen die ik heb gebruikt voor het alfabet.
+    countries.sort(key = len, reverse = True) # Deze code sorteert de countries lijst aflopend van het land met de meeste karakters naar het land met de minste karakters. En ik heb deze variabel buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
     
     for country in countries:
         
@@ -102,57 +101,9 @@ def alphabet_set(countries: list) -> list:
                 alphabet.remove(letter)
                 if country not in used_countries:
                     used_countries.append(country)
-    print(used_countries)
+    # print(used_countries)
 
-
-
-
-        # print(alphabet_letter_search)
-        
-
-        # if alphabet in alphabet_letter_search:
-        # if alphabet_letter_search in alphabet:
-        #     if alphabet_letter_search == used_countries in:
-            
-        #     alphabet_letters_needed.append(alphabet_letter_search)
-        # # print(alphabet_letters_needed)
-        # print(alphabet_letter_search)
-        
-
-
-                    # alphabet_countries.append(alphabet_letter_search)
-                    
-                    # print([alphabet_letter_search, country_alphabet])
-                    # print(alphabet_letter_search)
-
-                    # alphabet_countries.append(alphabet_letter_search)
-        
-        # print(alphabet_countries)
-
-
-        # print(alphabet_letter_search)
-        # break
-    
-    # return alphabet_letters_needed
-
-
-
-
-
-
-
-
-
-        #     for alphabet_letter_search in letters:
-
-        #         if alphabet_letter_search in letters:
-
-        #             alphabet_letter_search += 1
-                
-        # print(alphabet_country)
-
-
-
+    return used_countries
 
 
 # This block is only run if this file is the entrypoint; python main.py

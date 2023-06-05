@@ -35,7 +35,7 @@ def farm_action(
     # Mow grass 
     elif grass_status == True and season == 'spring' and weather == 'sunny' and location_of_the_cows != 'pasture':
          action = 'mow grass'
-    
+
     elif grass_status == True and season == 'spring' and weather == 'sunny' and location_of_the_cows != 'cowshed':
          action = 'take cows to cowshed\n' + 'mow grass\n' + 'take cows back to pasture'
     
@@ -51,15 +51,15 @@ einde = 'De output van de \'farm_action\' functie eindigt hierboven.'
 print(einde)
 print('\n')
 
-print(farm_action('rainy', "night", False, 'pasture', 'spring', False, True)) # Take cows to cowshed --> gecheckt.
-print('\n')
-print(farm_action('rainy', "night", True, 'cowshed', 'spring', False, True)) # Milk cows --> gecheckt.
-print('\n')
-print(farm_action('neutral', 'night', False, 'cowshed', 'spring', True, True)) # Fertilize pasture --> gecheckt.
-print('\n')
-print(farm_action('sunny', 'day', False, 'cowshed', 'spring', False, True)) # Mow grass --> gecheckt.
-print('\n')
-print(farm_action('sunny', 'day', False, 'cowshed', 'spring', False, False)) # Wait --> gecheckt.
-print('\n')
-print(farm_action('sunny','day', True, 'pasture', 'spring', False, True)) # Wincpy check --> gecheckt.
-print('\n')
+# print(farm_action('rainy', "night", False, 'pasture', 'spring', False, True)) # Take cows to cowshed --> gecheckt.
+# print('\n')
+# print(farm_action('rainy', "night", True, 'cowshed', 'spring', False, True)) # Milk cows --> gecheckt.
+# print('\n')
+# print(farm_action('neutral', 'night', False, 'cowshed', 'spring', True, True)) # Fertilize pasture --> gecheckt.
+# print('\n')
+# print(farm_action('sunny', 'day', False, 'cowshed', 'spring', False, True)) # Mow grass --> gecheckt.
+# print('\n')
+# print(farm_action('sunny', 'day', False, 'cowshed', 'spring', False, False)) # Wait --> gecheckt.
+# print('\n')
+# print(farm_action('sunny','day', True, 'pasture', 'spring', False, True)) # Wincpy check --> gecheckt.
+# print('\n')
