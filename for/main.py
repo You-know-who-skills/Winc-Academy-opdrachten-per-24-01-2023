@@ -87,20 +87,20 @@ __human_name__ = "for"
 # Vraag 3 = alfabet vormen
 def alphabet_set(countries: list) -> list:
 
-    alphabet = list('abcdefghijklmnopqrstuvwxyz') # Ik heb deze string gecast door er 'list' voor te zetten zodat de string itereerbaar / herhaalbaar wordt voor de for loop. Door deze string te casten met de 'list' object zorg je ervoor dat Python van elke letter in deze string een aparte item maakt én dus itereerbaar is.
+    alphabet = list('abcdefghijklmnopqrstuvwxyz') # Ik heb deze string gecast door er 'list' voor te zetten zodat de string itereerbaar / herhaalbaar wordt voor de for loop. Door deze string te casten met de 'list' object, zorg je ervoor dat Python van elke letter in deze string een aparte item maakt én de string dus itereerbaar wordt.
     print(alphabet)
     print('\n')
 
     used_countries = [] # In deze lijst komen alle landen die ik heb gebruikt voor het alfabet.
     countries.sort(key = len, reverse = True) # Deze code sorteert de countries lijst aflopend van het land met de meeste karakters naar het land met de minste karakters. En ik heb deze variabel buiten de for loop aangemaakt, want als je het binnen de for loop aanmaakt pakt hij Afghanistan als eerste land met de meeste karakters.
     
-    for country in countries:
+    for country in countries: # De variabel 'country' itereert / loopt door de countries lijst heen en kijkt dus naar alle landen in deze lijst.
         
-        for letter in country.lower():
-            if letter in alphabet:
-                alphabet.remove(letter)
-                if country not in used_countries:
-                    used_countries.append(country)
+        for letter in country.lower(): # De variabel 'letter' itereert / loopt door alle letters van een landnaam heen en kijkt dus naar elke letter van een landnaam.
+            if letter in alphabet: # Deze code zegt het volgende: als een letter van een landnaam voor komt in het alfabet, doe dan onderstaande.
+                alphabet.remove(letter) # Met de '.remove' code verwijder ik de gevonden alfabet letter (die de variabel 'letter' dus zoekt) uit de alfabet lijst zodat de loop / iteratie deze niet nog een keer gaat zoeken in een landnaam.   geef ik aan 
+                if country not in used_countries: # Deze code zegt het volgende: als een land met de nodige alfabet letters niet voor komt in de lijst / variabel 'used countries', doe dan onderstaande.
+                    used_countries.append(country) # Met de '.append' code voeg ik de landen die ik gebruikt heb om het alfabet te vormen toe aan de lijst / variabel 'used_countries'.
     # print(used_countries)
 
     return used_countries
