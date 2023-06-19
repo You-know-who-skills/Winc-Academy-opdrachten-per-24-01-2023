@@ -81,10 +81,10 @@ def most_vowels (top_three: list) -> list:
     print('Hieronder staat een lijst met de top 3 van landen met de meeste klinkers:')
     print('\n')
 
-    for ranking in ranking_vowels[:3]: # Deze code selecteert de eerste 3 items in de 'ranking_vowels' lijst en de 3 items bestaan uit: de hoeveelheid klinkers (uitgedrukt in een getal) én de landnaam.
+    for ranking in ranking_vowels[:3]: # De index [:3] achter de validatie 'ranking_vowels selecteert de eerste 3 items in de 'ranking_vowels' lijst en de 3 items bestaan uit: de hoeveelheid klinkers (uitgedrukt in een getal) én de landnaam.
         
         ranking_top_three.append(ranking[1]) # Deze code selecteert alleen de landnamen van de top 3 door de [1] index waarbij de 1 staat voor: selecteer uit de top 3 alleen de item na de komma, want de hoeveelheid klinkers = 0 en de landnaam = 1.
-
+        
     return ranking_top_three
 
 
@@ -127,4 +127,3 @@ if __name__ == "__main__":
     print(most_vowels(countries))
     print('\n')
     print(alphabet_set(countries))
-
