@@ -16,6 +16,7 @@ __human_name__ = "for"
 def shortest_names (sc_names: list) -> list: # sc = shortest countries
     
     print('Antwoorden op vraag 1:')
+    
     shortest_country_name = min(sc_names, key=len) # Deze code zoekt naar het land met de minste karakters in de countries lijst.
     print(f'{shortest_country_name} = het land met de minste karakters.')
     print('\n')
@@ -45,6 +46,7 @@ def shortest_names (sc_names: list) -> list: # sc = shortest countries
 def most_vowels (top_three: list) -> list:
 
     print('Antwoorden op vraag 2:')
+
     vowels = 'aeiou' + 'AEIOU' # Deze variabel definiëert de klinkers. LET OP!!! De variabel 'vowels_in_country' in de for loop 'country_name' en 'vowel_search' is hoofdlettergevoelig. Daarom heb ik aan deze variabel (vowels) de klinkers 'ook' in hoofdletters toegevoegd (dit kan ook met de plus (+) operator, maar ik heb het op advies van een mentor zonder de + operator gedaan), want anders worden de landnamen die met een klinker hoofdletter beginnen niet meegeteld.
 
     ranking_vowels = [] # In deze lijst komt een gesorteerde lijst van alle landen inclusief het aantal klinkers per land en deze lijst is gesorteerd op de klinkers van hoog naar laag.
@@ -92,6 +94,7 @@ def most_vowels (top_three: list) -> list:
 def alphabet_set(countries: list) -> list:
 
     print('Antwoorden op vraag 3:')
+
     alphabet = list('abcdefghijklmnopqrstuvwxyz') # Ik heb deze string gecast door er 'list' voor te zetten zodat de string itereerbaar / herhaalbaar wordt voor de for loop. Door deze string te casten met de 'list' object, zorg je ervoor dat Python van elke letter in deze string een aparte item maakt én de string dus itereerbaar wordt.
     print('\n')
     print('Hieronder staat het alfabet in de vorm van een lijst:')

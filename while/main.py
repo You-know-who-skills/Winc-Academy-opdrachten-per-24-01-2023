@@ -8,17 +8,42 @@ __human_name__ = "while"
 
 # Antwoord op vraag 1:
 
-def unique_koala_facts (unique_facts: list) -> list:
+def unique_koala_facts (facts: int) -> list:
     
     print('Antwoord op vraag 1:')
+
+    while facts < range(1000):
+        print(facts)
+
+    # print('\n')
     
+    # print('\n')
     
+    # print(facts, len([facts]))
+    # print('\n')
+
+    # unique_facts = []
     
-    facts = unique_facts.split()
+    # koala = (len([facts]))
+    # unique_facts.append(facts)
+    # print(koala)
+    # print('\n')
+
+
+    
+    # facts range(1000)
+    # print(facts)
+    
+    # facts = unique_facts(key=len)
+
+    # unique_facts.append(facts)
+    # print(facts)
+    # print(unique_facts)
+        
     
 
 
-    print(facts)
+
 
     # while facts in unique_facts:
     #     if len(unique_facts) < range(1000):
@@ -36,4 +61,8 @@ def unique_koala_facts (unique_facts: list) -> list:
 # This block is only executed if this script is run directly (python main.py)
 # It is not run if you import this file as a module.
 if __name__ == "__main__":
-    print(random_koala_fact())
+    facts = (random_koala_fact) # 1e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
+    # unique_koala_facts(random_koala_fact()) # 2e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
+    
+    print(unique_koala_facts(facts))
+    
