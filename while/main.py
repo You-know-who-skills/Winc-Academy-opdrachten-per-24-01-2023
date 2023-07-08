@@ -89,9 +89,6 @@ def unique_koala_facts (facts: list) -> list:
         
     
 
-
-
-
     # while facts in unique_facts:
     #     if len(unique_facts) < range(1000):
     #         print(facts)
