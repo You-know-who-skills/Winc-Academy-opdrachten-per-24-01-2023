@@ -26,14 +26,21 @@ def create_passport(
 def add_stamp(passport: dict, country: str) -> dict:
 
     passport = {
-        # 'stamps' : list(country), # Countries list of the countries that a person has been to.
-        'stamps' : country = [], # Countries list of the countries that a person has been to.
+        'name' : '',
+        'date_of_birth' : '',
+        'place_of_birth' : '',
+        'height' : '',
+        'nationality' : '',
     }
     
-    if passport not in country:
-        country.append(passport)
+    if 'stamps' not in passport:
+        passport.append['stamps'] = []  # Countries list of the countries that a person has been to.
+        # passport['stamps'].append([]) # Countries list of the countries that a person has been to.
+
 
     return passport
+
+print('Below is the \'.append\' method to add someting to the pasport \'dictionary\'\n')
 
 Test = create_passport('Coolio', '1993-04-19', 'New York', '1,90', 'Amercan')
 Test_2 = add_stamp('LA', 'America')
