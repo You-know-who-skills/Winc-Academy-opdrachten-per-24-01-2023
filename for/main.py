@@ -62,7 +62,7 @@ def most_vowels (countries: list) -> list:
             
             if vowel_search in vowels:  # Deze 'if' statement met de variable 'vowel_search' kijkt of er klinkers in een land zitten.
                 
-                vowels_in_country += 1  # Deze variabel selecteert alle klinkers die in een landnaam voor komen.
+                vowels_in_country += 1  # Deze variabel telt 1 op bij de variabel 'vowels_in_country' en in deze code betreft de optelling alle klinkers die in een landnaam voor komen.
 
         # print(country_name, vowels_in_country)
         # print(f'{country_name} heeft {vowels_in_country} klinker(s)')
