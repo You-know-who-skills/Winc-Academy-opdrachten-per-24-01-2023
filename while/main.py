@@ -30,7 +30,7 @@ def unique_koala_facts (requested_facts: int) -> list:
         # count_begin += 1              # alleen als een feit uit het 'random_koala_fact() / jason bestand' nog niet in de 'unique_facts' lijst staat, dan pas het feit mag worden\
                                         # toegevoegd aan de 'unique_facts' lijst.
 
-        if count_begin > count_end: # Met de code op deze 2 regels geef je aan dat als de het startpunt van aantal loops (= 'count_begin' = 0) meer is dan\
+        if count_begin > count_end: # Met de code op deze 2 regels geef je aan dat als het startpunt van het aantal loops (= 'count_begin' = 0) meer is dan\
             break                   # het eindpunt van het aantal loops (= 'count_end' = 1000), pauzeer dan de loop met de 'break' statement.
 
         count_begin += 1    # Met deze code tel je 1 op bij de variable 'count begin'. Deze code kan je ook tussen de 'if' statements hierboven plaatsen b.v. op regel 30,\
@@ -61,26 +61,43 @@ def num_joey_facts () -> list:
         facts = fact.lower()
 
         if search_word in facts:
-            first_fact.append(facts)
+            total_joey_facts.append(facts)
         # print(first_fact)
-            fact_count_begin += 1
         
-        # if facts not in first_fact:
-        #     first_fact.append(facts)
-        # # print(first_fact)
-        #     fact_count_begin += 1
-
-            # if 'joey' in first_fact:
-            #     first_fact.append(total_joey_facts)
-
-            # fact_count_begin += 1
-
+        fact_count_begin += 1
+        
         if fact_count_begin > fact_count_end:
             break
         
-        fact_count_begin += 1
+    return (F'Dit is de return statement: {total_joey_facts}')
+    
+
+
+        # if facts not in first_fact:
+        #             first_fact.append(facts)
+        #         print(F'Dit zijn de eerste feiten: {first_fact}')
+
+        #         print('\n')
+
+        #         fact_count_begin += 1
+                
+        #         print('\n')
+
+        #         if fact_count_begin > fact_count_end:
+                    
+                
+        #             if search_word in first_fact:
+        #                 total_joey_facts.append(first_fact)
+        #             print(F'Hier staan de \'total_joey_facts\': {total_joey_facts}')
             
-    return first_fact
+            # if search_word in first_fact:
+            #     total_joey_facts.append(first_fact)
+            
+            # fact_count_begin += 1
+
+            # if fact_count_begin > fact_count_end:
+            #     break
+
 
 
 
