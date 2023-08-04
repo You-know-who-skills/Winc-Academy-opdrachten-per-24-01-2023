@@ -10,7 +10,7 @@ __human_name__ = "while"
 
 print('\n')
 
-print('Elaboration question 1:\n')
+
 
 def unique_koala_facts (requested_facts: int) -> list:
         
@@ -39,30 +39,48 @@ def unique_koala_facts (requested_facts: int) -> list:
     return unique_facts
 
 
-print('Elaboration question 1:\n')
+# Antwoord op vraag 2:
 
-def num_joey_facts ():
+def num_joey_facts () -> list:
 
-    first_fact = 'joey'
-
-    encountered_facts = 0
-
-    counted_joey_facts = 10
-
-    joey_facts = []
-
-    fact = random_koala_fact()
-
-    while first_fact < counted_joey_facts:
-        if first_fact in fact.lower():
-            
-        if 
-            
-
-
-        encountered_facts += 1
+    search_word = 'joey'
     
-    return joey_facts
+    first_fact = []
+
+    count_first_fact = 10
+    
+    total_joey_facts = []
+    
+    fact_count_begin, fact_count_end = 0, 10
+    
+    
+    while len(first_fact) < count_first_fact:
+        
+        fact = random_koala_fact()
+
+        facts = fact.lower()
+
+        if search_word in facts:
+            first_fact.append(facts)
+        # print(first_fact)
+            fact_count_begin += 1
+        
+        # if facts not in first_fact:
+        #     first_fact.append(facts)
+        # # print(first_fact)
+        #     fact_count_begin += 1
+
+            # if 'joey' in first_fact:
+            #     first_fact.append(total_joey_facts)
+
+            # fact_count_begin += 1
+
+        if fact_count_begin > fact_count_end:
+            break
+        
+        fact_count_begin += 1
+            
+    return first_fact
 
 
 
@@ -72,8 +90,15 @@ if __name__ == "__main__":
     
     # facts = (random_koala_fact) # 1e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
     # unique_koala_facts(random_koala_fact()) # 2e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
+    
+    print('Elaboration question 1:\n')
     print('Below are the results of the amount of \'koala facts\' which you can choose by entering a number in the \'unique_koala_facts\' function:\n')
     print(unique_koala_facts(2))
+
     print('\n')
+    
+    print('Elaboration question 2:\n')
+    print('Below are the unique \'koala facts\' which contain the word / name \'joey\':\n')
     print(num_joey_facts())
+    
     print('\n')
