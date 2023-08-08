@@ -41,63 +41,29 @@ def unique_koala_facts (requested_facts: int) -> list:
 
 # Antwoord op vraag 2:
 
-def num_joey_facts () -> list:
+def num_joey_facts () -> int:
 
-    search_word = 'joey'
+    fact = random_koala_fact()
     
-    first_fact = []
-
-    count_first_fact = 10
+    count_first_fact, total_joey_facts = 0, 0
     
-    total_joey_facts = []
+    another_variable = []
     
-    fact_count_begin, fact_count_end = 0, 10
-    
-    
-    while len(first_fact) < count_first_fact:
+    while count_first_fact < 10:
         
-        fact = random_koala_fact()
+        get_another_fact = random_koala_fact()
+        
+        if fact == get_another_fact:
+            count_first_fact += 1
+        
+        if get_another_fact not in another_variable:
+            another_variable.append(get_another_fact)
 
-        facts = fact.lower()
-
-        if search_word in facts:
-            total_joey_facts.append(facts)
-        # print(first_fact)
-        
-        fact_count_begin += 1
-        
-        if fact_count_begin > fact_count_end:
-            break
-        
-    return (F'Dit is de return statement: {total_joey_facts}')
+            if 'joey' in get_another_fact.lower():
+                total_joey_facts +=1
     
-
-
-        # if facts not in first_fact:
-        #             first_fact.append(facts)
-        #         print(F'Dit zijn de eerste feiten: {first_fact}')
-
-        #         print('\n')
-
-        #         fact_count_begin += 1
-                
-        #         print('\n')
-
-        #         if fact_count_begin > fact_count_end:
-                    
-                
-        #             if search_word in first_fact:
-        #                 total_joey_facts.append(first_fact)
-        #             print(F'Hier staan de \'total_joey_facts\': {total_joey_facts}')
-            
-            # if search_word in first_fact:
-            #     total_joey_facts.append(first_fact)
-            
-            # fact_count_begin += 1
-
-            # if fact_count_begin > fact_count_end:
-            #     break
-
+    # return total_joey_facts # Deze return statement keurt wincpy welgoed.
+    return (F' Dit is de uitkomst van de return statement {total_joey_facts}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
 
 
 
@@ -119,3 +85,4 @@ if __name__ == "__main__":
     print(num_joey_facts())
     
     print('\n')
+    
