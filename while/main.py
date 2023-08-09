@@ -43,9 +43,10 @@ def unique_koala_facts (requested_facts: int) -> list:
 
 def num_joey_facts () -> int:
 
-    fact = random_koala_fact()
+    fact = random_koala_fact() # Deze variabel pakt 1 willekeurige koala feit.
     
-    count_first_fact, total_joey_facts = 0, 0
+    count_first_fact, total_joey_facts = 0, 0   # Met de variabel 'count_first_fact' geef je aan dat het aantal loops bij 0 moet beginnen.\
+                                                # En met de variabel 'total_joey_facts' geef je aan dat 
     
     another_variable = []
     
@@ -64,6 +65,37 @@ def num_joey_facts () -> int:
     
     # return total_joey_facts # Deze return statement keurt wincpy welgoed.
     return (F' Dit is de uitkomst van de return statement {total_joey_facts}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
+
+
+def koala_weight():
+
+    facts = random_koala_fact()
+
+    count_weight_fact, koala_weight_fact = 0, 0
+
+    weight_fact =[]
+
+    while 'kg' not in facts:
+        
+        another_fact = random_koala_fact()
+        
+        if 'kg' in another_fact:
+            count_weight_fact += 1
+        
+        if another_fact not in koala_weight_fact:
+            koala_weight_fact.append(another_fact)
+
+            if 'kg' in koala_weight_fact.split():
+                
+
+
+        
+        break
+            # count_weight_fact +=1
+        # weight_koala = str(koala_weight_fact.split())
+            
+        # weight_koala.split(-1)
+    return koala_weight_fact
 
 
 
@@ -86,3 +118,6 @@ if __name__ == "__main__":
     
     print('\n')
     
+    print('Elaboration question 3:\n')
+    print(koala_weight())
+    print('\n')
