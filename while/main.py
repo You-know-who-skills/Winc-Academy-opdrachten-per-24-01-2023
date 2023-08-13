@@ -45,47 +45,52 @@ def num_joey_facts () -> int:
 
     fact = random_koala_fact() # Deze variabel pakt 1 willekeurige koala feit.
     
-    count_first_fact, total_joey_facts = 0, 0   # Met de variabel 'count_first_fact' geef je aan dat het aantal loops bij 0 moet beginnen.\
-                                                # En met de variabel 'total_joey_facts' geef je aan dat 
+    count_first_joey, count_total_joey = 0, 0   # Met de variabel 'count_first_joey' geef je aan dat het aantal loops bij 0 moet beginnen.\
+                                                # Met de variabel 'count_total_joey' geef je ook aan dat het aantal loops bij 0 moet beginnen.
+    unique_facts = [] # Deze variable is de lijst waarin de unieke feiten van de koala's komen.
     
-    another_variable = []
-    
-    while count_first_fact < 10:
+    while count_first_joey < 10:    # Met de variabel 'count_first_joey' start ik de while loop. En met de '< 10' code geef ik aan dat het\
+                                    # eerste feit maximaal 10 gezien moet worden.
         
-        get_another_fact = random_koala_fact()
+        another_joey_fact = random_koala_fact()  # Met deze variabel zorg je ervoor dat er naar een andere feit gezocht kan worden\
+                                                # na / naast het zoeken naar een feit bij de variabel 'fact' hierboven.
         
-        if fact == get_another_fact:
-            count_first_fact += 1
-        
-        if get_another_fact not in another_variable:
-            another_variable.append(get_another_fact)
-
-            if 'joey' in get_another_fact.lower():
-                total_joey_facts +=1
-    
-    # return total_joey_facts # Deze return statement keurt wincpy welgoed.
-    return (F' Dit is de uitkomst van de return statement {total_joey_facts}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
+        if fact == another_joey_fact:    # Met deze 'if' statement geef je aan dat als een feit bij de variabel 'fact' gelijk is aan een feit bij de variabel\
+            count_first_joey += 1       # 'another_joey_fact', er bij de variabel 'count_first_joey' er 1 bij opgeteld moet worden\
+                                        #  met de '+= 1' code. Op deze manier zoekt de variabel 'count_first_joey' altijd naar een volgende feit.
+        if another_joey_fact not in unique_facts:    # Met deze 'if' statement check je of een nieuw gevonden feit van de variabel 'get another fact'\
+            unique_facts.append(another_joey_fact)   # al in de lijst / variabel 'unique_facts' voor komt / is geplaatst. Zo niet,\
+                                                    # dan wordt deze toegevoegd met de '.append' code.
+            if 'joey' in another_joey_fact.lower():  # Met deze 'if' statement doe je 3 dingen: 1= als het item 'joey' wel voor komt in de variabel\
+                count_total_joey +=1                # 'another_joey_fact' (2= maak alle letters in de variabel 'another_joey_fact' klein),\
+                                                    # voeg deze feit dan toe aan de variabel 'count_total_joey'.
+    # return count_total_joey # Deze return statement keurt wincpy welgoed.
+    return (F' Dit is de uitkomst van de return statement {count_total_joey}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
 
 
 def koala_weight():
 
     facts = random_koala_fact()
 
-    count_weight_fact, koala_weight_fact = 0, 0
+    count_first_weight, count_total_weight = 0, 0
 
-    weight_fact =[]
+    weight_facts = []
 
     while 'kg' not in facts:
+                
+        another_weight_fact = random_koala_fact()
         
-        another_fact = random_koala_fact()
+        if facts == another_weight_fact:
+            count_first_weight += 1
         
-        if 'kg' in another_fact:
-            count_weight_fact += 1
-        
-        if another_fact not in koala_weight_fact:
-            koala_weight_fact.append(another_fact)
+        if another_weight_fact not in weight_facts:
+            weight_facts.append(another_weight_fact)
 
-            if 'kg' in koala_weight_fact.split():
+            if 'kg' in another_weight_fact:
+                count_total_weight += 1
+
+    return count_total_weight.split()
+                
                 
 
 
@@ -95,7 +100,7 @@ def koala_weight():
         # weight_koala = str(koala_weight_fact.split())
             
         # weight_koala.split(-1)
-    return koala_weight_fact
+    return count_total_weight
 
 
 
