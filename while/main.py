@@ -72,7 +72,7 @@ def koala_weight() -> int:
 
     facts = random_koala_fact()
 
-    count_first_weight, count_total_weight = 0, 0
+    count_first_weight, count_next_weight = 0, 0
 
     weight_facts = []
     
@@ -82,15 +82,19 @@ def koala_weight() -> int:
         
         if facts == another_weight_fact:
             count_first_weight += 1
-            
+
+        # Onderstaande code werkt wel
         if 'kg' in another_weight_fact:
-            weight_facts.append(another_weight_fact.split()[-1])
-            # weight_facts.append(another_weight_fact.split())
-            weight_fact_split = str(weight_facts.split()[0])
+            count_next_weight +=1
+
+            if 'kg' in another_weight_fact:
+                weight_facts.append(another_weight_fact.split()[-1])
+                # weight_facts.append(another_weight_fact.split())
+            
             break 
-    
+
     # return weight_facts
-    return weight_fact_split
+    return weight_facts
     
 
 
