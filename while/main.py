@@ -65,42 +65,34 @@ def num_joey_facts () -> int:
                 count_total_joey +=1                # 'another_joey_fact' (2= maak alle letters in de variabel 'another_joey_fact' klein),\
                                                     # voeg deze feit dan toe aan de variabel 'count_total_joey'.
     # return count_total_joey # Deze return statement keurt wincpy welgoed.
-    return (F' Dit is de uitkomst van de return statement {count_total_joey}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
+    return (F' Dit is de uitkomst van de return statement: {count_total_joey}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
 
 
-def koala_weight():
+def koala_weight() -> int:
 
     facts = random_koala_fact()
 
     count_first_weight, count_total_weight = 0, 0
 
     weight_facts = []
-
+    
     while 'kg' not in facts:
                 
         another_weight_fact = random_koala_fact()
         
         if facts == another_weight_fact:
             count_first_weight += 1
-        
-        if another_weight_fact not in weight_facts:
-            weight_facts.append(another_weight_fact)
-
-            if 'kg' in another_weight_fact:
-                count_total_weight += 1
-
-    return count_total_weight.split()
-                
-                
-
-
-        
-        break
-            # count_weight_fact +=1
-        # weight_koala = str(koala_weight_fact.split())
             
-        # weight_koala.split(-1)
-    return count_total_weight
+        if 'kg' in another_weight_fact:
+            weight_facts.append(another_weight_fact.split()[-1])
+            # weight_facts.append(another_weight_fact.split())
+            weight_fact_split = str(weight_facts.split()[0])
+            break 
+    
+    # return weight_facts
+    return weight_fact_split
+    
+
 
 
 
