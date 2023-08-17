@@ -88,13 +88,21 @@ def koala_weight() -> int:
             count_next_weight +=1
 
             if 'kg' in another_weight_fact:
+                # weight_facts.append(another_weight_fact.split()) # Met deze code split je de gehele string waarin het item 'kg' voor komt / staat.
+                # weight_facts.append(another_weight_fact.split('kg')[0]) # Met deze code selecteer je de volgende item in de string: ['14kg.'].
+                weight_facts.append(another_weight_fact.split('kg')[0])
+                # another_weight_fact.split('kg')[0]
+                print(another_weight_fact)
+                print('\n')
+
+            if '14' in another_weight_fact:
+                # another_weight_fact.split()[-1]
                 weight_facts.append(another_weight_fact.split()[-1])
-                # weight_facts.append(another_weight_fact.split())
             
             break 
 
-    # return weight_facts
-    return weight_facts
+    return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {weight_facts}') # Dit is de goede return statement.
+    # return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {another_weight_fact}')
     
 
 
