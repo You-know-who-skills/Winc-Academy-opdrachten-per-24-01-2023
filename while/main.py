@@ -70,36 +70,53 @@ def num_joey_facts () -> int:
 
 def koala_weight() -> int:
 
-    facts = random_koala_fact()
-
-    count_first_weight, count_next_weight = 0, 0
-
-    weight_facts = []
+    weight_facts = random_koala_fact()
     
-    while 'kg' not in facts:
-                
-        another_weight_fact = random_koala_fact()
+    weight_facts_split = ''
+
+    count_first_fact, count_another_fact = 0, 0
+    
+    while 'kg' not in weight_facts:
+
+        if 'kg' in weight_facts:
+            count_first_fact += 1
+        # print(F'Dit is de 1e if statement: {weight_facts}')
         
-        if facts == another_weight_fact:
-            count_first_weight += 1
+            if 'kg' in weight_facts:
+                count_another_fact +=1
 
-        # Onderstaande code werkt wel
-        if 'kg' in another_weight_fact:
-            count_next_weight +=1
-
-            if 'kg' in another_weight_fact:
-                # weight_facts.append(another_weight_fact.split()) # Met deze code split je de gehele string waarin het item 'kg' voor komt / staat.
-                # weight_facts.append(another_weight_fact.split('kg')[0]) # Met deze code selecteer je de volgende item in de string: ['14kg.'].
-                weight_facts.append(another_weight_fact.split('kg')[0])
-                # another_weight_fact.split('kg')[0]
-                print(another_weight_fact)
-                print('\n')
-
-            if '14' in another_weight_fact:
-                # another_weight_fact.split()[-1]
-                weight_facts.append(another_weight_fact.split()[-1])
+        if 'kg' in weight_facts:
+            weight_facts.split('kg')[0].split(' ')[-1]
+            # count_another_fact +=1
+            # print(F'Dit is de 2e if statement: {weight_facts_split}')
             
-            break 
+        # if 'kg' in weight_facts:
+        #     weight_facts_split += weight_facts.split()
+        # print(F'Dit is de 2e if statement: {weight_facts_split}')
+
+
+        
+        # if facts == another_weight_fact:
+        #     count_first_weight += 1
+
+        # # Onderstaande code werkt wel
+        # if 'kg' in another_weight_fact:
+        #     count_next_weight +=1
+
+        #     if 'kg' in another_weight_fact:
+        #         # weight_facts.append(another_weight_fact.split()) # Met deze code split je de gehele string waarin het item 'kg' voor komt / staat.
+        #         # weight_facts.append(another_weight_fact.split('kg')[0]) # Met deze code selecteer je de volgende item in de string: ['14kg.'].
+        #         # weight_facts.append(another_weight_fact.split('kg')[0].split(' ')[-1])
+        #         weight_facts += another_weight_fact.split('kg')[0].split()[-1]
+        #         # another_weight_fact.split('kg')[0]
+        #         print(another_weight_fact)
+        #         print('\n')
+
+            # if '14' in another_weight_fact:
+            #     # another_weight_fact.split()[-1]
+            #     weight_facts.append(another_weight_fact.split()[-1])
+            
+        break
 
     return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {weight_facts}') # Dit is de goede return statement.
     # return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {another_weight_fact}')
