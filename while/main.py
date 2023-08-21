@@ -64,42 +64,46 @@ def num_joey_facts () -> int:
             if 'joey' in another_joey_fact.lower():  # Met deze 'if' statement doe je 3 dingen: 1= als het item 'joey' wel voor komt in de variabel\
                 count_total_joey +=1                # 'another_joey_fact' (2= maak alle letters in de variabel 'another_joey_fact' klein),\
                                                     # 3= tel dan 1 op bij de variabel 'count_total_joey'.
-    # return count_total_joey # Deze return statement keurt wincpy welgoed.
-    return (F' Dit is de uitkomst van de return statement: {count_total_joey}') # Deze return statement werkt ook én is ook goed, maar wincpy keurt het helaas niet goed.
+    
+    return count_total_joey # Dit is return statement voor wincpy.
+    # return (F' Dit is de uitkomst van de return statement: {count_total_joey}') # Dit is mijn return statement.
 
+
+# Antwoord op vraag 3:
 
 def koala_weight() -> int:
 
-    weight_facts = random_koala_fact()
+    weight_facts = random_koala_fact() # Hier 'definieer' je de variable 'weight_facts' buiten de functie.
 
-    count_first_weight, count_next_weight = 0, 0
+    while 'kg' not in weight_facts: # Deze code zorgt er voor dat de while loop door blijft gaan totdat de string met de afkorting 'kg' is gevonden. Omdat je hier dus al een conditie meegeeft\
+                                    # namelijk: zolang 'kg' niet in de random koala facts voor komt, hoef je dus geen 'break' statement te gebruiken. Dit omdat de while loop dus wel stopt\
+                                    # op het moment dat 'kg' is gevonden in een string van de 'weigt_facts' variabel / 'random_koala_fact' functie.
+        
+        weight_facts = random_koala_fact() # Hier 'gebruik' je de variable 'weight_facts' binnen de functie.
+        
+#         print(F"Print statement op regel 79 = De string vinden waarin 'kg' staat vermeld: {weight_facts}")
+#         print(F"Print statement op regel 80 = Splitten van de string met 'kg' erin: {weight_facts.split()}")
+#         print(F"Print statement op regel 81 en 82 = Gebruik van 'kg' als 'separator' waardoor je alle items in de string selecteert vanaf het getal '14' (en dus de 'kg' weg laat),\n\
+# maar wel inclusief de punt aan het einde van de string: {weight_facts.split('kg')}")
+#         print(F"Print statement op regel 83 en 84 = Alle items in de string selecteren vanaf het getal '14', (dus zonder de punt in de string),\n\
+# maar dan zonder de string te splitten: {weight_facts.split('kg')[0]}")
+#         print(F"Print statement op regel 85 en 86 = De string weer splitten zodat je het getal '14' makkelijker kunt: selecteren, returnen én kunt casten in een integer:\n\
+# {weight_facts.split('kg')[0].split()}")
+#         print(F"Print statement op regel 87 = Selecteren van het laatste item in de gesplitte string: het getal '14': {weight_facts.split('kg')[0].split()[-1]}")
 
-    weight_facts_split = ''
-    
-    while 'kg' not in weight_facts:
-                
-        if 'kg' in weight_facts:
-            count_first_weight += 1 # Deze code doet het.
-        print(F' Dit is de print statement op regel 83: {weight_facts}')
-
-        if 'kg' in weight_facts:
-                # weight_facts.append(another_weight_fact.split()) # Met deze code split je de gehele string waarin het item 'kg' voor komt / staat.
-                # weight_facts.append(another_weight_fact.split('kg')[0]) # Met deze code selecteer je de volgende item in de string: ['14kg.'].
-                # weight_facts.append(another_weight_fact.split('kg')[0].split(' ')[-1])
-                weight_facts_split += weight_facts.split('kg')[0].split()[-1] # Deze code geeft het goede / getal '14' als resultaat, maar je moet de code dan wel een paar keer runnen\
-                                                                                # voordat de 14 tevoorschijn komt en dat is helaas niet de bedoeling.
-                # another_weight_fact.split('kg')[0]
-                # print(another_weight_fact)
         print('\n')
-            
-        break
-    # print('\n')
-    return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {weight_facts_split}') # Dit is de goede return statement.
-    # return (F' Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\': {another_weight_fact}')
+
+    return int(weight_facts.split('kg')[0].split()[-1]) # Dit is return statement voor wincpy.
+    # return F"Uitkomst van de return statement bij vraag 3 met de variabel \'weight_facts\' = {int(weight_facts.split('kg')[0].split()[-1])}" # Dit is mijn return statement en met deze code\
+    # zeg ik het onderstaande:
+    """
+    - 1 = Cast het getal in deze code naar een integer. En dit doe je dus door de afkorting 'int' voor de code te zetten.
+    - 2 = Split de variabel 'weight_facts vanaf het item 'kg' met de '.split' code en gebruik 'kg' als separator. Dit wordt dus: weight_facts.split('kg');
+    - 3 = Selecteer alle items vanaf 'kg' met de [0] index;
+    - 4 = Split het geselecteerde vanaf de 'kg' nogmaals zodat je het getal '14' makkelijker kunt selecteren.
+    - 5 = Selecteer het laatste item van de gesplitte string met de [-1] index.
+    """
     
-
-
-
 
 # This block is only executed if this script is run directly (python main.py)
 # It is not run if you import this file as a module.
@@ -108,18 +112,19 @@ if __name__ == "__main__":
     # facts = (random_koala_fact) # 1e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
     # unique_koala_facts(random_koala_fact()) # 2e Manier om het 'random_koala_fact' bestand aan te roepen in je functie.
     
-    print('Elaboration question 1:\n')
+    print("Elaboration question 1:\n")
     print('Below are the results of the amount of \'koala facts\' which you can choose by entering a number in the \'unique_koala_facts\' function:\n')
     print(unique_koala_facts(2))
 
-    print('\n')
+    print("\n")
     
-    print('Elaboration question 2:\n')
-    print('Below are the unique \'koala facts\' which contain the word / name \'joey\':\n')
+    print("Elaboration question 2:\n")
+    print("Below are the unique 'koala facts' which contain the word / name 'joey':\n")
     print(num_joey_facts())
     
     print('\n')
     
-    print('Elaboration question 3:\n')
+    print("Elaboration question 3:\n")
+    print("Below is the weight of a koala:\n")
     print(koala_weight())
     print('\n')
