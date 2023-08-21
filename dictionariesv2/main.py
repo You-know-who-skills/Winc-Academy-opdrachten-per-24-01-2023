@@ -46,7 +46,9 @@ def add_biometric_data(
     if 'biometric' not in passport:
         passport['biometric'] = {} # Met deze code maak je een geneste dict aan.
 
-    biometric_data = {'value' : biometric_value, 'date' : biometric_date} # Met deze code maak je wederom een geneste dict aan om de 'key-value pairs' in te plaatsen.
+    biometric_data ={'value' : biometric_value,
+                     'date' : biometric_date
+                    } # Met deze code maak je wederom een geneste dict aan om de 'key-value pairs' in te plaatsen.
     # biometric_data = {'type' : biometric_type, 'value' : biometric_value, 'date' : biometric_date}
 
     passport['biometric'][biometric_type] = biometric_data # Met deze code wijs je de 'geneste' 'biometric_data' dict toe aan de 'geneste' biometric dict.
