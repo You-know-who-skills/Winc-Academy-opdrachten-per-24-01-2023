@@ -14,7 +14,9 @@ goal_1 = 54 # = Vraag 2
 
 scorers = scorer1 + ' ' + str(goal_0) + ', ' + scorer2 + ' ' + str(goal_1) # = Vraag 3
 
-report = (F'{scorer1} scored in the {goal_0}nd minute\n{scorer2} scored in the {goal_1}th minute') # = Vraag 4
+report = F'{scorer1} scored in the {goal_0}nd minute\n{scorer2} scored in the {goal_1}th minute'    # = Vraag 4 (Je kan de 'f' string ook met haakjes gebruiken:\
+                                                                                                    # report = (F'{scorer1} scored in the {goal_0}nd minute\n{scorer2} scored in the\
+                                                                                                    # {goal_1}th minute')), maar dat kost extra codeer ruimte in code.
 
 # Part 2
 player = 'Frank Rijkaard' # = Vraag 1
