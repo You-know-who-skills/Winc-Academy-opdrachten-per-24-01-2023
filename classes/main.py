@@ -7,6 +7,7 @@ __human_name__ = 'classes'
 print('\n')
 
 class Player():
+    
     def __init__(self, name: str, speed: float, endurance: float, accuracy: float) -> str:
 
         self.name = name
@@ -15,22 +16,38 @@ class Player():
         self.accuracy = accuracy
 
     def introduce(self):
-        print(F"Hello everyone, my name is {self.name}.")
+        
+        print(F"Hello everyone, my name is {self.name}.\n")
+
 
     def strength(self):
         
-        best = (None, 1)
+        best = 0.9
+        
         for attr in ["speed", "endurance", "accuracy"]:
 
             value = getattr(self, attr)
             
-            if value <= best[-1]:
-                best = (attr, value)
+            if value > best:
+                
+                print(value)
+                # best = (attr, value)
+                
+                # print(F"{best}, {value}")
+                # print(F"{self.name} has {best}.")
             
             else:
                 raise ValueError(F"Please make sure that {attr} is between 0 and 1.\n")
         
-        return best
+        return value
+    
+
+class Commentator():
+
+    def __init__(self, name: str) -> str:
+
+        self.name = name
+
 
 if __name__ == "__main__":
 
@@ -38,9 +55,15 @@ if __name__ == "__main__":
     gullit = Player("Gullit", 0.4, 0.5, 0.6)
     seedorf = Player("Seedorf", 0.7, 0.8, 0.9)
 
+    rijkaard.introduce() # Deze code doet het.
+
     print(rijkaard.strength())
     print(gullit.strength())
     print(seedorf.strength())
+
+    ray = Commentator("Ray Hudson\n") # Deze code doet het.
+    
+    print(ray.name) # Deze code doet het.
     
     
 
