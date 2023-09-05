@@ -17,30 +17,38 @@ class Player():
 
     def introduce(self):
         
-        print(F"Hello everyone, my name is {self.name}.\n")
+        return F"Hello everyone, my name is {self.name}.\n"
 
 
     def strength(self):
         
-        best = 0.9
+        best_results = (None, 0) # Hier gebruik je een tuple omdat je nog niet weet welke resultaten het beste zijn.
         
-        for attr in ["speed", "endurance", "accuracy"]:
+        # for attribute in ["speed", "endurance", "accuracy"]:
+        for attribute in ["speed", "endurance", "accuracy"]:
 
-            value = getattr(self, attr)
-            
-            if value > best:
+            outcome_attribute = getattr(self, attribute)
+
+            if outcome_attribute > best_results[1]:
                 
-                print(value)
-                # best = (attr, value)
+                best_results = attribute, outcome_attribute
+                # print(attribute, outcome_attribute)
+                        
+                # if outcome_attribute == outcome_attribute:
+                #     "speed" > "endurance" > "accuracy"
                 
-                # print(F"{best}, {value}")
-                # print(F"{self.name} has {best}.")
+                # if outcome_attribute == best_results[1]:
+                #     "speed" > "endurance" > "accuracy"
+                    # print("Coolio")
+                
+            # else: print("Not coolio")
+
+            if outcome_attribute > 1 or outcome_attribute < 0:
+                raise ValueError(F"Please make sure that {attribute} is between 0 and 1.\n")
             
-            else:
-                raise ValueError(F"Please make sure that {attr} is between 0 and 1.\n")
+        return best_results
+        # return attribute, outcome_attribute
         
-        return value
-    
 
 class Commentator():
 
@@ -49,21 +57,43 @@ class Commentator():
         self.name = name
 
 
+    def sum_player(self, player):
+
+        attributes =  ["speed", "endurance", "accuracy"]
+
+        sum = getattr(self, attributes)
+
+        return F"{player}, {sum}"
+
+
 if __name__ == "__main__":
 
-    rijkaard = Player("Rijkaard", 0.1, 0.2, 0.3)
-    gullit = Player("Gullit", 0.4, 0.5, 0.6)
-    seedorf = Player("Seedorf", 0.7, 0.8, 0.9)
+    rijkaard = Player("Frank Rijkaard", 0.5, 0.5, 0.5)
+    gullit = Player("Ruud Gullit", 0.2, 0.9, 0.3)
+    seedorf = Player("Clarence Seedorf", 0.3, 0.6, 0.8)
 
-    rijkaard.introduce() # Deze code doet het.
+    # rijkaard.introduce() # Deze code doet het.
+    print(rijkaard.introduce()) # Deze code doet het.
 
+    
     print(rijkaard.strength())
     print(gullit.strength())
     print(seedorf.strength())
 
-    ray = Commentator("Ray Hudson\n") # Deze code doet het.
+    print('\n')
+
+    winter = Commentator("Aron Winter")
     
-    print(ray.name) # Deze code doet het.
+    print(winter.name)
+    
+    print('\n')
+    
+
+    roy = Commentator("Bryan Roy", 0.9)
+
+    print(roy.sum_player())
+
+
     
     
 
