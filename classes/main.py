@@ -6,25 +6,33 @@ __human_name__ = 'classes'
 
 print('\n')
 
-class Player():
+class Player(): # Op deze manier definieer je een 'class'.
     
     def __init__(self, name: str, speed: float, endurance: float, accuracy: float) -> str:
 
-        self.name = name
+        self.name = name            # Op deze manier definieer je deze argumenten voor deze 'class' met de 'self' code.
         self.speed = speed
         self.endurance = endurance
         self.accuracy = accuracy
 
-    def introduce(self):
+        for attribute in [speed, endurance, accuracy]: # Met de variabel 'attribute' loop / ittereer je door de lijst met attributen: 'speed', 'endurance', 'accuracy'.
+
+            if attribute > 1 or attribute < 0: # Met deze code geef je aan dat als de variabel 'attribute' groter is dan 1 of kleiner is dan 0, onderstaande foutmelding vermeld moet worden.
+                raise ValueError(F"Please make sure that {attribute} is between 0 and 1.\n") # Met de 'raise' code kan je een foutmelding genereren.
+
+
+    def introduce(self): # Deze 'self' code refereert naar alle parameters / argumenten van de '__init__' van de 'Player class'. Dit houdt in dat je binnen deze instance alle parameters / argumenten van de 'class Player' kunt gebruiken.
         
-        return F"Hello everyone, my name is {self.name}.\n"
+        return F"Hello everyone, my name is {self.name}.\n" # Deze code kan ook maar de wincpy check keurt de '\n' niet goed. In deze F-string gebruik je de 'name' parameter die in de 'class Player' staat. En je roept de naam aan
+                                                            # helemaal onderaand bij de 'if __name__ == "__main__":' code.
+        # return F"Hello everyone, my name is {self.name}."
+        
 
 
     def strength(self):
         
         best_results = (None, 0) # Hier gebruik je een tuple omdat je nog niet weet welke resultaten het beste zijn.
         
-        # for attribute in ["speed", "endurance", "accuracy"]:
         for attribute in ["speed", "endurance", "accuracy"]:
 
             outcome_attribute = getattr(self, attribute)
@@ -32,23 +40,12 @@ class Player():
             if outcome_attribute > best_results[1]:
                 
                 best_results = attribute, outcome_attribute
-                # print(attribute, outcome_attribute)
-                        
-                # if outcome_attribute == outcome_attribute:
-                #     "speed" > "endurance" > "accuracy"
                 
-                # if outcome_attribute == best_results[1]:
-                #     "speed" > "endurance" > "accuracy"
-                    # print("Coolio")
-                
-            # else: print("Not coolio")
-
-            if outcome_attribute > 1 or outcome_attribute < 0:
-                raise ValueError(F"Please make sure that {attribute} is between 0 and 1.\n")
+            # if outcome_attribute > 1 or outcome_attribute < 0:
+            #     raise ValueError(F"Please make sure that {attribute} is between 0 and 1.\n")
             
         return best_results
-        # return attribute, outcome_attribute
-        
+
 
 class Commentator():
 
@@ -61,16 +58,68 @@ class Commentator():
 
         attributes =  ["speed", "endurance", "accuracy"]
 
-        sum = getattr(self, attributes)
+        sum = 0
 
-        return F"{player}, {sum}"
+        for attribute in attributes:
+
+            sum += getattr(player, attribute)
+
+        return round(sum, 2)
+
+
+    def compare_players(self, player_1, player_2, performance):
+
+        # highest_score = (None, 0)
+        
+        performance_player_1 = getattr(player_1, performance)
+
+        performance_player_2 = getattr(player_2, performance)
+
+        if performance_player_1 > performance_player_2:
+                
+            # return player_1.name
+            return getattr(player_1, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+        
+        if performance_player_2 > performance_player_1:
+                
+            return player_2.name
+        
+
+        performance_player_1 = player_1.strength()[1]
+
+        performance_player_2 = player_2.strength()[1]
+        # print(performance_player_1)
+
+        if performance_player_1 > performance_player_2:
+            
+            return getattr(player_1, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+
+        if performance_player_2 > performance_player_1:
+                
+            return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+        
+
+        performance_player_1 = self.sum_player(player_1)
+
+        performance_player_2 = self.sum_player(player_2)
+        
+        if performance_player_1 > performance_player_2:
+            
+            return getattr(player_1, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+
+        if performance_player_2 > performance_player_1:
+                
+            return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+
+        return "These two players might as well be twins!"
+
 
 
 if __name__ == "__main__":
 
-    rijkaard = Player("Frank Rijkaard", 0.5, 0.5, 0.5)
-    gullit = Player("Ruud Gullit", 0.2, 0.9, 0.3)
-    seedorf = Player("Clarence Seedorf", 0.3, 0.6, 0.8)
+    rijkaard = Player("Frank Rijkaard", 0.6, 0.6, 0.6)
+    gullit = Player("Ruud Gullit", 0.6, 0.6, 0.6)
+    seedorf = Player("Clarence Seedorf", 0.6, 0.6, 0.6)
 
     # rijkaard.introduce() # Deze code doet het.
     print(rijkaard.introduce()) # Deze code doet het.
@@ -84,14 +133,11 @@ if __name__ == "__main__":
 
     winter = Commentator("Aron Winter")
     
-    print(winter.name)
+    print(winter.sum_player(gullit))
     
+    print(winter.compare_players(gullit, seedorf, "speed"))
+
     print('\n')
-    
-
-    roy = Commentator("Bryan Roy", 0.9)
-
-    print(roy.sum_player())
 
 
     
