@@ -6,7 +6,21 @@ __human_name__ = 'classes'
 
 print('\n')
 
+'''
 # Question 1 - part 1:
+
+In main.py, write a class Player that is going to represent a soccer player. 
+
+Define the Player class' initialization method (__init__) so that it can receive these arguments, in this order:
+
+- name (str)
+- speed (float between 0 and 1)
+- endurance (float between 0 and 1)
+- accuracy (float between 0 and 1)
+- If speed, endurance or accuracy is not between 0 and 1 (inclusive), a ValueError must be raised. Try using a for loop here to loop through those iterables and then define a valueError.
+
+Save the given arguments as instance attributes under the names name, speed, endurance and accuracy.
+'''
 
 class Player(): # Op deze manier definieer je een 'class' en in dit geval heet de class 'Player'.
     
@@ -23,14 +37,32 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
                 raise ValueError(F"Please make sure that {attribute} is between 0 and 1.\n") # Met de 'raise' code kan je een foutmelding genereren.
 
 
+    '''
+    # Question 1 - part 2:
+
+    Define an instance method 'introduce' that takes no arguments (except self!) and returns a string like the following, where 'Bob' is replaced by the player's actual name: 'Hello everyone, my name is Bob.'
+    '''
+
     def introduce(self): # Deze 'self' code refereert naar alle parameters / argumenten van de '__init__' code van de 'Player class'. Dit houdt in dat je binnen deze instance alle parameters / argumenten van de 'class Player' kunt gebruiken.
         
         return F"Hello everyone, my name is {self.name}.\n" # Deze code kan ook maar de wincpy check keurt de '\n' niet goed. In deze F-string gebruik je de 'name' parameter die in de 'class Player' staat. En je roept de naam aan\
-                                                            # helemaal onderaand bij de 'if __name__ == "__main__":' code.
+                                                            # helemaal onderaan bij de 'if __name__ == "__main__":' code.
         # return F"Hello everyone, my name is {self.name}."
-        
 
-# Question 1 - part 2:
+
+    '''
+    Question 1 - part 3:
+
+    Now we want a method that returns us the best attribute of a player between the 3 we just defined (speed, endurance and accuracy). Define an instance method strength that takes no arguments and returns a tuple with the name of its attribute\
+    and its value. Imagine that the highest one is speed and the value is 0.8. Then the expected result should be like this: 
+
+    ('speed', 0.8)
+
+    If multiple attributes share the same value, prioritize as follows:
+
+    - speed > endurance > accuracy
+    '''
+
 
     def strength(self): # Deze 'self' code refereert ook naar alle parameters / argumenten van de '__init__' code van de 'Player class' omdat deze instance nog binnen de 'class Player()' valt. Ook hier houdt dit dus in dat je binnen deze\
                         # instance alle parameters / argumenten van de 'class Player' kunt gebruiken.
@@ -53,8 +85,16 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
         return best_results # Doordat ik de variabel 'best_result' nu heb aangepast naar de 2 variabelen 'attribute' en 'outcome_attribute', zal deze return statement het volgende weergeven: naam attribuut, komma getal\
                             # dus b.v.: ('accuracy', 0.9).
 
-
+'''
 # Question 2 - part 1:
+
+In main.py, create a new class 'Commentator'. Implement it in such a way that we can do this: 
+
+- ray = Commentator('Ray Hudson')
+- print(ray.name)
+- Output = 'Ray Hudson'
+'''
+
 
 class Commentator():
 
@@ -63,7 +103,14 @@ class Commentator():
         self.name = name
 
 
-# Question 2 - part 2:
+    '''
+    # Question 2 - part 2:
+
+    Write an instance method 'sum_player' that takes an instance of a player and returns the sum of their 'speed', 'endurance' and 'accuracy' attributes.
+
+    To do this define the method with two paramenters: 'self' and another one for the player (although we are not going to use self). Then make it return a sum (you can use the function sum()) of a list of values retrieved with getattr()\
+    using the player as first parameter and the name of the attribute as a string as the second parameter.
+    '''
 
     def sum_player(self, player):
 
@@ -71,32 +118,52 @@ class Commentator():
 
         sum = 0 # Met deze code start je de optelsom van de 'sum_player' 'instance method' met het getal '0'.
 
-        for attribute in attributes:    # Met de variabel 'attribute' ga ik itereren / loopen over de lijst / variable genaamd 'attributes'. LET OP!!! De getattr() code werkt NIET ‘direct’ op een lijst. Het werkt WEL wanneer je\
-                                        # de variabelnaam van een lijst gebruikt. Het werkt dus alleen op 'variabelen' en 'strings'.
-            sum += getattr(player, attribute) # Met deze code zeg ik: voeg aan de variabel 'sum' de naam van een speler toe én de waarde van een attribuut.
+        for attribute in attributes: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst / variable genaamd 'attributes'. 
+            sum += getattr(player, attribute)   # Met deze code zeg ik: voeg aan de variabel 'sum' de naam van een speler toe én de waarde van een attribuut en tel deze bij elkaar op. LET OP!!! De 'getattr()' code werkt NIET ‘direct’\
+                                                # op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus een lijst eerst een variabel naam geven). De 'getattr()' code werkt dus alleen 'direct' op 'variabelen'\
+                                                # en 'strings'.
 
-        return round(sum, 2)
+        return round(sum, 2) # Met deze code zeg je: Laat de naam van een speler zien en de optelsom en rond de optelsom af met 2 decimalen.
 
 
-# Question 2 - part 3:
+    '''
+    # Question 2 - part 3-a:
+    Write an instance method 'compare_players' that takes two instances of the class Player (in no particular order) and one of 'speed', 'endurance' and 'accuracy' as its arguments and returns the name of the player that scores the highest
+    on this attribute.
 
-    def compare_players(self, player_1, player_2, performance):
+    For example: 
 
-        # highest_score = (None, 0)
-        
-        performance_player_1 = getattr(player_1, performance)
+    - alice = Player('Alice', 0.8, 0.2, 0.6)
+    - bob = Player('Bob', 0.9, 0.2, 0.6)
+    - print(ray.compare_players(alice, bob, 'speed'))
+    - Output = 'Bob'
 
+    If the players score equally on this attribute, return the name of the player that has the highest strength according to the strength function you just implemented.
+    '''
+
+
+    def compare_players(self, player_1, player_2, performance): # Doordat je hier weer de 'self' code gebruikt, kan je de 'parameters' van de 'Player class' weer gebruiken.
+
+        performance_player_1 = getattr(player_1, performance)   # Met deze code zeg je: de variabel 'performance_player_1' is een combinatie van de 'attributen' ("speed", "endurance", "accuracy") van 'player_1' en de variabel 'performance'\
+                                                                # die de getallen bevat die je helemaal onderaan bij de 'if __name__ == "__main__":' code van de 'class Player' 'instance method' kunt invullen.
         performance_player_2 = getattr(player_2, performance)
 
-        if performance_player_1 > performance_player_2:
+        if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2'.
                 
             # return player_1.name
-            return getattr(player_1, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+            return getattr(player_1, "name") # Met deze code zeg je: Deze name verwijst naar de speler gullit die in de class Player zit. 
         
         if performance_player_2 > performance_player_1:
                 
             return player_2.name
-        
+            # return getattr(player_2 "name")
+
+
+        '''
+        Question 2 - part 3-b
+
+        If these are also equal, report the name of the player that has the highest total score according to the  sum_player function you just implemented.
+        '''
 
         performance_player_1 = player_1.strength()[1]
 
@@ -110,7 +177,13 @@ class Commentator():
         if performance_player_2 > performance_player_1:
                 
             return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
-        
+
+
+        '''
+        Question 2 - part 3-c:
+
+        If these are also equal, return the string: 'These two players might as well be twins!'
+        '''
 
         performance_player_1 = self.sum_player(player_1)
 
@@ -123,7 +196,9 @@ class Commentator():
         if performance_player_2 > performance_player_1:
                 
             return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
-
+        
+        print('\n')
+        
         return "These two players might as well be twins!"
 
 
@@ -138,12 +213,13 @@ if __name__ == "__main__":
     gullit = Player("Ruud Gullit", 0.4, 0.5, 0.6)
     seedorf = Player("Clarence Seedorf", 0.7, 0.8, 0.9)
 
+    print("Elaboration question 1 - part 1 = 'ValueError':\n")
+    print("This 'value error' is only 'raised' if you enter an attribute value which is higher than 1.\n")
+    
+    print("Elaboration question 1 - part 2 = 'Introduce':\n")
+    print(rijkaard.introduce())
 
-    print("Elaboration question 1 - part 1 = 'Introduce':\n")
-    print(rijkaard.introduce()) # Deze code doet het.
-
-
-    print("Elaboration question 1 - part 2 = 'Strength' :\n")
+    print("Elaboration question 1 - part 3 = 'Strength' :\n")
     print(rijkaard.strength())
     print(gullit.strength())
     print(seedorf.strength())
@@ -161,7 +237,7 @@ if __name__ == "__main__":
 
     print('\n')
 
-    print("Elaboration question 2 - part 3 = 'Compare Players':\n")
+    print("Elaboration question 2 - part 3 a - b = 'Compare Players':\n")
     print(winter.compare_players(gullit, seedorf, "speed"))
 
     print('\n')
