@@ -53,16 +53,17 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
     '''
     Question 1 - part 3:
 
-    Now we want a method that returns us the best attribute of a player between the 3 we just defined (speed, endurance and accuracy). Define an instance method strength that takes no arguments and returns a tuple with the name of its attribute\
-    and its value. Imagine that the highest one is speed and the value is 0.8. Then the expected result should be like this: 
+    Now we want a method that returns us the best attribute of a player between the 3 we just defined (speed, endurance and accuracy). Define an instance method 'strength' that takes no arguments and returns a tuple with the name of its\
+    attribute and its value. Imagine that the highest one is speed and the value is 0.8. Then the expected result should be like this: 
 
     ('speed', 0.8)
 
     If multiple attributes share the same value, prioritize as follows:
 
-    - speed > endurance > accuracy
+    - speed > endurance > accuracy  LET OP!!! Doordat ik de volgorde al zo heb gezet in onderstaande code (for attribute in ["speed", "endurance", "accuracy"]), is de lijst al geprioriteerd zoals in de oefening wordt gevraagd\
+    
+    omdat de loop altijd eerst zal beginnen bij het eerste item in de lijst ('speed' in dit geval). Daarnaast zorgt de code 'if outcome_attribute > best_results[1]:' ervoor dat 
     '''
-
 
     def strength(self): # Deze 'self' code refereert ook naar alle parameters / argumenten van de '__init__' code van de 'Player class' omdat deze instance nog binnen de 'class Player()' valt. Ook hier houdt dit dus in dat je binnen deze\
                         # instance alle parameters / argumenten van de 'class Player' kunt gebruiken.
@@ -73,11 +74,11 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
         for attribute in ["speed", "endurance", "accuracy"]: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst met de 3 attributen.
 
             outcome_attribute = getattr(self, attribute)    # De variabel 'outcome_attribute' geeft alle waardes weer van de for loop van de lijst met de attributen hierboven en dit kan je checken met de print statement hieronder.
-            print(outcome_attribute)                        # Met de 'self' code kan ik weer refereren naar één van de parameters die ik heb aangemaakt bij de 'Player' class. En met de 'getattr()' code i.c.m. de 'attribute' variabel\
+            # print(outcome_attribute)                        # Met de 'self' code kan ik weer refereren naar één van de parameters die ik heb aangemaakt bij de 'Player' class. En met de 'getattr()' code i.c.m. de 'attribute' variabel\
                                                             # kan ik de 'waardes' van de attributen in de 'attribute' lijst selecteren. En met de print statement kan je checken of de variabel 'outcome_attribute' alle waardes van de\
                                                             # for loop van de lijst met de attributen hierboven daadwerkelijk weergeeft.
 
-            if outcome_attribute > best_results[1]:         # Met deze code zeg je: als één van de waardes van de variabel 'outcome_attribute' groter is dan het getal '0' bij de variabel 'best results' hierboven.
+            if outcome_attribute > best_results[1]:         # Met deze code zeg je: als één van de waardes van de variabel 'outcome_attribute' groter is dan het getal '0' bij de variabel 'best results' hierboven, laat dan onderstaande zien.
 
                 best_results = attribute, outcome_attribute # Met deze code geef je aan dat de variabel 'best results' vervangen moet worden voor de volgende gegevens: de naam van het attribuut (dus 1 van de attributen die in de lijst\
                                                             # bij de variable 'attribute' staat) en de waarde die je geplaatst hebt in de variabel 'outcome_attribute'.
@@ -114,7 +115,7 @@ class Commentator():
 
     def sum_player(self, player):
 
-        attributes =  ["speed", "endurance", "accuracy"]
+        attributes = ["speed", "endurance", "accuracy"]
 
         sum = 0 # Met deze code start je de optelsom van de 'sum_player' 'instance method' met het getal '0'.
 
@@ -129,7 +130,7 @@ class Commentator():
     '''
     # Question 2 - part 3-a:
     Write an instance method 'compare_players' that takes two instances of the class Player (in no particular order) and one of 'speed', 'endurance' and 'accuracy' as its arguments and returns the name of the player that scores the highest
-    on this attribute.
+    on one of the 3 attributes.
 
     For example: 
 
@@ -148,26 +149,28 @@ class Commentator():
                                                                 # die de getallen bevat die je helemaal onderaan bij de 'if __name__ == "__main__":' code van de 'class Player' 'instance method' kunt invullen.
         performance_player_2 = getattr(player_2, performance)
 
-        if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2'.
+        if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2', laat dan onderstaande zien.
                 
             # return player_1.name
-            return getattr(player_1, "name") # Met deze code zeg je: Deze name verwijst naar de speler gullit die in de class Player zit. 
+            return getattr(player_1, "name")    # Met deze code zeg je: laat de 'naam' van de speler zien waarvan 'de waardes van de attributen' hoger zijn dan de andere speler. En de waardes van de attributen kan je zelf invullen bij\
+                                                # de speler genaamd 'gullit' die in de 'class' 'Player' zit bij de 'if __name__ == "__main__":' code helemaal onderaan bij bij het aanroepen van de 'compare_players' instance.
         
-        if performance_player_2 > performance_player_1:
+        if performance_player_2 > performance_player_1: # Met deze code zeg je: als de getallen van de variabel 'performance_player_2' groter zijn dan de getallen van de variabel 'performance_player_1', laat dan onderstaande zien.
                 
-            return player_2.name
-            # return getattr(player_2 "name")
+            return player_2.name    # Met deze code zeg je: laat de 'naam' van de speler zien waarvan 'de waardes van de attributen' hoger zijn dan de andere speler. En de waardes van de attributen kan je zelf invullen bij\
+                                    # de speler genaamd 'gullit' die in de 'class' 'Player' zit bij de 'if __name__ == "__main__":' code helemaal onderaan bij bij het aanroepen van de 'compare_players' instance.
 
 
         '''
         Question 2 - part 3-b
 
-        If these are also equal, report the name of the player that has the highest total score according to the  sum_player function you just implemented.
+        If the players score equally on 1 of the 3 attributes, report the name of the player that has the highest total score according to the sum_player function you just implemented.
         '''
 
-        performance_player_1 = player_1.strength()[1]
+        performance_player_1 = player_1.strength()[1]   # Met deze code zeg je: de variabel 'performance_player_1' is nu de waarde / float / het getal dat in de 'return' statement van de instance 'strength' vermeld staat. Dit is vanwege\
+                                                        # de index die ik heb gebruikt: [1], want met de index selecteer ik de 2e variabel van de variabel 'best_result': 'outcome_attribute' (en dit is enkel de waarde / float / het getal).
 
-        performance_player_2 = player_2.strength()[1]
+        performance_player_2 = player_2.strength()[1]   # Hier doe ik hetzelfde als wat bij 'performance_player_1' staat.
         # print(performance_player_1)
 
         if performance_player_1 > performance_player_2:
@@ -205,23 +208,32 @@ class Commentator():
 
 if __name__ == "__main__":
 
-    # rijkaard = Player("Frank Rijkaard", 0.6, 0.6, 0.6)
-    # gullit = Player("Ruud Gullit", 0.6, 0.6, 0.6)
-    # seedorf = Player("Clarence Seedorf", 0.6, 0.6, 0.6)
+# attributes = ["speed", "endurance", "accuracy"]
 
-    rijkaard = Player("Frank Rijkaard", 0.1, 0.2, 0.3)
-    gullit = Player("Ruud Gullit", 0.4, 0.5, 0.6)
-    seedorf = Player("Clarence Seedorf", 0.7, 0.8, 0.9)
+# Antwoord op vraag 3: a t/m d = 
+    rijkaard = Player("Frank Rijkaard", 0.2, 0.2, 0.3)
+    seedorf = Player("Clarence Seedorf", 0.1, 0.2, 0.3)
+
+    '''
+    Bovenstaande code kan je als volgt gebruiken bij de 'compare_player' instance code helemaal onderaan. LET OP!!! Bij de 'compare_player' instance code helemaal onderaan kan je de attribuut (dit is het 3e argument) ook wijzigen.\
+    En hierdoor worden de uitkomsten van je code ook anders.
+
+    - Bij antwoord a = This code returns the name of the player that scores the highest on 1 of the 3 attributes.
+    - Bij antwoord b = If the players score equally on 1 of the 3 attributes, this code returns the name of the player that scores the highest 'strength' according to the 'strength' function / instance (met 'strength' wordt\
+      de beste / hoogste score van één attribuut bedoeld).
+    - Bij antwoord c = If the players also score equally on the 'strength' function / instance, this code reports the name of the player that has the highest total score according to the 'sum_player' function / instance.
+    - Bij antwoord d = If the players score is equal on all 3 attributes, this code returns the string: "These two players might as well be twins!"
+    '''
+
 
     print("Elaboration question 1 - part 1 = 'ValueError':\n")
     print("This 'value error' is only 'raised' if you enter an attribute value which is higher than 1.\n")
-    
+
     print("Elaboration question 1 - part 2 = 'Introduce':\n")
     print(rijkaard.introduce())
 
-    print("Elaboration question 1 - part 3 = 'Strength' :\n")
+    print("Elaboration question 1 - part 3 = 'Strength' (return a tuple with the name of its attribute and its value):\n")
     print(rijkaard.strength())
-    print(gullit.strength())
     print(seedorf.strength())
 
     print('\n')
@@ -233,20 +245,11 @@ if __name__ == "__main__":
     print('\n')
 
     print("Elaboration question 2 - part 2 = 'Sum Player':\n")
-    print(winter.sum_player(gullit))
+    print(winter.sum_player(seedorf))
 
     print('\n')
 
-    print("Elaboration question 2 - part 3 a - b = 'Compare Players':\n")
-    print(winter.compare_players(gullit, seedorf, "speed"))
+    print("Elaboration question 2 - part 3: a - d = 'Compare Players':\n")
+    print(winter.compare_players(rijkaard, seedorf, "accuracy")) # attributes = ["speed", "endurance", "accuracy"]
 
     print('\n')
-
-
-    
-    
-
-
-
-
-
