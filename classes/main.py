@@ -73,13 +73,16 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
         
         for attribute in ["speed", "endurance", "accuracy"]: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst met de 3 attributen.
 
-            outcome_attribute = getattr(self, attribute)    # De variabel 'outcome_attribute' geeft alle waardes weer van de for loop van de lijst met de attributen hierboven en dit kan je checken met de print statement hieronder.
-            # print(outcome_attribute)                        # Met de 'self' code kan ik weer refereren naar één van de parameters die ik heb aangemaakt bij de 'Player' class. En met de 'getattr()' code i.c.m. de 'attribute' variabel\
+            outcome_attribute = getattr(self, attribute)    # Met deze code zeg je: met de variabel 'outcome_attribute' pak ik met de 'getattr()' code de attributen van het self object !!!HIER BEN IK!!!!
+                                                            # = geeft alle waardes weer van de 'for loop' van de lijst met de attributen hierboven en dit kan je checken met de print statement hieronder.
+            # print(outcome_attribute)                      # Omdat de 'getattr()' code 'altijd' 2 argumenten moet bevatten, kan je met de 'self' code verwijzen naar één van de parameters die ik heb aangemaakt bij de 'Player' class. En met de 'getattr()' code i.c.m. de 'attribute' variabel\
                                                             # kan ik de 'waardes' van de attributen in de 'attribute' lijst selecteren. En met de print statement kan je checken of de variabel 'outcome_attribute' alle waardes van de\
                                                             # for loop van de lijst met de attributen hierboven daadwerkelijk weergeeft.
 
             if outcome_attribute > best_results[1]:         # Met deze code zeg je: als één van de waardes van de variabel 'outcome_attribute' groter is dan het getal '0' bij de variabel 'best results' hierboven, laat dan onderstaande zien.
 
+                # return attribute, outcome_attribute       # Op deze manier is het ook mogelijk om deze instance te returnen.
+            
                 best_results = attribute, outcome_attribute # Met deze code geef je aan dat de variabel 'best results' vervangen moet worden voor de volgende gegevens: de naam van het attribuut (dus 1 van de attributen die in de lijst\
                                                             # bij de variable 'attribute' staat) en de waarde die je geplaatst hebt in de variabel 'outcome_attribute'.
             
@@ -119,10 +122,10 @@ class Commentator():
 
         sum = 0 # Met deze code start je de optelsom van de 'sum_player' 'instance method' met het getal '0'.
 
-        for attribute in attributes: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst / variable genaamd 'attributes'. 
-            sum += getattr(player, attribute)   # Met deze code zeg ik: voeg aan de variabel 'sum' de naam van een speler toe én de waarde van een attribuut en tel deze bij elkaar op. LET OP!!! De 'getattr()' code werkt NIET ‘direct’\
-                                                # op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus een lijst eerst een variabel naam geven). De 'getattr()' code werkt dus alleen 'direct' op 'variabelen'\
-                                                # en 'strings'.
+        for attribute in attributes: # Met de variabel 'attribute' ga je itereren / loopen over de lijst / variable genaamd 'attributes'. 
+            sum += getattr(player, attribute)   # Met deze code zeg je: voeg aan de variabel 'sum' de naam van een speler toe én de waarde van een attribuut en tel deze bij elkaar op. LET OP!!! De 'getattr()' code werkt NIET ‘direct’\
+            # print(sum)                        # op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus door eerst een variabel / naam te geven een lijst). De 'getattr()' code werkt dus alleen 'direct'\
+                                                # op 'variabelen' en 'strings'.
 
         return round(sum, 2) # Met deze code zeg je: Laat de naam van een speler zien en de optelsom en rond de optelsom af met 2 decimalen.
 
@@ -140,13 +143,19 @@ class Commentator():
     - Output = 'Bob'
 
     If the players score equally on this attribute, return the name of the player that has the highest strength according to the strength function you just implemented.
+
+    LET OP!!! De onderstaande instance 'compare_players' heeft meerdere vergelijkingen. Dus omdat Python altijd de code van boven naar beneden leest, zal dus altijd gekeken worden naar de eerste vergelijking. Als de eerste vergelijking\
+    niet het geval blijkt te zijn, dan zal Python kijken naar de 2e vergelijking enz. En al deze vergelijkingen hangen af van welke getallen je invult bij het aanroepen van de 'class Player'.
     '''
 
 
     def compare_players(self, player_1, player_2, performance): # Doordat je hier weer de 'self' code gebruikt, kan je de 'parameters' van de 'Player class' weer gebruiken.
 
-        performance_player_1 = getattr(player_1, performance)   # Met deze code zeg je: de variabel 'performance_player_1' is een combinatie van de 'attributen' ("speed", "endurance", "accuracy") van 'player_1' en de variabel 'performance'\
-                                                                # die de getallen bevat die je helemaal onderaan bij de 'if __name__ == "__main__":' code van de 'class Player' 'instance method' kunt invullen.
+        performance_player_1 = getattr(player_1, performance)   # Met deze code zeg je: de variabel 'performance_player_1' is het attribuut dat je meegeeft onderaan bij de if name is main / het aanroepen van de functie\
+        print(player_1)
+        print(performance)                                                        # die de getallen bevat die je helemaal onderaan bij de 'if __name__ == "__main__":' code van de 'class Player' 'instance method' kunt invullen.
+        print(performance_player_1)
+
         performance_player_2 = getattr(player_2, performance)
 
         if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2', laat dan onderstaande zien.
@@ -164,31 +173,34 @@ class Commentator():
         '''
         Question 2 - part 3-b
 
-        If the players score equally on 1 of the 3 attributes, report the name of the player that has the highest total score according to the sum_player function you just implemented.
+        If the players score equally on 1 of the 3 attributes, return the name of the player that has the highest 'strength' according to the strength function / instance you just implemented.
         '''
 
         performance_player_1 = player_1.strength()[1]   # Met deze code zeg je: de variabel 'performance_player_1' is nu de waarde / float / het getal dat in de 'return' statement van de instance 'strength' vermeld staat. Dit is vanwege\
-                                                        # de index die ik heb gebruikt: [1], want met de index selecteer ik de 2e variabel van de variabel 'best_result': 'outcome_attribute' (en dit is enkel de waarde / float / het getal).
+                                                        # de index die ik heb gebruikt: [1], want met de index selecteer ik de 2e variabel van de variabel 'best_result': 'outcome_attribute' (en dit is alleen de waarde / float / het getal).
 
         performance_player_2 = player_2.strength()[1]   # Hier doe ik hetzelfde als wat bij 'performance_player_1' staat.
         # print(performance_player_1)
 
-        if performance_player_1 > performance_player_2:
+        if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2', laat dan onderstaande zien.
             
-            return getattr(player_1, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+            return getattr(player_1, "name")            # Met deze return statement kijk je met de 'getattr' code naar de waarde / float / het getal van de variabel 'player_1'. Maar omdat je variabel 'player_1' in combinatie met het argument "name"\
+                                                        # van de 'class Player' gebruikt, krijg je alleen de 'naam' van de speler te zien in de output en niet de waarde / float / het getal + de naam van de speler. De 'name' in deze code\
+        
+                                                        # verwijst namelijk naar de 'naam van de speler' (b.v. 'gullit' helemaal onderaan bij het aanroepen van de betreffende instance) die in de 'class Player' zit.
 
-        if performance_player_2 > performance_player_1:
+        elif performance_player_2 > performance_player_1: # Hier doe ik hetzelfde als wat bij de vorige 'if' statement staat.
                 
-            return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
+            return getattr(player_2, "name")            # Hier doe ik hetzelfde als wat bij de vorige 'return' statement staat.
 
 
         '''
         Question 2 - part 3-c:
 
-        If these are also equal, return the string: 'These two players might as well be twins!'
+        If the 'highest strength' is also equal, report the name of the player that has the highest total score according to the 'sum_player' function / instance you just implemented.
         '''
 
-        performance_player_1 = self.sum_player(player_1)
+        performance_player_1 = self.sum_player(player_1) # Met deze code zeg je: 
 
         performance_player_2 = self.sum_player(player_2)
         
@@ -200,19 +212,26 @@ class Commentator():
                 
             return getattr(player_2, "name") # Deze name verwijst naar de speler gullit die in de class Player zit.
         
-        print('\n')
-        
-        return "These two players might as well be twins!"
+            '''
+            Question 2 - part 3-d:
 
+            If the 'sum_player' is also equal, return the string: 'These two players might as well be twins!'.
+            '''
+        
+        else:
+            return 'These two players might as well be twins!'
 
 
 if __name__ == "__main__":
 
-# attributes = ["speed", "endurance", "accuracy"]
+# attributes = ["speed", "endurance", "accuracy"] LET OP!!! Deze attributen lijst heb ik ook hier gezet zodat je niet telkens naar boven hoeft te scrollen om te kijken welke attributen er in de lijst zitten.
 
-# Antwoord op vraag 3: a t/m d = 
-    rijkaard = Player("Frank Rijkaard", 0.2, 0.2, 0.3)
-    seedorf = Player("Clarence Seedorf", 0.1, 0.2, 0.3)
+# Antwoord op vraag 3: a t/m d. LET OP!!! Je kan hier met de getallen spelen aan de hand van de 'compare_players' instance om verschillende uitkomsten te krijgen / te zien welke uitkomsten je krijgt.
+    rijkaard = Player("Frank Rijkaard", 0.1, 0.2, 0.3)
+    seedorf = Player("Clarence Seedorf", 0.4, 0.5, 0.6)
+
+    # rijkaard = Player("Frank Rijkaard", 0.1, 0.1, 0.1)
+    # seedorf = Player("Clarence Seedorf", 0.1, 0.1, 0.1)
 
     '''
     Bovenstaande code kan je als volgt gebruiken bij de 'compare_player' instance code helemaal onderaan. LET OP!!! Bij de 'compare_player' instance code helemaal onderaan kan je de attribuut (dit is het 3e argument) ook wijzigen.\
