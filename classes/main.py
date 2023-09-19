@@ -73,12 +73,11 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
         
         for attribute in ["speed", "endurance", "accuracy"]: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst met de 3 attributen.
 
-            outcome_attribute = getattr(self, attribute)    # Met deze code zeg je: met de variabel 'outcome_attribute' pak ik met de 'getattr()' code de attributen van het self object !!!HIER BEN IK!!!!
-                                                            # = geeft alle waardes weer van de 'for loop' van de lijst met de attributen hierboven en dit kan je checken met de print statement hieronder.
-            # print(outcome_attribute)                      # Omdat de 'getattr()' code 'altijd' 2 argumenten moet bevatten, kan je met de 'self' code verwijzen naar één van de parameters die ik heb aangemaakt bij de 'Player' class. En met de 'getattr()' code i.c.m. de 'attribute' variabel\
-                                                            # kan ik de 'waardes' van de attributen in de 'attribute' lijst selecteren. En met de print statement kan je checken of de variabel 'outcome_attribute' alle waardes van de\
-                                                            # for loop van de lijst met de attributen hierboven daadwerkelijk weergeeft.
-
+            outcome_attribute = getattr(self, attribute)    # Met deze code zeg je: met de variabel 'outcome_attribute' pak ik met de 'getattr()' code alle / de attributen: "speed", "endurance", "accuracy" van het 'self' 'object' die ik\
+            # print(outcome_attribute)                      # bij de 'class Player' heb aangemaakt én die ik nu weer gebruik voor de 'for loop' met de variabel genaamd 'attribute'. En dit kan je checken met de print statement:\
+                                                            # 'print(outcome_attribute)' die enkel en alleen 'alle' 'waardes' / 'getallen' van de attributen als output weergeeft. LET OP!!! De 'getattr()' code moet 'altijd' 2 argumenten\
+                                                            # bevatten: een 'object' en een 'naam' / 'eigenschap' / 'kenmerk' van dat object. In deze for loop verwijs ik met de 'self' code in de 'getattr()' code naar de parameters die ik\
+                                                            # heb aangemaakt bij de 'Player' class hierboven.
             if outcome_attribute > best_results[1]:         # Met deze code zeg je: als één van de waardes van de variabel 'outcome_attribute' groter is dan het getal '0' bij de variabel 'best results' hierboven, laat dan onderstaande zien.
 
                 # return attribute, outcome_attribute       # Op deze manier is het ook mogelijk om deze instance te returnen.
@@ -123,11 +122,13 @@ class Commentator():
         sum = 0 # Met deze code start je de optelsom van de 'sum_player' 'instance method' met het getal '0'.
 
         for attribute in attributes: # Met de variabel 'attribute' ga je itereren / loopen over de lijst / variable genaamd 'attributes'. 
-            sum += getattr(player, attribute)   # Met deze code zeg je: voeg aan de variabel 'sum' de naam van een speler toe én de waarde van een attribuut en tel deze bij elkaar op. LET OP!!! De 'getattr()' code werkt NIET ‘direct’\
-            # print(sum)                        # op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus door eerst een variabel / naam te geven een lijst). De 'getattr()' code werkt dus alleen 'direct'\
-                                                # op 'variabelen' en 'strings'.
+            sum += getattr(player, attribute)   # Met deze code zeg je: tel met de '+=' operator het getal / de waarde van één van de attributen op bij de variabel 'sum'. 'Player' is hier het 'object' dat verwijst naar de 'naam' van een\
+            # print(sum)                        # speler in de 'class Player en deze roep je vervolgens aan bij de 'if __name__ == "__main__"' code helemaal onderaann. En 'attribute' is hier de 'eigenschap' van het object 'player' en deze\
+                                                # verwijst naar de attributen in deze instance bij de variabel 'attributes' dat weer middels de code 'self' verwijst naar de attributen die in de 'class Player' staat. LET OP!!! De 'getattr()'\
+                                                # code werkt NIET ‘direct’\ op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus door eerst een variabel / naam te geven aan een lijst). De 'getattr()' code\
+                                                # werkt dus alleen 'direct' op 'variabelen' en 'strings'.
 
-        return round(sum, 2) # Met deze code zeg je: Laat de naam van een speler zien en de optelsom en rond de optelsom af met 2 decimalen.
+        return round(sum, 2) # Met deze code zeg je: laat de optelsom zien en rond de optelsom af met 2 decimalen.
 
 
     '''
@@ -149,14 +150,15 @@ class Commentator():
     '''
 
 
-    def compare_players(self, player_1, player_2, performance): # Doordat je hier weer de 'self' code gebruikt, kan je de 'parameters' van de 'Player class' weer gebruiken.
+    def compare_players(self, player_1, player_2, performance): # Doordat je hier de 'self' code gebruikt, kan je de 'parameters' van de 'Player class' weer gebruiken.
 
-        performance_player_1 = getattr(player_1, performance)   # Met deze code zeg je: de variabel 'performance_player_1' is het attribuut dat je meegeeft onderaan bij de if name is main / het aanroepen van de functie\
-        print(player_1)
-        print(performance)                                                        # die de getallen bevat die je helemaal onderaan bij de 'if __name__ == "__main__":' code van de 'class Player' 'instance method' kunt invullen.
-        print(performance_player_1)
+        performance_player_1 = getattr(player_1, performance)     # Met de variabel 'performance_player_1' zeg je = pak met de 'getattr()' code 'één van de attributen' ("speed", "endurance" of "accuracy", die je meegeeft / invult wanneer je\
+        # print(player_1)                                         # deze 'functie' / 'instance' aanroept onderaan bij de 'if __name__ == "__main__":' code) en geef deze weer. En met deze 3 print statements kan je controleren welke variabel\
+        # print(performance)                                      # wat doet.
+        # print(performance_player_1)
 
-        performance_player_2 = getattr(player_2, performance)
+        performance_player_2 = getattr(player_2, performance)   # Met de variabel 'performance_player_2' zeg je hetzelfde als bij de variabl 'performance_player_1'.
+        # print(performance_player_2)
 
         if performance_player_1 > performance_player_2: # Met deze code zeg je: als de getallen van de variabel 'performance_player_1' groter zijn dan de getallen van de variabel 'performance_player_2', laat dan onderstaande zien.
                 
