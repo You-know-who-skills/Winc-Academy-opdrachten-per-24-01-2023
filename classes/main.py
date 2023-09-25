@@ -7,7 +7,7 @@ __human_name__ = 'classes'
 print('\n')
 
 '''
-# Question 1 - part 1:
+# Question 1 - part 1 = 'ValueError':
 
 In main.py, write a class Player that is going to represent a soccer player. 
 
@@ -25,7 +25,7 @@ Save the given arguments as instance attributes under the names name, speed, end
 class Player(): # Op deze manier definieer je een 'class' en in dit geval heet de class 'Player'.
     
     def __init__(self, name: str, speed: float, endurance: float, accuracy: float) -> str:  # Met de 'init' code (ook wel 'initializer' or 'constructor' genoemd) 'initieer je een object van een class'. En de objecten zijn o.a.\
-                                                                                            # de argumenten en de parameters.
+                                                                                            # de argumenten en de parameters. LET OP!!! Je moet altijd de '__init__' code aanmaken binnen een 'class' om de 'self' code te kunnen gebruiken.
         self.name = name            # Met de 'self' code definieer je deze argumenten voor deze 'class'. En met de 'self' code kan je deze variabelen / argumenten in onderstaande instances telkens weer oproepen. LET OP!!!\
         self.speed = speed          # De 'punt' achter de 'self' code gebruik je om attributen te benaderen én toe te wijzen. Verderop in deze oefening / instance zie je hoe dit werkt.
         self.endurance = endurance
@@ -38,20 +38,21 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
 
 
     '''
-    # Question 1 - part 2:
+    # Question 1 - part 2 = 'Introduce':
 
     Define an instance method 'introduce' that takes no arguments (except self!) and returns a string like the following, where 'Bob' is replaced by the player's actual name: 'Hello everyone, my name is Bob.'
     '''
 
-    def introduce(self): # Deze 'self' code refereert naar alle parameters / argumenten van de '__init__' code van de 'Player class'. Dit houdt in dat je binnen deze instance alle parameters / argumenten van de 'class Player' kunt gebruiken.
+    def introduce(self):    # Deze 'self' code refereert naar alle parameters / argumenten van de '__init__' code van de 'Player class'. Dit houdt in dat je binnen deze instance alle parameters / argumenten van de 'class Player'\
+                            #  kunt gebruiken zolang je de 'self' code in de definitie van deze 'instance' zet.
         
-        return F"Hello everyone, my name is {self.name}.\n" # Deze code kan ook maar de wincpy check keurt de '\n' niet goed. In deze F-string gebruik je de 'name' parameter die in de 'class Player' staat. En je roept de naam aan\
-                                                            # helemaal onderaan bij de 'if __name__ == "__main__":' code.
+        return F"Hello everyone, my name is {self.name}.\n" # Deze code kan ook maar de wincpy check keurt de '\n' niet goed. In deze F-string gebruik je de gedefinieerde 'self.name' code die in de 'class Player' staat. En je roept deze\
+                                                            # 'instance' aan door een naam van een speler in te vullen helemaal onderaan bij de 'introduce' code / instance bij de 'if __name__ == "__main__":' code.
         # return F"Hello everyone, my name is {self.name}."
 
 
     '''
-    Question 1 - part 3:
+    Question 1 - part 3 = 'Strength':
 
     Now we want a method that returns us the best attribute of a player between the 3 we just defined (speed, endurance and accuracy). Define an instance method 'strength' that takes no arguments and returns a tuple with the name of its\
     attribute and its value. Imagine that the highest one is speed and the value is 0.8. Then the expected result should be like this: 
@@ -73,23 +74,26 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
         
         for attribute in ["speed", "endurance", "accuracy"]: # Met de variabel 'attribute' ga ik itereren / loopen over de lijst met de 3 attributen.
 
-            outcome_attribute = getattr(self, attribute)    # Met deze code zeg je: met de variabel 'outcome_attribute' pak ik met de 'getattr()' code alle / de attributen: "speed", "endurance", "accuracy" van het 'self' 'object' die ik\
-            # print(outcome_attribute)                      # bij de 'class Player' heb aangemaakt én die ik nu weer gebruik voor de 'for loop' met de variabel genaamd 'attribute'. En dit kan je checken met de print statement:\
-                                                            # 'print(outcome_attribute)' die enkel en alleen 'alle' 'waardes' / 'getallen' van de attributen als output weergeeft. LET OP!!! De 'getattr()' code moet 'altijd' 2 argumenten\
-                                                            # bevatten: een 'object' en een 'naam' / 'eigenschap' / 'kenmerk' van dat object. In deze for loop verwijs ik met de 'self' code in de 'getattr()' code naar de parameters die ik\
-                                                            # heb aangemaakt bij de 'Player' class hierboven.
+            outcome_attribute = getattr(self, attribute)    # Met deze code zeg je: met de variabel 'outcome_attribute' pak ik met de 'getattr()' code de 'waarde(s)' van één van de attributen van de variabel 'attribute' in de for loop.\
+                                                            # En met deze 'self' code geef ik weer aan dat ik één van de variabelen wil gebruiken uit de 'class Player', maar omdat de 'getattr()' code alleen maar kijkt naar de\
+                                                            # waardes / getallen ÉN omdat de 'getattr()' altijd 2 argumenten moet bevatten (een 'object' en een 'naam' / 'eigenschap' / 'kenmerk' van dat object), laat deze code alleen maar de\
+                                                            # getallen / 1 ding (i.p.v. 2) zien in de output. En dit kan je checken met de print statement 'print(outcome_attribute)' die enkel en alleen 'alle' 'waardes' / 'getallen' van de\
+                                                            # attributen als output weergeeft. LET OP!!! De getallen / waardes kan je helmaal onderaan bij de 'if __name__ == "__main__ code invullen.
+            
+            # print(F"Dit is de print statement bij de 'strength' instance: {outcome_attribute}")
+            
             if outcome_attribute > best_results[1]:         # Met deze code zeg je: als één van de waardes van de variabel 'outcome_attribute' groter is dan het getal '0' bij de variabel 'best results' hierboven, laat dan onderstaande zien.
 
                 # return attribute, outcome_attribute       # Op deze manier is het ook mogelijk om deze instance te returnen.
             
-                best_results = attribute, outcome_attribute # Met deze code geef je aan dat de variabel 'best results' vervangen moet worden voor de volgende gegevens: de naam van het attribuut (dus 1 van de attributen die in de lijst\
-                                                            # bij de variable 'attribute' staat) en de waarde die je geplaatst hebt in de variabel 'outcome_attribute'.
+                best_results = attribute, outcome_attribute # Met deze code geef je aan dat de variabel 'best results' vervangen moet worden voor de volgende gegevens: de 'naam van het attribuut' (dus 1 van de attributen die in de lijst\
+                                                            # bij de variable 'attribute' staat) en 'de waarde' die je geplaatst hebt in de variabel 'outcome_attribute'.
             
-        return best_results # Doordat ik de variabel 'best_result' nu heb aangepast naar de 2 variabelen 'attribute' en 'outcome_attribute', zal deze return statement het volgende weergeven: naam attribuut, komma getal\
-                            # dus b.v.: ('accuracy', 0.9).
+        return best_results # Doordat ik de variabel 'best_results' nu heb vervangen door 2 variabelen: 'attribute' (= 1 van de namen van het attribuut in de lijst 'attribute') en 'outcome_attribute' (= het getal / de waarde die ik heb\
+                            # verkregen met de 'getattr()' code), zal deze return statement het volgende weergeven: 'naam attribuut' + een komma getal (dus b.v.: 'accuracy', 0.9).
 
 '''
-# Question 2 - part 1:
+# Question 2 - part 1 = 'Commentator':
 
 In main.py, create a new class 'Commentator'. Implement it in such a way that we can do this: 
 
@@ -103,11 +107,11 @@ class Commentator():
 
     def __init__(self, name: str) -> str:
 
-        self.name = name
+        self.name = name # Met deze code definieer ik een nieuwe 'self' code in de nieuwe 'class Commentator'. LET OP!!! Deze 'self' code kan ik dus niet gebruiken in 'class Player' omdat dit een 'andere class' betreft.
 
 
     '''
-    # Question 2 - part 2:
+    # Question 2 - part 2 = 'Sum player':
 
     Write an instance method 'sum_player' that takes an instance of a player and returns the sum of their 'speed', 'endurance' and 'accuracy' attributes.
 
@@ -116,23 +120,26 @@ class Commentator():
     '''
 
     def sum_player(self, player):
-
+    
         attributes = ["speed", "endurance", "accuracy"]
 
         sum = 0 # Met deze code start je de optelsom van de 'sum_player' 'instance method' met het getal '0'.
 
         for attribute in attributes: # Met de variabel 'attribute' ga je itereren / loopen over de lijst / variable genaamd 'attributes'. 
-            sum += getattr(player, attribute)   # Met deze code zeg je: tel met de '+=' operator het getal / de waarde van één van de attributen op bij de variabel 'sum'. 'Player' is hier het 'object' dat verwijst naar de 'naam' van een\
-            # print(sum)                        # speler in de 'class Player en deze roep je vervolgens aan bij de 'if __name__ == "__main__"' code helemaal onderaann. En 'attribute' is hier de 'eigenschap' van het object 'player' en deze\
-                                                # verwijst naar de attributen in deze instance bij de variabel 'attributes' dat weer middels de code 'self' verwijst naar de attributen die in de 'class Player' staat. LET OP!!! De 'getattr()'\
+            sum += getattr(player, attribute)   # Met deze code zeg je: tel met de '+=' operator het getal / de waarde van één van de attributen op bij de variabel 'sum'. 'player' is hier het 'object' dat verwijst naar de 'naam' van een\
+                                                # speler in de 'class Player en deze roep je vervolgens aan bij de 'if __name__ == "__main__"' code helemaal onderaan. En 'attribute' is hier de 'eigenschap' van het object 'player' en deze\
+                                                # verwijst naar de attributen in deze instance bij de variabel 'attributes' dat weer middels de code 'self' verwijst naar de attributen die in de 'class Player' staan. LET OP!!! De 'getattr()'\
                                                 # code werkt NIET ‘direct’\ op een lijst. Het werkt WEL wanneer je de 'variabel naam' van een lijst gebruikt (dus door eerst een variabel / naam te geven aan een lijst). De 'getattr()' code\
                                                 # werkt dus alleen 'direct' op 'variabelen' en 'strings'.
+            
+            # print(F"Dit is de print statement bij de 'sum_player' instance: {sum}")
 
         return round(sum, 2) # Met deze code zeg je: laat de optelsom zien en rond de optelsom af met 2 decimalen.
 
 
     '''
-    # Question 2 - part 3-a:
+    # Question 2 - part 3-a = 'Compare_players':
+
     Write an instance method 'compare_players' that takes two instances of the class Player (in no particular order) and one of 'speed', 'endurance' and 'accuracy' as its arguments and returns the name of the player that scores the highest
     on one of the 3 attributes.
 
@@ -145,8 +152,8 @@ class Commentator():
 
     If the players score equally on this attribute, return the name of the player that has the highest strength according to the strength function you just implemented.
 
-    LET OP!!! De onderstaande instance 'compare_players' heeft meerdere vergelijkingen. Dus omdat Python altijd de code van boven naar beneden leest, zal dus altijd gekeken worden naar de eerste vergelijking. Als de eerste vergelijking\
-    niet het geval blijkt te zijn, dan zal Python kijken naar de 2e vergelijking enz. En al deze vergelijkingen hangen af van welke getallen je invult bij het aanroepen van de 'class Player'.
+    LET OP!!! De onderstaande instance 'compare_players' heeft meerdere vergelijkingen. Dus omdat Python altijd de code van boven naar beneden leest, zal er dus altijd gekeken worden naar de eerste vergelijking. Als de eerste vergelijking\
+    niet het geval blijkt te zijn, dan zal Python kijken naar de 2e vergelijking enz. En al deze vergelijkingen hangen af van welke getallen je invult bij het aanroepen van de 'class Player helemaal onderaan deze code'.
     '''
 
 
@@ -229,7 +236,7 @@ if __name__ == "__main__":
 # attributes = ["speed", "endurance", "accuracy"] LET OP!!! Deze attributen lijst heb ik ook hier gezet zodat je niet telkens naar boven hoeft te scrollen om te kijken welke attributen er in de lijst zitten.
 
 # Antwoord op vraag 3: a t/m d. LET OP!!! Je kan hier met de getallen spelen aan de hand van de 'compare_players' instance om verschillende uitkomsten te krijgen / te zien welke uitkomsten je krijgt.
-    rijkaard = Player("Frank Rijkaard", 0.1, 0.2, 0.3)
+    rijkaard = Player("Frank Rijkaard", 0.6, 0.5, 0.4)
     seedorf = Player("Clarence Seedorf", 0.4, 0.5, 0.6)
 
     # rijkaard = Player("Frank Rijkaard", 0.1, 0.1, 0.1)
@@ -261,16 +268,16 @@ if __name__ == "__main__":
 
     print("Elaboration question 2 - part 1 = 'Commentator':\n")
     winter = Commentator("Aron Winter")
-    print(winter.name)
-
+    print(F"De naam van de 'Commentator' = {winter.name}")
+    
     print('\n')
 
     print("Elaboration question 2 - part 2 = 'Sum Player':\n")
     print(winter.sum_player(seedorf))
-
+    
     print('\n')
 
     print("Elaboration question 2 - part 3: a - d = 'Compare Players':\n")
-    print(winter.compare_players(rijkaard, seedorf, "accuracy")) # attributes = ["speed", "endurance", "accuracy"]
+    print(winter.compare_players(rijkaard, seedorf, "accuracy")) # attributes = ["speed", "endurance", "accuracy"] LET OP!!! Je kunt alleen 
 
     print('\n')
