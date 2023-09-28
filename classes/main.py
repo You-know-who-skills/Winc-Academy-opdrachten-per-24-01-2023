@@ -90,7 +90,8 @@ class Player(): # Op deze manier definieer je een 'class' en in dit geval heet d
                                                             # bij de variable 'attribute' staat) en 'de waarde' die je geplaatst hebt in de variabel 'outcome_attribute'.
             
         return best_results # Doordat ik de variabel 'best_results' nu heb vervangen door 2 variabelen: 'attribute' (= 1 van de namen van het attribuut in de lijst 'attribute') en 'outcome_attribute' (= het getal / de waarde die ik heb\
-                            # verkregen met de 'getattr()' code), zal deze return statement het volgende weergeven: 'naam attribuut' + een komma getal (dus b.v.: 'accuracy', 0.9).
+                            # verkregen met de 'getattr()' code), zal deze return statement het volgende weergeven: 'naam attribuut' + een komma getal (dus b.v.: 'accuracy', 0.9). En dit zal even vaak weergegeven worden als het aantal\
+                            # spelers dat je invult (in deze code zijn dat 2 spelers: Rijkaard en Seedorf).
 
 '''
 # Question 2 - part 1 = 'Commentator':
@@ -136,7 +137,7 @@ class Commentator():
                                                 # De 'getattr()' code werkt dus alleen 'direct' op 'variabelen' en 'strings'. Met andere woorden, op deze manier werkt de 'getattr()' code NIET: getattr(["speed", "endurance", "accuracy"])\
                                                 # omdat je het direct voor een lijst plaatst.
             
-            print(F"Dit is de print statement bij de 'sum_player' op regel 139 van vraag 2 part 2 ('instance') = {sum}") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement bij de 'sum_player' op regel 140 van vraag 2 part 2 ('instance') = {sum}") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
         return round(sum, 2) # Met deze code zeg je: laat de optelsom / de waardes zien en rond de optelsom af met 2 decimalen.
 
@@ -168,16 +169,16 @@ class Commentator():
                                                                 # / de uitkomst van het attribuut die je beide (dus de speler én het attribuut) als argumenten meegeeft / invult wanneer je deze 'functie' / 'instance' aanroept onderaan bij\
                                                                 # de 'if __name__ == "__main__":' code) en geef deze / alles weer. En met onderstaande '3 print statements' kan je controleren welke variabel wat doet / weergeeft.
                 
-        print(F"1e print statement 'player_1' bij 'comapere_players' = {player_1}")                
-        print(F"2e print statement 'performance' bij 'comapere_players' = {performance}")             
-        print(F"3e print statement 'performance_player_1' bij 'comapere_players' = {performance_player_1}")          
+        # print(F"1e print statement 'player_1' bij 'comapere_players' = {player_1}")                
+        # print(F"2e print statement 'performance' bij 'comapere_players' = {performance}")             
+        # print(F"3e print statement 'performance_player_1' bij 'comapere_players' = {performance_player_1}")          
 
         performance_player_2 = getattr(player_2, performance)   # Met de variabel 'performance_player_2' zeg je hetzelfde als bij de variabl 'performance_player_1'.
         # print(performance_player_2)
 
         if performance_player_1 > performance_player_2:         # Met deze code zeg je: als het 'getal' / de 'uitkomst' van de variabel 'performance_player_1' groter is dan het 'getal' / de 'uitkomst' van de variabel 'performance_player_2',\
                                                                 # voer dan onderstaande uit.
-            print(F"Dit is de print statement op regel 180: vraag 2 part 3-a = {performance_player_1}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 181: vraag 2 part 3-a = {performance_player_1}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
             # return player_1.name              # Deze return statement doet het ook.
             return getattr(player_1, "name")    # Met deze code zeg je: laat de 'naam' van 'de speler' / 'speler 1' zien als deze 'hoger scoort' dan 'speler 2' op 'één van de attributen'. LET OP!!! De scores kan je dus zelf invullen\
@@ -185,7 +186,7 @@ class Commentator():
         
         elif performance_player_2 > performance_player_1:       # Met deze code zeg je: als het 'getal' / de 'uitkomst' van de variabel 'performance_player_2' groter is dan het 'getal' / de 'uitkomst' van de variabel 'performance_player_1',\
                                                                 # voer dan onderstaande uit.
-            print(F"Dit is de print statement op regel 188: vraag 2 part 3-a = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 189: vraag 2 part 3-a = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
             # return player_2.name              # Deze return statement doet het ook.
             return getattr(player_2, "name")    # Met deze code zeg je: laat de 'naam' van 'de speler' / 'speler 2' zien als deze 'hoger scoort' dan 'speler 1' op 'één van de attributen'. LET OP!!! De scores kan je dus zelf invullen\
@@ -207,7 +208,7 @@ class Commentator():
 
         if performance_player_1 > performance_player_2: # Met deze code zeg je: als het 'getal' / de 'uitkomst' van de variabel 'performance_player_1' groter is dan het 'getal' / de 'uitkomst' van de variabel 'performance_player_2',\
                                                         # voer dan onderstaande uit.
-            print(F"Dit is de print statement op regel 210: vraag 2 part 3-b = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 211: vraag 2 part 3-b = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
             
             return getattr(player_1, "name")            # Met deze 'return' statement kijk je met de 'getattr()' code 'eigenlijk' naar de waarde / float / het getal van de variabel 'player_1'. Maar omdat je de 'getattr()' code nu afdwingt\
                                                         # met het argument "name" (dit is dus een 'eigenschap' / 'kenmerk' van het 'object' player_1) dat verwijst naar het argument 'name' bij het aanmaken van deze class Commentator,\
@@ -216,7 +217,7 @@ class Commentator():
                                                         # class maar deze kan je alsnog gebruiken door de code als volgt aan te roepen: print(winter.compare_players(rijkaard, seedorf, "accuracy"))
 
         elif performance_player_2 > performance_player_1: # Hier doe ik hetzelfde als wat bij de vorige 'if' statement staat.
-            print(F"Dit is de print statement op regel 219: vraag 2 part 3-b = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 220: vraag 2 part 3-b = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
             return getattr(player_2, "name")            # Hier doe ik hetzelfde als wat bij de vorige 'return' statement staat.
 
@@ -236,7 +237,7 @@ class Commentator():
         if performance_player_1 > performance_player_2:     # Met deze code zeg je: als het 'getal' / de 'uitkomst' van de variabel 'performance_player_1' groter is dan het 'getal' / de 'uitkomst' van de variabel 'performance_player_2',\
                                                             # voer dan onderstaande uit.
             
-            print(F"Dit is de print statement op regel 239 bij vraag 2 part 3-c = {performance_player_1}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 240 bij vraag 2 part 3-c = {performance_player_1}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
             return getattr(player_1, "name")            # Met deze 'return' statement kijk je met de 'getattr()' code 'eigenlijk' naar de waarde / float / het getal van de variabel 'player_1'. Maar omdat je de 'getattr()' code nu afdwingt\
                                                         # met het argument "name" (dit is dus een 'eigenschap' / 'kenmerk' van het 'object' player_1) dat verwijst naar het argument 'name' bij het aanmaken van deze class Commentator,\
@@ -245,7 +246,7 @@ class Commentator():
                                                         # class maar deze kan je alsnog gebruiken door de code als volgt aan te roepen: print(winter.compare_players(rijkaard, seedorf, "accuracy"))
 
         elif performance_player_2 > performance_player_1: # Hier doe ik hetzelfde als wat bij de vorige 'if' statement staat.    
-            print(F"Dit is de print statement op regel 248 bij vraag 2 part 3-c = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
+            # print(F"Dit is de print statement op regel 249 bij vraag 2 part 3-c = {performance_player_2}\n") # Deze print statement werkt alleen als er aan deze if statementen is voldaan.
 
             return getattr(player_2, "name")            # Hier doe ik hetzelfde als wat bij de vorige 'return' statement staat.
         
@@ -261,14 +262,27 @@ class Commentator():
 
 if __name__ == "__main__":
 
-# attributes = ["speed", "endurance", "accuracy"] LET OP!!! Deze attributen lijst heb ik ook hier gezet zodat je niet telkens naar boven hoeft te scrollen om te kijken welke attributen er in de lijst zitten.
+# attributes = ["speed", "endurance", "accuracy"] LET OP!!! Deze attributen lijst heb ik ook hier gezet zodat ik niet telkens naar boven hoef te scrollen om te kijken welke attributen er in de lijst zitten.
 
-# Antwoord op vraag 3: a t/m d. LET OP!!! Je kan hier met de getallen spelen aan de hand van de 'compare_players' instance om verschillende uitkomsten te krijgen / te zien welke uitkomsten je krijgt.
-    rijkaard = Player("Frank Rijkaard", 0.6, 0.5, 0.4)
-    seedorf = Player("Clarence Seedorf", 0.4, 0.5, 0.6)
+# Antwoord op vraag 2 part 3: a t/m d. LET OP!!! Je kan hier met de getallen spelen voor de 'compare_players' vraag (= vraag 2 - part 3-a t/m d) om verschillende uitkomsten te krijgen / te zien welke uitkomsten je krijgt.
 
-    # rijkaard = Player("Frank Rijkaard", 0.1, 0.1, 0.1)
+# Antwoord op vraag 2 part 3-a = This code returns the name of the player that scores the highest on the same attribute.
+    rijkaard = Player("Frank Rijkaard", 0.8, 0.7, 0.6)
+    seedorf = Player("Clarence Seedorf", 0.9, 0.7, 0.6) # Antwoord = 'seedorf' omdat ze op de andere attributen gelijk scoren maar op speed scoort Seedorf hoger dan Rijkaard.
+
+# Antwoord op vraag 2 part 3-b = If the players score equally on the same attribute, this code returns the name of the player that scores the highest 'strength' according to the 'strength' function / instance. Dus hiermee wordt het\
+# volgende bedoeld: de speler die op 1 van de 3 attributen een hogere score heeft dan de andere 2 attributen én met deze attribuut ook een hogere score heeft dan alle 3 de attributen van de andere speler (NIET bij elkaar opgeteld maar\
+# per attribuut), wordt met deze code weergegeven.
+    # rijkaard = Player("Frank Rijkaard", 0.5, 0.4, 0.3)
+    # seedorf = Player("Clarence Seedorf", 0.3, 0.4, 0.6) # Antwoord = 'seedorf' omdat het getal 6 het hoogste getal is van alle attributen van Seedorf én die van Rijkaard.
+
+# Antwoord op vraag 2 part 3-c = If the players also score equally on the 'strength' function / instance, this code reports the name of the player that has the highest total score according to the 'sum_player' function / instance.
+    # seedorf = Player("Clarence Seedorf", 0.1, 0.2, 0.3)
+    # rijkaard = Player("Frank Rijkaard", 0.4, 0.5, 0.6) # Antwoord = 'rijkaard' omdat Rijkaard de hoogste score heeft wanneer je de score van alle 3 de attributen WEL bij elkaar opgeteld.
+
+# Antwoord op vraag 2 part 3-d = If the players score is equal on all 3 attributes, this code returns the string: "These two players might as well be twins!
     # seedorf = Player("Clarence Seedorf", 0.1, 0.1, 0.1)
+    # rijkaard = Player("Frank Rijkaard", 0.1, 0.1, 0.1)
 
     '''
     Bovenstaande code kan je als volgt gebruiken bij de 'compare_player' instance code helemaal onderaan. LET OP!!! Bij de 'compare_player' instance code helemaal onderaan kan je de attribuut (dit is het 3e argument) ook wijzigen.\
@@ -306,6 +320,6 @@ if __name__ == "__main__":
     print('\n')
 
     print("Elaboration question 2 - part 3: a - d = 'Compare Players':\n")
-    print(winter.compare_players(rijkaard, seedorf, "accuracy")) # attributes = ["speed", "endurance", "accuracy"] LET OP!!! Je kan "accuracy" ook aanpassen in één van de andere attributen.
+    print(winter.compare_players(rijkaard, seedorf, "accuracy")) # attributes = ["speed", "endurance", "accuracy"] LET OP!!! Je kan "accuracy" op deze regel / bij deze print statement ook aanpassen in één van de andere attributen.
 
     print('\n')
