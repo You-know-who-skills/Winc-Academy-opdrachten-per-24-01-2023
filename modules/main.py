@@ -6,16 +6,39 @@ __human_name__ = 'modules'
 
 # Modules
 
-import this
+# import this
+
+import time
 import math
 import sys
-import datetime as date_t
+import datetime as dt
+# from datetime import datetime
+
 
 
 def wait(seconds: int):
 
+    from time import sleep # De sleep code telt het aantal ingevoerd seconden af en returnd dan wat 
+
+    time.sleep(seconds) # Deze code met onderstaande "Hallo" return statement doen het ook.
+
+    return "Hallo" 
+
+    # return time.sleep("seconds") # Deze code doet het.
 
 
+def my_sin(float: float):
+
+    from math import sin
+
+    return math.sin(float)
+
+
+def iso_now():
+
+    from dt import sin
+
+    return math.sin(float)
 
 
 
@@ -23,3 +46,5 @@ def wait(seconds: int):
 
 if __name__ == "__main__":
 
+    print(wait(3)) # Deze code doet het.
+    print(my_sin(1.2))
