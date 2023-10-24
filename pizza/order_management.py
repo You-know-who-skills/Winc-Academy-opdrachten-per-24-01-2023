@@ -94,9 +94,12 @@ def save_orders_to_file(order_list):
 
         for order in order_list: # Met de variabel 'order' ga ik itereren over alles wat in de variabel 'order_list' staat. En hieronder ga ik bepalen wat er in 'order_list' komt te staan.
             
-            file.write(F"{order.customer_name}, {order.pizza_type}, {order.toppings}\n")    # Met deze code geef je aan wat er in de 'order_list' variabel moet komen te staan om erover te kunnen itereren. En dit heb ik gedaan middels een\
-                                                                                            # 'F-string'.
-
+            file.write(f"{order.customer_name}, {order.pizza_type}, {'|'.join(order.toppings)}, {order.order_time}, {order.is_delivered}\n")
+            
+            # Met bovenstaande code geef je aan wat er in de variabel 'order_list' moet komen te staan om er vervolgens over te kunnen itereren, en ik heb dit gedaan met een 'F-string'.
+            # Omdat je gebruik maakt van modules in deze code / dit bestand, kan je de punt '.' gebruiken om variabelen te koppelen met / verwijzen naar andere variabelen.
+            # Met de '.write()' code geef je aan wat er in het bestand 'order.txt' moet komen te staan / moet worden geschreven.
+            # Met de '|' teken + de '.join()' code geef je aan dat alle toppings bij elkaar moeten komen én dat ze gescheiden moeten worden met de '|' teken.
 
 '''
 Question 4 = 
@@ -137,18 +140,21 @@ def load_orders_from_file():
 
     orders = []
 
-    with open('./orders.txt', 'r') as file: # De 'with' statement / code kan je gebruiken om een blok met / regel van met code uit te (laten). Met de 'open()' code kan je bestanden openen. Met de letter 'r' (dat voor 'read' staat) in deze\
-                                            # code geef je aan dat je het geopende bestand wil lezen.
+    with open('./orders.txt', 'r') as file: # De 'with' statement / code kan je gebruiken om een blok met / regel van code uit te (laten) voeren. Met de 'open()' code kan je bestanden openen. Met de letter / code 'r' (dat voor 'read' staat)\
+                                            # in deze code geef je aan dat je het geopende bestand wil lezen.
     
         for order in file:
-            order_data = order.strip().split(', ')
-
-            if len(order_data) == 5:
+            order_data = order.strip().split(', ')  # Met de '.strip()' code verwijder je onnodige witte / blanco gedeeltes aan het begin én einde van een string. En met de '.split()' code maak je van een 'string' een 'lijst' waarbij je van\
+                                                    # 'elk woord' / 'item' in de string een 'lijst item' maakt.
+            
+            if len(order_data) == 5: # Met deze code zeg je: als de lengte in de lijst 'order_data' gelijk is aan 5 items, voer dan onderstaande code uit.
                 
-                customer_name, pizza_type, toppings, order_time, is_delivered = order_data
+                customer_name, pizza_type, toppings, order_time, is_delivered = order_data  # Door de validatie 'order_data' achter deze 5 validaties te plaatsen, 'pak je deze validaties uit' LET OP!!! Hier moet nog iets achter, maar ik\
+                                                                                            # wacht nog op een reactie van een Winc mentor die mijn vraag hierover in Slack nog moet beantwoorden.
 
-                toppings = toppings.split('|')
-                # order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f")
+                toppings = toppings.split('|') 
+                print(F"De 'toppings' print statement = {toppings}.")
+                order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f")
                 is_delivered = is_delivered == 'True'
                 order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered)
                 orders.append(order)
