@@ -99,7 +99,9 @@ def save_orders_to_file(order_list):
             # Met bovenstaande code geef je aan wat er in de variabel 'order_list' moet komen te staan om er vervolgens over te kunnen itereren, en ik heb dit gedaan met een 'F-string'.
             # Omdat je gebruik maakt van modules in deze code / dit bestand, kan je de punt '.' gebruiken om variabelen te koppelen met / verwijzen naar andere variabelen.
             # Met de '.write()' code geef je aan wat er in het bestand 'order.txt' moet komen te staan / moet worden geschreven.
-            # Met de '|' teken + de '.join()' code geef je aan dat alle toppings bij elkaar moeten komen én dat ze gescheiden moeten worden met de '|' teken.
+            # Met de '|' teken + de '.join()' code geef je aan dat alle toppings bij elkaar geplaatst moeten worden én dat ze gescheiden moeten worden met de '|' teken. Met de '.join()' code kan je namelijk losstaande items in een lijst\
+            # samenvoegen door vóór de .join() code aan te geven met wat je de items wilt samenvoegen.
+
 
 '''
 Question 4 = 
@@ -152,8 +154,10 @@ def load_orders_from_file():
                 customer_name, pizza_type, toppings, order_time, is_delivered = order_data  # Door de validatie 'order_data' achter deze 5 validaties te plaatsen, 'pak je deze validaties uit' LET OP!!! Hier moet nog iets achter, maar ik\
                                                                                             # wacht nog op een reactie van een Winc mentor die mijn vraag hierover in Slack nog moet beantwoorden.
 
-                toppings = toppings.split('|') 
-                print(F"De 'toppings' print statement = {toppings}.")
+                toppings = toppings.split('|')  # Met deze code geef je aan dat de variabel 'toppings' moet zoeken naar de '|' teken en vervolgens daarop moet gaan splitten. LET OP!!! Omdat ik bij de 'save_orders_to_file(order_list):'
+                                                # functie heb aangegeven dat alle toppings bij elkaar geplaatst moeten worden én dat ze gescheiden moeten worden met de '|' teken door gebruik te maken van de '.join()' code.
+                print(F"De 'toppings' print statement = {toppings}.") # Print statement om te checken hoe de 'toppings' code eruit ziet.
+                
                 order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f")
                 is_delivered = is_delivered == 'True'
                 order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered)

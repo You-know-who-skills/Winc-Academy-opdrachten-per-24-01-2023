@@ -51,9 +51,7 @@ while True:
         print("Existing Orders:")
     
         for idx, order in enumerate(orders, start=1):
-            print(
-            f"{idx}. {order.customer_name} ordered {order.pizza_type} with toppings {', '.join(order.toppings)}"
-            )
+            print(F"{idx}. {order.customer_name} ordered {order.pizza_type} with toppings {', '.join(order.toppings)}")
 
     elif choice == "4":
         break
