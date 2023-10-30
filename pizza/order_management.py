@@ -30,14 +30,14 @@ Define all the attributes as usual. The only different must be 'order_time'. Def
 
 class PizzaOrder():
 
-    def __init__(self, customer_name: str, pizza_type: str, toppings: list, order_time  = None, is_delivered = False):
+    def __init__(self, customer_name: str, pizza_type: str, toppings: list, order_time  = None, is_delivered = False,):
 
         self.customer_name = customer_name
         self.pizza_type = pizza_type
         self.toppings = toppings
         self.order_time = order_time if order_time else dt.now()
         self.is_delivered = is_delivered
-
+        
 
 '''
 Question 2 = Create a function in the 'order_management' module called 'create_order' which takes input from the user for the attributes of a 'PizzaOrder object' and returns a PizzaOrder object.
@@ -100,7 +100,7 @@ def save_orders_to_file(order_list):
             # Omdat je gebruik maakt van modules in deze code / dit bestand, kan je de punt '.' gebruiken om variabelen te koppelen met / verwijzen naar andere variabelen.
             # Met de '.write()' code geef je aan wat er in het bestand 'order.txt' moet komen te staan / moet worden geschreven.
             # Met de '|' teken + de '.join()' code geef je aan dat alle toppings bij elkaar geplaatst moeten worden én dat ze gescheiden moeten worden met de '|' teken. Met de '.join()' code kan je namelijk losstaande items in een lijst\
-            # samenvoegen door vóór de .join() code aan te geven met wat je de items wilt samenvoegen.
+            # samenvoegen door 'vóór' de '.join()' code aan te geven 'met wat' je de items wilt samenvoegen.
 
 
 '''
@@ -143,40 +143,47 @@ def load_orders_from_file():
     orders = []
 
     with open('./orders.txt', 'r') as file: # De 'with' statement / code kan je gebruiken om een blok met / regel van code uit te (laten) voeren. Met de 'open()' code kan je bestanden openen. Met de letter / code 'r' (dat voor 'read' staat)\
-                                            # in deze code geef je aan dat je het geopende bestand wil lezen.
-    
-        for order in file:
+                                            # in deze code geef je aan dat je het geopende bestand in Python wil lezen. En met de 'as file' code geef je aan dat je het bestand 'orders.txt' met / als de variabel 'file' wilt lezen. Met ander\
+                                            # woorden: het bestand 'orders.txt' = nu file geworden / is opnieuw gedefinieerd en is in Python 'file' geworden.
+
+        for order in file: # Met de variabel 'order' ga je itereren over de gegevens die in het bestand 'orders.txt' staan. En het itereren over een  is mogelijk 
             order_data = order.strip().split(', ')  # Met de '.strip()' code verwijder je onnodige witte / blanco gedeeltes aan het begin én einde van een string. En met de '.split()' code maak je van een 'string' een 'lijst' waarbij je van\
-                                                    # 'elk woord' / 'item' in de string een 'lijst item' maakt.
+            # print(order_data)                     # 'elk woord' / 'item' in de string een 'lijst item' maakt.
             
-            if len(order_data) == 5: # Met deze code zeg je: als de lengte in de lijst 'order_data' gelijk is aan 5 items, voer dan onderstaande code uit.
+            if len(order_data) == 5:    # Met deze code zeg je: als de lengte in de lijst 'order_data' gelijk is aan 5 items, voer dan onderstaande code uit. En het aantal bepaal je in de 'PizzaOrder class', hierboven bij de\
+                                        # 'if len(order_data) == 5' statement, hieronder bij het uitpakken / de volgorde bepaling bij de variabel 'order_data' en hieronder bij de variabel 'order'.
                 
-                customer_name, pizza_type, toppings, order_time, is_delivered = order_data  # Door de validatie 'order_data' achter deze 5 validaties te plaatsen, 'pak je deze validaties uit' LET OP!!! Hier moet nog iets achter, maar ik\
-                                                                                            # wacht nog op een reactie van een Winc mentor die mijn vraag hierover in Slack nog moet beantwoorden.
+                customer_name, pizza_type, toppings, order_time, is_delivered = order_data  # Door de variabel 'order_data' 'achter' deze 5 variabelen / items te plaatsen, 'pak je deze variabelen uit' LET OP!!! Met 'uitpakken' wordt bedoeld\
+                                                                                            # dat je op deze manier bepaald op welke plek / in welke volgorde de variablelen / items komen te staan in de lijst. Dus in deze code zal de\
+                                                                                            # variabel 'customer_name' altijd als eerste komen te staan in de lijst.
 
                 toppings = toppings.split('|')  # Met deze code geef je aan dat de variabel 'toppings' moet zoeken naar de '|' teken en vervolgens daarop moet gaan splitten. LET OP!!! Omdat ik bij de 'save_orders_to_file(order_list):'
                                                 # functie heb aangegeven dat alle toppings bij elkaar geplaatst moeten worden én dat ze gescheiden moeten worden met de '|' teken door gebruik te maken van de '.join()' code.
-                print(F"De 'toppings' print statement = {toppings}.") # Print statement om te checken hoe de 'toppings' code eruit ziet.
+                # print(F"De 'toppings' print statement = {toppings}.\n") # Print statement om te checken hoe de 'toppings' code eruit ziet.
                 
-                order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f")
-                is_delivered = is_delivered == 'True'
-                order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered)
-                orders.append(order)
+                order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f") # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
+                is_delivered = is_delivered == 'True' # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
+                order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered) # Hier definieer je de variabel 'order' opnieuw. LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
+                orders.append(order) # Met deze code voeg je de variabel 'order' toe aan de lijst 'orders' aan het begin van deze instance hierboven.
 
             else:
-                raise ValueError(F"Please make sure that every line is filled in correctly.\n")
-            
+                # raise ValueError(F"Please make sure that every line is filled in correctly.\n") IS DEZE CODE OOK GOED?
+                print(f"Invalid data format in the line: {order.strip()}") # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!!
+
             return orders
 
 
 if __name__ == "__main__":
 
-    order = PizzaOrder("dit", "dat", "enzo")
+    order = PizzaOrder("Customer_name", "Pizza_type", "Toppings")
+    # order = PizzaOrder("dit", "dat", "enzo")
     
-    order_1 = create_order()
+    # create_order()
+    
+    orders = create_order()
     # order_2 = create_order()
     
-    print(save_orders_to_file([order_1]))
+    print(save_orders_to_file([orders]))
 
     print(load_orders_from_file())
 

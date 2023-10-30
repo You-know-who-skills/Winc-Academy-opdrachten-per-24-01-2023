@@ -22,9 +22,9 @@ use the break keyword if the input is 4 to stop the loop
 Add a final else statement that prints some kinf of error if the input is not between 1 to 4.
 '''
 
-from order_management import create_order, save_orders_to_file, load_orders_from_file
+from order_management import create_order, save_orders_to_file, load_orders_from_file # Op deze manier kan je ook meerdere functies van een module openen.
 
-def display_menu():
+def display_menu(): # Met deze instance wordt 'onderstaande menu weergegeven'.
     
     print("Pizza Ordering Menu:")
     print("1. Create a new order")
@@ -32,13 +32,14 @@ def display_menu():
     print("3. View existing orders")
     print("4. Exit")
 
-pizza_order_list = []
+pizza_order_list = [] 
 
-while True:
-    display_menu()
-    choice = input("Enter your choice (1,2,3,4): ")
+while True: # Met deze code start je de while loop om ervoor te zorgen dat je altijd deze menu altijd te raadplegen is.
+    
+    display_menu() # Op deze manier roep je de 'display_menu' functie aan.
+    choice = input("Enter your choice (1,2,3,4): ") # Met deze code geeft je de gebruiker de mogelijkheid één van de 4 opties te kiezen van het menu.
 
-    if choice == "1":
+    if choice == "1": # 
         new_order = create_order()
         pizza_order_list.append(new_order)
 
@@ -49,9 +50,9 @@ while True:
     elif choice == "3":
         orders = load_orders_from_file()
         print("Existing Orders:")
-    
-        for idx, order in enumerate(orders, start=1):
-            print(F"{idx}. {order.customer_name} ordered {order.pizza_type} with toppings {', '.join(order.toppings)}")
+        
+        for categorize, order in enumerate(orders, start=1): # 
+            print(F"{categorize}. {order.customer_name} ordered {order.pizza_type} with toppings {', '.join(order.toppings)}\n")
 
     elif choice == "4":
         break
@@ -62,3 +63,4 @@ while True:
 if __name__ == "__main__":
     
     print(display_menu())
+    print(type(orders))
