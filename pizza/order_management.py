@@ -151,7 +151,7 @@ def load_orders_from_file():
             # print(order_data)                     # 'elk woord' / 'item' in de string een 'lijst item' maakt.
             
             if len(order_data) == 5:    # Met deze code zeg je: als de lengte in de lijst 'order_data' gelijk is aan 5 items, voer dan onderstaande code uit. En het aantal bepaal je in de 'PizzaOrder class', hierboven bij de\
-                                        # 'if len(order_data) == 5' statement, hieronder bij het uitpakken / de volgorde bepaling bij de variabel 'order_data' en hieronder bij de variabel 'order'.
+                                        # 'if len(order_data) == 5' statement, hieronder bij het uitpakken / de volgorde bepaling bij de variabel 'order_data' én ook hieronder bij de variabel 'order'.
                 
                 customer_name, pizza_type, toppings, order_time, is_delivered = order_data  # Door de variabel 'order_data' 'achter' deze 5 variabelen / items te plaatsen, 'pak je deze variabelen uit' LET OP!!! Met 'uitpakken' wordt bedoeld\
                                                                                             # dat je op deze manier bepaald op welke plek / in welke volgorde de variablelen / items komen te staan in de lijst. Dus in deze code zal de\
@@ -161,16 +161,29 @@ def load_orders_from_file():
                                                 # functie heb aangegeven dat alle toppings bij elkaar geplaatst moeten worden én dat ze gescheiden moeten worden met de '|' teken door gebruik te maken van de '.join()' code.
                 # print(F"De 'toppings' print statement = {toppings}.\n") # Print statement om te checken hoe de 'toppings' code eruit ziet.
                 
-                order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f") # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
-                is_delivered = is_delivered == 'True' # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
-                order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered) # Hier definieer je de variabel 'order' opnieuw. LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!
-                orders.append(order) # Met deze code voeg je de variabel 'order' toe aan de lijst 'orders' aan het begin van deze instance hierboven.
+                order_time = dt.strptime(order_time, "%Y-%m-%d %H:%M:%S.%f")    # Met deze code geef je de tijd mee in ISO 8601 formaat. De variabel 'order_time' staat nogmaals tussen haakjes omdat de 'strptime()' code waarschijnlijk\
+                                                                                # 2 argumenten nodig heeft om te werken. LET OP!!! Ik schrijf 'waarschijnlijk' omdat ik hieronder de 'strptime()' ook heb gebruik met 1 argument en de code\
+                                                                                # doet het nog steeds. Dus het is mij nog niet geheel duidelijk of de 'strptime()' code nou wel of niet met 2 argumenten gebruikt kan worden.
+                # order_time = dt.strptime("%Y-%m-%d %H:%M:%S.%f")              # Deze code werkt dus ook zo ver ik kan zien in het 'orders.txt bestand'.
+
+                is_delivered = is_delivered == 'True'   # Het is niet geheel duidelijk waarom deze code is hier is gezet, want volgens mentor Christiaan gebruik je deze code niet meer in deze oefening. Maar als de pizza is bezorgd, moet de\
+                                                        # bezorger waarschijnlijk nog iets digitaals doen zodat deze code gaat werken.
+
+                order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered)   # Hier definieer je de variabel 'order' opnieuw met de PizzaOrder class omdat je 3 van de 5 variabelen anders hebt gedefinieerd hierboven.\
+                                                                                                    # LET OP!!! Je definieert de variabel 'order' met de class 'PizzaOrder' hier ook opnieuw zodat je elke variabel individueel weer kunt\
+                                                                                                    # aanroepen in het 'main.py' bestand op deze manier: 'order.customer_name' enz.
+                
+                orders.append(order) # Met deze code voeg je de (inhoud van de) variabel 'order' toe aan de lijst 'orders' aan het begin van deze instance hierboven.
 
             else:
-                # raise ValueError(F"Please make sure that every line is filled in correctly.\n") IS DEZE CODE OOK GOED?
-                print(f"Invalid data format in the line: {order.strip()}") # LET OP!!! OVER DEZE CODE MOET IK NOG UITLEG VRAGEN!!!!
-
-            return orders
+                # raise ValueError(F"Please make sure that every line is filled in correctly.\n") # Deze code is ook goed.
+                print(F"Invalid data format in the line: {order.strip()}")
+                
+                # LET OP!!! De 2 error meldingen hierboven krijg je pas te zien als je / iemand zelf (per ongeluk) een aanpassing aanbrengt in het 'aantal itmes' in het 'orders.txt' bestand. Het 'orders.txt' bestand bestaat namelijk uit de\
+                # 5 gedefinieerde items: 1 = customer_name, 2 = pizza_type, 3 = toppings, 4 = order_time, en 5 = is_delivered. En je kan dit zien doordat de items in het 'orders.txt' bestand worden gescheiden met een komma door de volgende\
+                # code die ik hierboven heb aangemaakt: 'order_data = order.strip().split(', ')'. Als er dus een 6e item bij komt of 1 item wordt verwijderd, krijg je 1 van de hierboven vermeldde foutmeldingen.
+                
+        return orders
 
 
 if __name__ == "__main__":
