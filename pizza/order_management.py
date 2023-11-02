@@ -146,8 +146,9 @@ def load_orders_from_file():
                                             # in deze code geef je aan dat je het geopende bestand in Python wil lezen. En met de 'as file' code geef je aan dat je het bestand 'orders.txt' met / als de variabel 'file' wilt lezen. Met ander\
                                             # woorden: het bestand 'orders.txt' = nu file geworden / is opnieuw gedefinieerd en is in Python 'file' geworden.
 
-        for order in file: # Met de variabel 'order' ga je itereren over de gegevens die in het bestand 'orders.txt' staan. En het itereren over een  is mogelijk 
-            order_data = order.strip().split(', ')  # Met de '.strip()' code verwijder je onnodige witte / blanco gedeeltes aan het begin én einde van een string. En met de '.split()' code maak je van een 'string' een 'lijst' waarbij je van\
+        for order in file:                          # Met de variabel 'order' ga je itereren over de gegevens die in het bestand 'orders.txt' staan. En het itereren over gegevens in een extern bestand (b.v. een 'txt' bestand zoals in deze\
+            order_data = order.strip().split(', ')  # oefening) is dus ook mogelijk.
+                                                    # Met de '.strip()' code verwijder je onnodige witte / blanco gedeeltes aan het begin én einde van een string. En met de '.split()' code maak je van een 'string' een 'lijst' waarbij je van\
             # print(order_data)                     # 'elk woord' / 'item' in de string een 'lijst item' maakt.
             
             if len(order_data) == 5:    # Met deze code zeg je: als de lengte in de lijst 'order_data' gelijk is aan 5 items, voer dan onderstaande code uit. En het aantal bepaal je in de 'PizzaOrder class', hierboven bij de\
@@ -175,9 +176,9 @@ def load_orders_from_file():
                 
                 orders.append(order) # Met deze code voeg je de (inhoud van de) variabel 'order' toe aan de lijst 'orders' aan het begin van deze instance hierboven.
 
-            else:
-                # raise ValueError(F"Please make sure that every line is filled in correctly.\n") # Deze code is ook goed.
-                print(F"Invalid data format in the line: {order.strip()}")
+            else: # Met deze code zeg je: wanneer niet aan bovenstaande code is voldaan, voer dan onderstaande code uit.
+                # print(F"Invalid data format in the line: {order.strip()}") # Dit is de code uit de Winc uitwerking
+                raise ValueError(F"Please check this order, because something is not right: {order.strip()}.\n") # Maar deze code is ook goed.
                 
                 # LET OP!!! De 2 error meldingen hierboven krijg je pas te zien als je / iemand zelf (per ongeluk) een aanpassing aanbrengt in het 'aantal itmes' in het 'orders.txt' bestand. Het 'orders.txt' bestand bestaat namelijk uit de\
                 # 5 gedefinieerde items: 1 = customer_name, 2 = pizza_type, 3 = toppings, 4 = order_time, en 5 = is_delivered. En je kan dit zien doordat de items in het 'orders.txt' bestand worden gescheiden met een komma door de volgende\
