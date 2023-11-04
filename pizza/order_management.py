@@ -172,7 +172,7 @@ def load_orders_from_file():
 
                 order = PizzaOrder(customer_name, pizza_type, toppings, order_time, is_delivered)   # Hier definieer je de variabel 'order' opnieuw met de PizzaOrder class omdat je 3 van de 5 variabelen anders hebt gedefinieerd hierboven.\
                                                                                                     # LET OP!!! Je definieert de variabel 'order' met de class 'PizzaOrder' hier ook opnieuw zodat je elke variabel individueel weer kunt\
-                                                                                                    # aanroepen in het 'main.py' bestand op deze manier: 'order.customer_name' enz.
+                                                                                                    # aanroepen in het 'main.py' bestand op deze manier: 'order.customer_name' enz. De variabl 'order' is nu dus een class instance geworden.
                 
                 orders.append(order) # Met deze code voeg je de (inhoud van de) variabel 'order' toe aan de lijst 'orders' aan het begin van deze instance hierboven.
 

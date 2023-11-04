@@ -58,8 +58,9 @@ while True: # Met deze code start je de while loop om ervoor te zorgen dat je al
                                                                 
                                                                 # De variabel 'order' gebruik je hier om '2 redenen': 1= omdat de 'enumerate' code 2 argumenten nodig heeft om het te kunnen gebruiken, 2= omdat je een variabel nodig hebt die\
                                                                 # je gaat gebruiken om de nodige variabelen uit de 'order_management.py' module te halen. LET OP!!! De variabel 'order' is aan geen enkele andere code in deze modules\
-                                                                # gekoppeld, dus ook al zou je de variabel 'order' vervangen voor een andere variabel (b.v. 'test' i.p.v. 'order'), dan zou de code het nog steeds doen. Dit komt vanwege de\
-                                                                # punt '.' die je bij het gebruik van 'modules' gebruikt om codes uit andere modules aan te roepen. LET OP!!!! DEZE AANTEKENING NOG FF DUBBEL CHECKEN BIJ EEN WINC MENTOR.
+                                                                # gekoppeld, dus ook al zou je de variabel 'order' vervangen voor een andere variabel (b.v. 'test' i.p.v. 'order'), dan zou de code het nog steeds doen. En doordat ik de functie\
+                                                                # 'load_orders_from_file' heb aangeroepen bij deze elif statement (en ik helemaal bovenaan deze code deze functie heb geïmporteerd vanuit de 'order_management' module), kan ik\
+                                                                # met de punt '.' de variabelen aanroepen / gebruiken die ik heb aangemaakt in de 'load_orders_from_file' functie / instance (van de 'order_management' module).
                                                                 
                                                                 # De 'enumerate' code zorgt ervoor 'dat gegevens in een bestand of lijst genummerd worden'. In deze code worden dus de orders / bestellingen in het 'orders.txt' bestand\
                                                                 # genummerd. LET OP!!! De 'enumerate' code gebruik je vrijwel alleen in een 'for loop'. LET OP!!! De nummering bij gebruik van de 'enumerate' code 'begint standaard bij het\
@@ -67,8 +68,8 @@ while True: # Met deze code start je de while loop om ervoor te zorgen dat je al
                                                                 # dat: 'enumerate(orders, start=1)').
 
             print(F"{categorize}. {order.customer_name} ordered {order.pizza_type} with toppings {', '.join(order.toppings)}\n")    # Met deze code / 'F-string' maak je een leesbare zin voor de gebruikers door de woorden 'ordered' en 'with'\
-                                                                                                                                    # toe te voegen aan de zin + de nodige variabelen aan te roepen op de manier hoe je dat doet met modules:\
-                                                                                                                                    # 'order.NAAM VARIABEL'.
+                                                                                                                                    # toe te voegen aan de zin + de nodige variabelen aan te roepen op de manier hoe je dat doet bij het gerbuik\
+                                                                                                                                    # van modules, in dit voorbeeld is het dus: 'order.NAAM VARIABEL'.
 
             # print(F"Print statement regel 57 = {categorize}") # LET OP!!! Deze check / test print statement zie je alleen wanneer je de 'while loop' eerst stopt met 'Ctrl + C'. En dit geldt ook voor wanneer je andere aanpassingen niet ziet.
             # print('\n')
