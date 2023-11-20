@@ -32,10 +32,6 @@ This way if a test fails, you know not only that it fails, but also exactly wher
 def test_flatten_dict():
     
     assert main.flatten_dict({'a': 42, 'b': 3.14}) == [42, 3.14]
-            # [42, 3.14]
-    
-    # assert flatten_dict({'a': [42, 350], 'b': 3.14})
-            # [[42, 350], 3.14]
 
 
 if __name__ == "__main__":
