@@ -10,8 +10,6 @@ __human_name__ = "while"
 
 print('\n')
 
-
-
 def unique_koala_facts (requested_facts: int) -> list:
         
     unique_facts = [] # Deze variable betreft een lijst waarin alle unieke feiten komen die je qua aantal wilt zien met de functie 'unique_koala_facts', b.v. 2, 4 of 6 unieke feiten.

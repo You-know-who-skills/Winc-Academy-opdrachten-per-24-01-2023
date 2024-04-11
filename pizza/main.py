@@ -36,7 +36,7 @@ def display_menu(): # Met deze functie wordt 'onderstaande menu weergegeven'.
 
 pizza_order_list = [] 
 
-while True: # Met deze code start je de while loop om ervoor te zorgen dat je altijd deze menu altijd te raadplegen is.
+while True: # Met deze code start je de while loop om ervoor te zorgen dat deze menu altijd te raadplegen is.
     
     display_menu() # Op deze manier roep je de 'display_menu' functie aan.
     choice = input("Enter your choice (1,2,3,4) below: \n") # Met deze code geeft je de gebruiker de mogelijkheid om één van de 4 opties te kiezen van het menu.
@@ -54,10 +54,10 @@ while True: # Met deze code start je de while loop om ervoor te zorgen dat je al
         orders = load_orders_from_file()        # Met deze code zeg je: laat alle orders zien die in het 'order.txt' bestand zitten.
         print("Existing Orders:\n")               # Met deze code zeg je: laat deze 'string' zien wanneer alle orders uit het 'order.txt' bestand zitten worden getoond.
         
-        for categorize, order in enumerate(orders, start=1):    # Met de variabel 'categorize' ga je itereren over de gegevens in het 'order.txt' bestand.
+        for categorize, order in enumerate(orders, start=1):    # Met de variabel 'order' ga je itereren over de gegevens in het 'order.txt' bestand.
                                                                 
-                                                                # De variabel 'order' gebruik je hier om '2 redenen': 1= omdat de 'enumerate' code 2 argumenten nodig heeft om het te kunnen gebruiken, 2= omdat je een variabel nodig hebt die\
-                                                                # je gaat gebruiken om de nodige variabelen uit de 'order_management.py' module te halen. LET OP!!! De variabel 'order' is aan geen enkele andere code in deze modules\
+                                                                # De variabel 'categorize' gebruik je hier om '2 redenen': 1= omdat de 'enumerate' code 2 argumenten nodig heeft om het te kunnen gebruiken, 2= omdat je een variabel nodig hebt\
+                                                                # die je gaat gebruiken om de nodige variabelen uit de 'order_management.py' module te halen. LET OP!!! De variabel 'order' is aan geen enkele andere code in deze modules\
                                                                 # gekoppeld, dus ook al zou je de variabel 'order' vervangen voor een andere variabel (b.v. 'test' i.p.v. 'order'), dan zou de code het nog steeds doen. En doordat ik de functie\
                                                                 # 'load_orders_from_file' heb aangeroepen bij deze elif statement (en ik helemaal bovenaan deze code deze functie heb geïmporteerd vanuit de 'order_management' module), kan ik\
                                                                 # met de punt '.' de variabelen aanroepen / gebruiken die ik heb aangemaakt in de 'load_orders_from_file' functie / instance (van de 'order_management' module).

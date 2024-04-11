@@ -21,7 +21,8 @@ Import the following modules: time, math and sys.
 '''
 
 import time
-# from time import sleep  # Op deze manier kan je ook de code / het object 'sleep' importeren. Het verschil is dat wanneer je het op deze manier doet, hoef je verderop in je code geen 'punt' te gebruiken. Dus gewoon 'sleep' i.p.v. time.sleep.
+# from time import sleep    # Op deze manier kan je ook de code / het object 'sleep' importeren. Het verschil is dat wanneer je het op deze manier doet, hoef je verderop in je code geen 'punt' te gebruiken. Dus gewoon 'sleep' i.p.v.\
+                            # time.sleep.
 import math
 import sys
 
@@ -36,14 +37,15 @@ import datetime as dt # Met deze code importeer je de datetime module als alias 
 
 
 '''
-Write a function called 'wait' that takes one argument called 'seconds' (int), that uses a function in the time module to make the computer wait for that number of seconds and then returns nothing.
+Write a function called 'wait' that takes one argument called 'seconds' (int), that uses a function in the time module to make the computer wait for that number of seconds and then returns\
+nothing.
 '''
 
 def wait(seconds: int):
 
     # return "Hallo" # Deze return statement doet het ook.
 
-    time.sleep(seconds) # De 'sleep' code telt het aantal ingevoerde seconden af en returnd daarna alles wat je in de return statement zet. LET OP!!! Voor deze code (in deze functie) hoef je geen return statement te gebruiken.
+    time.sleep(seconds) # De 'sleep' code telt het aantal ingevoerde seconden af en returnd daarna alles wat je in de return statement zet. LET OP!!! Voor deze code (in deze functie) hoef je  geen return statement te gebruiken.
 
 
 '''
@@ -63,9 +65,10 @@ Example: 2000-12-31T17:00.
 
 def iso_now():
 
-    return dt.datetime.now().isoformat()    # Met deze code geef je de huidige 'datum' en 'tijd' inc. 'seconden' en 'honderdste' weer in het 'ISO 8601' formaat. Deze code heeft een gelaagde structuur dat als volgt werkt: 'dt' = de alias\
-                                            # die ik heb gebruikt voor de 'datetime' module, '.datetime.now()' = een object / code binnnen de 'datetime' module en dit is tevens de code die je nodig hebt om de '.isoformat()' code te kunnen\
-                                            # gebruiken, want de huidige datum en tijd in 'ISO 8601' formaat werkt alleen wanneer je deze 2 codes achter elkaar plaatst: dt.datetime.now().isoformat().
+    return dt.datetime.now().isoformat()    # Met deze code geef je de huidige 'datum' en 'tijd' inc. 'seconden' en 'honderdste' weer in het 'ISO 8601' formaat. Deze code heeft een gelaagde\
+                                            # structuur dat als volgt werkt: 'dt' = de alias # die ik heb gebruikt voor de 'datetime' module, '.datetime.now()' = een object / code binnnen de 'datetime' module en dit is tevens de code die je\
+                                            # nodig hebt om de '.isoformat()' code te kunnen gebruiken, want de huidige datum en tijd in 'ISO 8601' formaat werkt alleen wanneer je deze 2 codes achter elkaar plaatst:\
+                                            # dt.datetime.now().isoformat().
     
     # return dt.datetime.now().strftime("%Y-%m-%dT%H:%M") # Deze return statement keurt de 'Wincpy check' WEL goed omdat dit ook het 'ISO 8601' formaat lay-out heeft. LET OP!!! Het gebruik van de '%' tekens is noodzakelijk om deze code te\
     # laten werken.

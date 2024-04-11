@@ -113,7 +113,7 @@ class Commentator():
                             # alleen bruikbaar binnen deze 'class' / de class 'Commentator'. De nieuwe 'self' code heb ik hier nu ook gekoppeld aan het argument 'name'.
 
     '''
-    # Question 2 - part 2 = 'Sum player':
+    Question 2 - part 2 = 'Sum player':
 
     Write an instance method 'sum_player' that takes an instance of a player and returns the sum of their 'speed', 'endurance' and 'accuracy' attributes.
 
@@ -143,7 +143,7 @@ class Commentator():
 
 
     '''
-    # Question 2 - part 3-a = 'Compare_players':
+    Question 2 - part 3-a = 'Compare_players':
 
     Write an instance method 'compare_players' that takes two instances of the class Player (in no particular order) and one of 'speed', 'endurance' and 'accuracy' as its arguments and returns the name of the player that scores the highest
     on one of the 3 attributes.

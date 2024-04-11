@@ -49,7 +49,7 @@ def pull(m1: float, m2: float, d: float) -> int:
 '''
 De 'pull' functie van hierboven snap ik nog niet, dus deze heb ik gewoon overgenomen van de uitwerking in de lesstof van de module, want ik was ff helemaal klaar\
 met alle onduidelijke en foutieve vraagstellingen in de lesstof van de module.
-'''
+''' 
 
 
 if __name__ == "__main__":
