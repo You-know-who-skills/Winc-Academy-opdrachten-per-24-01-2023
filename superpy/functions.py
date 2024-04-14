@@ -1392,9 +1392,12 @@ def add_loss_products():
 # print(add_loss_products())
 # print("\n")
 
-# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
+
 '''
-Modify quantity. Met deze code pas je alleen de hoeveelheid van een bepaald product aan in een door jou gekozen bestand. DEZE CODE DOET HET PER WOENSDAG 28-2-2024.
+Modify quantity. Met deze code pas je alleen de hoeveelheid van een bepaald product aan in een door jou gekozen bestand,
+zonder de voorraad van het inventory bestand aan te passen. DEZE CODE DOET HET PER WOENSDAG 28-2-2024.
+
+- Zondagavond 14-04-2024 rond 21:46 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - LET OP!!! Deze functie heeft dus geen effect op de voorraad / de hoeveelheden van het inventory bestand. Het gaat dus om een losse / individuele aanpassing van\
 de hoeveelheid van een product.
 - Zaterdagnacht 23-03-2024 rond 02:48 uur = Functie aangepast en getest.
@@ -1408,7 +1411,7 @@ def modify_quantity():
 
     print("Follow the steps below to modify the quantity of a product in a chosen file.\n")
 
-    print("Step 1 = Enter one of the following files in which you want to modify the quantity in: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'inventory', 'sales' or 'losses' (not case sensitive).")
     print("Step 2 = Enter the product 'name' or 'id' (the product name is not case sensitive).")
     print("Step 3 = Enter the relevant amount and use a dot to seperate any decimals.")
     print("Step 4 = Enter the relevant date as follows: dd-mm-yyyy.")
@@ -1419,7 +1422,7 @@ def modify_quantity():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following files in which you want to modify the quantity in: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following files in which you want to modify the quantity: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
         print("\n")
 
         if file_name == "inventory":
@@ -1455,7 +1458,7 @@ def modify_quantity():
         break
 
 
-    # Relevant amount words for the relevant file for 'Step 3' in the while loop below.
+    # Names for the relevant 'amount' in the relevant file for 'Step 3' in the while loop below.
     relevant_amount = ""
     
     if file_name == "inventory.csv":
@@ -1481,11 +1484,12 @@ def modify_quantity():
             
             continue
         
+        # 3 Variables to check the relevant data / product in the relevant file and column in step 3, with my 'data_in_file_check()' function.
         purchase_amount_check = data_in_file_check("inventory.csv", search_type, "purchase_amount")
         sales_amount_check = data_in_file_check("sales.csv", search_type, "sales_amount")
         loss_amount_check = data_in_file_check("losses.csv", search_type, "loss_amount")
 
-        if file_name == "inventory.csv" and input_amount in purchase_amount_check:   # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
+        if file_name == "inventory.csv" and input_amount in purchase_amount_check:      # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
             print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the {relevant_amount} in the product details shown\
@@ -1510,7 +1514,7 @@ def modify_quantity():
         break
 
 
-    # Relevant date words for the relevant file for 'Step 4' in the while loop below.
+    # Names for the relevant 'date' in the relevant file for 'Step 4' in the while loop below.
     relevant_date = ""
 
     if file_name == "inventory.csv":
@@ -1522,8 +1526,7 @@ def modify_quantity():
     elif file_name == "losses.csv":
         relevant_date = "loss date"
 
-# LET OP!!! VANAF DEZE STAP MOET IK ERVOOR ZORGEN DAT PYTHON ALLES ONTHOUD WAT ER IS INGEVULD. DIT OMDAT JE NA DEZE STAP VERSCHILLENDE DATA KUNT INVULLEN B.V. DE SOLD QUANTITY VAN EEN ANDERE VERGELIJKBARE PRODUCT.
-# OF IK MOET EEN ELSE STATEMENT PLAATSEN IN DE FOR LOOP.
+
     while True:
         input_date = input(F"Step 4 = Enter the {relevant_date} for product '{search_type}' as follows: dd-mm-yyyy. You can double check the {relevant_date} in the previous step above: ")
         print("\n")
@@ -1532,16 +1535,16 @@ def modify_quantity():
             convert_to_dutch_date(input_date)
             
         except ValueError:
-            print("\n")
             print(F"Hello user! The entered {relevant_date} '{input_date}' isn't the correct format to fill in the {relevant_date} for product '{search_type}'. Please enter the correct {relevant_date} for product '{search_type}' in the\
  following format: dd-mm-yyyy.\n")
         
             continue
-
+        
+        # 3 Variables to check the relevant data / product in the relevant file and column in step 4, with my 'data_in_file_check()' function.
         purchase_date_check = data_in_file_check("inventory.csv", search_type, "purchase_date")
         sales_date_check = data_in_file_check("sales.csv", search_type, "sales_date")
         loss_date_check = data_in_file_check("losses.csv", search_type, "loss_date")
-        # HIER BEN IK MET TESTEN!!!
+        
         if file_name == "inventory.csv" and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_date} '{input_date}' matches one of the {relevant_date}'s of product '{search_type}' in the '{file_name[:-4]}' file. You can see the {relevant_date} in the product details shown above.\n")
@@ -1593,24 +1596,23 @@ def modify_quantity():
 
     while True:
         modify_type = input(F"Step 6 = Enter 'increase' if you want to increase the quantity or 'decrease' if you want to decrease the quantity for product '{search_type}' (not case sensitive): ").lower()
-        
+        print("\n")
+
         if modify_type == "increase" or modify_type == "decrease":
-            print("\n")
-            print(F"Great! It's noted that you want to '{modify_type}' the quantity for product '{search_type}' with {relevant_date} '{input_date}', {relevant_amount} '{input_amount}' and expiration date '{expiration_date}' in the\
+            
+            print(F"Great! It's noted that you want to '{modify_type}' the quantity for product '{search_type}' with {relevant_amount} '{input_amount}', {relevant_date} '{input_date}' and expiration date '{expiration_date}' in the\
  '{file_name[:-4]}' file.\n")
 
         else:
-            print("\n")
-            print(F"Hello user! '{modify_type}' Isn't the correct input for modifying the quantity of product '{search_type}'. Please enter 'increase' or 'decrease' for the correct quantity modification (not case sensitive).\n")
+            print(F"Hello user! '{modify_type}' Isn't the correct input to modify the quantity of product '{search_type}'. Please enter 'increase' or 'decrease' for the correct quantity modification (not case sensitive).\n")
             
             continue
         break
 
 
     while True:
-        quantity = input(F"Step 7 = Enter the number which you want to {modify_type} the quantity of product '{search_type}' with: ")
-        print("\n")
-
+        quantity = input(F"Step 7 = Enter the number by which you want to {modify_type} the quantity of product '{search_type}': ")
+        
         try:
             int(quantity)
 
@@ -1626,6 +1628,7 @@ def modify_quantity():
         reader = csv.DictReader(file)
         rows = list(reader)
         
+        # Variables to loop over the relevant columns in the for below.
         quantity_in_file = 'purchase_quantity'  # Een variabel gebruik je wanneer je iets in je code ook wil kunnen veranderen. Dus met de variabel 'quantity_in_file' zorg ik er in eerste instantie voor dat deze variabel altijd als\
                                                 # 'product_quantity' is gedefinieerd in onderstaande 'for loop'. Maar omdat ik alleen in mijn 'sales' en 'inventory' bestand de productdetail 'product_quantity' heb en in mijn 'losses'\
                                                 # bestand deze productdetail 'loss_quantity' heet, ga ik met onderstaande 'if statement' de variabel aanpassen zodat ik met onderstaande 'for loop' ook kan itereren in mijn 'losses' bestand.\
@@ -1660,22 +1663,27 @@ def modify_quantity():
 
         for row in rows:
             
-            if (row['id'] == search_type or row['name'] == search_type) and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date and modify_type == 'increase':
+            if (row['id'] == search_type or row['name'] == search_type) and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date and modify_type == 'increase'.lower():
                 row[quantity_in_file] = int(row[quantity_in_file]) + int(quantity)                                                                                                          # LET OP!!! Wanneer je na de 'or' operator nog meer\
+                                                                                                                                                                                            # operarors gaat gebruiken (zoals de 'and' operator\
+                                                                                                                                                                                            # operarors gaat gebruiken (zoals de 'and' operator\
+                                                                                                                                                                                            # operarors gaat gebruiken (zoals de 'and' operator\
                                                                                                                                                                                             # operarors gaat gebruiken (zoals de 'and' operator\
                                                                                                                                                                                             # in deze 'if statement'), moet je de 'or' operators\
                                                                                                                                                                                             # tussen haakjes\# plaatsen, want anders werkt je\
-                                                                                                                                                                                            # code / de 'if statement' # niet.
-                print(F"Great! Product '{search_type}' with the {relevant_amount} '{input_amount}', the {relevant_date} '{input_date}' and the expiration date '{expiration_date}' in the '{file_name[:-4]}' file has been 'increased' with a\
- quantity of '{quantity}'. See the result below.\n") 
+                print("\n")                                                                                                                                                                 # code / de 'if statement' # niet.
+                print(F"Great! Product '{search_type}' with {relevant_amount} '{input_amount}', {relevant_date} '{input_date}' and expiration date '{expiration_date}' in the '{file_name[:-4]}' file, has been 'increased' with a quantity of\
+ '{quantity}'. See the result below.\n") 
                 print(F"Result = {row}")
-                print("\n")
+                
+                modification = True
+                break
 
-            elif (row['id'] == search_type or row['name'] == search_type) and row[amount_in_file] == relevant_amount and row[date_in_file] == relevant_date and row['expiration_date'] == expiration_date and modify_type == 'decrease':
+            elif (row['id'] == search_type or row['name'] == search_type) and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date and modify_type == 'decrease'.lower():
                 row[quantity_in_file] = int(row[quantity_in_file]) - int(quantity)
                 print("\n")
-                print(F"Great! Product '{search_type}' with the {relevant_amount} '{input_amount}', the {relevant_date} '{input_date}' and the expiration date '{expiration_date}' in the '{file_name[:-4]}' file has been 'decreased' with a\
- quantity of '{quantity}'. See the result below.\n")
+                print(F"Great! Product '{search_type}' with {relevant_amount} '{input_amount}', {relevant_date} '{input_date}' and expiration date '{expiration_date}' in the '{file_name[:-4]}' file, has been 'decreased' with a quantity of\
+ '{quantity}'. See the result below.\n")
                 print(F"Result = {row}")
                 print("\n")
                 
@@ -1686,13 +1694,14 @@ def modify_quantity():
                 modification = False
         
         if modification == False:
+            print("\n")
             print(F"Entered product details:")
             print(F"Product 'id' or 'name' = '{search_type}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}' and product 'expiration date' = '{expiration_date}'.")
             print("\n")
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! One of the entered product details wasn't filled in correctly. Please check the differences in the 'entered product details' and the 'product details' from the 'inventory file' shown above.\n")
-                # break
-
+            print(F"Hello user! One or more of the entered product details wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product {search_type} in the\
+ {file_name[:-4]} file' also shown above.\n")
+            
         file.seek(0)
 
     with open(file_name, 'r+', newline='') as file:
@@ -1701,10 +1710,10 @@ def modify_quantity():
         writer.writerows(rows)
         print("\n")
 
-print(modify_quantity())
-print("\n")
+# print(modify_quantity())
+# print("\n")
 
-
+# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
 '''
 Wijzigen van de productdetails. Begonnen op maandag 26-02-2024. DEZE FUNCTIE DOET HET VOLLEDIG PER WOENSDAG 13-03-2024.
 
