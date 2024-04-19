@@ -461,8 +461,6 @@ op vrijdag 01-03-2024 n.a.v. een consult met een Winc mentor op woensdag 28-02-2
 meerdere / andere functies kan gebruiken. Zie b.v. mijn 'modify_quantity' functie.
 '''
 
-# HIER BEN IK MET MIJN CODE TESTEN EN COMMENTEN!!!
-
 def data_in_file_check(file_name: str, search_type: str, column_name: str):
 
     '''
@@ -500,6 +498,7 @@ def data_in_file_check(file_name: str, search_type: str, column_name: str):
 
 '''
 Checken (op voorhand) of een product 'wel' of 'niet' in een bestand voor komt (b.v. bij mijn input statements 'Enter the product 'name' or 'id'. DEZE CODE DOET HET PER WOENSDAG 28-02-2024.
+- Vrijdag 19-04-2024 rond 16:14 uur = De variabel 'product_in_file_check' aangepast naar 'product_in_file' omdat het niet de bedoeling is dat je variabelen maakt die dezelfde naam hebben als de functie.
 - Zaterdagnacht 13-04-2024 rond 00:42uur = functie aangepast door de print statement 'print("\n")' die 3 regels onder de 'with' statement stond te verwijderen. Dit omdat er een te grote\
   ruimte aan witregels ontstond in de for loop van mijn 'modify_qunatity()' functie.
 - Maandagnacht 01-04-2024 rond 01:02 uur = Functie getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)' En hij doet het nog prima!!!
@@ -511,25 +510,54 @@ def product_in_file_check(file_name: str, search_type: str):
         reader = csv.DictReader(file)
         rows = list(reader)
         
-        product_in_file_check = False
+        product_in_file = False
 
         for row in rows:
             if row['name'] == search_type or row['id'] == search_type:
             
-                product_in_file_check = True
+                product_in_file = True
                 print(F"Product details for product '{search_type}' in the '{file_name[:-4]}' file:")
                 print(row)
                 print("\n")
                 
         file.seek(0) # Even navragen of deze code nut heeft in deze functie én op deze plek.
 
-        if product_in_file_check == True:
+        if product_in_file == True:
             return True
         
-        elif product_in_file_check == False:
+        elif product_in_file == False:
             return False
 
 # print(product_in_file_check("sales.csv", "ei"))
+# print("\n")
+
+
+'''
+Alle product details van een product in een gekozen bestand laten zien. DEZE CODE DOET HET PER VRIJDAG 19-04-2024 rond 17:38 uur.
+'''
+
+def show_product_details(file_name: str, search_type: str, expiration_date: str):
+
+    with open(file_name, 'r') as file:
+        reader = csv.DictReader(file)
+        rows = list(reader)
+        
+        show_details = False
+
+        product_details = []
+
+        for row in rows:
+            if (row['name'] == search_type or row['id'] == search_type) and row['expiration_date'] == expiration_date:
+            
+                show_details = True
+                product_details.append(row)
+                                
+        file.seek(0) # Even navragen of deze code nut heeft in deze functie én op deze plek.
+
+        if show_details == True:
+            return product_details
+
+# print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
 # print("\n")
 
 
