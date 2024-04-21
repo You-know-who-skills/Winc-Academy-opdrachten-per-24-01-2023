@@ -1441,8 +1441,8 @@ def modify_quantity():
 
     print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'inventory', 'sales' or 'losses' (not case sensitive).")
     print("Step 2 = Enter the product 'name' or 'id' (the product name is not case sensitive).")
-    print("Step 3 = Enter the relevant amount and use a dot to seperate any decimals.")
-    print("Step 4 = Enter the relevant date as follows: dd-mm-yyyy.")
+    print("Step 3 = Enter the relevant amount (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
+    print("Step 4 = Enter the relevant date (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
     print("Step 5 = Enter the product expiration date as follows: dd-mm-yyyy.")
     print("Step 6 = Enter 'increase' or 'decrease' to modify the quantity (not case sensitive).")
     print("Step 7 = Enter the number you want to modify ('increase' or 'decrease') the quantity with.")
@@ -1656,7 +1656,7 @@ def modify_quantity():
         reader = csv.DictReader(file)
         rows = list(reader)
         
-        # Variables to loop over the relevant columns in the for below.
+        # Variables for the relevant files which are needed to loop over the relevant columns in the for loop below.
         quantity_in_file = 'purchase_quantity'  # Een variabel gebruik je wanneer je iets in je code ook wil kunnen veranderen. Dus met de variabel 'quantity_in_file' zorg ik er in eerste instantie voor dat deze variabel altijd als\
                                                 # 'product_quantity' is gedefinieerd in onderstaande 'for loop'. Maar omdat ik alleen in mijn 'sales' en 'inventory' bestand de productdetail 'product_quantity' heb en in mijn 'losses'\
                                                 # bestand deze productdetail 'loss_quantity' heet, ga ik met onderstaande 'if statement' de variabel aanpassen zodat ik met onderstaande 'for loop' ook kan itereren in mijn 'losses' bestand.\
@@ -1728,7 +1728,7 @@ def modify_quantity():
             print("\n")
             product_in_file_check(file_name, search_type)
             print(F"Hello user! One or more of the entered product details wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product {search_type} in the\
- {file_name[:-4]} file' also shown above.\n")
+ {file_name[:-4]} file' also shown above. And then try it again.\n")
             
         file.seek(0)
 
