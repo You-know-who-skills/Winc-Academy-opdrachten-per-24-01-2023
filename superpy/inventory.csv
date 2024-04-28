@@ -1,4 +1,4 @@
-product_id,product_name,product_quantity,product_purchase_amount,product_purchase_date,product_expiration_date
+id,name,purchase_quantity,purchase_amount,purchase_date,expiration_date
 1210,brood,0,2,24-01-2024,24-01-2025
 1211,kaas,100,2,24-01-2024,24-01-2025
 1212,tomaat,100,3,24-01-2024,24-01-2025

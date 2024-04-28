@@ -322,8 +322,8 @@ def special_occasion_countdown():
                                                                                         # code uitprint, moet je 'slicen' door een index te gebruiken. En met deze code kwam ik erachter dat je dus ook kan slicen door een getal én een\
     return F"{length_string_countdown} {special_occasion_sentence}"                     # variabel in combinatie met de 'find()' code te gebruiken 'binnen een index'.
 
-print(special_occasion_countdown())
-print("\n")
+# print(special_occasion_countdown())
+# print("\n")
 
 
 '''
@@ -492,7 +492,7 @@ def data_in_file_check(file_name: str, search_type: str, column_name: str):
             
             return column_name_results
 
-# print(data_in_file_check("sales.csv", "pindakaas", "sold_amount"))
+# print(data_in_file_check("sales.csv", "pindakaas", "sales_amount"))
 # print("\n")
 
 
@@ -557,8 +557,8 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
         if show_details == True:
             return product_details
 
-# print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
-# print("\n")
+print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
+print("\n")
 
 
 '''
