@@ -2548,88 +2548,8 @@ def remove_product():
 # print(remove_product())
 # print("\n")
 
+
 # HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
-'''
-LET OP!!! Deze code moet ik nog aanpassen met input statements én door gebruik te maken van mijn 'data in file' functie bij regel 528 hierboven.
-Specifieke data van een bestand pakken met de volgende zoektermen: 'bestandsnaam', 'product naam' of 'product id'. DEZE CODE DOET HET PER VRIJDAG 22-03-2024!!! 
-'''
-
-def collect_product_details():
-    
-    print("\n")
-    
-    print("Hello user, and welcome to the 'collect product details' menu.\n")
-
-    print("Follow the steps below to collect the details of a product in a chosen file.\n")
-
-    print("Step 1 = Enter one of the following file names to collect the product details from: 'inventory', 'sales' or 'losses' (not case sensitive).")
-    print("Step 2 = Enter the product 'name' or 'id' of which you want to collect the product details from (not case sensitive).")
-    print("Step 3 = Enter the name of the 'product detail' you want to collect and seperate each part of the detail with an underscore, for instance 'product_name' or 'product_purchase_amount' etc. (not case sensitive).")
-    print("Done!\n")
-
-
-    while True:
-        file_name = input("Step 1 = Enter one of the following file names to collect the product details from: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
-        print("\n")
-
-        if file_name == "inventory":
-            file_name = "inventory_file.csv"
-            print(F"Great! The '{file_name[:-4]}' file is found.\n")
-
-        elif file_name == "sales":
-            file_name = "sales_file.csv"
-            print(F"Great! The '{file_name[:-4]}' file is found.\n")
-            
-        elif file_name == "losses":
-            file_name = "losses_file.csv"
-            print(F"Great! The '{file_name[:-4]}' file is found.\n")
-
-        else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following three file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
-            
-            continue
-        break
-
-
-    while True:
-        search_type = input("Step 2 = Enter the product 'name' or 'id' of which you want to collect the product details from (not case sensitive): ").lower()
-        print("\n")
-
-        if product_in_file_check(file_name, search_type) == True:
-            print(F"Great! Product '{search_type}' is found in the '{file_name[:-4]}' file. You can see the product details above.\n")
-        
-        else:
-            print(F"Hello user! Product '{search_type}' was not found in the '{file_name[:-4]}' file. Please enter the correct product 'name' or 'id' (not case sensitive).\n")
-
-            continue
-        break
-
-
-    while True: # LET OP!!! DEZE WHILE LOOP MOET IK DUS VERANDEREN WANNEER IK ALLE KOLOMNAMEN HEB AANGEPAST.
-        column_name = (input("Step 3 = Enter the name of the 'product detail' you want to collect and seperate each part of the detail name with an underscore, for instance 'product_name' or 'product_purchase_amount' etc. (not case sensitive): ")).lower()
-        print("\n")
-
-        if column_name not in column_name_check(file_name):
-            print(F"Hello user! The entered product detail name '{column_name}' for product '{search_type}' was not found in the '{file_name[:-4]}' file. Please enter the correct product detail name for product '{search_type}' (not case sensitive).")
-            print(F"You can check all the product detail names of the '{file_name[:-4]}' file above.\n")
-
-            continue
-
-        else:
-            print(F"Great! The entered product detail name '{column_name}' of product '{search_type}' is found in the '{file_name[:-4]}' file. You can check all product detail names of the '{file_name[:-4]}' file above.\n")
-            print(F"And you can see all the collected details from '{column_name}' of product '{search_type}' from the '{file_name[:-4]}' file below.\n")
-            
-        break
-
-
-    print(F"'{column_name}(s)' for product '{search_type}':")
-    print(data_in_file_check(file_name, search_type, column_name))
-    print("\n")
-    
-# print(collect_product_details())
-# print("\n")
-
-
 '''
 Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 ''' 
