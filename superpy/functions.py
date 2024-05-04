@@ -2549,31 +2549,78 @@ def remove_product():
 # print("\n")
 
 
-# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
 '''
 Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+- Zaterdagavond 04-05-2024 en zaterdagnacht 05-05-2024 rond 00:22 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+  bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculate_costs(from_date: datetime.datetime , until_date: datetime.datetime):
+def calculate_costs():
+
+    print("Hello user, and welcome to the 'calculate costs' option.\n")
     
-    with open("inventory_file.csv", 'r') as inventory_file:
+    print("With this option you can calculate the costs from the inventory file within a chosen periode. Have fun calculating!\n")
+        
+    print("Follow the steps below to calculate the costs from the inventory file within a chosen periode.\n")
+    
+    print("Step 1 = Enter the 'from date'.")
+    print("Step 1 = Enter the 'until date'.")
+    print("Done!\n")
+
+    while True:
+        from_date = input("Step 1 = Enter the 'from date': ")
+
+        try:
+            convert_to_dutch_date(from_date)
+            
+        except ValueError:
+            print('\n')
+            print(F"Hello user! The entered 'from date' '{from_date}' isn't the correct format to fill in the 'from date'. Please enter the correct 'from date' as follows: dd-mm-yyyy.\n")
+        
+            continue
+        break
+
+
+    while True:
+        until_date = input("Step 1 = Enter the 'until date': ")
+
+        try:
+            convert_to_dutch_date(until_date)
+            
+        except ValueError:
+            print('\n')
+            print(F"Hello user! The entered 'until date' '{until_date}' isn't the correct format to fill in the 'until date'. Please enter the correct 'until date' as follows: dd-mm-yyyy.\n")
+        
+            continue
+        break
+
+
+    with open("inventory.csv", 'r') as inventory_file:
         reader = csv.DictReader(inventory_file)
+        print('\n')
 
         total_inventory = 0
 
         for row in reader:
         
-            product_purchase_date = datetime.datetime.strptime(row["product_purchase_date"], "%d-%m-%Y")
+            purchase_date = datetime.datetime.strptime(row["purchase_date"], "%d-%m-%Y")
 
-            if from_date <= product_purchase_date and until_date >= product_purchase_date:
-            # if begin_date <= product_purchase_date and end_date >= product_purchase_date:
-                inventory = float(row["product_quantity"]) * float(row["product_purchase_amount"])
+            input_from_date = convert_to_datetime_object(from_date)
+            input_until_date = convert_to_datetime_object(until_date)
+
+            if input_from_date <= purchase_date and input_until_date >= purchase_date:
+                inventory = float(row["purchase_quantity"]) * float(row["purchase_amount"])
             
                 total_inventory += inventory
         
+        print(F"The costs from '{from_date}' until '{until_date}' = € {round(total_inventory, 2)}\n")
+        
         return round(total_inventory, 2)
 
+# print(calculate_costs())
+# print('\n')
 
+# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
 '''
 Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 ''' 
