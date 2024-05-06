@@ -557,8 +557,8 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
         if show_details == True:
             return product_details
 
-print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
-print("\n")
+# print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
+# print("\n")
 
 
 '''
@@ -2551,55 +2551,21 @@ def remove_product():
 
 '''
 Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+
+- Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
+  gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
+  'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
+  'inkoopkosten', 'omzet' of 'winst'.
 - Zaterdagavond 04-05-2024 en zaterdagnacht 05-05-2024 rond 00:22 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculate_costs():
-
-    print("Hello user, and welcome to the 'calculate costs' option.\n")
-    
-    print("With this option you can calculate the costs from the inventory file within a chosen periode. Have fun calculating!\n")
-        
-    print("Follow the steps below to calculate the costs from the inventory file within a chosen periode.\n")
-    
-    print("Step 1 = Enter the 'from date'.")
-    print("Step 1 = Enter the 'until date'.")
-    print("Done!\n")
-
-    while True:
-        from_date = input("Step 1 = Enter the 'from date': ")
-
-        try:
-            convert_to_dutch_date(from_date)
-            
-        except ValueError:
-            print('\n')
-            print(F"Hello user! The entered 'from date' '{from_date}' isn't the correct format to fill in the 'from date'. Please enter the correct 'from date' as follows: dd-mm-yyyy.\n")
-        
-            continue
-        break
-
-
-    while True:
-        until_date = input("Step 1 = Enter the 'until date': ")
-
-        try:
-            convert_to_dutch_date(until_date)
-            
-        except ValueError:
-            print('\n')
-            print(F"Hello user! The entered 'until date' '{until_date}' isn't the correct format to fill in the 'until date'. Please enter the correct 'until date' as follows: dd-mm-yyyy.\n")
-        
-            continue
-        break
-
+def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime):
 
     with open("inventory.csv", 'r') as inventory_file:
         reader = csv.DictReader(inventory_file)
-        print('\n')
 
-        total_inventory = 0
+        total_costs = 0
 
         for row in reader:
         
@@ -2607,100 +2573,128 @@ def calculate_costs():
 
             input_from_date = convert_to_datetime_object(from_date)
             input_until_date = convert_to_datetime_object(until_date)
-
-            if input_from_date <= purchase_date and input_until_date >= purchase_date:
-                inventory = float(row["purchase_quantity"]) * float(row["purchase_amount"])
             
-                total_inventory += inventory
-        
-        print(F"The costs from '{from_date}' until '{until_date}' = € {round(total_inventory, 2)}\n")
-        
-        return round(total_inventory, 2)
+            # print(input_from_date)
+            # print(input_until_date)
 
-# print(calculate_costs())
+            # print(F"Dit is regel 2575 {type(input_from_date)}") # Op deze manier kan je met een 'F-string' zien wat voor 'type' een code / variabel is.
+            # print(F"Dit is regel 2576 {type(input_until_date)}")
+            # print(F"Dit is regel 2577 {type(from_date)}")
+            # print(F"Dit is regel 2578 {type(until_date)}")
+            
+            if input_from_date <= purchase_date and input_until_date >= purchase_date:
+                costs = float(row["purchase_quantity"]) * float(row["purchase_amount"])
+            
+                total_costs += costs
+        
+    return round(total_costs, 2)
+
+# print(calculate_costs("01-01-2024", "06-05-2024"))
 # print('\n')
 
-# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
+
 '''
 Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+
+- Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
+  gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
+  'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
+  'inkoopkosten', 'omzet' of 'winst'.
 ''' 
 
 def calculate_revenue(from_date: datetime.datetime, until_date: datetime.datetime):
 
-    with open("sales_file.csv", 'r') as sales_file:
+    with open("sales.csv", 'r') as sales_file:
         reader = csv.DictReader(sales_file)
 
         total_revenue = 0
 
         for row in reader:
         
-            product_sales_date = datetime.datetime.strptime(row["product_sales_date"], "%d-%m-%Y")
+            sales_date = datetime.datetime.strptime(row["sales_date"], "%d-%m-%Y")
 
-            if from_date <= product_sales_date and until_date >= product_sales_date:
-                revenue = float(row["product_quantity"]) * float(row["product_sales_amount"])
+            input_from_date = convert_to_datetime_object(from_date)
+            input_until_date = convert_to_datetime_object(until_date)
+
+            if input_from_date <= sales_date and input_until_date >= sales_date:
+                revenue = float(row["sold_quantity"]) * float(row["sales_amount"])
             
                 total_revenue += revenue
         
-        return round(total_revenue, 2)
-        
+    return round(total_revenue, 2)
+    
+# print(calculate_revenue("23-01-2024", "26-01-2024"))
+# print('\n')
+
 
 '''
 Met de 'calculate_profit' functie kan je de totale winst van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+
+- Maandag 06-05-2024 rond 23:39 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+  bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculate_profit(from_date, until_date):
+def calculate_profit(from_date: datetime.datetime, until_date: datetime.datetime):
     
-    with open("sales_file.csv", 'r') as sales_file:
+    with open("sales.csv", 'r') as sales_file:
         reader = csv.DictReader(sales_file)
-
-        total_profit = 0
 
         for row in reader:
     
-            product_sales_date = datetime.datetime.strptime(row["product_sales_date"], "%d-%m-%Y")
+            product_sales_date = datetime.datetime.strptime(row["sales_date"], "%d-%m-%Y")
 
-            if from_date <= product_sales_date and until_date >= product_sales_date:
-                profit = (calculate_revenue(from_date, until_date)) - (calculate_costs(from_date, until_date)) # De datum wordt hier toch op de Engelse manier weergegeven en ik wil het op de NL manier.
-                        
-                total_profit += profit
+            input_from_date = convert_to_datetime_object(from_date)
+            input_until_date = convert_to_datetime_object(until_date)
+
+            if input_from_date <= product_sales_date and input_until_date >= product_sales_date:
+                profit = float(calculate_revenue(from_date, until_date)) - float(calculate_costs(from_date, until_date)) # De datum wordt hier toch op de Engelse manier weergegeven en ik wil het op de NL manier.
                 
-        return round(profit, 2)
+    return round(profit, 2)
+
+# print(calculate_profit("23-01-2024", "26-01-2024"))
+# print(calculate_profit("01-01-2024", "06-05-2024"))
+# print('\n')
 
 
 '''
-Met de 'time_frame_calculation' functie kan je de zelf kiezen wat je wilt uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+Met de 'calculations' functie kan je de zelf kiezen wat je wilt uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+
+- Dinsdagnacht 07-05-2024 rond 00:27 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
+  bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
+# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
+def calculations():
 
-def time_frame_calculation():
+    print("Hello user, and welcome to the 'calculations' options..\n")
 
-    print("Hello user, and welcome to the 'time frame calculation' menu. Follow the steps below to choose frow which time frame you want to see the calculation for the 'costs', the 'revenue' or the 'profit'.\n")
-    print("Step 1 = Enter 'costs', 'revenue' or 'profit' to see the total calculation within a chosen time frame.")
+    print("Follow the steps below to choose which calculation you would like to make: 'costs', 'revenue' or 'profit'.\n")
+
+    print("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive).")
     print("Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
     print("Step 3 = Enter the 'until' date as follows dd-mm-yyyy.\n")
 
 
     while True:
-        time_frame_type = input("Step 1 = Enter 'costs', 'revenue' or 'profit' to see the corresponding time frame: ").lower()
+        calculation_type = input("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive): ").lower()
         print("\n")
 
-        if time_frame_type == "costs" or time_frame_type == "revenue" or time_frame_type == "profit":
-            print(F"Data for '{time_frame_type}' collected.\n")
+        if calculation_type == "costs" or calculation_type == "revenue" or calculation_type == "profit":
+            print(F"Great! It is noted that you want to calculate the '{calculation_type}'.\n")
 
         else:
-            print(F"Hello user. '{time_frame_type}' Isn't the correct option for choosing a time frame. Please enter: 'costs' or 'revenue' or 'profit' to see the correct calculation within the chosen time frame.\n")
+            print(F"Hello user! '{calculation_type}' Isn't the correct input for choosing a calculation. Please choose one of the following calculations: 'costs', 'revenue' or 'profit'.\n")
             continue
         break
 
-    
-    while True:
-        from_date = input("Enter the 'from' date as follows: dd-mm-yyyy: ")
-        print("\n")
 
+    while True:
+        from_date = input("Step 2 = Enter the 'from' date as follows: dd-mm-yyyy: ")
+        
         try:
-            from_date = datetime.datetime.strptime(from_date, "%d-%m-%Y")
+            convert_to_dutch_date(from_date)
             
         except ValueError:
-            print(F"Hello user. '{from_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user. '{from_date}' Isn't the correct format to fill in the 'from' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n")
 
             continue
         break
@@ -2708,10 +2702,9 @@ def time_frame_calculation():
 
     while True:
         until_date = input("Step 3 = Enter the 'until' date as follows dd-mm-yyyy: ")
-        print("\n")
-
+        
         try:
-            until_date = datetime.datetime.strptime(until_date, "%d-%m-%Y")
+            convert_to_dutch_date(until_date)
             
         except ValueError:
             print(F"Hello user. '{until_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n")
@@ -2719,20 +2712,21 @@ def time_frame_calculation():
             continue
         break    
 
-    
-    if time_frame_type == "costs":
-        outcome = (calculate_costs(from_date, until_date))
-        
-    elif time_frame_type == "revenue":
-        outcome = (calculate_revenue(from_date, until_date))
-    
-    elif time_frame_type == "profit":
-        outcome = (calculate_profit(from_date, until_date))
-        
-    from_date = datetime.datetime.strftime(from_date, "%d-%m-%Y")
-    until_date = datetime.datetime.strftime(until_date, "%d-%m-%Y")
 
-    return F"The '{time_frame_type}' from '{from_date}' until '{until_date}' = EUR '{outcome}'."
+    if calculation_type == "costs":
+        calculation = (calculate_costs(from_date, until_date))
+        
+    elif calculation_type == "revenue":
+        calculation = (calculate_revenue(from_date, until_date))
+    
+    elif calculation_type == "profit":
+        calculation = (calculate_profit(from_date, until_date))
+
+    print('\n')
+    return F"The '{calculation_type}' from '{from_date}' until '{until_date}' = '€ {calculation}'."
+
+# print(calculations())
+# print('\n')
 
 
 if __name__ == "__main__":
