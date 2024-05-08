@@ -13,10 +13,10 @@ print('\n')
 '''
 De huidige datum returnen ZONDER menu en datums omzetten naar 'datetime objecten. DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 - Zaterdagnacht 06-04-2024 rond 00:55 uur ben ik met onderstaande functies bezig geweest. Dit omdat\
-de input statements met datums in mijn functies geen vergelijking konden maken tussen een string en\
-een datetime object (b.v. 'if input_date < current_date()'. Daarom heb ik de functie\
-'convert_to_datetime_object()' toegevoegd zodat ik hiermee dit soort input statements wel kon\
-omzetten naar een datetime object.
+  de input statements met datums in mijn functies geen vergelijking konden maken tussen een string en\
+  een datetime object (b.v. 'if input_date < current_date()'. Daarom heb ik de functie\
+  'convert_to_datetime_object()' toegevoegd zodat ik hiermee dit soort input statements wel kon\
+  omzetten naar een datetime object.
 
     - current_date() = aangepast;
     - convert_to_datetime_object() = toegevoegd;
@@ -27,6 +27,8 @@ en dat veroorzaakte een foutmelding met mijn current date functie in andere func
 op advies van een Winc mentor opnieuw geschreven met de 'datetime.datetime.today()' en toen kreeg ik geen
 conflicten meer in m'n code.
 '''
+
+# Date functions.
 
 def current_date():
 
@@ -55,26 +57,29 @@ def convert_to_dutch_date(date_format):
 '''
 De huidige datum returnen MET menu. DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 Ik ben ook met deze functie begonnen op vrijdag 15-03-2024.
+
+- Dinsdag 07-05-2024 rond 23:57 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
+  (door ze korter te maken)'. En hij doet het nog prima!!!
 '''
 
 def update_system_date():
     
     print("\n")
     
-    print("Hello user, and welcome to the 'update system date' menu. With this option you can update the system date to the current date. Follow the steps below to update the system date.\n")
+    print("Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date. Follow the steps below to update the system date.\n")
 
-    print("Step 1 = Enter Y (for Yes) if you want to update the system date or enter N (for No) if you don't want to update the system date (not case sensitive).")
+    print("Step 1 = Enter Y for 'Yes' if you want to update the system date or enter N for 'No' if you don't want to update the system date (not case sensitive).")
     print("Done!\n")
     
     while True:
-        update_system = (input("Step 1 = Enter Y (for Yes) if you want to update the system date or enter N (for No) if you don't want to update the system date: ")).lower()
+        update_system = (input("Step 1 = Enter Y for 'Yes' if you want to update the system date or enter N for 'No' if you don't want to update the system date (not case sensitive): ")).lower()
         print("\n")
 
         if update_system == "y":
-            print("Great! The date of the system is updated to the current date. You can check the current date below.\n")
+            print("Great! The date of the system is updated to the current date. You can see the current date below.\n")
 
         elif update_system == "n":
-            print("Noted! The date of the system will not be updated to the current date.\n")
+            print("Oké! The date of the system will not be updated to the current date.\n")
         
         else:
             print(F"Hello user! '{update_system}' isn't the correct input for updating the system date. Please enter Y if you want to update the system date or N if you don't want to update te system date.\n") 
@@ -82,17 +87,18 @@ def update_system_date():
             continue
         break
 
-    today_date = current_date()
-    string_date = "15-03-2024" # This is de date this functions was written.
+
+    today_date_datetime = current_date()
 
     if update_system == "y":
-        string_date = datetime.datetime.strftime(today_date, "%d-%m-%Y")
-        print(string_date)
+        today_date_string = datetime.datetime.strftime(today_date_datetime, "%d-%m-%Y")
+
+        print(today_date_string)
         print("\n")
 
-    with open("date_file.txt", 'w') as date_file:
+        with open("date_file.txt", 'w') as date_file:
 
-        date_file.write(string_date)
+            date_file.write(today_date_string)
 
 # print(update_system_date())
 # print("\n")
@@ -100,16 +106,21 @@ def update_system_date():
 
 '''
 Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET HET PER ZATERDAGNACHT 16-03-2024!!!
-Ik ben ook met deze functie begonnen op zaterdagnacht 16-03-2024.
-Ik wilde deze functie hebben naast de verplichte timedelta functie die ik van Winc moest schrijven omdat ik dit veel makkelijker vind,
-zie mijn 'change_system_date()' functie waarin ik de timedelta code heb verwerkt.
+
+- Woensdagnacht 08-05-2024 rond 00:19 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
+  (door ze korter te maken)'. En hij doet het nog prima!!!
+- Ik ben ook met deze functie begonnen op zaterdagnacht 16-03-2024.
+- Ik wilde deze functie hebben naast de verplichte timedelta functie die ik van Winc moest schrijven omdat ik dit veel makkelijker vind,
+  zie mijn 'change_system_date()' functie waarin ik de timedelta code heb verwerkt.
 '''
 
 def go_to_specific_date():
     
     print("\n")
     
-    print("Hello user, and welcome to the 'choose a specific system date' menu. With this option you can go to a specific date in the system. Follow the steps below to go to a specific date in the system.\n")
+    print("Hello user, and welcome to the 'choose a specific system date' option. With this option you can go to a specific date in the system.\n")
+    
+    print("Follow the steps below to go to a specific date in the system.\n")
 
     print("Step 1 = Enter the date you want the system to go to.")
     print("Done!\n")
@@ -119,10 +130,10 @@ def go_to_specific_date():
         print("\n")
 
         try:
-            date_check = datetime.datetime.strptime(specific_date, "%d-%m-%Y")
+            convert_to_dutch_date(specific_date)
             
         except ValueError:
-            print(F"Hello user! '{specific_date}' isn't the correct format to fill in the specific date. Please enter the specific date in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.\n")
             
             continue
         break
@@ -131,7 +142,7 @@ def go_to_specific_date():
     with open("date_file.txt", 'w') as date_file:
 
         date_file.write(specific_date)
-        print("Great! The date of the system has been changed to the specific date. You can check the specific date below.\n")
+        print("Great! The date of the system has been changed to the specific date. You can see the specific date below.\n")
 
     return specific_date
 
@@ -140,35 +151,39 @@ def go_to_specific_date():
 
 
 '''
-Systeem datum aanpassen. DEZE AANGEPASTE FUNCTIE DOET HET PER DONDERDAG 14-03-2024 ÉN IS OP VRIJDAG 15-03-2024 ALS 'PRIMA' BEVONDEN DOOR EEN WINC MENTOR.
-Deze functie deed het al per zondagnacht 10-03-2024 ROND 02:57 UUR, maar ik heb de naam
-(tijdrijzen functie / time travel) én de inhoud van deze functie aangepast op donderdag 14-03-2024
-naar 'change_system_date' na een consult met een Winc mentor.
-Met deze code kan je de systeem datum / de datum in het 'date_file.txt' bestand aanpassen naar welke
-datum je maar wilt met een door jou opgegeven aantal 'dagen' of 'weken'.
+Systeem datum aanpassen. DEZE AANGEPASTE FUNCTIE DOET HET PER DONDERDAG 14-03-2024 ÉN IS OP VRIJDAG 15-03-2024 ALS 'PRIMA'\
+BEVONDEN DOOR EEN WINC MENTOR.
+
+- Woensdagnacht 08-05-2024 rond 00:51 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen\
+  (door ze korter te maken)'. En hij doet het nog prima!!!
+
+- Deze functie deed het al per zondagnacht 10-03-2024 ROND 02:57 UUR, maar ik heb de naam
+  (tijdrijzen functie / time travel) én de inhoud van deze functie aangepast op donderdag 14-03-2024
+  naar 'change_system_date' na een consult met een Winc mentor.
+- Met deze code kan je de systeem datum / de datum in het 'date_file.txt' bestand aanpassen naar welke
+  datum je maar wilt met een door jou opgegeven aantal 'dagen' of 'weken'.
 '''
 
 def change_system_date(): # Met deze functie moet je de datum van je systeem aanpassen door de datum in het 'date_file.txt' bestand aan te passen.
 
     print("\n")
 
-    print("Hello user, and welcome to the 'change system date' menu.\n")
+    print("Hello user, and welcome to the 'change system date' option.\n")
         
     print("Follow the steps below to change the system date by entering the number of days or weeks you want to change the system date with.\n")
     
     print("Step 1 = Enter 'days' if you want to change the system date in a period of days or enter 'weeks' if you want to change the system date in weeks (not case sensitive).")
-    print("Step 2 = Enter 'past' if you want the system date to go to the past or enter 'future' if you want the system date to be in the future (not case sensitive).")
+    print("Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go to the future (not case sensitive).")
     print("Step 3 = Enter a 'number' for the couple of days or weeks that you want to change the system date with.")
-    print("Done!.\n")
+    print("Done!\n")
 
-    date_periode_choice = ["days", "weeks"]
-    date_travel_choice = ["past", "future"]
 
     while True:
         days_or_weeks = input("Step 1 = Enter 'days' if you want to change the system date in a period of days or enter 'weeks' if you want to change the system date in weeks (not case sensitive): ").lower()
         print("\n")
 
-        if days_or_weeks in date_periode_choice:
+        if days_or_weeks == 'days' or days_or_weeks == 'weeks':
+        # if days_or_weeks in date_periode_choice:
             print(F"Great! Let's change the system date for a couple of '{days_or_weeks}'.\n")
 
         else:
@@ -179,32 +194,33 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
 
 
     while True:
-            past_or_future = input("Step 2 = Enter 'past' if you want the system date to go to the past or enter 'future' if you want the system date to be in the future (not case sensitive): ").lower()
+            past_or_future = input("Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go to the future (not case sensitive): ").lower()
             print("\n")
 
-            if past_or_future in date_travel_choice:
+            if past_or_future == 'past' or past_or_future == 'future':
+            # if past_or_future in date_travel_choice:
                 print(F"Great! Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.\n")
 
             else:
-                print(F"Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'future' or 'past' for the correct system date modification.\n")
+                print(F"Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.\n")
 
                 continue
             break
 
 
     while True:
-        number = (input(f"Step 3 = Enter a 'number' for the couple of '{days_or_weeks}' that you want to change the system date with in the {past_or_future}: "))
+        number = (input(f"Step 3 = Enter a 'number' for the couple of '{days_or_weeks}' that you want to change the system date with in the '{past_or_future}': "))
         print("\n")
 
         try:
             int(number)
             
         except ValueError:
-            print(F"Hello user! The number of '{days_or_weeks}' must only contain a 'number'. '{number}' doesn't only contain a number. Please enter a number to continue with the system date modification.\n")
+            print(F"Hello user! The number of '{days_or_weeks}' can only contain a 'number'. '{number}' doesn't only contain a number. Please enter a number to continue with the system date modification.\n")
             
             continue
 
-        if int(number) > 105000 and days_or_weeks == "weeks".lower(): # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
+        if int(number) > 105000 and days_or_weeks == "weeks": # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
             print(F"Hello user! The number you entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.\n")
 
             continue
@@ -224,29 +240,25 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
     # Modify system date by days.
     if days_or_weeks == "days" and past_or_future == "past":
         system_date = today_date - timedelta_days
-        print("\n")
-    
+        
     elif days_or_weeks == "days" and past_or_future == "future":
         system_date = today_date + timedelta_days
-        print("\n")
-    
-
+        
     # Modify system date by weeks.
     elif days_or_weeks == "weeks" and past_or_future == "past":
         system_date = today_date - timedelta_weeks
-        print("\n")
-    
+        
     elif days_or_weeks == "weeks" and past_or_future == "future":
         system_date = today_date + timedelta_weeks
-        print("\n")
-
+        
     string_date = datetime.datetime.strftime(system_date, "%d-%m-%Y")
+
 
     with open("date_file.txt", 'w') as date_file:
 
         date_file.write(string_date)
 
-    return F"If we go '{number}' '{days_or_weeks}' in the '{past_or_future}', the date = {string_date}" # LET OP!!! Ik wil ook nog de dag vóór de datum hebben (dus b.v. Monday of Tuesday etc.).
+    return F"If we go '{number}' '{days_or_weeks}' in the '{past_or_future}', the date = '{string_date}'" # LET OP!!! Ik wil ook nog de dag vóór de datum hebben (dus b.v. Monday of Tuesday etc.).
 
 # print(change_system_date())
 # print("\n")
@@ -263,6 +275,8 @@ with open('special_occasion.txt', 'w') as file:
 
 '''
 Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Per zaterdagnacht 30-03-2024 rond 01:12 uur.
+- Woensdagnacht 08-05-2024 rond 02:15 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+  bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - Vrijdag 29-01-2024 = Code aangepast samen met mentor Christiaan.
 - Zaterdagnacht 30-03-2024 = Code aangepast én getest.
 '''
@@ -271,13 +285,13 @@ def special_occasion_countdown():
 
     print("\n")
 
-    print("Hello user, and welcome to the 'countdown to a special occasion' option.\n")
+    print("Hello user, and welcome to the 'special occasion countdown' option.\n")
         
     print("Follow the steps below to create a countdown for a special occasion.\n")
     
     print("Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
-    print("Step 2 = Type a sentence that you want to use for this special occasion date.")
-    print("Done!.\n")
+    print("Step 2 = Type a sentence that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
+    print("Done!\n")
 
 
     while True:
@@ -287,20 +301,22 @@ def special_occasion_countdown():
             convert_to_dutch_date(special_occasion_date)
             print("\n")
             print(F"Great! The special occasion date '{special_occasion_date}' has been filled in correctly.\n")
-            
+
         except ValueError:
             print("\n")
             print(F"Hello user! '{special_occasion_date}' Isn't the correct format to fill in the special occasion date. Please enter the correct special occasion date in the following format: dd-mm-yyyy.\n")
             
             continue
         
-        input_date = datetime.datetime.strptime(special_occasion_date, "%d-%m-%Y")  # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen\
-        todays_date = datetime.datetime.today()                                     # is als een datetime object in / door Python. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel hier te printen (zie de print\
-                                                                                    # statement hieronder) en dan zie je dat het hier nog steeds een 'string' is. En door het met de variabel 'input_date' om te zetten naar een datetime\
-                                                                                    # object, kan je het dus wel weer vergelijken met een andere datetime object en in dit geval is dat mijn 'today' variabel. Ik heb mijn 'current_date()'\
-        if input_date < todays_date:                                                # functie geprobeerd te gebruiken, maar het lukt in deze functie dan toch niet om het te vergelijken met een datetime object omdat mijn 'current_date()'\
-            print(type(input_date))                                               # functie een 'string' / 'strftime' is.
-            print(F"Hello user! The date you just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet. ;-). Please enter the correct special occasion date to continue the special occasion countdown: dd-mm-yyyy.\n")
+        print(type(special_occasion_date))                              # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een\
+        input_date = convert_to_datetime_object(special_occasion_date)  # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan\
+        todays_date = current_date()                                    # zie je dat het hier nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer\
+        print(type(input_date))                                         # vergelijken met een andere 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel. 
+        print(type(todays_date))                                        
+        
+        if input_date < todays_date:                                    
+            print(F"Hello user! The date you just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet. ;-). Please enter the correct special occasion date to continue the special occasion\
+ countdown: dd-mm-yyyy.\n")
             
             continue
         break
@@ -309,18 +325,20 @@ def special_occasion_countdown():
     special_occasion_sentence = input("Step 2 = Type a sentence that you want to add to the special occasion countdown (for instance: Until Christmas!!!): ")
     print("\n")
     
+
     with open('special_occasion.txt', 'w') as file:
     
-        datetime_countdown = input_date - todays_date   # Dit zijn de variabelen die ik in de 'while loop' heb gebruikt en omdat ik van deze variabelen 'datetime objecten' heb gemaakt, kan ik hier ook met ze 'rekenen', als in de datums\
-        print(datetime_countdown)                       # op- of aftrekken. En met deze print statement kan je zien hoe de uitkomst van mijn 'datetime_countdown' code er normaal gesproken uit ziet.
+        datetime_countdown = input_date - todays_date       # Dit zijn de variabelen die ik in de 'while loop' heb gebruikt. En omdat ik van deze variabelen 'datetime objecten' heb gemaakt, kan ik hier ook met ze 'rekenen', dus de datums\
+        print(F"Original countdown = {datetime_countdown}") # op- of aftrekken. En met deze print statement kan je zien hoe de uitkomst van mijn 'datetime_countdown' code er normaal gesproken uit ziet.
+        print("\n")                                         
 
-        string_countdown = str(datetime_countdown)      # Om beide variabelen te kunnen gebruiken als 'strings' heb ik ze hier 'gecast' naar een 'string'. En zo kan ik beide 'datetime objecten' ('input_date' en 'todays_date') als string\
-                                                        # gebruiken.        
-        length_string_countdown = string_countdown[0:string_countdown.find(",")]    # Met deze index geef ik aan waar mijn 'string_countdown' variabel begint (= 0) en waar mijn 'string_countdown' variabel eindigt (= bij de komma)\
-                                                                                    # Dit omdat wanneer je 'datetime_countdown' variabel volledig (dus zonder te slicen / te indexen) uitprint (zie de print statement hierboven), zie je dat\
-        file.write(F"{length_string_countdown.upper()} {special_occasion_sentence}")    # Python een komma plaatst tussen het aantal dagen en het tijdstip. Dus wanneer je wilt dat de komma en het tijdstip niet zichtbaar zijn wanneer je de\
-                                                                                        # code uitprint, moet je 'slicen' door een index te gebruiken. En met deze code kwam ik erachter dat je dus ook kan slicen door een getal én een\
-    return F"{length_string_countdown} {special_occasion_sentence}"                     # variabel in combinatie met de 'find()' code te gebruiken 'binnen een index'.
+        full_string_countdown = str(datetime_countdown)     # Om mijn 'datetime_countdown' variabel (bestaande uit mijn 'input_date' en 'todays_date' variabelen) te kunnen gebruiken als 'strings', heb ik ze hier 'gecast' naar een 'string'.\
+                                                            # En zo kan ik beide 'datetime objecten' ('input_date' en 'todays_date') ook als string gebruiken.
+        short_string_countdown = full_string_countdown[0:full_string_countdown.find(",")]   # Met deze index geef ik aan waar mijn 'string_countdown' variabel begint (= bij '0') en waar mijn 'string_countdown' variabel eindigt (= bij de\
+                                                                                            # komma). Dit omdat wanneer je de 'datetime_countdown' variabel volledig (dus zonder te slicen / te indexen) print (zie de print statement hierboven\
+        file.write(F"{short_string_countdown.upper()} {special_occasion_sentence}")         # bij de 'F-string', dan zie je dat Python een komma plaatst tussen het aantal dagen en het tijdstip. Dus wanneer je wilt dat de komma en het\
+                                                                                            # tijdstip niet zichtbaar zijn wanneer je de code print, moet je 'slicen' door een index te gebruiken. En met deze code kwam ik erachter dat je dus\
+    return F"{short_string_countdown} {special_occasion_sentence}"                          # ook kan slicen door een getal én een variabel in combinatie met de 'find()' code kunt gebruiken 'binnen een index'.
 
 # print(special_occasion_countdown())
 # print("\n")
@@ -2662,7 +2680,7 @@ Met de 'calculations' functie kan je de zelf kiezen wat je wilt uitrekenen in ee
 - Dinsdagnacht 07-05-2024 rond 00:27 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
-# HIER BEN IK MET MIJN FUNCTIES / CODES TESTEN!!!
+
 def calculations():
 
     print("Hello user, and welcome to the 'calculations' options..\n")
@@ -2723,7 +2741,7 @@ def calculations():
         calculation = (calculate_profit(from_date, until_date))
 
     print('\n')
-    return F"The '{calculation_type}' from '{from_date}' until '{until_date}' = '€ {calculation}'."
+    return F"The '{calculation_type}' from the period '{from_date}' until '{until_date}' = '€ {calculation}'."
 
 # print(calculations())
 # print('\n')
