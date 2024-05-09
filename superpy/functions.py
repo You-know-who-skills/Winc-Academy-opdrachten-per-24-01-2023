@@ -15,11 +15,11 @@ De huidige datum returnen ZONDER menu en datums omzetten naar 'datetime objecten
 - Zaterdagnacht 06-04-2024 rond 00:55 uur ben ik met onderstaande functies bezig geweest. Dit omdat\
   de input statements met datums in mijn functies geen vergelijking konden maken tussen een string en\
   een datetime object (b.v. 'if input_date < current_date()'. Daarom heb ik de functie\
-  'convert_to_datetime_object()' toegevoegd zodat ik hiermee dit soort input statements wel kon\
+  'convert_to_strptime()' toegevoegd zodat ik hiermee dit soort input statements wel kon\
   omzetten naar een datetime object.
 
     - current_date() = aangepast;
-    - convert_to_datetime_object() = toegevoegd;
+    - convert_to_strptime() = toegevoegd;
     - convert_to_dutch_date() = niet aangepast.
 
 Ik had deze code al eerder geschreven op zondagnacht 10-03-2024, maar dan met de 'datetime.date.today()' code
@@ -38,12 +38,17 @@ def current_date():
 # print("\n")
 
 
-def convert_to_datetime_object(datetime_object):
+def convert_to_strptime(datetime_object):
 
     return datetime.datetime.strptime(datetime_object, "%d-%m-%Y")
 
 # print(convert_to_dutch_date_test())
 # print("\n")
+
+
+def convert_to_strftime(string):
+
+    return datetime.datetime.strftime(string, "%d-%m-%Y")
 
 
 def convert_to_dutch_date(date_format):
@@ -58,7 +63,7 @@ def convert_to_dutch_date(date_format):
 De huidige datum returnen MET menu. DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 Ik ben ook met deze functie begonnen op vrijdag 15-03-2024.
 
-- Dinsdag 07-05-2024 rond 23:57 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
+- Dinsdag 07-05-2024 rond 23:57 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
   (door ze korter te maken)'. En hij doet het nog prima!!!
 '''
 
@@ -91,7 +96,7 @@ def update_system_date():
     today_date_datetime = current_date()
 
     if update_system == "y":
-        today_date_string = datetime.datetime.strftime(today_date_datetime, "%d-%m-%Y")
+        today_date_string = convert_to_strftime(today_date_datetime)
 
         print(today_date_string)
         print("\n")
@@ -107,7 +112,7 @@ def update_system_date():
 '''
 Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET HET PER ZATERDAGNACHT 16-03-2024!!!
 
-- Woensdagnacht 08-05-2024 rond 00:19 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
+- Woensdagnacht 08-05-2024 rond 00:19 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
   (door ze korter te maken)'. En hij doet het nog prima!!!
 - Ik ben ook met deze functie begonnen op zaterdagnacht 16-03-2024.
 - Ik wilde deze functie hebben naast de verplichte timedelta functie die ik van Winc moest schrijven omdat ik dit veel makkelijker vind,
@@ -154,7 +159,7 @@ def go_to_specific_date():
 Systeem datum aanpassen. DEZE AANGEPASTE FUNCTIE DOET HET PER DONDERDAG 14-03-2024 ÉN IS OP VRIJDAG 15-03-2024 ALS 'PRIMA'\
 BEVONDEN DOOR EEN WINC MENTOR.
 
-- Woensdagnacht 08-05-2024 rond 00:51 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen\
+- Woensdagnacht 08-05-2024 rond 00:51 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen\
   (door ze korter te maken)'. En hij doet het nog prima!!!
 
 - Deze functie deed het al per zondagnacht 10-03-2024 ROND 02:57 UUR, maar ik heb de naam
@@ -251,7 +256,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
     elif days_or_weeks == "weeks" and past_or_future == "future":
         system_date = today_date + timedelta_weeks
         
-    string_date = datetime.datetime.strftime(system_date, "%d-%m-%Y")
+    string_date = convert_to_strftime(system_date)
 
 
     with open("date_file.txt", 'w') as date_file:
@@ -275,7 +280,7 @@ with open('special_occasion.txt', 'w') as file:
 
 '''
 Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Per zaterdagnacht 30-03-2024 rond 01:12 uur.
-- Woensdagnacht 08-05-2024 rond 02:15 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+- Woensdagnacht 08-05-2024 rond 02:15 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - Vrijdag 29-01-2024 = Code aangepast samen met mentor Christiaan.
 - Zaterdagnacht 30-03-2024 = Code aangepast én getest.
@@ -309,7 +314,7 @@ def special_occasion_countdown():
             continue
         
         print(type(special_occasion_date))                              # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een\
-        input_date = convert_to_datetime_object(special_occasion_date)  # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan\
+        input_date = convert_to_strptime(special_occasion_date)  # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan\
         todays_date = current_date()                                    # zie je dat het hier nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer\
         print(type(input_date))                                         # vergelijken met een andere 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel. 
         print(type(todays_date))                                        
@@ -790,13 +795,16 @@ def view_all_products():
 Product toevoegen of de producthoeveelheid aanpassen in inventory bestand indien product 'id',
 'naam' en 'houdbaarheidsdatum' overeenkomen. DEZE CODE DOET HET PER WOENSDAG 24-01-2024!!!
 
-- Dinsdagavond 02-04-2024 rond 20:22 uur = Functie getest na de start van mijn taak: 'kolom- en\
-  bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
+- Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 01:32 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
+  toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
+  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+- Dinsdagavond 02-04-2024 rond 20:22 uur = Functie getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
+  (door ze korter te maken)'. En hij doet het nog prima!!!
 - Donderdag 21-03-2024 rond 22:56 uur = Functie aangepast.
 - Vrijdag 22-03-2024 rond 19:45 uur = Functie wederom getest.
 
-LET OP!!! Ik heb per vrijdag 22-03-2024 besloten om de kolomnamen aanpassen, dus daarna moet ik\
-deze én alle andere functies nog een keer testen :-(.
+LET OP!!! Ik heb per vrijdag 22-03-2024 besloten om de kolomnamen aan te passen, dus daarna moet ik deze én alle andere\
+functies nog een keer testen :-(.
 '''
 
 def add_inventory_products():
@@ -813,17 +821,8 @@ def add_inventory_products():
     print("Step 6 = Enter the product expiration date as follows: dd-mm-yyyy.\n")
 
 
-    today_date_string = datetime.datetime.today().strftime("%d-%m-%Y")
-
-    today_date_datetime = datetime.datetime.strptime(today_date_string, "%d-%m-%Y")
-    
-    calculate_date = today_date_datetime + timedelta(1)
-    
-    tomorrow_date = datetime.datetime.strftime(calculate_date, "%d-%m-%Y")
-
-
     while True:
-        id = (input("Step 1 = Enter the product ID: "))
+        id = (input("Step 1 = Enter the product 'ID': "))
         
         try:
             int(id)
@@ -836,11 +835,11 @@ def add_inventory_products():
         break        
 
 
-    name = input(F"Step 2 = Enter the product name for product ID {id} (not case sensitive): ").lower()
+    name = input(F"Step 2 = Enter the 'name' for product ID {id} (not case sensitive): ").lower()
 
 
     while True:
-        quantity = input(F"Step 3 = Enter the purchase quantity for product '{name}': ")
+        quantity = input(F"Step 3 = Enter the 'purchase quantity' for product '{name}': ")
         
         try:
             int(quantity)
@@ -854,7 +853,7 @@ def add_inventory_products():
 
 
     while True:
-        purchase_amount = input(F"Step 4 = Enter the purchase amount for product '{name}': ")
+        purchase_amount = input(F"Step 4 = Enter the 'purchase amount' for product '{name}' and use a dot in stead of a comma to seperate any decimals: ")
         
         try:
             float(purchase_amount)
@@ -868,10 +867,10 @@ def add_inventory_products():
 
 
     while True:
-        purchase_date = input(F"Step 5 = Enter the purchase date for product '{name}' as follows: dd-mm-yyyy: ")
+        purchase_date = input(F"Step 5 = Enter the 'purchase date' for product '{name}' as follows: dd-mm-yyyy: ")
         
         try:
-            input_date = convert_to_dutch_date(purchase_date)
+            convert_to_dutch_date(purchase_date)
 
         except ValueError:
             print("\n")
@@ -879,6 +878,8 @@ def add_inventory_products():
             
             continue
         
+        input_date = convert_to_strptime(purchase_date)
+
         if input_date > current_date():
             print("\n")
             print(F"Hello user! The date you just entered: '{purchase_date}', is a date in the future. And we're not able to time travel... yet. ;-). Please enter the correct date for product '{name}'.\n")
@@ -886,12 +887,18 @@ def add_inventory_products():
             continue
         break
 
-
+    # The 3 variables below are to create the 'tomorrow_date' variable which is a notification code for when the expiration date of a product is tomorrow. See the 1st 'elif statement' in 'step 6' below to understand why.
+    today_date = current_date()
+    
+    calculate_date = today_date + timedelta(1)          # Met de 'calculate_date' variabel tel ik 1 dag op bij de huidige datum. LET OP!!! Beide variabelen zijn datetime objecten en dat is nodgi om te kunnen rekeken met de datums.
+    
+    tomorrow_date = convert_to_strftime(calculate_date) # Met de 'tomorrow_date' variabel zet ik 'calculate_date' variabel om naar een string zodat ik deze bij de input statement van stap 6 hieronder (dat ook een string is) kan gebruiken\
+                                                        # om de nodige vergelijking te kunnen maken.
     while True:
-        expiration_date = input(F"Step 6 = Enter the expiration date for product '{name}' as follows: dd-mm-yyyy: ")
+        expiration_date = input(F"Step 6 = Enter the 'expiration date' for product '{name}' as follows: dd-mm-yyyy: ")
         
         try:
-            input_date = convert_to_dutch_date(expiration_date)
+            convert_to_dutch_date(expiration_date)
         
         except ValueError:
             print("\n")
@@ -899,8 +906,10 @@ def add_inventory_products():
             
             continue
 
-        if input_date == current_date():
-            print("\n")
+        input_date = convert_to_dutch_date(expiration_date)     # Met de 'input_date' variabel zet ik de 'expiration_date' variabel (dat dus ook de input statement van stap 6 is) om naar de Nederlandse datum format.
+
+        if input_date == current_date().strftime("%d-%m-%Y"):   # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
+            print("\n")                                         # (dat ook een string is) te kunnen maken.
             print(F"Hello user! The expiration date of product '{name}' is today. So you can either: 1: enter the correct expiration date, 2: put it on sale, 3: think of a durable way not to waste it.\n")
 
             continue
@@ -911,7 +920,7 @@ def add_inventory_products():
 
             continue
 
-        elif input_date < current_date():
+        elif input_date < current_date().strftime("%d-%m-%Y"):
             print("\n")
             print(F"Hello user! Product '{name}' is rotton. So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n")
 
@@ -1067,7 +1076,7 @@ def add_sold_products():
             
             continue
         
-        input_date = convert_to_datetime_object(sales_date)  # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen\
+        input_date = convert_to_strptime(sales_date)  # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen\
         
         if input_date > current_date():
             print("\n")
@@ -1081,7 +1090,7 @@ def add_sold_products():
         expiration_date = (input("Step 6 = Enter the product expiration date as follows: dd-mm-yyyy: "))
 
         try:
-            input_date = convert_to_datetime_object(expiration_date)
+            input_date = convert_to_strptime(expiration_date)
             
         except ValueError:
             print("\n")
@@ -1197,7 +1206,7 @@ def add_sold_products():
 
 '''
 DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
-- Maandagavond 02-04-2024 rond 23:17 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
+- Maandagavond 02-04-2024 rond 23:17 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 
 Losses / verlies producten toevoegen of de producthoeveelheid aanpassen in het losses bestand én het inventory\
 bestand indien product 'id', 'naam', 'houbaarheidsdatum', 'verlies datum', 'oorzaak verlies', 'verlies bedrag'\
@@ -1299,7 +1308,7 @@ def add_loss_products():
             
             continue
 
-        input_date = convert_to_datetime_object(loss_date) # LET OP!!! Hier ga ik wel een vergelijking maken en daarom zet ik de datum hier wel om naar een datetime object.
+        input_date = convert_to_strptime(loss_date) # LET OP!!! Hier ga ik wel een vergelijking maken en daarom zet ik de datum hier wel om naar een datetime object.
 
         if input_date > current_date():
             print("\n")
@@ -1446,7 +1455,7 @@ zonder de voorraad van het inventory bestand aan te passen. DEZE CODE DOET HET P
 - Woensdagnacht 01-05-2024 rond 01:33 uur = Functie aangepast n.a.v. aanpassingen die ik heb gedaan bij mijn\
   'remove_product()': het toevoegen van mijn 'product_in_file_check(file_name, search_type)' functie 'boven'\
   vraag 4 en 5. En wat tekstuele aanpassingen gedaan.
-  - Zondagavond 14-04-2024 rond 21:46 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+  - Zondagavond 14-04-2024 rond 21:46 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 - LET OP!!! Deze functie heeft dus geen effect op de voorraad / de hoeveelheden van het inventory bestand. Het gaat\
   dus om een losse / individuele aanpassing van de hoeveelheid van een product.
@@ -1771,7 +1780,7 @@ def modify_quantity():
 '''
 Wijzigen van de productdetails. Begonnen op maandag 26-02-2024. DEZE FUNCTIE DOET HET VOLLEDIG PER WOENSDAG 13-03-2024.
 - Dinsdag 30-04-2024 rond 16:17 uur = Nog wat tekstuele aanpassingen gedaan in deze functie zodat de zinnen bij de stappen meer uniform zijn.
-- Maandag 29-04-2024 rond 21:59 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen\
+- Maandag 29-04-2024 rond 21:59 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen\
   aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - Woensdag 27-03-2024 rond 23:10 uur = Witregels '("\n") aangepast en deze functie gekopieerd naar mijn Superpy document.
 - Zondag 24-03-2024 rond 15:26 uur = Functie opnieuw gecheckt n.a.v. de houbaarheidsdatum check die ik heb\
@@ -2220,7 +2229,7 @@ def modify_product_details():
 
 '''
 Product verwijderen op bais van 'naam' of 'id' én in combinatie met de houdbaarheidsdatum. DEZE CODE DOET HET PER ZATERDAGNACHT 09-03-2024 ROND 02:39 UUR.
-- Dinsdagavond 30-04-2024 én woensdagnacht 01-05-2024 rond 01:18 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en bestandsnamen\
+- Dinsdagavond 30-04-2024 én woensdagnacht 01-05-2024 rond 01:18 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen\
   aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - Zondag 24-03-2024 rond 17:05 uur = Functie aangepast én getest en hij deed het nog steeds.
 '''
@@ -2570,11 +2579,14 @@ def remove_product():
 '''
 Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
+- Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 01:57 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
+  toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
+  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
   gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
   'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
   'inkoopkosten', 'omzet' of 'winst'.
-- Zaterdagavond 04-05-2024 en zaterdagnacht 05-05-2024 rond 00:22 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+- Zaterdagavond 04-05-2024 en zaterdagnacht 05-05-2024 rond 00:22 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
@@ -2587,10 +2599,10 @@ def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime)
 
         for row in reader:
         
-            purchase_date = datetime.datetime.strptime(row["purchase_date"], "%d-%m-%Y")
-
-            input_from_date = convert_to_datetime_object(from_date)
-            input_until_date = convert_to_datetime_object(until_date)
+            purchase_date = convert_to_strptime(row["purchase_date"])
+            
+            input_from_date = convert_to_strptime(from_date)
+            input_until_date = convert_to_strptime(until_date)
             
             # print(input_from_date)
             # print(input_until_date)
@@ -2605,8 +2617,9 @@ def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime)
             
                 total_costs += costs
         
-    return round(total_costs, 2)
+        return round(total_costs, 2)
 
+# print(calculate_costs("23-01-2024", "26-01-2024"))
 # print(calculate_costs("01-01-2024", "06-05-2024"))
 # print('\n')
 
@@ -2614,6 +2627,9 @@ def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime)
 '''
 Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
+- Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 02:00 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
+  toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
+  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
   gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
   'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
@@ -2629,10 +2645,10 @@ def calculate_revenue(from_date: datetime.datetime, until_date: datetime.datetim
 
         for row in reader:
         
-            sales_date = datetime.datetime.strptime(row["sales_date"], "%d-%m-%Y")
+            sales_date = convert_to_strptime(row["sales_date"])
 
-            input_from_date = convert_to_datetime_object(from_date)
-            input_until_date = convert_to_datetime_object(until_date)
+            input_from_date = convert_to_strptime(from_date)
+            input_until_date = convert_to_strptime(until_date)
 
             if input_from_date <= sales_date and input_until_date >= sales_date:
                 revenue = float(row["sold_quantity"]) * float(row["sales_amount"])
@@ -2642,13 +2658,17 @@ def calculate_revenue(from_date: datetime.datetime, until_date: datetime.datetim
     return round(total_revenue, 2)
     
 # print(calculate_revenue("23-01-2024", "26-01-2024"))
+# print(calculate_revenue("01-01-2024", "06-05-2024"))
 # print('\n')
 
 
 '''
 Met de 'calculate_profit' functie kan je de totale winst van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
-- Maandag 06-05-2024 rond 23:39 uur = Functie getest én aangepast na de start van mijn taak: 'kolom- en\
+- Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 02:10 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
+  toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
+  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+- Maandag 06-05-2024 rond 23:39 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
@@ -2659,10 +2679,10 @@ def calculate_profit(from_date: datetime.datetime, until_date: datetime.datetime
 
         for row in reader:
     
-            product_sales_date = datetime.datetime.strptime(row["sales_date"], "%d-%m-%Y")
+            product_sales_date = convert_to_strptime(row["sales_date"])
 
-            input_from_date = convert_to_datetime_object(from_date)
-            input_until_date = convert_to_datetime_object(until_date)
+            input_from_date = convert_to_strptime(from_date)
+            input_until_date = convert_to_strptime(until_date)
 
             if input_from_date <= product_sales_date and input_until_date >= product_sales_date:
                 profit = float(calculate_revenue(from_date, until_date)) - float(calculate_costs(from_date, until_date)) # De datum wordt hier toch op de Engelse manier weergegeven en ik wil het op de NL manier.
