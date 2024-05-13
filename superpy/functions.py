@@ -785,7 +785,7 @@ def	avoid_expired_products():
             expire_days = today_date + timedelta(3)
             
             if yes_or_no == 'y' and expire_date > day_after_tomorrow and expire_date <= expire_days:
-                print(F" {categorize}, {row}\n")                
+                print(F" {categorize}. {row}\n")                
                 
 # print(avoid_expired_products())
 # print('\n')
@@ -1242,39 +1242,38 @@ def add_loss_products():
 
     while True:
         id = (input("Step 1 = Enter the product ID: "))
-        
+        print('\n')
+
         try:
             int(id)
             
         except ValueError:
-            print('\n')
             print(F"Hello user! The product ID can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product id that only contains numbers.\n")
             
             continue
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' is also found in the inventory file. You can see the product details above.\n")
+            print(F"Great! Product ID '{id}' matches the product ID of this product in the inventory file. You can see the product details from product ID '{id}' from the inventory file above.\n")
         
         else:
-            print(F"Hello user! Product ID '{id}' was not found in the inventory file. Please enter the correct product id.\n")
+            print(F"Hello user! The entered product ID '{id}' doesn't match the product ID of this product in the inventory file. You can only add a loss product to the losses file if this product is also in the inventory file. Please check\
+ the product details above for the correct product 'ID'.\n")
 
             continue
         break 
-    
+
 
     while True:
         name = (input("Step 2 = Enter the product name: ")).lower()
-        
-        input_name = product_detail_check('inventory.csv', name, "name")
+        print('\n')
 
-        if name in input_name:
+        if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' with product id '{id}' is also found in the inventory file. You can see the product details above.\n")
-        
+            print(F"Great! Product name '{name}' matches with product id '{id}' from the inventory file. You can see the product details of product '{name}' from the inventory file above.\n")
+
         else:
             product_in_file_check('inventory.csv', id)
-            print(F"Hello user! '{name.capitalize()}' is not a product 'name' from the inventory file. You can only add a loss product to the losses file if it's also known in the inventory file. Please check the product details above for\
- the correct product name (not case sensitive).\n")
+            print(F"Hello user! The entered product name '{name}' doesn't belong to product id '{id}'. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
 
             continue
         break
@@ -2348,7 +2347,7 @@ def modify_quantity():
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_amount = input(F"Step 3 = Enter the {relevant_amount} for product '{search_type}' and use a dot to seperate any decimals. You can double check the {relevant_amount} for product '{search_type}' in the product details shown\
+        input_amount = input(F"Step 3 = Enter the {relevant_amount} for product '{search_type}' and use a dot to seperate any decimals. You can double check the '{relevant_amount}' for product '{search_type}' in the product details shown\
  above: ")
         print('\n')
 
@@ -2369,22 +2368,22 @@ def modify_quantity():
         if file_name == 'inventory.csv' and input_amount in purchase_amount_check:      # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the {relevant_amount} in the product details shown\
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the '{relevant_amount}' in the product details shown\
  above.\n")
         
         elif file_name == "sales.csv" and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the {relevant_amount} in the product details shown\
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the '{relevant_amount}' in the product details shown\
  above.\n")
         
         elif file_name == "losses.csv" and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the {relevant_amount} in the product details shown\
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the {relevant_amount}'s in the '{file_name[:-4]}' file. You can see the '{relevant_amount}' in the product details shown\
  above.\n")
 
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered {relevant_amount} '{input_amount}' doesn't match one or more of the {relevant_amount}'s of product '{search_type}' in the '{file_name[:-4]}' file. Please check the details for product\
+            print(F"Hello user! The entered {relevant_amount} '{input_amount}' doesn't match one or more of the '{relevant_amount}'s' of product '{search_type}' in the '{file_name[:-4]}' file. Please check the details for product\
  '{search_type}' shown above for the correct {relevant_amount}.\n")
 
             continue
@@ -2637,6 +2636,38 @@ def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime)
 
 # print(calculate_costs("23-01-2024", "26-01-2024"))
 # print(calculate_costs("01-01-2024", "06-05-2024"))
+# print('\n')
+
+
+'''
+Met de 'calculate_losses' functie kan je de totale verliezen van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER MAANDAG 13-05-2024 rond 17:17 uur.
+
+- Maandag 13-05-2024 rond 22:41 uur = Op deze dag heb ik deze functie geschreven én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'
+''' 
+
+def calculate_losses(from_date: datetime.datetime, until_date: datetime.datetime):
+
+    with open('losses.csv', 'r') as losses_file:
+        reader = csv.DictReader(losses_file)
+
+        total_losses = 0
+
+        for row in reader:
+        
+            loss_date = convert_to_strptime(row["loss_date"])
+            
+            input_from_date = convert_to_strptime(from_date)
+            input_until_date = convert_to_strptime(until_date)
+            
+            if input_from_date <= loss_date and input_until_date >= loss_date:
+                losses = float(row["loss_quantity"]) * float(row["loss_amount"])
+            
+                total_losses += losses
+        
+        return round(total_losses, 2)
+
+# print(calculate_losses("23-01-2024", "26-01-2024"))
+# print(calculate_losses("01-01-2024", "31-05-2024"))
 # print('\n')
 
 
