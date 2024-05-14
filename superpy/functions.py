@@ -2547,7 +2547,7 @@ def modify_quantity():
                                                                                                                                                                                             # tussen haakjes plaatsen, want anders werkt je code\
                 print('\n')                                                                                                                                                                 # / de 'if statement' niet.
                 print(F"Great! Product '{search_type}' with {relevant_amount} '{input_amount}', {relevant_date} '{input_date}' and expiration date '{expiration_date}' in the '{file_name[:-4]}' file, has been 'increased' with a quantity of\
- '{quantity}'. See the result below.\n") 
+ '{quantity}'. You can see the result below.\n") 
                 print(F"Result = {row}")
                 
                 modification = True
@@ -2557,7 +2557,7 @@ def modify_quantity():
                 row[quantity_in_file] = int(row[quantity_in_file]) - int(quantity)
                 print('\n')
                 print(F"Great! Product '{search_type}' with {relevant_amount} '{input_amount}', {relevant_date} '{input_date}' and expiration date '{expiration_date}' in the '{file_name[:-4]}' file, has been 'decreased' with a quantity of\
- '{quantity}'. See the result below.\n")
+ '{quantity}'. You can see the result below.\n")
                 print(F"Result = {row}")
                 print('\n')
                 
@@ -2584,8 +2584,8 @@ def modify_quantity():
         writer.writerows(rows)
         print('\n')
 
-# print(modify_quantity())
-# print('\n')
+print(modify_quantity())
+print('\n')
 
 
 # Help functions – calculate costs, revenue and profit.
@@ -2732,19 +2732,21 @@ def calculate_profit(from_date: datetime.datetime, until_date: datetime.datetime
             input_until_date = convert_to_strptime(until_date)
 
             if input_from_date <= product_sales_date and input_until_date >= product_sales_date:
-                profit = float(calculate_revenue(from_date, until_date)) - float(calculate_costs(from_date, until_date)) # De datum wordt hier toch op de Engelse manier weergegeven en ik wil het op de NL manier.
+                profit = float(calculate_revenue(from_date, until_date)) - float(calculate_costs(from_date, until_date)) - float(calculate_losses(from_date, until_date))# De datum wordt hier toch op de Engelse manier weergegeven en ik wil het op de NL manier.
+                # profit = float(calculate_revenue(from_date, until_date)) - float(calculate_costs(from_date, until_date)) # DEZE CODE DOET HET!!!
                 
     return round(profit, 2)
 
 # print(calculate_profit("23-01-2024", "26-01-2024"))
-# print(calculate_profit("01-01-2024", "06-05-2024"))
+# print(calculate_profit("01-01-2024", "31-05-2024"))
 # print('\n')
 
 
 # User functions – calculate costs, revenue and profit.
 
 '''
-Met de 'calculations' functie kan je de zelf kiezen wat je wilt uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
+Met de 'calculations' functie (oude naam was 'time_frame_calculation()' functie) kan je de zelf kiezen wat je wilt\
+uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
 - Dinsdagnacht 07-05-2024 rond 00:27 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
@@ -2765,7 +2767,7 @@ def calculations():
         calculation_type = input("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive): ").lower()
         print('\n')
 
-        if calculation_type == "costs" or calculation_type == "revenue" or calculation_type == "profit":
+        if calculation_type == "costs" or calculation_type == "losses" or calculation_type == "revenue" or calculation_type == "profit":
             print(F"Great! It is noted that you want to calculate the '{calculation_type}'.\n")
 
         else:
@@ -2803,6 +2805,9 @@ def calculations():
     if calculation_type == "costs":
         calculation = (calculate_costs(from_date, until_date))
         
+    elif calculation_type == "losses":
+        calculation = (calculate_losses(from_date, until_date))
+    
     elif calculation_type == "revenue":
         calculation = (calculate_revenue(from_date, until_date))
     
