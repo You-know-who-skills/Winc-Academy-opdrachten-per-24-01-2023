@@ -583,8 +583,8 @@ def product_detail_check(file_name: str, search_type: str, column_name: str):
                 
                 data_in_file = True
                 column_name_results.append(row[column_name])
-                # LET OP!!! Je gebruikt in deze 'for loop' geen 'break' code omdat er dan maar 1 item wordt gereturnd met de 'return' statement. En als je de 'break' code weghaalt, wordt het laatste item / het item helemaal onderaan\
-                # het bestand gereturnd. Dus wanneer je de gegevens die je zoekt met een 'for loop' wilt gebruiken (b.v. in een andere functie zoals ik met deze code heb gedaan in o.a. mijn 'modify_quantity' functie), dan kan je beter de\
+                # LET OP!!! Je gebruikt in deze 'for loop' geen 'break' code omdat er dan maar 1 item wordt gereturned met de 'return' statement. En als je de 'break' code weghaalt, wordt het laatste item / het item helemaal onderaan\
+                # het bestand gereturned. Dus wanneer je de gegevens die je zoekt met een 'for loop' wilt gebruiken (b.v. in een andere functie zoals ik met deze code heb gedaan in o.a. mijn 'modify_quantity' functie), dan kan je beter de\
                 # gevonden gegevens eerst in een lijst plaatsen zoals ik hierboven heb gedaan met mijn variabel 'data_in_file = []'. Op deze manier kan je de gehele 'lijst' returnen én kan je de gegevens in de lijst weer gebruiken in\
                 # andere functies.
         file.seek(0)
