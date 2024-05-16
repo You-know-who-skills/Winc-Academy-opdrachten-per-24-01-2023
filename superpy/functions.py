@@ -686,6 +686,160 @@ def view_all_products():
 
 
 '''
+Met de 'view_products_within_period' functie kan je de 'inventory', 'sold' en losses producten binnen een bepaalde periode zien. BEGONNEN OP MAANDAG 13-05-2024.
+
+- Donderdag 16-05-2024 rond 18:19 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'.\
+  En hij doet het nog prima!!!
+- Ik moet deze code nog goed testen per dinsdag 14-05-2024.
+''' 
+
+def view_products_within_period():
+
+    print("Hello user, and welcome to the 'view products within a certain period' option.\n")
+
+    print("Follow the steps below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period.\n")
+
+    print("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
+    print("Step 3 = Enter the 'from' date as follows: dd-mm-yyyy.")
+    print("Step 4 = Enter the 'until' date as follows dd-mm-yyyy.\n")
+
+
+    while True:
+        file_name = input("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        print('\n')
+
+        if file_name == "inventory":
+            file_name = 'inventory.csv'
+            print(F"Great! The '{file_name[:-4]}' file is found.\n")
+
+        elif file_name == "sales":
+            file_name = "sales.csv"
+            print(F"Great! The '{file_name[:-4]}' file is found.\n")
+            
+        elif file_name == "losses":
+            file_name = "losses.csv"
+            print(F"Great! The '{file_name[:-4]}' file is found.\n")
+
+        else:
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+
+            continue
+        break
+
+
+    # Variables to choose the correct relevant date in the while loop for 'Step 2' below.
+    if file_name == 'inventory.csv':
+        date_in_file = 'purchase date'
+
+    elif file_name == 'sales.csv':
+        date_in_file = 'sales date'
+
+    elif file_name == 'losses.csv':
+        date_in_file = 'loss date'
+
+
+    while True:
+        date_type = input("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' date of the products. Or enter 'expiration' if you want to view the expiration dates of the products within a certain periode (not case\
+ sensitive): ").lower()
+        print('\n')
+
+        if date_type == 'expiration':
+            date_in_file = 'expiration date'
+        
+        if date_type == "other":
+            print(F"Great! It's noted that you want to view the '{date_in_file}' of the products from the '{file_name[:-4]}' file within a certain period.\n")
+
+        elif date_type == "expiration":
+            print(F"Great! It's noted that you want to view the 'expiration date' of the products from the '{file_name[:-4]}' file within a certain period.\n")
+
+        else:
+            print(F"Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name[:-4]}' file within a certain period. Please enter 'other' or 'expiration' to view the '{date_in_file}'\
+ within a certain period (not case sensitive).\n")
+
+            continue
+        break
+
+
+    while True:
+        from_date = input("Step 3 = Enter the 'from' date as follows: dd-mm-yyyy: ")
+        
+        try:
+            convert_to_dutch_date(from_date)
+            
+        except ValueError:
+            print('\n')
+            print(F"Hello user! '{from_date}' Isn't the correct format to fill in the 'from' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n")
+
+            continue
+        break
+
+
+    while True:
+        until_date = input("Step 4 = Enter the 'until' date as follows dd-mm-yyyy: ")
+        
+        try:
+            convert_to_dutch_date(until_date)
+            
+        except ValueError:
+            print('\n')
+            print(F"Hello user! '{until_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n")
+        
+            continue
+        break    
+
+
+    with open(file_name, 'r') as relevant_file:
+        reader = csv.DictReader(relevant_file)
+        print('\n')
+
+        # Variables to select the correct relevant date in the relevant file.
+        if file_name == 'inventory.csv' and date_type == 'other':
+            relevant_date = 'purchase_date'
+
+        elif file_name == 'sales.csv' and date_type == 'other':
+            relevant_date = 'sales_date'
+
+        elif file_name == 'losses.csv' and date_type == 'other':
+            relevant_date = 'loss_date'
+        
+        if date_type == 'expiration':
+            relevant_date = 'expiration_date'
+
+
+        if date_type == 'other':
+            print(F"Great! Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name[:-4]}' file.\n")
+            
+        elif date_type == 'expiration':
+            print(F"Great! Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name[:-4]}' file.\n")
+
+        relevant_date_list = []
+
+        for categorize, row in enumerate(reader, start=1):
+        
+            input_date = convert_to_strptime(row[relevant_date])
+            
+            input_from_date = convert_to_strptime(from_date)
+            
+            input_until_date = convert_to_strptime(until_date)
+            
+            if date_type == 'other' and input_from_date <= input_date and input_until_date >= input_date:
+                relevant_date_list.append(row)
+                print(F"{categorize}. {row}")
+            
+            elif date_type == 'expiration' and input_from_date <= input_date and input_until_date >= input_date:
+                relevant_date_list.append(row)
+                print(F"{categorize}. {row}")
+        print('\n')
+        
+        if len(relevant_date_list) == 0: # Met deze 'if' statement geef je aan dat als een lijst leeg is, onderstaande moet gebeuren.
+            print(F"- There were no products found with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name[:-4]}' file.\n")
+
+# print(view_products_within_period())
+# print('\n')
+
+
+'''
 Algemene zoek-functie 'MET menu / input statements' voor het zoeken op 'product naam' en 'product id' in alle bestanden. DEZE CODE DOET HET PER MAANDAG 18-03-2024 ROND 19:45 UUR!!!
 - Maandagavond 01-04-2024 rond 01:02 uur = Functie getest na de start van mijn taak: kolom- en bestandsnamen aanpassen (door ze korter te maken). En hij doet het nog prima!!!
 - Vrijdagnacht 29-03-2024 rond 00:50 uur = Code aangepast en getest.
