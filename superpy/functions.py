@@ -1,12 +1,14 @@
 
 # Imports
 
-import csv, datetime, pytz
+import csv
+from argparse import *
+from datetime import timedelta
+from datetime import datetime
+
 import warnings
 warnings.filterwarnings("ignore", "\nPyarrow", DeprecationWarning)
 import pandas as pd
-from argparse import *
-from datetime import timedelta
 
 print('\n')
 
@@ -152,14 +154,14 @@ De huidige datum returnen ZONDER menu en datums omzetten naar 'datetime objecten
 
 Ik had deze code al eerder geschreven op zondagnacht 10-03-2024, maar dan met de 'datetime.date.today()' code
 en dat veroorzaakte een foutmelding met mijn current date functie in andere functies. Dus heb ik deze code
-op advies van een Winc mentor opnieuw geschreven met de 'datetime.datetime.today()' en toen kreeg ik geen
+op advies van een Winc mentor opnieuw geschreven met de 'datetime.today()' en toen kreeg ik geen
 conflicten meer in m'n code.
 '''
 
 
 def current_date():
 
-    return datetime.datetime.today()
+    return datetime.today()
     
 # print(current_date())
 # print('\n')
@@ -167,20 +169,23 @@ def current_date():
 
 def convert_to_strptime(datetime_object):
 
-    return datetime.datetime.strptime(datetime_object, "%d-%m-%Y")
+    return datetime.strptime(datetime_object, "%d-%m-%Y")
 
-# print(convert_to_dutch_date_test())
+# print(convert_to_strptime())
 # print('\n')
 
 
 def convert_to_strftime(string):
 
-    return datetime.datetime.strftime(string, "%d-%m-%Y")
+    return datetime.strftime(string, "%d-%m-%Y")
+
+# print(convert_to_strftime())
+# print('\n')
 
 
 def convert_to_dutch_date(date_format):
 
-    return datetime.datetime.strptime(date_format, "%d-%m-%Y").strftime("%d-%m-%Y") # Met 'datetime module' maak je een 'datetime' object aan. Met 'strptime' (en 'strp' staat voor 'strippen' in de zin van dat je de tijd uit het object\
+    return datetime.strptime(date_format, "%d-%m-%Y").strftime("%d-%m-%Y") # Met de 'datetime module' maak je een 'datetime' object aan. Met 'strptime' (en 'strp' kan je zien als 'strippen' in de zin van dat je de tijd uit het object\
                                                                                     # stript / haalt) haal je dus de tijd uit de 'today' code.
 # print(convert_to_dutch_date())
 # print('\n')
@@ -203,11 +208,11 @@ def update_system_date():
     
     print("Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date. Follow the steps below to update the system date.\n")
 
-    print("Step 1 = Enter Y for 'Yes' if you want to update the system date or enter N for 'No' if you don't want to update the system date (not case sensitive).")
+    print("Step 1 = Enter Y for 'Yes' if you want to 'update the system date' or enter N for 'No' if you don't want to update the system date (not case sensitive).")
     print("Done!\n")
     
     while True:
-        update_system = (input("Step 1 = Enter Y for 'Yes' if you want to update the system date or enter N for 'No' if you don't want to update the system date (not case sensitive): ")).lower()
+        update_system = (input("Step 1 = Enter Y for 'Yes' if you want to 'update the system date' or enter N for 'No' if you don't want to update the system date (not case sensitive): ")).lower()
         print('\n')
 
         if update_system == "y":
@@ -799,7 +804,7 @@ Product toevoegen of de producthoeveelheid aanpassen in inventory bestand indien
 
 - Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 01:32 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
   toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
-  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+  waar ik de 'datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Dinsdagavond 02-04-2024 rond 20:22 uur = Functie getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen\
   (door ze korter te maken)'. En hij doet het nog prima!!!
 - Donderdag 21-03-2024 rond 22:56 uur = Functie aangepast.
@@ -1016,12 +1021,12 @@ def add_sold_products():
             continue 
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product ID of this product in the inventory file. You can see the product details from product ID '{id}' from the inventory file above.\n")
+            print(F"Great! Product ID '{id}' matches the product ID of this product in the inventory file. You can see the product details of product ID '{id}' from the inventory file above.\n")
         
         else:
             print('\n')
-            print(F"Hello user! The entered product ID '{id}' doesn't match the product ID of this product in the inventory file. You can only add a sold product to the sales file if the 'ID' matches the ID of this product in the inventory\
- file. Please check the product details above for the correct product 'ID'.\n")
+            print(F"Hello user! The entered product ID '{id}' was not found in the inventory file. You can only add a 'sold product' to the 'sales' file if this product is also found in the inventory file. Please check the product details\
+ above for the correct product 'ID'.\n")
 
             continue
         break 
@@ -1035,7 +1040,7 @@ def add_sold_products():
 
         if name in input_name:
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' with product id '{id}' matches the product 'name' of this product in the inventory file. You can see the product details from product name '{name}' from the inventory file above.\n")
+            print(F"Great! Product name '{name}' with product id '{id}' matches the product 'name' of this product in the inventory file. You can see the product details of product name '{name}' from the inventory file above.\n")
         
         else:
             product_in_file_check('inventory.csv', id)
@@ -1253,7 +1258,7 @@ def add_loss_products():
             continue
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product ID of this product in the inventory file. You can see the product details from product ID '{id}' from the inventory file above.\n")
+            print(F"Great! Product ID '{id}' matches the product ID of this product in the inventory file. You can see the product details of product ID '{id}' from the inventory file above.\n")
         
         else:
             print(F"Hello user! The entered product ID '{id}' doesn't match the product ID of this product in the inventory file. You can only add a loss product to the losses file if this product is also in the inventory file. Please check\
@@ -2596,7 +2601,7 @@ Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een d
 
 - Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 01:57 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
   toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
-  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+  waar ik de 'datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
   gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
   'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
@@ -2605,7 +2610,7 @@ Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een d
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculate_costs(from_date: datetime.datetime, until_date: datetime.datetime):
+def calculate_costs(from_date: datetime, until_date: datetime):
 
     with open('inventory.csv', 'r') as inventory_file:
         reader = csv.DictReader(inventory_file)
@@ -2645,7 +2650,7 @@ Met de 'calculate_losses' functie kan je de totale verliezen van een door jou op
 - Maandag 13-05-2024 rond 22:41 uur = Op deze dag heb ik deze functie geschreven én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'
 ''' 
 
-def calculate_losses(from_date: datetime.datetime, until_date: datetime.datetime):
+def calculate_losses(from_date: datetime, until_date: datetime):
 
     with open('losses.csv', 'r') as losses_file:
         reader = csv.DictReader(losses_file)
@@ -2676,14 +2681,14 @@ Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgeg
 
 - Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 02:00 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
   toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
-  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+  waar ik de 'datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Maandag 06-05-2024 rond 22:41 uur = Functie wederom aangepast én getest omdat ik per ongeluk deze functie met input statements had\
   gemaakt terwijl dit niet de bedoeling was. Dit omdat ik was vergeten dat ik in mijn 'calculations()' functie (was mijn oude\
   'time_frame_calculation()' functie) code had geschreven waarmee de gebruiker kan kiezen welke berekening hij / zij wil zien:\
   'inkoopkosten', 'omzet' of 'winst'.
 ''' 
 
-def calculate_revenue(from_date: datetime.datetime, until_date: datetime.datetime):
+def calculate_revenue(from_date: datetime, until_date: datetime):
 
     with open("sales.csv", 'r') as sales_file:
         reader = csv.DictReader(sales_file)
@@ -2714,12 +2719,12 @@ Met de 'calculate_profit' functie kan je de totale winst van een door jou opgege
 
 - Woensdag 08-05-2024 en donderdagnacht 09-05-2024 rond 02:10 uur = Functie toch nog aangepast omdat ik een nieuwe functie heb\
   toegevoegd aan mijn datum functies: 'convert_to_strftime(string)'. Hierdoor ben ik weer al mijn functies gaan nalopen\
-  waar ik de 'datetime.datetime' objecten gebruik zodat ik de functies netter kan maken.
+  waar ik de 'datetime' objecten gebruik zodat ik de functies netter kan maken.
 - Maandag 06-05-2024 rond 23:39 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculate_profit(from_date: datetime.datetime, until_date: datetime.datetime):
+def calculate_profit(from_date: datetime, until_date: datetime):
     
     with open("sales.csv", 'r') as sales_file:
         reader = csv.DictReader(sales_file)
