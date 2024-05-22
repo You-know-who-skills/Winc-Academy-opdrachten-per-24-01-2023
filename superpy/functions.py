@@ -1679,7 +1679,7 @@ def modify_product_details():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to modify a product detail in: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == "inventory":
@@ -1923,7 +1923,8 @@ def modify_product_details():
     print('\n')
 
     while True:
-        column_name = (input(F"Step 7 = Enter one of the 'current product detail names' of product '{search_type}' shown above that you want to modify (not case sensitive). And please don't use an underscore: ")).lower()
+        column_name = (input(F"Step 7 = Enter the 'current product detail name' of product '{search_type}' that you want to modify (not case sensitive) and please don't use an underscore. You can see all the current product detail names\
+ above: ")).lower()
         print('\n')
         
         if column_name == 'purchase quantity':
@@ -1934,9 +1935,6 @@ def modify_product_details():
 
         elif column_name == 'purchase date':
             column_name = 'purchase_date'
-
-        elif column_name == 'expiration date':
-            column_name = 'expiration_date'
 
         elif column_name == 'sold quantity':
             column_name = 'sold_quantity'
@@ -1958,6 +1956,9 @@ def modify_product_details():
         
         elif column_name == 'loss cause':
             column_name = 'loss_cause'
+
+        elif column_name == 'expiration date':
+            column_name = 'expiration_date'
 
 
         if column_name in column_name_check(file_name):
@@ -1997,7 +1998,7 @@ def modify_product_details():
             except ValueError:
                 print('\n')
                 print(F"Hello user! The modification for product detail '{column_name}' for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file can only contain an amount or a dot to seperate any decimals. '{product_detail}'\
- doesn't only contain an amount or a dot. Please enter the correct modification for product detail '{column_name}' for product '{search_type}' and use a dot in stead of a comma to seperate any decimals.\n")                
+ doesn't only contain an amount or a dot to seperate the decimals. Please enter the correct modification for product detail '{column_name}' for product '{search_type}' and use a dot in stead of a comma to seperate any decimals.\n")
                 
                 continue
 
@@ -2013,8 +2014,9 @@ def modify_product_details():
                 convert_to_dutch_date(product_detail)
                 
             except ValueError:
-                print('\n')                                                 # HIER BEN IK!!! LET OP!!! IK MOET NOG TESTEN OF ONDERSTAANDE '{relevant_date}' CODE KLOPT. ZO JA, DAN KAN IK HET WOORD 'date' INC DE SCHUINE '/' STREEP WEGLATEN.
-                print(F"Hello user! '{product_detail}' isn't the correct format to fill in the date for product '{search_type}' in the ''{file_name.capitalize()[:-4]}' file. Please enter the date in the following format: dd-mm-yyyy.\n")
+                print('\n')
+                print(F"Hello user! '{product_detail}' isn't the correct format to fill in the '{relevant_date}' for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please enter the '{relevant_date}' in the following\
+ format: dd-mm-yyyy.\n")
 
                 continue
         break
@@ -2071,14 +2073,14 @@ def modify_product_details():
                     if yes_or_no == 'Y' or yes_or_no == 'y':
                         row[column_name] = product_detail
                         print(F"Great! The product detail '{column_name}' for product '{search_type}' with expiration date '{expiration_date}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can\
- check the modified product detail below.\n")
+ check the 'modified product detail' below.\n")
                         print(row)
                         print('\n')
                         break
                         
                     elif yes_or_no == 'N' or yes_or_no == 'n':
                         print(F"Oké. The product detail '{column_name}' for product '{search_type}' with expiration date '{expiration_date}' in the '{file_name.capitalize()[:-4]}' file has not been modified to '{product_detail}'. You can\
- check the product details below.\n")
+ check the 'current product details' below.\n")
                         print(row)
                         print('\n')
                         break
@@ -2094,6 +2096,7 @@ def modify_product_details():
             print(F"Entered product details:")
             print(F"Product 'id' or 'name' = '{search_type}', product {relevant_quantity} = '{quantity}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}', product 'expiration date' = \
  '{expiration_date}', name of the product detail you want to modify = '{column_name}' and the modification for '{column_name}' = '{product_detail}'.")
+            
             print('\n')
             product_in_file_check(file_name, search_type)
             print(F"Hello user! One or more of the entered product details wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product {search_type} in\
