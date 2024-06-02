@@ -681,7 +681,8 @@ def view_all_products():
     with open(file_name, 'r+') as file:
             reader = csv.reader(file) # Deze code plaatst elke regel van het csv bestand in een lijst.
             
-            print(next(reader))
+            print(next(reader)) # Met de 'next' code zorg je er voor dat de eerste regel van een bestand (dus in dit geval is het een csv bestand) word overgeslagen wanneer je een nummering gebruikt. Hierdoor kan ik in deze functie bij de\
+                                # 'enumerate' code dus wel 'start=1' gebruiken i.p.v. 'start=2' zoals ik dit in mijn andere functies gebruik.
 
             for categorize, row in enumerate(reader, start=1):
                 print(F"{categorize}. {row}\n") # LET OP!!! De punt na de variabel 'categorize' zorgt ervoor dat er na de nummering van de 'enumerate' code een punt komt te staan.
@@ -704,7 +705,7 @@ def view_products_within_period():
 
     print("Follow the steps below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
 
-    print("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
     print("Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
     print("Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
@@ -713,7 +714,7 @@ def view_products_within_period():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory':
@@ -747,7 +748,7 @@ def view_products_within_period():
 
 
     while True:
-        date_type = input("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' date of the products. Or enter 'expiration' if you want to view the expiration dates of the products within a certain periode (not case\
+        date_type = input("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products within a certain periode (not case\
  sensitive): ").lower()
         print('\n')
 
@@ -822,7 +823,7 @@ def view_products_within_period():
 
         relevant_date_list = []
 
-        for categorize, row in enumerate(reader, start=1):
+        for categorize, row in enumerate(reader, start=2):
         
             input_date = convert_to_strptime(row[relevant_date]) # Met de 'convert_to_strptime(row[relevant_date])' code zorg ik er voor dat alle relevante datums waarover je itereerd worden omgezet naar een datetime object.
             
@@ -859,13 +860,13 @@ def find_products():
     print("Follow the steps below to find the product you are looking for. Have fun finding!\n")
     
     print("Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the product 'id' or 'name' (not case sensitive).")
+    print("Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
     print("Done!.\n")
     print('\n')
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to search for a product: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory':
@@ -888,13 +889,13 @@ def find_products():
     
 
     while True:
-        search_type = (input("Enter the product 'id' or 'name' (the product name is not case sensitive): ")).lower()
+        search_type = (input("Enter the product 'ID' or 'name' (the product name is not case sensitive): ")).lower()
         
         if product_in_file_check(file_name, search_type) == True:
             print(F"Great! Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can check the product details above.\n")
         
         else:
-            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'id' (the product name is not case sensitive).\n")
+            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).\n")
             
             continue
         break
@@ -905,32 +906,36 @@ def find_products():
 
 '''
 Checken welke producten over 3 dagen niet meer houdbaar zijn. Deze code doet het per vrijdag 10-05-2024 rond 21:33 uur.
+- Zondag 02-06-2024 rond 23:24 uur: Functie aangepast én getest na de start van mijn taak: kolom- en bestandsnamen\
+  aanpassen (door ze korter te maken). En hij doet het nog prima!!! Ik heb een 2e 'if' statement toegevoegd om er voor\
+  te zorgen dat wanneer er 'geen' producten zijn die over 3 dagen niet meer houdbaar zijn, de gebruiker een melding te\
+  zien krijgt dat er geen producten zijn gevonden.
 '''
 
 def	avoid_expired_products():
 
     print("Hello user, and welcome to the 'avoid expired products' option.\n")
     
-    print("Follow the steps below to avoid expired products and help our planet by not wasting products and by helping people who are less fortunate. Have fun in helping to make the world a better place!\n")
+    print("Please follow the steps below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
 
-    print("Step 1 = Enter 'Y' if you 'do' or 'N' if you 'don't' want to check for products that will expire within 3 days (not case sensitive).")
+    print("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
     print("Done!\n")
     print('\n')
 
 
     while True:
-        yes_or_no = input("Step 1 = Enter 'Y' if you 'do' or 'N' if you 'don't' want to check for products that will expire within 3 days (not case sensitive): ").lower()
+        yes_or_no = input("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive): ").lower()
         print('\n')
 
         if yes_or_no == "y":
             print("Great! You can see all the products that will expire in 3 days below. Please think of a way not to waste these products. Thanks in advance for helping to make our world a better and durable place.\n")
 
         elif yes_or_no == "n":
-            print("Oké! The products that will expire within 3 days will not be shown.\n")
+            print("Oké! The products that will expire in 3 days will not be shown.\n")
         
         else:
-            print(F"Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire within 3 days. Please Enter 'Y' if you 'do' or 'N' if you 'don't' want to check for products that will expire within 3 days\
- (not case sensitive).\n")
+            print(F"Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3\
+ days (not case sensitive).\n")
 
             continue
         break
@@ -940,6 +945,8 @@ def	avoid_expired_products():
         reader = csv.DictReader(inventory_file)
         rows = list(reader)
 
+        avoid_waste_list = []
+        
         for categorize, row in enumerate(rows, start=2):
 
             today_date = current_date()
@@ -951,7 +958,11 @@ def	avoid_expired_products():
             expire_days = today_date + timedelta(3)
             
             if yes_or_no == 'y' and expire_date > day_after_tomorrow and expire_date <= expire_days:
-                print(F" {categorize}. {row}\n")                
+                avoid_waste_list.append(row)
+                print(F" {categorize}. {row}\n")
+
+        if len(avoid_waste_list) == 0:
+            print(F"There are no products found that will expire in 3 days. So good job on helping to make the world a better place.\n")
                 
 # print(avoid_expired_products())
 # print('\n')
@@ -1050,7 +1061,7 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! '{purchase_date}' Isn't the correct format for the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.\n")
             
             continue
         
@@ -1079,7 +1090,7 @@ def add_inventory_products():
         
         except ValueError:
             print('\n')
-            print(F"Hello user! '{expiration_date}' Isn't the correct format for the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n")
             
             continue
 
@@ -1134,7 +1145,7 @@ def add_inventory_products():
         if already_exists == True:
             writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
             print('\n')                        
-            print(F"Great! The quantity of product '{name}' has been updated, because the 'id', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product details below.\n")
+            print(F"Great! The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product details below.\n")
             print(row)
 
         else:
@@ -1338,7 +1349,7 @@ def add_sold_products():
         
         if already_exists == True:
             writer.writerows(rows)
-            print(F"Great! The 'quantity' of product '{name}' has been 'updated', because: the 'id', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the details below.\n")
+            print(F"Great! The 'quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the details below.\n")
             print(row)
             print('\n')
             
@@ -1558,7 +1569,7 @@ def add_loss_products():
         else:
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one or more of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the correct\
+            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the correct\
  'expiration date'.\n")
 
             continue
@@ -1596,7 +1607,7 @@ def add_loss_products():
             writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de\
                                     # iterabele.
         
-            print(F"Great! The 'loss quantity' of product '{name}' has been 'updated', because the 'id', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can check the details\
+            print(F"Great! The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can check the details\
  below.\n")
             print(row)
             print('\n')
@@ -1667,7 +1678,7 @@ def modify_product_details():
     print("Follow the steps below to modify the details of a product in a chosen file. Have fun modifying!\n")
 
     print("Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the current product 'name' or 'id' of which you want to modify the product detail for (not case sensitive).")
+    print("Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive).")
     print("Step 3 = Enter the current product 'quantity'.")
     print("Step 4 = Enter the current product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
     print("Step 5 = Enter the current product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
@@ -1703,14 +1714,14 @@ def modify_product_details():
 
 
     while True:
-        search_type = input("Step 2 = Enter the current product 'name' or 'id' of which you want to modify the product detail for (not case sensitive): ").lower()
+        search_type = input("Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive): ").lower()
         print('\n')
 
         if product_in_file_check(file_name, search_type) == True:
             print(F"Great! Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the product details above.\n")
         
         else:
-            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct current 'name' or 'id' of product '{search_type}' (not case sensitive).\n")
+            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct current 'name' or 'ID' of product '{search_type}' (not case sensitive).\n")
 
             continue
         break
@@ -2100,7 +2111,7 @@ def modify_product_details():
         else:
             print('\n')
             print(F"Entered product details:")
-            print(F"Product: 'id' or 'name' = '{search_type}', '{relevant_quantity}' = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}', 'expiration date' = '{expiration_date}', name of the product\
+            print(F"Product: 'ID' or 'name' = '{search_type}', '{relevant_quantity}' = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}', 'expiration date' = '{expiration_date}', name of the product\
  detail you want to modify = '{column_name}' and the modification for '{column_name}' = '{product_detail}'.")
             
             print('\n')
@@ -2143,7 +2154,7 @@ def modify_quantity():
     print("Follow the steps below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
 
     print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the product 'name' or 'id' (the product name is not case sensitive).")
+    print("Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
     print("Step 3 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
     print("Step 3 = Enter the current product 'quantity'.")
     print("Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
@@ -2179,7 +2190,7 @@ def modify_quantity():
 
 
     while True:
-        search_type = input("Step 2 = Enter the product 'name' or 'id' (the product name is not case sensitive): ").lower()
+        search_type = input("Step 2 = Enter the product 'ID' or 'name' (the product name is not case sensitive): ").lower()
         print('\n')
 
         if product_in_file_check(file_name, search_type) == True:
@@ -2543,7 +2554,7 @@ def modify_quantity():
         else:
             print('\n')
             print(F"Entered product details:")
-            print(F"Product: 'id' or 'name' = '{search_type}', '{relevant_quantity}' = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}' and 'expiration date' = '{expiration_date}'.")
+            print(F"Product: 'ID' or 'name' = '{search_type}', '{relevant_quantity}' = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}' and 'expiration date' = '{expiration_date}'.")
             print('\n')
             show_product_details(file_name, search_type, expiration_date)
             print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
@@ -2577,7 +2588,7 @@ def remove_product():
     print("Follow the steps below to remove a product from a chosen file. Have fun removing!\n")
     
     print("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
-    print("Step 2 = Enter the product 'id' or the 'name' that you want to remove (not case sensitive).")
+    print("Step 2 = Enter the product 'ID' or the 'name' that you want to remove (not case sensitive).")
     print("Step 3 = Enter the product 'quantity'.")
     print("Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
     print("Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
@@ -2611,7 +2622,7 @@ def remove_product():
     
     
     while True:
-        search_type = input("Step 2 = Enter the 'name' or the 'id' of the product that you want to remove (not case sensitive): ").lower()
+        search_type = input("Step 2 = Enter the 'name' or the 'ID' of the product that you want to remove (not case sensitive): ").lower()
         print('\n')
         
         
@@ -2619,7 +2630,7 @@ def remove_product():
             print(F"Great! Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the product details above.\n")
         
         else:
-            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'id' (not case sensitive).\n")
+            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'ID' or 'name' (not case sensitive).\n")
 
             continue
         break
@@ -2822,7 +2833,7 @@ def remove_product():
         else:
             print('\n')
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one or more of the expiration dates of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
+            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the expiration dates of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
  '{search_type}' shown above for the correct expiration date.\n")
             continue
         break
@@ -2894,7 +2905,7 @@ def remove_product():
         else:
             print('\n')
             print(F"Entered product details:")
-            print(F"Product 'id' or 'name' = '{search_type}', product {relevant_quantity} = '{quantity}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}', product 'expiration date' = \
+            print(F"Product 'ID' or 'name' = '{search_type}', product {relevant_quantity} = '{quantity}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}', product 'expiration date' = \
  '{expiration_date}'.")
             print('\n')
             show_product_details(file_name, search_type, expiration_date)
