@@ -42,7 +42,7 @@ Sales bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht rond 00:02 uur.
 
 def create_sales_file():
 
-    with open("sales.csv", 'w', newline='') as sales_file:
+    with open('sales.csv', 'w', newline='') as sales_file:
         writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sold_amount', 'sold_date', 'expiration_date'])
         writer.writeheader()
         
@@ -57,7 +57,7 @@ Losses bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht rond 00:11 uur.
 
 def create_losses_file():
 
-    with open("losses.csv", 'w', newline='') as losses_file:
+    with open('losses.csv', 'w', newline='') as losses_file:
         writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
         writer.writeheader()
         
@@ -74,18 +74,18 @@ Gehele 'inventory' bestand leeg maken. DEZE CODE DOET HET!!! Per dinsdag 02-04-2
 
 def clear_file():
 
-    print("Hello user and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
+    print("Hello user, and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
 
     print("Follow the steps below to clear a choosen file from all it's products. Have fun clearing!\n")
     
-    print("Step 1 = Enter one of the following file names to clear all the products: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
     print("Done!\n")
     print('\n')
 
     
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to clear all the products: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
@@ -98,7 +98,7 @@ def clear_file():
             
         else:
             print('\n')
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
             continue
         break
@@ -241,7 +241,7 @@ def update_system_date():
         print(today_date_string)
         print('\n')
 
-        with open("date_file.txt", 'w') as date_file:
+        with open('date_file.txt', 'w') as date_file:
 
             date_file.write(today_date_string)
 
@@ -318,12 +318,12 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             
             continue
 
-        if int(number) > 105000 and days_or_weeks == "weeks": # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
+        if int(number) > 105000 and days_or_weeks == 'weeks': # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
             print(F"Hello user! The number you entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.\n")
 
             continue
 
-        elif int(number) > 738958 and days_or_weeks == "days": # Python geeft een foutmelding bij meer dan 738958 dagen in het verleden.
+        elif int(number) > 738958 and days_or_weeks == 'days': # Python geeft een foutmelding bij meer dan 738958 dagen in het verleden.
             print(F"Hello user! The number you entered '{number}' is to far in the '{past_or_future}' Please enter a number below 738958.\n")
             
             continue
@@ -336,23 +336,23 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
     today_date = current_date()
 
     # Modify system date by days.
-    if days_or_weeks == "days" and past_or_future == "past":
+    if days_or_weeks == 'days' and past_or_future == 'past':
         system_date = today_date - timedelta_days
         
-    elif days_or_weeks == "days" and past_or_future == "future":
+    elif days_or_weeks == 'days' and past_or_future == 'future':
         system_date = today_date + timedelta_days
         
     # Modify system date by weeks.
-    elif days_or_weeks == "weeks" and past_or_future == "past":
+    elif days_or_weeks == 'weeks' and past_or_future == 'past':
         system_date = today_date - timedelta_weeks
         
-    elif days_or_weeks == "weeks" and past_or_future == "future":
+    elif days_or_weeks == 'weeks' and past_or_future == 'future':
         system_date = today_date + timedelta_weeks
         
     string_date = convert_to_strftime(system_date)
 
 
-    with open("date_file.txt", 'w') as date_file:
+    with open('date_file.txt', 'w') as date_file:
 
         date_file.write(string_date)
 
@@ -397,7 +397,7 @@ def go_to_specific_date():
         break
 
 
-    with open("date_file.txt", 'w') as date_file:
+    with open('date_file.txt', 'w') as date_file:
 
         date_file.write(specific_date)
         print("Great! The date of the system has been changed to the specific date. You can see the specific date below.\n")
@@ -552,7 +552,7 @@ def product_in_file_check(file_name: str, search_type: str):
         elif product_in_file == False:
             return False
 
-# print(product_in_file_check("sales.csv", "ei"))
+# print(product_in_file_check('sales.csv', "ei"))
 # print('\n')
 
 
@@ -606,7 +606,7 @@ def product_detail_check(file_name: str, search_type: str, column_name: str):
             
             return column_name_results
 
-# print(product_detail_check("sales.csv", "pindakaas", "sales_amount"))
+# print(product_detail_check('sales.csv', "pindakaas", 'sales_amount'))
 # print('\n')
 
 
@@ -646,17 +646,17 @@ Alle producten van een zelf gekozen bestand / 1 van de 3 bestanden laten zien. D
 
 def view_all_products():
 
-    print("Hello user and welcome to the 'view all products' option. You can view all the products from one of the following files: 'inventory', 'sales' or 'losses'.\n")
+    print("Hello user, and welcome to the 'view all products' option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
     print("Follow the steps below to view all products from a choosen file. Have fun viewing!\n")
             
-    print("Step 1 = Enter one of the following file names to view all the products: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Done!\n")
     print('\n')
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to view all the products: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory':
@@ -704,7 +704,7 @@ def view_products_within_period():
 
     print("Follow the steps below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
 
-    print("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
     print("Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
     print("Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
@@ -713,23 +713,23 @@ def view_products_within_period():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the followoing file names for which you want to see the products from: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
-        if file_name == "inventory":
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
-        elif file_name == "sales":
-            file_name = "sales.csv"
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
             
-        elif file_name == "losses":
-            file_name = "losses.csv"
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
             continue
         break
@@ -757,7 +757,7 @@ def view_products_within_period():
         if date_type == "other":
             print(F"Great! It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n")
 
-        elif date_type == "expiration":
+        elif date_type == 'expiration':
             print(F"Great! It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n")
 
         else:
@@ -854,34 +854,34 @@ Algemene zoek-functie 'MET menu / input statements' voor het zoeken op 'product 
 
 def find_products():
     
-    print("Hello user and welcome to the 'find products' option. You can search for a product in one of the following files: 'inventory', 'sales' or 'losses'.\n")
+    print("Hello user, and welcome to the 'find products' option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
     print("Follow the steps below to find the product you are looking for. Have fun finding!\n")
     
-    print("Step 1 = Enter one of the following file names to find the product you are looking for: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter the product 'id' or 'name' (not case sensitive).")
     print("Done!.\n")
     print('\n')
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to search for a product: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to search for a product: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
-        if file_name == "inventory":
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
-        elif file_name == "sales":
-            file_name = "sales.csv"
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
             
-        elif file_name == "losses":
-            file_name = "losses.csv"
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
             
             continue
         break
@@ -979,7 +979,7 @@ def add_inventory_products():
     
     print("Hello user, and welcome to the 'add inventory products' option.\n")
     
-    print("Follow the steps below to add products to the inventory file. Have fun adding!\n")
+    print("Follow the steps below to add products to the Inventory file. Have fun adding!\n")
 
     print("Step 1 = Enter the product 'ID'.")
     print("Step 2 = Enter the product 'name'.")
@@ -1132,8 +1132,7 @@ def add_inventory_products():
         writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
         
         if already_exists == True:
-            writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de\
-                                    # iterabele.
+            writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
             print('\n')                        
             print(F"Great! The quantity of product '{name}' has been updated, because the 'id', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product details below.\n")
             print(row)
@@ -1161,7 +1160,7 @@ def add_sold_products():
 
     print("Hello user, and welcome to the 'add sold products' option.\n")
     
-    print("By adding a sold product to the sales file, your inventory file will automatically be reduced with the same quantity of the product that you've sold.\n")
+    print("By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the product that you've sold.\n")
     
     print("Follow the steps below to add your sold products. Have fun adding!\n")
     
@@ -1189,11 +1188,11 @@ def add_sold_products():
             continue 
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'inventory' file. You can see the product details of product ID '{id}' from the 'inventory' file above.\n")
+            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n")
         
         else:
             print('\n')
-            print(F"Hello user! The entered product ID: '{id}', was not found in the 'inventory' file. You can only add a 'sold product' to the 'sales' file if this product is also found in the 'inventory' file. Please check the product\
+            print(F"Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file. Please check the product\
  details above for the correct product 'ID'.\n")
 
             continue
@@ -1208,12 +1207,12 @@ def add_sold_products():
 
         if name in input_name:
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'inventory' file. You can see the product details of product '{name}' from the 'inventory' file above.\n")
+            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n")
         
         else:
             product_in_file_check('inventory.csv', id)
-            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'inventory' file. You can only add a 'sold product' to the 'sales' file if the product 'name' matches the name\
- of this product in the 'inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
+            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if the product 'name' matches the\
+ name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
 
             continue
         break
@@ -1293,7 +1292,7 @@ def add_sold_products():
         if expiration_date in expiration_date_check:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'inventory file'. You can check the 'expiration date' in the product details shown above.\n")
+            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory file'. You can check the 'expiration date' in the product details shown above.\n")
 
             if input_date == current_date():
                     print(F"Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n")
@@ -1304,8 +1303,8 @@ def add_sold_products():
         else:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one or more of the 'expiration dates' of product '{name}' in the 'inventory file'. Please check the product details above for the correct\
- 'expiration date'.\n")
+            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the product details above for the correct 'expiration\
+ date'.\n")
 
             continue
         break
@@ -1334,7 +1333,7 @@ def add_sold_products():
             else:
                 already_exists = False
 
-    with open("sales.csv", 'r+', newline='') as sales_file:
+    with open('sales.csv', 'r+', newline='') as sales_file:
         writer = csv.DictWriter(sales_file, fieldnames= reader.fieldnames)
         
         if already_exists == True:
@@ -1344,10 +1343,10 @@ def add_sold_products():
             print('\n')
             
         else:    
-            with open("sales.csv", 'a+', newline='') as sales_file:
+            with open('sales.csv', 'a+', newline='') as sales_file:
                 writer = csv.DictWriter(sales_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
-                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.\n")
+                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Sales' file. You can check the details below.\n")
                 print(product_details)
                 print('\n')
 
@@ -1403,7 +1402,7 @@ def add_loss_products():
 
     print("Hello user, and welcome to the 'add product losses' option.\n")
 
-    print("By adding a product loss to the losses file, the inventory file will automatically be reduced with the same quantity of the added product loss.\n")
+    print("By adding a product loss to the Losses file, the Inventory file will automatically be reduced with the same quantity of the added product loss.\n")
 
     print("Follow the steps below to add a product loss. Have fun adding!\n")
     
@@ -1431,11 +1430,11 @@ def add_loss_products():
             continue
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'inventory' file. You can see the product details of product ID '{id}' from the inventory file above.\n")
+            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n")
         
         else:
-            print(F"Hello user! The entered product ID: '{id}', was not found in the 'inventory' file. You can only add a loss product to the 'losses file' if this product is also in the inventory file. Please check the product details above\
- for the correct product 'ID'.\n")
+            print(F"Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a loss product to the 'Losses' file if this product is also in the 'Inventory' file. Please check the product details\
+ above for the correct product 'ID'.\n")
 
             continue
         break 
@@ -1447,12 +1446,12 @@ def add_loss_products():
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'inventory' file. You can see the product details of product '{name}' from the 'inventory' file above.\n")
+            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n")
 
         else:
             product_in_file_check('inventory.csv', id)
-            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'inventory' file. You can only add a 'loss product' to the 'losses' file if the product 'name' matches the\
- name of this product in the 'inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
+            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product 'name' matches the\
+ name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
 
             continue
         break
@@ -1554,12 +1553,12 @@ def add_loss_products():
                                                         # i.p.v. de '==' operator, want met de 'in' operator kijk je of er iets 'wel' of 'niet' in een lijst zit.
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'inventory' file. You can check the 'expiration date' in the product details shown above.\n")
+            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory' file. You can check the 'expiration date' in the product details shown above.\n")
             
         else:
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one or more of the 'expiration dates' of product '{name}' in the 'inventory' file. Please check the product details above for the correct\
+            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one or more of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the correct\
  'expiration date'.\n")
 
             continue
@@ -1576,7 +1575,7 @@ def add_loss_products():
         'expiration_date' : expiration_date
     }
 
-    with open("losses.csv", 'r+', newline='') as losses_file:
+    with open('losses.csv', 'r+', newline='') as losses_file:
         reader = csv.DictReader(losses_file, fieldnames= ['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
         rows = list(reader)
 
@@ -1607,7 +1606,7 @@ def add_loss_products():
                 writer = csv.DictWriter(losses_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
 
-                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the losses file. You can check the details below.\n")
+                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.\n")
                 print(product_details)
                 print('\n')
 
@@ -1684,16 +1683,16 @@ def modify_product_details():
         file_name = input("Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
-        if file_name == "inventory":
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
             
-        elif file_name == "sales":
-            file_name = "sales.csv"
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
             
-        elif file_name == "losses":
-            file_name = "losses.csv"
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
         else:
@@ -1721,13 +1720,13 @@ def modify_product_details():
     relevant_quantity = ""
     
     if file_name == 'inventory.csv':
-        relevant_quantity = "purchase quantity"
+        relevant_quantity = 'purchase quantity'
 
-    elif file_name == "sales.csv":
-        relevant_quantity = "sold quantity"
+    elif file_name == 'sales.csv':
+        relevant_quantity = 'sold quantity'
     
-    elif file_name == "losses.csv":
-        relevant_quantity = "loss quantity"
+    elif file_name == 'losses.csv':
+        relevant_quantity = 'loss quantity'
 
 
     while True:
@@ -1743,29 +1742,29 @@ def modify_product_details():
             
             continue
 
-        purchase_quantity_check = product_detail_check('inventory.csv', search_type, "purchase_quantity")
-        sold_quantity_check = product_detail_check("sales.csv", search_type, "sold_quantity")
-        loss_quantity_check = product_detail_check("losses.csv", search_type, "loss_quantity")
+        purchase_quantity_check = product_detail_check('inventory.csv', search_type, 'purchase_quantity')
+        sold_quantity_check = product_detail_check('sales.csv', search_type, 'sold_quantity')
+        loss_quantity_check = product_detail_check('losses.csv', search_type, 'loss_quantity')
         
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the current '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
 
-        elif file_name == "sales.csv" and quantity in sold_quantity_check:
+        elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the current '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
         
-        elif file_name == "losses.csv" and quantity in loss_quantity_check:
+        elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the current '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
 
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered current {relevant_quantity}: '{quantity}', doesn't match one or more of the current '{relevant_quantity}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the\
- details for product '{search_type}' shown above for the correct current '{relevant_quantity}'.\n")
+            print(F"Hello user! The entered current {relevant_quantity}: '{quantity}', doesn't match one of the current '{relevant_quantity}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details\
+ of product '{search_type}' shown above for the correct current '{relevant_quantity}'.\n")
 
             continue
         break
@@ -1775,13 +1774,13 @@ def modify_product_details():
     relevant_amount = ""
     
     if file_name == 'inventory.csv':
-        relevant_amount = "purchase amount"
+        relevant_amount = 'purchase amount'
 
-    elif file_name == "sales.csv":
-        relevant_amount = "sales amount"
+    elif file_name == 'sales.csv':
+        relevant_amount = 'sales amount'
     
-    elif file_name == "losses.csv":
-        relevant_amount = "loss amount"
+    elif file_name == 'losses.csv':
+        relevant_amount = 'loss amount'
 
     product_in_file_check(file_name, search_type)
 
@@ -1801,30 +1800,30 @@ def modify_product_details():
             continue
         
         # 3 Variables to check the relevant data / product in the relevant file and column in step 4, with my 'product_detail_check()' function.
-        purchase_amount_check = product_detail_check('inventory.csv', search_type, "purchase_amount")
-        sales_amount_check = product_detail_check("sales.csv", search_type, "sales_amount")
-        loss_amount_check = product_detail_check("losses.csv", search_type, "loss_amount")
+        purchase_amount_check = product_detail_check('inventory.csv', search_type, 'purchase_amount')
+        sales_amount_check = product_detail_check('sales.csv', search_type, 'sales_amount')
+        loss_amount_check = product_detail_check('losses.csv', search_type, 'loss_amount')
 
         if file_name == 'inventory.csv' and input_amount in purchase_amount_check:      # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
-            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the current '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the current '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
         
-        elif file_name == "sales.csv" and input_amount in sales_amount_check:
+        elif file_name == 'sales.csv' and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the current '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the current '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
         
-        elif file_name == "losses.csv" and input_amount in loss_amount_check:
+        elif file_name == 'losses.csv' and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the current '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the\
- entered current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered current {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the current '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+ current '{relevant_amount}' with the current '{relevant_amount}' shown above in the product details.\n")
 
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered current {relevant_amount}: '{input_amount}', doesn't match one or more of the current '{relevant_amount}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the\
- details for product '{search_type}' shown above for the correct current '{relevant_amount}'.\n")
+            print(F"Hello user! The entered current {relevant_amount}: '{input_amount}', doesn't match one of the current '{relevant_amount}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details\
+ of product '{search_type}' shown above for the correct current '{relevant_amount}'.\n")
 
             continue
         break
@@ -1834,18 +1833,18 @@ def modify_product_details():
     relevant_date = ""
 
     if file_name == 'inventory.csv':
-        relevant_date = "purchase date"
+        relevant_date = 'purchase date'
     
-    elif file_name == "sales.csv":
-        relevant_date = "sales date"
+    elif file_name == 'sales.csv':
+        relevant_date = 'sales date'
     
-    elif file_name == "losses.csv":
-        relevant_date = "loss date"
+    elif file_name == 'losses.csv':
+        relevant_date = 'loss date'
 
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_date = input(F"Step 5 = Enter the current '{relevant_date}' for product '{search_type}' as follows: dd-mm-yyyy. You can double check the current '{relevant_date}' for product '{search_type}' in the product details shown\
+        input_date = input(F"Step 5 = Enter the current '{relevant_date}' for product '{search_type}' as follows: dd-mm-yyyy. You can double check the current '{relevant_date}' of product '{search_type}' in the product details shown\
  above: ")
         print('\n')
 
@@ -1854,35 +1853,35 @@ def modify_product_details():
             
         except ValueError:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered current {relevant_date}: '{input_date}', isn't the correct format to fill in the current '{relevant_date}' for product '{search_type}'. Please enter the correct current '{relevant_date}' for product\
- '{search_type}' in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user! The entered current {relevant_date}: '{input_date}', isn't the correct format to fill in the current '{relevant_date}' for product '{search_type}'. Please enter the correct current '{relevant_date}' for\
+ product '{search_type}' in the following format: dd-mm-yyyy.\n")
         
             continue
         
         # 3 Variables to check the relevant product detail in the relevant file and column in step 5, with my 'product_detail_check()' function.
-        purchase_date_check = product_detail_check('inventory.csv', search_type, "purchase_date")
-        sales_date_check = product_detail_check("sales.csv", search_type, "sales_date")
-        loss_date_check = product_detail_check("losses.csv", search_type, "loss_date")
+        purchase_date_check = product_detail_check('inventory.csv', search_type, 'purchase_date')
+        sales_date_check = product_detail_check('sales.csv', search_type, 'sales_date')
+        loss_date_check = product_detail_check('losses.csv', search_type, 'loss_date')
         
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the current '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- current '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one of the current '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered current\
+ '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
 
-        elif file_name == "sales.csv" and input_date in sales_date_check:
+        elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the current '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- current '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one of the current '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered current\
+ '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
         
-        elif file_name == "losses.csv" and input_date in loss_date_check:
+        elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the current '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- current '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered current {relevant_date} '{input_date}' of product '{search_type}' matches one of the current '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered current\
+ '{relevant_date}' with the current '{relevant_date}' in the product details shown above.\n")
 
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered current {relevant_date}: '{input_date}', doesn't match one or more of the current '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details\
- for product '{search_type}' shown above for the correct current '{relevant_date}'.\n")
+            print(F"Hello user! The entered current {relevant_date}: '{input_date}', doesn't match one of the current '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details of\
+ product '{search_type}' shown above for the correct current '{relevant_date}'.\n")
 
             continue
         break
@@ -1902,7 +1901,7 @@ def modify_product_details():
             
             continue
 
-        expiration_date_check = product_detail_check(file_name, search_type, "expiration_date")   # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
+        expiration_date_check = product_detail_check(file_name, search_type, "expiration_date") # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
                                                                                                 # variabel: 'search_type' dat het door de gebruiker ingevulde product is.
         
         if expiration_date in expiration_date_check:
@@ -1916,7 +1915,7 @@ def modify_product_details():
         else:
             print('\n')
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered current expiration date: '{expiration_date}', doesn't match one or more of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for\
+            print(F"Hello user! The entered current expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for\
  product '{search_type}' above for the correct current 'expiration date' and the correct date format: dd-mm-yyyy.\n")
 
             continue
@@ -1928,7 +1927,7 @@ def modify_product_details():
 
     while True:
         column_name = (input(F"Step 7 = Enter the current 'detail name' of product '{search_type}' that you want to modify, for instance 'purchase quantity' etc. (not case sensitive). And please don't use an underscore. You can see all the\
- product detail names above: ")).lower()
+ 'product detail names' above: ")).lower()
         print('\n')
         
         if column_name == 'purchase quantity':
@@ -1985,7 +1984,7 @@ def modify_product_details():
         product_detail = (input(F"Step 8 = Enter the 'modification' you want to make for product detail '{column_name}' of product '{search_type}' with expiration date '{expiration_date}' in the the '{file_name.capitalize()[:-4]}' file\
  (not case sensitive). You can check the current 'product details' of product '{search_type}' above: ")).lower()
         
-        if column_name == "id" or column_name == "purchase_quantity" or column_name == "sold_quantity" or column_name == "loss_quantity":
+        if column_name == "id" or column_name == 'purchase_quantity' or column_name == 'sold_quantity' or column_name == 'loss_quantity':
             
             try:
                 int(product_detail)
@@ -1997,7 +1996,7 @@ def modify_product_details():
             
                 continue
 
-        elif column_name == "purchase_amount" or column_name == "sales_amount" or column_name == "loss_amount":
+        elif column_name == 'purchase_amount' or column_name == 'sales_amount' or column_name == 'loss_amount':
         
             try:
                 float(product_detail)
@@ -2015,7 +2014,7 @@ def modify_product_details():
 
                 continue
 
-        elif column_name == "purchase_date" or column_name == "sales_date" or column_name == "expiration_date" or column_name == "loss_date":
+        elif column_name == 'purchase_date' or column_name == 'sales_date' or column_name == "expiration_date" or column_name == 'loss_date':
             
             try:
                 convert_to_dutch_date(product_detail)
@@ -2106,8 +2105,8 @@ def modify_product_details():
             
             print('\n')
             show_product_details(file_name, search_type, expiration_date)
-            print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' and the 'Product details for product '{search_type}' in the\
- '{file_name.capitalize()[:-4]}' file' shown above. And then try it again.\n")
+            print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details of product '{search_type}' in\
+ the '{file_name.capitalize()[:-4]}' file' also shown above. And then try it again.\n")
 
         file.seek(0)
 
@@ -2143,7 +2142,7 @@ def modify_quantity():
 
     print("Follow the steps below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
 
-    print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter the product 'name' or 'id' (the product name is not case sensitive).")
     print("Step 3 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
     print("Step 3 = Enter the current product 'quantity'.")
@@ -2157,23 +2156,23 @@ def modify_quantity():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following files in which you want to modify the quantity: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
-        if file_name == "inventory":
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
-        elif file_name == "sales":
-            file_name = "sales.csv"
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
             
-        elif file_name == "losses":
-            file_name = "losses.csv"
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
             
             continue
         break
@@ -2197,12 +2196,12 @@ def modify_quantity():
     relevant_quantity = ""
     
     if file_name == 'inventory.csv':
-        relevant_quantity = "purchase quantity"
+        relevant_quantity = 'purchase quantity'
 
-    elif file_name == "sales.csv":
-        relevant_quantity = "sold quantity"
+    elif file_name == 'sales.csv':
+        relevant_quantity = 'sold quantity'
     
-    elif file_name == "losses.csv":
+    elif file_name == 'losses.csv':
         relevant_quantity = "loss quantity"
 
 
@@ -2219,21 +2218,21 @@ def modify_quantity():
             
             continue
 
-        purchase_quantity_check = product_detail_check('inventory.csv', search_type, "purchase_quantity")
-        sold_quantity_check = product_detail_check("sales.csv", search_type, "sold_quantity")
-        loss_quantity_check = product_detail_check("losses.csv", search_type, "loss_quantity")
+        purchase_quantity_check = product_detail_check('inventory.csv', search_type, 'purchase_quantity')
+        sold_quantity_check = product_detail_check('sales.csv', search_type, 'sold_quantity')
+        loss_quantity_check = product_detail_check('losses.csv', search_type, 'loss_quantity')
         
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
 
-        elif file_name == "sales.csv" and quantity in sold_quantity_check:
+        elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
         
-        elif file_name == "losses.csv" and quantity in loss_quantity_check:
+        elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the product details.\n")
@@ -2253,13 +2252,13 @@ def modify_quantity():
     relevant_amount = ""
     
     if file_name == 'inventory.csv':
-        relevant_amount = "purchase amount"
+        relevant_amount = 'purchase amount'
 
-    elif file_name == "sales.csv":
-        relevant_amount = "sales amount"
+    elif file_name == 'sales.csv':
+        relevant_amount = 'sales amount'
     
-    elif file_name == "losses.csv":
-        relevant_amount = "loss amount"
+    elif file_name == 'losses.csv':
+        relevant_amount = 'loss amount'
 
 
     product_in_file_check(file_name, search_type)
@@ -2279,9 +2278,9 @@ def modify_quantity():
             continue
         
         # 3 Variables to check the relevant data / product in the relevant file and column in step 3, with my 'product_detail_check()' function.
-        purchase_amount_check = product_detail_check('inventory.csv', search_type, "purchase_amount")
-        sales_amount_check = product_detail_check("sales.csv", search_type, "sales_amount")
-        loss_amount_check = product_detail_check("losses.csv", search_type, "loss_amount")
+        purchase_amount_check = product_detail_check('inventory.csv', search_type, 'purchase_amount')
+        sales_amount_check = product_detail_check('sales.csv', search_type, 'sales_amount')
+        loss_amount_check = product_detail_check('losses.csv', search_type, 'loss_amount')
 
         if file_name == 'inventory.csv' and input_amount in purchase_amount_check:      # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
@@ -2289,12 +2288,12 @@ def modify_quantity():
             print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_amount}' in the product\
  details shown above.\n")
         
-        elif file_name == "sales.csv" and input_amount in sales_amount_check:
+        elif file_name == 'sales.csv' and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_amount}' in the product\
  details shown above.\n")
         
-        elif file_name == "losses.csv" and input_amount in loss_amount_check:
+        elif file_name == 'losses.csv' and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_amount}' in the product\
  details shown above.\n")
@@ -2312,13 +2311,13 @@ def modify_quantity():
     relevant_date = ""
 
     if file_name == 'inventory.csv':
-        relevant_date = "purchase date"
+        relevant_date = 'purchase date'
     
-    elif file_name == "sales.csv":
-        relevant_date = "sales date"
+    elif file_name == 'sales.csv':
+        relevant_date = 'sales date'
     
-    elif file_name == "losses.csv":
-        relevant_date = "loss date"
+    elif file_name == 'losses.csv':
+        relevant_date = 'loss date'
 
     product_in_file_check(file_name, search_type)
 
@@ -2336,21 +2335,21 @@ def modify_quantity():
             continue
         
         # 3 Variables to check the relevant data / product in the relevant file and column in step 4, with my 'product_detail_check()' function.
-        purchase_date_check = product_detail_check('inventory.csv', search_type, "purchase_date")
-        sales_date_check = product_detail_check("sales.csv", search_type, "sales_date")
-        loss_date_check = product_detail_check("losses.csv", search_type, "loss_date")
+        purchase_date_check = product_detail_check('inventory.csv', search_type, 'purchase_date')
+        sales_date_check = product_detail_check('sales.csv', search_type, 'sales_date')
+        loss_date_check = product_detail_check('losses.csv', search_type, 'loss_date')
         
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_date}: '{input_date}', matches one of the {relevant_date}'s of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_date}' in the product details\
  shown above.\n")
 
-        elif file_name == "sales.csv" and input_date in sales_date_check:
+        elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_date}: '{input_date}', matches one of the {relevant_date}'s of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_date}' in the product details\
  shown above.\n")
         
-        elif file_name == "losses.csv" and input_date in loss_date_check:
+        elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
             print(F"Great! The entered {relevant_date}: '{input_date}', matches one of the {relevant_date}'s of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see the '{relevant_date}' in the product details\
  shown above.\n")
@@ -2396,12 +2395,12 @@ def modify_quantity():
     relevant_quantity = ""
     
     if file_name == 'inventory.csv':
-        relevant_quantity = "purchase quantity"
+        relevant_quantity = 'purchase quantity'
 
-    elif file_name == "sales.csv":
-        relevant_quantity = "sold quantity"
+    elif file_name == 'sales.csv':
+        relevant_quantity = 'sold quantity'
     
-    elif file_name == "losses.csv":
+    elif file_name == 'losses.csv':
         relevant_quantity = "loss quantity"
     
 
@@ -2409,7 +2408,7 @@ def modify_quantity():
         modify_type = input(F"Step 7 = Enter 'increase' if you want to increase or 'decrease' if you want to decrease the '{relevant_quantity}' for product '{search_type}' (not case sensitive): ").lower()
         print('\n')
 
-        if modify_type == "increase" or modify_type == "decrease":
+        if modify_type == 'increase' or modify_type == 'decrease':
             
             print(F"Great! It's noted that you want to '{modify_type}' the '{relevant_quantity}' of product '{search_type}' with '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}' and 'expiration date':\
  '{expiration_date}' in the '{file_name.capitalize()[:-4]}' file.\n")
@@ -2547,7 +2546,7 @@ def modify_quantity():
             print(F"Product: 'id' or 'name' = '{search_type}', '{relevant_quantity}' = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}' and 'expiration date' = '{expiration_date}'.")
             print('\n')
             show_product_details(file_name, search_type, expiration_date)
-            print(F"Hello user! One or more of the entered product details wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
+            print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
  the {file_name.capitalize()[:-4]} file' also shown above. And then try it again.\n")
             
         file.seek(0)
@@ -2564,7 +2563,6 @@ def modify_quantity():
 
 # User function – remove product from a file.
 
-
 '''
 Product verwijderen op bais van 'naam' of 'id' én in combinatie met de houdbaarheidsdatum. DEZE CODE DOET HET PER ZATERDAGNACHT 09-03-2024 ROND 02:39 UUR.
 - Dinsdagavond 30-04-2024 én woensdagnacht 01-05-2024 rond 01:18 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen\
@@ -2578,7 +2576,7 @@ def remove_product():
         
     print("Follow the steps below to remove a product from a chosen file. Have fun removing!\n")
     
-    print("Step 1 = Enter one of the following file names in which you want to remove a product: 'inventory', 'sales' or 'losses'.")
+    print("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
     print("Step 2 = Enter the product 'id' or the 'name' that you want to remove (not case sensitive).")
     print("Step 3 = Enter the product 'quantity'.")
     print("Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
@@ -2590,19 +2588,19 @@ def remove_product():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names in which you want to remove a product: 'inventory', 'sales' or 'losses': ").lower()
+        file_name = input("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses': ").lower()
         print('\n')
 
-        if file_name == "inventory".lower():
+        if file_name == 'inventory'.lower():
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
         
-        elif file_name == "sales".lower():
-            file_name = "sales.csv"
+        elif file_name == 'sales'.lower():
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
         
-        elif file_name == "losses".lower():
-            file_name = "losses.csv"
+        elif file_name == 'losses'.lower():
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
 
         else:
@@ -2631,12 +2629,12 @@ def remove_product():
     relevant_quantity = ""
     
     if file_name == 'inventory.csv':
-        relevant_quantity = "purchase quantity"
+        relevant_quantity = 'purchase quantity'
 
-    elif file_name == "sales.csv":
-        relevant_quantity = "sold quantity"
+    elif file_name == 'sales.csv':
+        relevant_quantity = 'sold quantity'
     
-    elif file_name == "losses.csv":
+    elif file_name == 'losses.csv':
         relevant_quantity = "loss quantity"
 
 
@@ -2653,27 +2651,27 @@ def remove_product():
             
             continue
 
-        purchase_quantity_check = product_detail_check('inventory.csv', search_type, "purchase_quantity")
-        sold_quantity_check = product_detail_check("sales.csv", search_type, "sold_quantity")
-        loss_quantity_check = product_detail_check("losses.csv", search_type, "loss_quantity")
+        purchase_quantity_check = product_detail_check('inventory.csv', search_type, 'purchase_quantity')
+        sold_quantity_check = product_detail_check('sales.csv', search_type, 'sold_quantity')
+        loss_quantity_check = product_detail_check('losses.csv', search_type, 'loss_quantity')
         
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the '{relevant_quantity}' shown above in the product details.\n")
             
-        elif file_name == "sales.csv" and quantity in sold_quantity_check:
+        elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the '{relevant_quantity}' shown above in the product details.\n")
             
-        elif file_name == "losses.csv" and quantity in loss_quantity_check:
+        elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one or more of the '{relevant_quantity}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the '{relevant_quantity}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
  '{relevant_quantity}' with the '{relevant_quantity}' shown above in the product details.\n")
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered {relevant_quantity}: '{quantity}', doesn't match one or more of the '{relevant_quantity}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
+            print(F"Hello user! The entered {relevant_quantity}: '{quantity}', doesn't match one of the '{relevant_quantity}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
  '{search_type}' shown above for the correct '{relevant_quantity}'.\n")
             
             continue
@@ -2684,13 +2682,13 @@ def remove_product():
     relevant_amount = ""
     
     if file_name == 'inventory.csv':
-        relevant_amount = "purchase amount"
+        relevant_amount = 'purchase amount'
 
-    elif file_name == "sales.csv":
-        relevant_amount = "sales amount"
+    elif file_name == 'sales.csv':
+        relevant_amount = 'sales amount'
     
-    elif file_name == "losses.csv":
-        relevant_amount = "loss amount"
+    elif file_name == 'losses.csv':
+        relevant_amount = 'loss amount'
 
     print('\n')
     product_in_file_check(file_name, search_type)
@@ -2711,29 +2709,29 @@ def remove_product():
             continue
         
         # 3 Variables to check the relevant data / product in the relevant file and column in step 4, with my 'product_detail_check()' function.
-        purchase_amount_check = product_detail_check('inventory.csv', search_type, "purchase_amount")
-        sales_amount_check = product_detail_check("sales.csv", search_type, "sales_amount")
-        loss_amount_check = product_detail_check("losses.csv", search_type, "loss_amount")
+        purchase_amount_check = product_detail_check('inventory.csv', search_type, 'purchase_amount')
+        sales_amount_check = product_detail_check('sales.csv', search_type, 'sales_amount')
+        loss_amount_check = product_detail_check('losses.csv', search_type, 'loss_amount')
 
         if file_name == 'inventory.csv' and input_amount in purchase_amount_check:      # Ik heb deze code aangepast omdat ik de volgende foutmelding kreeg (en deze foutmelding kreeg ik ook bij stap 4): 'TypeError: argument of type\
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- '{relevant_amount}' with the '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_amount}'\
+ with the '{relevant_amount}' shown above in the product details.\n")
             
-        elif file_name == "sales.csv" and input_amount in sales_amount_check:
+        elif file_name == 'sales.csv' and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- '{relevant_amount}' with the '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_amount}'\
+ with the '{relevant_amount}' shown above in the product details.\n")
             
-        elif file_name == "losses.csv" and input_amount in loss_amount_check:
+        elif file_name == 'losses.csv' and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one or more of the '{relevant_amount}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
- '{relevant_amount}' with the '{relevant_amount}' shown above in the product details.\n")
+            print(F"Great! The entered {relevant_amount} '{input_amount}' of product '{search_type}' matches one of the '{relevant_amount}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_amount}'\
+ with the '{relevant_amount}' shown above in the product details.\n")
             
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered {relevant_amount}: '{input_amount}', doesn't match one or more of the '{relevant_amount}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
+            print(F"Hello user! The entered {relevant_amount}: '{input_amount}', doesn't match one of the '{relevant_amount}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details of product\
  '{search_type}' shown above for the correct '{relevant_amount}'.\n")
 
             continue
@@ -2744,13 +2742,13 @@ def remove_product():
     relevant_date = ""
 
     if file_name == 'inventory.csv':
-        relevant_date = "purchase date"
+        relevant_date = 'purchase date'
     
-    elif file_name == "sales.csv":
-        relevant_date = "sales date"
+    elif file_name == 'sales.csv':
+        relevant_date = 'sales date'
     
-    elif file_name == "losses.csv":
-        relevant_date = "loss date"
+    elif file_name == 'losses.csv':
+        relevant_date = 'loss date'
 
     print('\n')
     product_in_file_check(file_name, search_type)
@@ -2770,28 +2768,28 @@ def remove_product():
             continue
         
         # 3 Variables to check the relevant product detail in the relevant file and column in step 5, with my 'product_detail_check()' function.
-        purchase_date_check = product_detail_check('inventory.csv', search_type, "purchase_date")
-        sales_date_check = product_detail_check("sales.csv", search_type, "sales_date")
-        loss_date_check = product_detail_check("losses.csv", search_type, "loss_date")
+        purchase_date_check = product_detail_check('inventory.csv', search_type, 'purchase_date')
+        sales_date_check = product_detail_check('sales.csv', search_type, 'sales_date')
+        loss_date_check = product_detail_check('losses.csv', search_type, 'loss_date')
         
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}'\
- with the '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one of the '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}' with the\
+ '{relevant_date}' in the product details shown above.\n")
             
-        elif file_name == "sales.csv" and input_date in sales_date_check:
+        elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}'\
- with the '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one of the '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}' with the\
+ '{relevant_date}' in the product details shown above.\n")
             
-        elif file_name == "losses.csv" and input_date in loss_date_check:
+        elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one or more of the '{relevant_date}' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}'\
- with the '{relevant_date}' in the product details shown above.\n")
+            print(F"Great! The entered {relevant_date} '{input_date}' of product '{search_type}' matches one of the '{relevant_date}'s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered '{relevant_date}' with the\
+ '{relevant_date}' in the product details shown above.\n")
             
         else:
             product_in_file_check(file_name, search_type)
-            print(F"Hello user! The entered {relevant_date}: '{input_date}', doesn't match one or more of the '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
+            print(F"Hello user! The entered {relevant_date}: '{input_date}', doesn't match one of the '{relevant_date}'s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the details for product\
  '{search_type}' shown above for the correct '{relevant_date}'.\n")
             
             continue
@@ -2870,7 +2868,7 @@ def remove_product():
             if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row["expiration_date"] == expiration_date:
             
                 print('\n')
-                product_in_file_check(file_name, search_type)
+                show_product_details(file_name, search_type, expiration_date)
 
                 while True:
                     yes_or_no = input(F"Step 7 = Are you sure you want to remove product '{search_type}' with the {relevant_quantity} '{quantity}', the {relevant_amount} '{input_amount}', the {relevant_date} '{input_date}' and the\
@@ -2899,8 +2897,8 @@ def remove_product():
             print(F"Product 'id' or 'name' = '{search_type}', product {relevant_quantity} = '{quantity}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}', product 'expiration date' = \
  '{expiration_date}'.")
             print('\n')
-            product_in_file_check(file_name, search_type)
-            print(F"Hello user! One or more of the entered product details wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
+            show_product_details(file_name, search_type, expiration_date)
+            print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
  the {file_name.capitalize()[:-4]} file' also shown above. And then try it again.\n")
 
 
@@ -2940,7 +2938,7 @@ def calculate_costs(from_date: datetime, until_date: datetime):
 
         for row in reader:
         
-            purchase_date = convert_to_strptime(row["purchase_date"])
+            purchase_date = convert_to_strptime(row['purchase_date'])
             
             input_from_date = convert_to_strptime(from_date)
             input_until_date = convert_to_strptime(until_date)
@@ -2954,7 +2952,7 @@ def calculate_costs(from_date: datetime, until_date: datetime):
             # print(F"Dit is regel 2578 {type(until_date)}")
             
             if input_from_date <= purchase_date and input_until_date >= purchase_date:
-                costs = float(row["purchase_quantity"]) * float(row["purchase_amount"])
+                costs = float(row['purchase_quantity']) * float(row['purchase_amount'])
             
                 total_costs += costs
         
@@ -2980,13 +2978,13 @@ def calculate_losses(from_date: datetime, until_date: datetime):
 
         for row in reader:
         
-            loss_date = convert_to_strptime(row["loss_date"])
+            loss_date = convert_to_strptime(row['loss_date'])
             
             input_from_date = convert_to_strptime(from_date)
             input_until_date = convert_to_strptime(until_date)
             
             if input_from_date <= loss_date and input_until_date >= loss_date:
-                losses = float(row["loss_quantity"]) * float(row["loss_amount"])
+                losses = float(row['loss_quantity']) * float(row['loss_amount'])
             
                 total_losses += losses
         
@@ -3011,20 +3009,20 @@ Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgeg
 
 def calculate_revenue(from_date: datetime, until_date: datetime):
 
-    with open("sales.csv", 'r') as sales_file:
+    with open('sales.csv', 'r') as sales_file:
         reader = csv.DictReader(sales_file)
 
         total_revenue = 0
 
         for row in reader:
         
-            sales_date = convert_to_strptime(row["sales_date"])
+            sales_date = convert_to_strptime(row['sales_date'])
 
             input_from_date = convert_to_strptime(from_date)
             input_until_date = convert_to_strptime(until_date)
 
             if input_from_date <= sales_date and input_until_date >= sales_date:
-                revenue = float(row["sold_quantity"]) * float(row["sales_amount"])
+                revenue = float(row['sold_quantity']) * float(row['sales_amount'])
             
                 total_revenue += revenue
         
@@ -3047,12 +3045,12 @@ Met de 'calculate_profit' functie kan je de totale winst van een door jou opgege
 
 def calculate_profit(from_date: datetime, until_date: datetime):
     
-    with open("sales.csv", 'r') as sales_file:
+    with open('sales.csv', 'r') as sales_file:
         reader = csv.DictReader(sales_file)
 
         for row in reader:
     
-            product_sales_date = convert_to_strptime(row["sales_date"])
+            product_sales_date = convert_to_strptime(row['sales_date'])
 
             input_from_date = convert_to_strptime(from_date)
             input_until_date = convert_to_strptime(until_date)
@@ -3095,7 +3093,7 @@ def calculations():
         calculation_type = input("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive): ").lower()
         print('\n')
 
-        if calculation_type == "costs" or calculation_type == "losses" or calculation_type == "revenue" or calculation_type == "profit":
+        if calculation_type == "costs" or calculation_type == 'losses' or calculation_type == "revenue" or calculation_type == "profit":
             print(F"Great! It is noted that you want to calculate the '{calculation_type}'.\n")
 
         else:
@@ -3130,16 +3128,16 @@ def calculations():
         break    
 
 
-    if calculation_type == "costs":
+    if calculation_type == 'costs':
         calculation = (calculate_costs(from_date, until_date))
         
-    elif calculation_type == "losses":
+    elif calculation_type == 'losses':
         calculation = (calculate_losses(from_date, until_date))
     
-    elif calculation_type == "revenue":
+    elif calculation_type == 'revenue':
         calculation = (calculate_revenue(from_date, until_date))
     
-    elif calculation_type == "profit":
+    elif calculation_type == 'profit':
         calculation = (calculate_profit(from_date, until_date))
 
     print('\n')
@@ -3163,29 +3161,29 @@ def export_file_to_excel():
 
     print("Follow the steps below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
     
-    print("Step 1 = Enter one of the following file names to export it to Excel: 'inventory', 'sales' or 'losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Done!.\n")
     print('\n')
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to export it to Excel: 'inventory', 'sales' or 'losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
-        if file_name == "inventory":
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
 
-        elif file_name == "sales":
-            file_name = "sales.csv"
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
             
-        elif file_name == "losses":
-            file_name = "losses.csv"
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
             print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'inventory', 'sales' or 'losses' (not case sensitive).\n")
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
             continue
         break
@@ -3194,24 +3192,24 @@ def export_file_to_excel():
     if file_name == 'inventory.csv':
         csv_file = pd.read_csv(file_name)
         csv_file.index += 1
-        csv_file.to_excel("inventory.xlsx",
-                        index_label= "Count",
+        csv_file.to_excel('inventory.xlsx',
+                        index_label= 'Count',
                         freeze_panes= (1,1)
                         )
     
-    if file_name == "sales.csv":
+    if file_name == 'sales.csv':
         csv_file = pd.read_csv(file_name)
         csv_file.index += 1
-        csv_file.to_excel("sales.xlsx",
-                        index_label= "Count",
+        csv_file.to_excel('sales.xlsx',
+                        index_label= 'Count',
                         freeze_panes= (1,1)
                         )
     
-    if file_name == "losses.csv":
+    if file_name == 'losses.csv':
         csv_file = pd.read_csv(file_name)
         csv_file.index += 1
-        csv_file.to_excel("losses.xlsx",
-                        index_label= "Count",
+        csv_file.to_excel('losses.xlsx',
+                        index_label= 'Count',
                         freeze_panes= (1,1)
                         )
 
