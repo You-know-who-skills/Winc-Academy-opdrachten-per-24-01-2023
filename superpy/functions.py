@@ -15,53 +15,76 @@ print('\n')
 # User functions - create or clear files.
 
 '''
-Inventory bestand maken. DEZE CODE DOET HET!!! Per donderdag 28-03-2024 rond 23:52 uur.
+Één van de 3 bestanden opnieuw maken: 'Inventory', 'Sales' en 'Losses'. DEZE CODE DOET HET!!! Per maandag 03-06-2024 rond 22:45 uur.\
+- Ik heb alle 3 de losse functies die de bestanden 'Inventory', 'Sales' en 'Losses' creëren samengevoegd tot 1 functie. Ik heb vrijwel\
+  al mijn functies / codes op deze manier geschreven zodat de gebruiker de mogelijkheid heeft om te kiezen wat hij / zij wil doen, dus\
+  waarom deze 3 functies niet. Naar mijn mening werkt dit namelijk makkelijker, sneller én efficienter. Zie de oude notities van de 3\
+  losse functies hieronder.
+
+Notitie van mijn losse 'inventory' functie:
+- Inventory bestand maken. DEZE CODE DOET HET!!! Per donderdag 28-03-2024 rond 23:52 uur.
 - Vrijdagnacht 10-05-2024 = Oude kolomnamen aangepast naar de nieuwe kolomnamen.
 - Donderdag 28-03-2024 rond 23:52 uur = Code aangepast en getest.
-'''
 
-def create_inventory_file():
-    
-    with open('inventory.csv', 'w', newline='') as inventory_file:
-        writer = csv.DictWriter(inventory_file, fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])
-        # write = csv.DictWriter(inventory_file, delimiter= '\t', fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])    # LET OP!!! Als je een andere scheidingsteken dan de komma wil\
-                                                                                                                                                                            # gebruiken, dan doe je dat # met de 'delimiter=''' code. De\
-                                                                                                                                                                            # 'delimiter=''' code plaats je tussen de 'bestandsnaam' en de\
-                                                                                                                                                                            # 'fieldnames' in.
-        writer.writeheader()
-
-# print(create_inventory_file())
-# print('\n')
-
-
-'''
-Sales bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht rond 00:02 uur.
+Notitie van mijn losse 'sales' functie:
+Sales bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht 29-03-2024 rond 00:02 uur.
 - Vrijdagnacht 10-05-2024 = Oude kolomnamen aangepast naar de nieuwe kolomnamen.
 - Vrijdagnacht 29-03-2024 rond 00:02 uur = Code aangepast en getest.
-'''
 
-def create_sales_file():
-
-    with open('sales.csv', 'w', newline='') as sales_file:
-        writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sold_amount', 'sold_date', 'expiration_date'])
-        writer.writeheader()
-        
-# print(create_sales_file())
-# print('\n')
-
-
-'''
-Losses bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht rond 00:11 uur.
+Notitie van mijn losse 'losses' functie:
+Losses bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht 29-03-2024 rond 00:11 uur.
 - Vrijdagnacht 29-03-2024 rond 00:11 uur = Code aangepast en getest.
 '''
 
-def create_losses_file():
+def create_new_file():
 
-    with open('losses.csv', 'w', newline='') as losses_file:
-        writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
-        writer.writeheader()
-        
-# print(create_losses_file())
+    print("Hello user, and welcome to the 'create file' option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+
+    print("Follow the steps below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+    
+    print("Step 1 = Enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("Done!\n")
+    print('\n')
+
+
+    while True:
+        file_name = input("Step 1 = Enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        print('\n')
+
+        if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
+            print(F"Great! The '{file_name.capitalize()}' file has been created.")
+
+        else:
+            print('\n')
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+
+            continue
+        break
+
+    print('\n')
+
+    if file_name == 'inventory':
+        with open('inventory.csv', 'w', newline='') as inventory_file:
+            writer = csv.DictWriter(inventory_file, fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])
+            # write = csv.DictWriter(inventory_file, delimiter= '\t', fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])    # LET OP!!! Als je een andere scheidingsteken dan de komma wil\
+                                                                                                                                                                        # gebruiken, dan doe je dat # met de 'delimiter=''' code. De\
+                                                                                                                                                                        # 'delimiter=''' code plaats je tussen de 'bestandsnaam' en de\
+                                                                                                                                                                        # 'fieldnames' in.
+            writer.writeheader()
+
+
+    elif file_name == 'sales':
+        with open('sales.csv', 'w', newline='') as sales_file:
+            writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sold_amount', 'sold_date', 'expiration_date'])
+            writer.writeheader()
+
+
+    elif file_name == 'losses':
+        with open('losses.csv', 'w', newline='') as losses_file:
+            writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
+            writer.writeheader()
+
+# print(create_new_file())
 # print('\n')
 
 
@@ -169,7 +192,7 @@ def current_date():
 # print('\n')
 
 
-def convert_to_strptime(datetime_object):
+def convert_to_strptime(datetime_object: datetime):
 
     return datetime.strptime(datetime_object, "%d-%m-%Y")
 
@@ -177,7 +200,7 @@ def convert_to_strptime(datetime_object):
 # print('\n')
 
 
-def convert_to_strftime(string):
+def convert_to_strftime(string: datetime):
 
     return datetime.strftime(string, "%d-%m-%Y")
 
@@ -185,7 +208,7 @@ def convert_to_strftime(string):
 # print('\n')
 
 
-def convert_to_dutch_date(date_format):
+def convert_to_dutch_date(date_format: datetime):
 
     return datetime.strptime(date_format, "%d-%m-%Y").strftime("%d-%m-%Y") # Met de 'datetime module' maak je een 'datetime' object aan. Met 'strptime' (en 'strp' kan je zien als 'strippen' in de zin van dat je de tijd uit het object\
                                                                                     # stript / haalt) haal je dus de tijd uit de 'today' code.
@@ -2202,7 +2225,7 @@ def modify_quantity():
             continue
         break
 
-# HIER BEN IK!!! IK BEN EEN STAP VERGETEN: SOLD QUANTITY.
+
     # Names for the relevant 'quantity' in the relevant file for 'Step 3' in the while loop below.
     relevant_quantity = ""
     
@@ -2255,8 +2278,6 @@ def modify_quantity():
 
             continue
         break
-
-
 
 
     # Names for the relevant 'amount' in the relevant file for 'Step 3' in the while loop below.
@@ -2345,6 +2366,7 @@ def modify_quantity():
         
             continue
         
+        
         # 3 Variables to check the relevant data / product in the relevant file and column in step 4, with my 'product_detail_check()' function.
         purchase_date_check = product_detail_check('inventory.csv', search_type, 'purchase_date')
         sales_date_check = product_detail_check('sales.csv', search_type, 'sales_date')
@@ -2413,7 +2435,7 @@ def modify_quantity():
     
     elif file_name == 'losses.csv':
         relevant_quantity = "loss quantity"
-    
+
 
     while True:
         modify_type = input(F"Step 7 = Enter 'increase' if you want to increase or 'decrease' if you want to decrease the '{relevant_quantity}' for product '{search_type}' (not case sensitive): ").lower()
@@ -2806,6 +2828,7 @@ def remove_product():
             continue
         break
 
+
     while True:
         expiration_date = input(F"Step 6 = Enter the expiration date for product '{search_type}' which you want to remove as follows: dd-mm-yyyy: ")
         
@@ -3083,6 +3106,8 @@ def calculate_profit(from_date: datetime, until_date: datetime):
 Met de 'calculations' functie (oude naam was 'time_frame_calculation()' functie) kan je de zelf kiezen wat je wilt\
 uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
+- Maandag 03-06-2024 rond 16:00 uur = Tekstuele aangepassingen gedaan m.b.t. 'aanhalingstekens' aangepast in 'apostroffen'\
+  én het woord 'losses' toegevoegd in het menu en in de input statement.
 - Dinsdagnacht 07-05-2024 rond 00:27 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
@@ -3091,24 +3116,24 @@ def calculations():
 
     print("Hello user, and welcome to the 'calculations' options.\n")
 
-    print("Follow the steps below to choose which calculation you would like to make: 'costs', 'revenue' or 'profit'. Have fun calculating!\n")
+    print("Follow the steps below to choose which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
 
-    print("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive).")
-    print("Step 2 = Enter the 'from date' as follows: dd-mm-yyyy.")
-    print("Step 3 = Enter the 'until date' as follows dd-mm-yyyy.\n")
+    print("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive).")
+    print("Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
+    print("Step 3 = Enter the 'until' date as follows dd-mm-yyyy.\n")
     print("Done!\n")
     print('\n')
 
 
     while True:
-        calculation_type = input("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'revenue' or 'profit' (not case sensitive): ").lower()
+        calculation_type = input("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive): ").lower()
         print('\n')
 
-        if calculation_type == "costs" or calculation_type == 'losses' or calculation_type == "revenue" or calculation_type == "profit":
+        if calculation_type == 'costs' or calculation_type == 'losses' or calculation_type == 'revenue' or calculation_type == 'profit':
             print(F"Great! It is noted that you want to calculate the '{calculation_type}'.\n")
 
         else:
-            print(F"Hello user! '{calculation_type}' Isn't the correct input for choosing a calculation. Please choose one of the following calculations: 'costs', 'revenue' or 'profit'.\n")
+            print(F"Hello user! '{calculation_type}' Isn't the correct input for choosing a calculation. Please choose one of the following calculations: 'costs', 'losses', 'revenue' or 'profit'.\n")
             continue
         break
 
