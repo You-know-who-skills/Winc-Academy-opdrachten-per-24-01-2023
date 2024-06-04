@@ -564,8 +564,6 @@ def product_in_file_check(file_name: str, search_type: str):
             
                 product_in_file = True
                 print(row)
-                
-        file.seek(0) # Even navragen of deze code nut heeft in deze functie én op deze plek.
 
         print('\n')
         
@@ -623,8 +621,7 @@ def product_detail_check(file_name: str, search_type: str, column_name: str):
                 # het bestand gereturned. Dus wanneer je de gegevens die je zoekt met een 'for loop' wilt gebruiken (b.v. in een andere functie zoals ik met deze code heb gedaan in o.a. mijn 'modify_quantity' functie), dan kan je beter de\
                 # gevonden gegevens eerst in een lijst plaatsen zoals ik hierboven heb gedaan met mijn variabel 'data_in_file = []'. Op deze manier kan je de gehele 'lijst' returnen én kan je de gegevens in de lijst weer gebruiken in\
                 # andere functies.
-        file.seek(0)
-
+        
         if data_in_file == True:
             
             return column_name_results
@@ -651,8 +648,6 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
             
             if (row['name'] == search_type or row['id'] == search_type) and row['expiration_date'] == expiration_date:
                 print(F"{categorize}. {row}")
-                                
-        file.seek(0) # Even navragen of deze code nut heeft in deze functie én op deze plek.
 
     print('\n')
 
@@ -2142,7 +2137,6 @@ def modify_product_details():
             print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details of product '{search_type}' in\
  the '{file_name.capitalize()[:-4]}' file' also shown above. And then try it again.\n")
 
-        file.seek(0)
 
     with open(file_name, 'r+', newline='') as file:
         writer = csv.DictWriter(file, fieldnames= reader.fieldnames)
@@ -2581,8 +2575,7 @@ def modify_quantity():
             show_product_details(file_name, search_type, expiration_date)
             print(F"Hello user! One or more of the entered 'product details' wasn't filled in correctly. Please check the differences between the 'Entered product details' shown above and the 'Product details for product '{search_type}' in\
  the {file_name.capitalize()[:-4]} file' also shown above. And then try it again.\n")
-            
-        file.seek(0)
+    
 
     with open(file_name, 'r+', newline='') as file:
         writer = csv.DictWriter(file, fieldnames= reader.fieldnames)
@@ -2936,8 +2929,6 @@ def remove_product():
  the {file_name.capitalize()[:-4]} file' also shown above. And then try it again.\n")
 
 
-        file.seek(0)
-        
     with open(file_name, 'w', newline= '') as file:
         writer = csv.DictWriter(file, fieldnames= reader.fieldnames)
         writer.writeheader()
