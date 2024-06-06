@@ -41,14 +41,15 @@ def create_new_file():
     print("Hello user, and welcome to the 'create file' option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
     print("Follow the steps below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+    print('\n')
     
-    print("Step 1 = Enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Done!\n")
     print('\n')
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
@@ -100,6 +101,7 @@ def clear_file():
     print("Hello user, and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
 
     print("Follow the steps below to clear a choosen file from all it's products. Have fun clearing!\n")
+    print('\n')
     
     print("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
@@ -163,7 +165,78 @@ def clear_file():
 # print('\n')
 
 
-# Help functions – show or convert dates.
+# User function – export files to Excel.
+
+'''
+Een door jou gekozen csv bestand converteren naar een Excel bestand. DEZE CODE DOET HET!!! Per maandag 19-02-2024.
+- Dinsdagnacht 19-03-2024 rond 00:30 uur = Code aangepast.
+- Vrijdagnacht 29-03-2024 rond 00:19 uur = Code aangepast en getest.
+'''
+
+def export_file_to_excel():
+
+    print("Hello user, and welcome to the 'export file to Excel' option. With this option, you can export a choosen file to an Excel file.\n")
+
+    print("Follow the steps below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
+    print('\n')
+    
+    print("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("Done!.\n")
+    print('\n')
+
+
+    while True:
+        file_name = input("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        print('\n')
+
+        if file_name == 'inventory':
+            file_name = 'inventory.csv'
+            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+
+        elif file_name == 'sales':
+            file_name = 'sales.csv'
+            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+            
+        elif file_name == 'losses':
+            file_name = 'losses.csv'
+            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+
+        else:
+            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+
+            continue
+        break
+
+
+    if file_name == 'inventory.csv':
+        csv_file = pd.read_csv(file_name)
+        csv_file.index += 1
+        csv_file.to_excel('inventory.xlsx',
+                        index_label= 'Count',
+                        freeze_panes= (1,1)
+                        )
+    
+    if file_name == 'sales.csv':
+        csv_file = pd.read_csv(file_name)
+        csv_file.index += 1
+        csv_file.to_excel('sales.xlsx',
+                        index_label= 'Count',
+                        freeze_panes= (1,1)
+                        )
+    
+    if file_name == 'losses.csv':
+        csv_file = pd.read_csv(file_name)
+        csv_file.index += 1
+        csv_file.to_excel('losses.xlsx',
+                        index_label= 'Count',
+                        freeze_panes= (1,1)
+                        )
+
+# print(export_file_to_excel())
+# print('\n')
+
+
+# Help functions – convert and use dates.
 
 '''
 De huidige datum returnen ZONDER menu en datums omzetten naar 'datetime objecten. DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
@@ -232,6 +305,7 @@ def update_system_date():
     print("Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date.\n")
     
     print("Follow the steps below to update the system date. Have fun updating!\n")
+    print('\n')
 
     print("Step 1 = Enter 'Y' if you 'do' want to 'update the system date to the current date'. Or enter 'N' if you 'don't' want to update the system date to the current date (not case sensitive).")
     print("Done!\n")
@@ -291,6 +365,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
     print("Hello user, and welcome to the 'change system date' option.\n")
         
     print("Follow the steps below to change the system date by entering the number of days or weeks that you want to change the system date with. Have fun changing!\n")
+    print('\n')
     
     print("Step 1 = Enter 'days' if you want to change the system date in a period of days. Or enter 'weeks' if you want to change the system date in a period of weeks (not case sensitive).")
     print("Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive).")
@@ -400,6 +475,7 @@ def go_to_specific_date():
     print("Hello user, and welcome to the 'choose a specific system date' option. With this option you can go to a specific date in the system. Have fun choosing!\n")
     
     print("Follow the steps below to go to a specific date in the system. Have fun choosing!\n")
+    print('\n')
 
     print("Step 1 = Enter the 'date' you want the system to go to.")
     print("Done!\n")
@@ -432,27 +508,21 @@ def go_to_specific_date():
 
 
 '''
-Speciale gelegenheden tekst bestand voor mijn 'special_occasion_countdown()' functie.
-- Zondagnacht 17-03-2024 = Begonnen én afgrond rond 00:06 uur.
-'''
-
-with open('special_occasion.txt', 'w') as file:
-    file.write(' ')
-
-
-'''
 Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Per zaterdagnacht 30-03-2024 rond 01:12 uur.
 - Woensdagnacht 08-05-2024 rond 02:15 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
 - Vrijdag 29-01-2024 = Code aangepast samen met mentor Christiaan.
 - Zaterdagnacht 30-03-2024 = Code aangepast én getest.
+- Zondagnacht 17-03-2024 = Begonnen én afgrond rond 00:06 uur: speciale gelegenheden tekst bestand gemaakt voor mijn\
+ 'special_occasion_countdown()' functie.
 '''
 
-def special_occasion_countdown():
+def special_occasion_date():
 
     print("Hello user, and welcome to the 'special occasion countdown' option.\n")
 
     print("Follow the steps below to create a countdown for a special occasion. Have fun with the countdown!\n")
+    print('\n')
     
     print("Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
     print("Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
@@ -474,10 +544,10 @@ def special_occasion_countdown():
             
             continue
         
-        print(type(special_occasion_date))                              # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een\
-        input_date = convert_to_strptime(special_occasion_date)  # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan\
-        todays_date = current_date()                                    # zie je dat het hier nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer\
-        print(type(input_date))                                         # vergelijken met een andere 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel. 
+        print(type(special_occasion_date))                      # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een\
+        input_date = convert_to_strptime(special_occasion_date) # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan zie je dat\
+        todays_date = current_date()                            # het hier nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer vergelijken met een andere\
+        print(type(input_date))                                 # 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel.
         print(type(todays_date))                                        
         
         if input_date < todays_date:                                    
@@ -506,7 +576,7 @@ def special_occasion_countdown():
                                                                                             # tijdstip niet zichtbaar zijn wanneer je de code print, moet je 'slicen' door een index te gebruiken. En met deze code kwam ik erachter dat je dus\
     return F"{short_string_countdown} {special_occasion_sentence}"                          # ook kan slicen door een getal én een variabel in combinatie met de 'find()' code kunt gebruiken 'binnen een index'.
 
-# print(special_occasion_countdown())
+# print(special_occasion_date())
 # print('\n')
 
 
@@ -667,6 +737,7 @@ def view_all_products():
     print("Hello user, and welcome to the 'view all products' option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
     print("Follow the steps below to view all products from a choosen file. Have fun viewing!\n")
+    print('\n')
             
     print("Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Done!\n")
@@ -722,6 +793,7 @@ def view_products_within_period():
     print("Hello user, and welcome to the 'view products within a certain period' option.\n")
 
     print("Follow the steps below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
+    print('\n')
 
     print("Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
@@ -876,6 +948,7 @@ def find_products():
     print("Hello user, and welcome to the 'find products' option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
     print("Follow the steps below to find the product you are looking for. Have fun finding!\n")
+    print('\n')
     
     print("Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
@@ -935,6 +1008,7 @@ def	avoid_expired_products():
     print("Hello user, and welcome to the 'avoid expired products' option.\n")
     
     print("Please follow the steps below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
+    print('\n')
 
     print("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
     print("Done!\n")
@@ -1009,6 +1083,7 @@ def add_inventory_products():
     print("Hello user, and welcome to the 'add inventory products' option.\n")
     
     print("Follow the steps below to add products to the Inventory file. Have fun adding!\n")
+    print('\n')
 
     print("Step 1 = Enter the product 'ID'.")
     print("Step 2 = Enter the product 'name'.")
@@ -1189,9 +1264,10 @@ def add_sold_products():
 
     print("Hello user, and welcome to the 'add sold products' option.\n")
     
-    print("By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the product that you've sold.\n")
+    print("By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the products that you've sold.\n")
     
     print("Follow the steps below to add your sold products. Have fun adding!\n")
+    print('\n')
     
     print("Step 1 = Enter the product 'ID'.")
     print("Step 2 = Enter the product 'name'.")
@@ -1434,6 +1510,7 @@ def add_loss_products():
     print("By adding a product loss to the Losses file, the Inventory file will automatically be reduced with the same quantity of the added product loss.\n")
 
     print("Follow the steps below to add a product loss. Have fun adding!\n")
+    print('\n')
     
     print("Step 1 = Enter the product 'ID'.")
     print("Step 2 = Enter the product 'name' (not case sensitive).")
@@ -1694,6 +1771,7 @@ def modify_product_details():
     print("Hello user, and welcome to the 'modify product details' option.\n")
 
     print("Follow the steps below to modify the details of a product in a chosen file. Have fun modifying!\n")
+    print('\n')
 
     print("Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive).")
@@ -2164,11 +2242,12 @@ zonder de voorraad van het inventory bestand aan te passen. DEZE CODE DOET HET P
 - Zaterdagnacht 23-03-2024 rond 02:48 uur = Functie aangepast en getest.
 '''
 
-def modify_quantity():
+def modify_product_quantity():
 
-    print("Hello user, and welcome to the 'modify quantity' option.\n")
+    print("Hello user, and welcome to the 'modify product quantity' option.\n")
 
     print("Follow the steps below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
+    print('\n')
 
     print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
@@ -2583,7 +2662,7 @@ def modify_quantity():
         writer.writerows(rows)
         print('\n')
 
-# print(modify_quantity())
+# print(modify_product_quantity())
 # print('\n')
 
 
@@ -2601,6 +2680,7 @@ def remove_product():
     print("Hello user, and welcome to the 'remove product' option.\n")
         
     print("Follow the steps below to remove a product from a chosen file. Have fun removing!\n")
+    print('\n')
     
     print("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
     print("Step 2 = Enter the product 'ID' or the 'name' that you want to remove (not case sensitive).")
@@ -3103,11 +3183,12 @@ uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CO
   bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het prima!!!
 ''' 
 
-def calculations():
+def product_calculations():
 
-    print("Hello user, and welcome to the 'calculations' options.\n")
+    print("Hello user, and welcome to the 'product calculations' option.\n")
 
     print("Follow the steps below to choose which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
+    print('\n')
 
     print("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive).")
     print("Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
@@ -3170,77 +3251,148 @@ def calculations():
     print('\n')
     return F"The '{calculation_type}' from the period '{from_date}' until '{until_date}' = '€ {calculation}'."
 
-# print(calculations())
+# print(product_calculations())
 # print('\n')
 
 
-# User function – export files to Excel
+# User functions - display menu options: 'file', 'date' and 'product'.
 
-'''
-Een door jou gekozen csv bestand converteren naar een Excel bestand. DEZE CODE DOET HET!!! Per maandag 19-02-2024.
-- Dinsdagnacht 19-03-2024 rond 00:30 uur = Code aangepast.
-- Vrijdagnacht 29-03-2024 rond 00:19 uur = Code aangepast en getest.
-'''
+def display_file_options():
 
-def export_file_to_excel():
+    print("Hello user, and welcome to the 'file options' menu.\n")
 
-    print("Hello user, and welcome to the 'export file to Excel' option. With this option, you can export a choosen file to an Excel file.\n")
-
-    print("Follow the steps below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
+    print("Choose one of the 'file options' below to get started!\n")
     
-    print("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Done!.\n")
-    print('\n')
-
+    print("1 = Create a new file.")
+    print("2 = Clear a file.")
+    print("3 = Export a file to Excel.")
+    print("4 = Exit \n")
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        choice = input("Enter your choice (1, 2, 3 or 4): ")
         print('\n')
 
-        if file_name == 'inventory':
-            file_name = 'inventory.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
-
-        elif file_name == 'sales':
-            file_name = 'sales.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+        if choice == "1":
+            create_new_file()
             
-        elif file_name == 'losses':
-            file_name = 'losses.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+        elif choice == "2":
+            clear_file()
+
+        elif choice == "3":
+            export_file_to_excel()
+
+        elif choice == "4":
+            break
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
-
-            continue
-        break
+            print("Hello user! You have entered an invalid choice. Please enter a valid option from 1 to 4.\n")
 
 
-    if file_name == 'inventory.csv':
-        csv_file = pd.read_csv(file_name)
-        csv_file.index += 1
-        csv_file.to_excel('inventory.xlsx',
-                        index_label= 'Count',
-                        freeze_panes= (1,1)
-                        )
+# print(display_file_options())
+# print('\n')
+
+
+def display_date_options():
+
+    print("Hello user, and welcome to the 'date options' menu.\n")
+
+    print("Choose one of the 'date options' below to get started!\n")
     
-    if file_name == 'sales.csv':
-        csv_file = pd.read_csv(file_name)
-        csv_file.index += 1
-        csv_file.to_excel('sales.xlsx',
-                        index_label= 'Count',
-                        freeze_panes= (1,1)
-                        )
-    
-    if file_name == 'losses.csv':
-        csv_file = pd.read_csv(file_name)
-        csv_file.index += 1
-        csv_file.to_excel('losses.xlsx',
-                        index_label= 'Count',
-                        freeze_panes= (1,1)
-                        )
+    print("1 = Update the system date.")
+    print("2 = Change the system date.")
+    print("3 = Go to a specific date.")
+    print("4 = Special occasion date / countdown.")
+    print("5 = Exit \n")
 
-# print(export_file_to_excel())
+    while True:
+        choice = input("Enter your choice (1, 2, 3, 4 or 5): ")
+        print('\n')
+
+        if choice == "1":
+            update_system_date()
+
+        elif choice == "2":
+            change_system_date()
+
+        elif choice == "3":
+            go_to_specific_date()
+        
+        elif choice == "4":
+            special_occasion_date()
+
+        elif choice == "5":
+            break
+
+        else:
+            print("Hello user! You have entered an invalid choice. Please enter a valid option from 1 to 4.\n")
+
+# print(display_date_options())
+# print('\n')
+
+
+def display_product_options():
+
+    print("Hello user, and welcome to the 'product options' menu.\n")
+
+    print("Choose one of the 'product options' below to get started!\n")
+    
+    print("1 = View all products.")
+    print("2 = View products within a certain period.")
+    print("3 = Find products.")
+    print("4 = Avoid expired products.")
+    print("5 = Add inventory products.")
+    print("6 = Add sold products.")
+    print("7 = Add loss products.")
+    print("8 = Modify product details.")
+    print("9 = Modify product quantity.")
+    print("10 = Remove product.")
+    print("11 = Product calculations.")
+    print("12 = Exit \n")
+
+    while True:
+        choice = input("Enter your choice (from 1 to 12): ")
+        print('\n')
+
+        if choice == "1":
+            view_all_products()
+
+        elif choice == "2":
+            view_products_within_period()
+
+        elif choice == "3":
+            find_products()
+        
+        elif choice == "4":
+            avoid_expired_products()
+        
+        elif choice == "5":
+            add_inventory_products()
+        
+        elif choice == "6":
+            add_sold_products()
+        
+        elif choice == "7":
+            add_loss_products()
+        
+        elif choice == "8":
+            modify_product_details()
+        
+        elif choice == "9":
+            modify_product_quantity()
+        
+        elif choice == "10":
+            remove_product()
+        
+        elif choice == "11":
+            product_calculations()
+
+        elif choice == "12":
+            break
+
+        else:
+            print("Hello user! You have entered an invalid choice. Please enter a valid option from 1 to 12.\n")
+
+# print(display_product_options())
 # print('\n')
 
 
