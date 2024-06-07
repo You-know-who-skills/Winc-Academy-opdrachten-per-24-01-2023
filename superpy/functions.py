@@ -38,13 +38,14 @@ Losses bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht 29-03-2024 rond 00:
 
 def create_new_file():
 
-    print("Hello user, and welcome to the 'create file' option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+    print("- Hello user, and welcome to the 'create file' option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
-    print("Follow the steps below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
-    print('\n')
+    print("- Follow the step(s) below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
     
-    print("Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -98,17 +99,18 @@ Gehele 'inventory' bestand leeg maken. DEZE CODE DOET HET!!! Per dinsdag 02-04-2
 
 def clear_file():
 
-    print("Hello user, and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
+    print("- Hello user, and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
 
-    print("Follow the steps below to clear a choosen file from all it's products. Have fun clearing!\n")
-    print('\n')
+    print("- Follow the step(s) below to clear a choosen file from all it's products. Have fun clearing!\n")
     
-    print("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
+    print("- Done!\n")
     print('\n')
 
-    
+
     while True:
         file_name = input("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
 
@@ -175,13 +177,14 @@ Een door jou gekozen csv bestand converteren naar een Excel bestand. DEZE CODE D
 
 def export_file_to_excel():
 
-    print("Hello user, and welcome to the 'export file to Excel' option. With this option, you can export a choosen file to an Excel file.\n")
+    print("- Hello user, and welcome to the 'export file to Excel' option. With this option, you can export a choosen file to an Excel file.\n")
 
-    print("Follow the steps below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
-    print('\n')
+    print("- Follow the step(s) below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
     
-    print("Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Done!.\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    
+    print("- Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Done!.\n")
     print('\n')
 
 
@@ -302,13 +305,14 @@ Ik ben ook met deze functie begonnen op vrijdag 15-03-2024.
 
 def update_system_date():
     
-    print("Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date.\n")
+    print("- Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date.\n")
     
-    print("Follow the steps below to update the system date. Have fun updating!\n")
-    print('\n')
+    print("- Follow the step(s) below to update the system date. Have fun updating!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter 'Y' if you 'do' want to 'update the system date to the current date'. Or enter 'N' if you 'don't' want to update the system date to the current date (not case sensitive).")
-    print("Done!\n")
+    print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -362,15 +366,16 @@ BEVONDEN DOOR EEN WINC MENTOR.
 
 def change_system_date(): # Met deze functie moet je de datum van je systeem aanpassen door de datum in het 'date_file.txt' bestand aan te passen.
 
-    print("Hello user, and welcome to the 'change system date' option.\n")
+    print("- Hello user, and welcome to the 'change system date' option.\n")
         
-    print("Follow the steps below to change the system date by entering the number of days or weeks that you want to change the system date with. Have fun changing!\n")
-    print('\n')
+    print("- Follow the step(s) below to change the system date by entering the number of days or weeks that you want to change the system date with. Have fun changing!\n")
     
-    print("Step 1 = Enter 'days' if you want to change the system date in a period of days. Or enter 'weeks' if you want to change the system date in a period of weeks (not case sensitive).")
-    print("Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive).")
-    print("Step 3 = Enter a 'number' for the couple of days or weeks that you want to change the system date with.")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter 'days' if you want to change the system date in a period of days. Or enter 'weeks' if you want to change the system date in a period of weeks (not case sensitive).")
+    print("- Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive).")
+    print("- Step 3 = Enter a 'number' for the couple of days or weeks that you want to change the system date with.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -472,13 +477,14 @@ Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET H
 
 def go_to_specific_date():
     
-    print("Hello user, and welcome to the 'choose a specific system date' option. With this option you can go to a specific date in the system. Have fun choosing!\n")
+    print("- Hello user, and welcome to the 'choose a specific system date' option. With this option you can go to a specific date in the system. Have fun choosing!\n")
     
-    print("Follow the steps below to go to a specific date in the system. Have fun choosing!\n")
-    print('\n')
+    print("- Follow the step(s) below to go to a specific date in the system. Have fun choosing!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter the 'date' you want the system to go to.")
-    print("Done!\n")
+    print("- Step 1 = Enter the 'date' you want the system to go to.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -519,14 +525,15 @@ Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Pe
 
 def special_occasion_date():
 
-    print("Hello user, and welcome to the 'special occasion countdown' option.\n")
+    print("- Hello user, and welcome to the 'special occasion countdown' option.\n")
 
-    print("Follow the steps below to create a countdown for a special occasion. Have fun with the countdown!\n")
-    print('\n')
+    print("- Follow the step(s) below to create a countdown for a special occasion. Have fun with the countdown!\n")
     
-    print("Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
-    print("Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    
+    print("- Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
+    print("- Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -734,13 +741,14 @@ Alle producten van een zelf gekozen bestand / 1 van de 3 bestanden laten zien. D
 
 def view_all_products():
 
-    print("Hello user, and welcome to the 'view all products' option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
+    print("- Hello user, and welcome to the 'view all products' option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
-    print("Follow the steps below to view all products from a choosen file. Have fun viewing!\n")
-    print('\n')
-            
-    print("Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Done!\n")
+    print("- Follow the step(s) below to view all products from a choosen file. Have fun viewing!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -790,16 +798,17 @@ Met de 'view_products_within_period' functie kan je de 'inventory', 'sold' en lo
 
 def view_products_within_period():
 
-    print("Hello user, and welcome to the 'view products within a certain period' option.\n")
+    print("- Hello user, and welcome to the 'view products within a certain period' option.\n")
 
-    print("Follow the steps below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
-    print('\n')
+    print("- Follow the step(s) below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
-    print("Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
-    print("Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
-    print("Done!\n")
+    print("- Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
+    print("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
+    print("- Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -945,14 +954,15 @@ Algemene zoek-functie 'MET menu / input statements' voor het zoeken op 'product 
 
 def find_products():
     
-    print("Hello user, and welcome to the 'find products' option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
-
-    print("Follow the steps below to find the product you are looking for. Have fun finding!\n")
-    print('\n')
+    print("- Hello user, and welcome to the 'find products' option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
     
-    print("Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
-    print("Done!.\n")
+    print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
+    print("- Done!.\n")
     print('\n')
 
 
@@ -1005,13 +1015,14 @@ Checken welke producten over 3 dagen niet meer houdbaar zijn. Deze code doet het
 
 def	avoid_expired_products():
 
-    print("Hello user, and welcome to the 'avoid expired products' option.\n")
+    print("- Hello user, and welcome to the 'avoid expired products' option.\n")
     
-    print("Please follow the steps below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
-    print('\n')
+    print("- Please follow the step(s) below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
-    print("Done!\n")
+    print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -1080,18 +1091,19 @@ functies nog een keer testen :-(.
 
 def add_inventory_products():
     
-    print("Hello user, and welcome to the 'add inventory products' option.\n")
+    print("- Hello user, and welcome to the 'add inventory products' option.\n")
     
-    print("Follow the steps below to add products to the Inventory file. Have fun adding!\n")
-    print('\n')
+    print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter the product 'ID'.")
-    print("Step 2 = Enter the product 'name'.")
-    print("Step 3 = Enter the product 'purchase quantity'.")
-    print("Step 4 = Enter the product 'purchase amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("Step 5 = Enter the product 'purchase date' as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.\n")
-    print("Done!\n")
+    print("- Step 1 = Enter the product 'ID'.")
+    print("- Step 2 = Enter the product 'name'.")
+    print("- Step 3 = Enter the product 'purchase quantity'.")
+    print("- Step 4 = Enter the product 'purchase amount' and use a dot in stead of a comma to seperate any decimals.")
+    print("- Step 5 = Enter the product 'purchase date' as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -1262,20 +1274,21 @@ Sold products. DEZE CODE DOET HET!!! Ik heb deze functie aangepast en getest op 
 
 def add_sold_products():
 
-    print("Hello user, and welcome to the 'add sold products' option.\n")
+    print("- Hello user, and welcome to the 'add sold products' option.\n")
     
-    print("By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the products that you've sold.\n")
+    print("- By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the products that you've sold.\n")
     
-    print("Follow the steps below to add your sold products. Have fun adding!\n")
-    print('\n')
+    print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
-    print("Step 1 = Enter the product 'ID'.")
-    print("Step 2 = Enter the product 'name'.")
-    print("Step 3 = Enter the product 'sold quantity'.")
-    print("Step 4 = Enter the product 'sales amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("Step 5 = Enter the product 'sales date' as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.\n")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter the product 'ID'.")
+    print("- Step 2 = Enter the product 'name'.")
+    print("- Step 3 = Enter the product 'sold quantity'.")
+    print("- Step 4 = Enter the product 'sales amount' and use a dot in stead of a comma to seperate any decimals.")
+    print("- Step 5 = Enter the product 'sales date' as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -1505,21 +1518,22 @@ overeenkomen. LET OP!!! Ik heb deze functie aangepast én weer getest op maandag
 
 def add_loss_products():
 
-    print("Hello user, and welcome to the 'add product losses' option.\n")
+    print("- Hello user, and welcome to the 'add product losses' option.\n")
 
-    print("By adding a product loss to the Losses file, the Inventory file will automatically be reduced with the same quantity of the added product loss.\n")
+    print("- By adding a product loss to the Losses file, the Inventory file will automatically be reduced with the same quantity of the added product loss.\n")
 
-    print("Follow the steps below to add a product loss. Have fun adding!\n")
-    print('\n')
+    print("- Follow the step(s) below to add a product loss. Have fun adding!\n")
     
-    print("Step 1 = Enter the product 'ID'.")
-    print("Step 2 = Enter the product 'name' (not case sensitive).")
-    print("Step 3 = Enter the product 'loss quantity'.")
-    print("Step 4 = Enter the product 'loss amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("Step 5 = Enter the product 'loss date' as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
-    print("Step 7 = Enter the product 'expiration date' as follows: dd-mm-yyyy.\n")
-    print("Done!\n")
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter the product 'ID'.")
+    print("- Step 2 = Enter the product 'name' (not case sensitive).")
+    print("- Step 3 = Enter the product 'loss quantity'.")
+    print("- Step 4 = Enter the product 'loss amount' and use a dot in stead of a comma to seperate any decimals.")
+    print("- Step 5 = Enter the product 'loss date' as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
+    print("- Step 7 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    print("- Done!\n")
     print('\n')
 
 
@@ -1768,21 +1782,22 @@ Wijzigen van de productdetails. Begonnen op maandag 26-02-2024. DEZE FUNCTIE DOE
 
 def modify_product_details():
 
-    print("Hello user, and welcome to the 'modify product details' option.\n")
+    print("- Hello user, and welcome to the 'modify product details' option.\n")
 
-    print("Follow the steps below to modify the details of a product in a chosen file. Have fun modifying!\n")
-    print('\n')
+    print("- Follow the step(s) below to modify the details of a product in a chosen file. Have fun modifying!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive).")
-    print("Step 3 = Enter the current product 'quantity'.")
-    print("Step 4 = Enter the current product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
-    print("Step 5 = Enter the current product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter the current product 'expiration date' as follows: dd-mm-yyyy.")
-    print("Step 7 = Enter the current product 'detail name' that you want to modify, for instance 'purchase quantity' etc. (not case sensitive). And please don't use an underscore.")
-    print("Step 8 = Enter the 'modification' you want to make for the product (not case sensitive).")
-    print("Step 9 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
-    print("Done!\n")
+    print("- Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive).")
+    print("- Step 3 = Enter the current product 'quantity'.")
+    print("- Step 4 = Enter the current product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
+    print("- Step 5 = Enter the current product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter the current product 'expiration date' as follows: dd-mm-yyyy.")
+    print("- Step 7 = Enter the current product 'detail name' that you want to modify, for instance 'purchase quantity' etc. (not case sensitive). And please don't use an underscore.")
+    print("- Step 8 = Enter the 'modification' you want to make for the product (not case sensitive).")
+    print("- Step 9 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -2244,21 +2259,22 @@ zonder de voorraad van het inventory bestand aan te passen. DEZE CODE DOET HET P
 
 def modify_product_quantity():
 
-    print("Hello user, and welcome to the 'modify product quantity' option.\n")
+    print("- Hello user, and welcome to the 'modify product quantity' option.\n")
 
-    print("Follow the steps below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
-    print('\n')
+    print("- Follow the step(s) below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
-    print("Step 3 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
-    print("Step 3 = Enter the current product 'quantity'.")
-    print("Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
-    print("Step 7 = Enter 'increase' or 'decrease' to modify the quantity (not case sensitive).")
-    print("Step 8 = Enter the 'number' you want to modify ('increase' or 'decrease') the quantity with.")
-    print("Step 9 = Confirm if you 'do' or 'don't' want to modify relevant quantity by entering 'Y' for Yes or 'N' for No (not case sensitive).")
-    print("Done!\n")
+    print("- Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    print("- Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
+    print("- Step 3 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
+    print("- Step 3 = Enter the current product 'quantity'.")
+    print("- Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    print("- Step 7 = Enter 'increase' or 'decrease' to modify the quantity (not case sensitive).")
+    print("- Step 8 = Enter the 'number' you want to modify ('increase' or 'decrease') the quantity with.")
+    print("- Step 9 = Confirm if you 'do' or 'don't' want to modify the relevant quantity by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -2677,19 +2693,20 @@ Product verwijderen op bais van 'naam' of 'id' én in combinatie met de houdbaar
 
 def remove_product():
 
-    print("Hello user, and welcome to the 'remove product' option.\n")
-        
-    print("Follow the steps below to remove a product from a chosen file. Have fun removing!\n")
-    print('\n')
+    print("- Hello user, and welcome to the 'remove product' option.\n")
     
-    print("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
-    print("Step 2 = Enter the product 'ID' or the 'name' that you want to remove (not case sensitive).")
-    print("Step 3 = Enter the product 'quantity'.")
-    print("Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
-    print("Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
-    print("Step 6 = Enter the product 'expiration date'.")
-    print("Step 7 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
-    print("Done!\n")
+    print("- Follow the step(s) below to remove a product from a chosen file. Have fun removing!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+
+    print("- Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
+    print("- Step 2 = Enter the product 'ID' or the 'name' that you want to remove (not case sensitive).")
+    print("- Step 3 = Enter the product 'quantity'.")
+    print("- Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
+    print("- Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
+    print("- Step 6 = Enter the product 'expiration date'.")
+    print("- Step 7 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    print("- Done!\n")
     print('\n')
 
 
@@ -3185,15 +3202,16 @@ uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CO
 
 def product_calculations():
 
-    print("Hello user, and welcome to the 'product calculations' option.\n")
+    print("- Hello user, and welcome to the 'product calculations' option.\n")
 
-    print("Follow the steps below to choose which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
-    print('\n')
+    print("- Follow the step(s) below to choose which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
+    
+    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
 
-    print("Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive).")
-    print("Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
-    print("Step 3 = Enter the 'until' date as follows dd-mm-yyyy.\n")
-    print("Done!\n")
+    print("- Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive).")
+    print("- Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
+    print("- Step 3 = Enter the 'until' date as follows dd-mm-yyyy.\n")
+    print("- Done!\n")
     print('\n')
 
 
@@ -3400,74 +3418,57 @@ if __name__ == "__main__":
 
     print('\n')
     
-    # print(date_in_file())
+    # print(create_new_file())
     # print('\n')
 
-    # print(current_date())
+    # print(clear_file())
     # print('\n')
 
-    # print(create_inventory_file())
+    # print(export_file_to_excel())
     # print('\n')
 
-    # print(create_sales_file())
+    # print(update_system_date())
     # print('\n')
 
-    # print(sales_function())
+    # print(change_system_date())
     # print('\n')
 
-    # print(create_losses_file())
+    # print(go_to_specific_date())
     # print('\n')
 
-    # print(add_losses_products())
+    # print(special_occasion_date())
     # print('\n')
 
-    # print(add_sales_products())
+    # print(view_all_products())
     # print('\n')
 
-    # print(sold_products())
-    # print('\n')
-    
-    # print(select_file_for_data(" ", " "))
-    # print('\n')
-    
-    # print(get_file_data())
-    # print(get_file_data(" ", ""))
-    # print('\n')
-    
-    # print(sum_existing_products('1210', 'brood', '24-01-2024', '24-01-2025'))
+    # print(view_products_within_period())
     # print('\n')
 
-    # print(add_test_products())
-    # print('\n')
-
-    # print(add_products())
-    # print('\n')
-    
     # print(find_products())
     # print('\n')
 
-    # print(find_product_id("12345"))
-    # print(find_product_id("product_id"))
+    # print(avoid_expired_products())
     # print('\n')
 
-    # print(clear_inventory_file())
+    # print(add_inventory_products())
     # print('\n')
 
-    # print(clear_sales_file())
+    # print(add_sold_products())
     # print('\n')
 
-    # print(show_all_products())
+    # print(add_loss_products())
+    # print('\n')
+
+    # print(modify_product_details())
+    # print('\n')
+
+    # print(modify_product_quantity())
     # print('\n')
 
     # print(remove_product())
     # print('\n')
-    
-    # print(remove_product_name("melk"))
-    # print('\n')
 
-    # print(remove_product_id())
-    # print('\n')
-
-    # print(get_data_from_file("inventory_file.csv", "product_quantity"))
+    # print(product_calculations())
     # print('\n')
     
