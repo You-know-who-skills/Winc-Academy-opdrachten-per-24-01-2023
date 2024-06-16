@@ -5,6 +5,8 @@ import csv
 from argparse import *
 from datetime import timedelta
 from datetime import datetime
+from rich import print as rprint
+from rich import table
 
 import warnings
 warnings.filterwarnings("ignore", "\nPyarrow", DeprecationWarning)
@@ -38,12 +40,13 @@ Losses bestand maken. DEZE CODE DOET HET!!! Per vrijdagnacht 29-03-2024 rond 00:
 
 def create_new_file():
 
-    print("- Hello user, and welcome to the 'create file' option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'create file'[/bright_cyan] option. With this option you can create the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
 
     print("- Follow the step(s) below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Done!\n")
     print('\n')
@@ -54,11 +57,10 @@ def create_new_file():
         print('\n')
 
         if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
-            print(F"Great! The '{file_name.capitalize()}' file has been created.")
+            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()}' file has been created.[/green]")
 
         else:
-            print('\n')
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -103,8 +105,9 @@ def clear_file():
 
     print("- Follow the step(s) below to clear a choosen file from all it's products. Have fun clearing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
     print("- Done!\n")
@@ -181,8 +184,9 @@ def export_file_to_excel():
 
     print("- Follow the step(s) below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
     
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Done!.\n")
     print('\n')
@@ -309,8 +313,9 @@ def update_system_date():
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive).")
     print("- Done!\n")
     print('\n')
@@ -370,8 +375,9 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
         
     print("- Follow the step(s) below to change the system date by entering the number of days or weeks that you want to change the system date with. Have fun changing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter 'days' if you want to change the system date in a period of days. Or enter 'weeks' if you want to change the system date in a period of weeks (not case sensitive).")
     print("- Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive).")
     print("- Step 3 = Enter a 'number' for the couple of days or weeks that you want to change the system date with.")
@@ -481,8 +487,9 @@ def go_to_specific_date():
     
     print("- Follow the step(s) below to go to a specific date in the system. Have fun choosing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter the 'date' you want the system to go to.")
     print("- Done!\n")
     print('\n')
@@ -529,8 +536,9 @@ def special_occasion_date():
 
     print("- Follow the step(s) below to create a countdown for a special occasion. Have fun with the countdown!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
     
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
     print("- Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
     print("- Done!\n")
@@ -745,8 +753,9 @@ def view_all_products():
 
     print("- Follow the step(s) below to view all products from a choosen file. Have fun viewing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Done!\n")
     print('\n')
@@ -802,8 +811,9 @@ def view_products_within_period():
 
     print("- Follow the step(s) below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
     print("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
@@ -958,8 +968,9 @@ def find_products():
     
     print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
     print("- Done!.\n")
@@ -1019,8 +1030,9 @@ def	avoid_expired_products():
     
     print("- Please follow the step(s) below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
     print("- Done!\n")
     print('\n')
@@ -1095,8 +1107,9 @@ def add_inventory_products():
     
     print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter the product 'ID'.")
     print("- Step 2 = Enter the product 'name'.")
     print("- Step 3 = Enter the product 'purchase quantity'.")
@@ -1280,8 +1293,9 @@ def add_sold_products():
     
     print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter the product 'ID'.")
     print("- Step 2 = Enter the product 'name'.")
     print("- Step 3 = Enter the product 'sold quantity'.")
@@ -1524,8 +1538,9 @@ def add_loss_products():
 
     print("- Follow the step(s) below to add a product loss. Have fun adding!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter the product 'ID'.")
     print("- Step 2 = Enter the product 'name' (not case sensitive).")
     print("- Step 3 = Enter the product 'loss quantity'.")
@@ -1786,8 +1801,9 @@ def modify_product_details():
 
     print("- Follow the step(s) below to modify the details of a product in a chosen file. Have fun modifying!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
+    rprint("[green]Number of steps:[/green]")
     print("- Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter the current product 'name' or 'ID' of which you want to modify the product detail for (not case sensitive).")
     print("- Step 3 = Enter the current product 'quantity'.")
@@ -2263,7 +2279,7 @@ def modify_product_quantity():
 
     print("- Follow the step(s) below to modify the quantity of a product in a chosen file. Have fun modifying!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
     print("- Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
@@ -2697,7 +2713,7 @@ def remove_product():
     
     print("- Follow the step(s) below to remove a product from a chosen file. Have fun removing!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
     print("- Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
     print("- Step 2 = Enter the product 'ID' or the 'name' that you want to remove (not case sensitive).")
@@ -3206,7 +3222,7 @@ def product_calculations():
 
     print("- Follow the step(s) below to choose which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
     
-    print("- Note: press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
     print("- Step 1 = Enter one of the following calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit' (not case sensitive).")
     print("- Step 2 = Enter the 'from' date as follows: dd-mm-yyyy.")
