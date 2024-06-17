@@ -6,7 +6,8 @@ from argparse import *
 from datetime import timedelta
 from datetime import datetime
 from rich import print as rprint
-from rich import table
+from rich.console import Console
+from rich.table import Table
 
 import warnings
 warnings.filterwarnings("ignore", "\nPyarrow", DeprecationWarning)
@@ -46,9 +47,16 @@ def create_new_file():
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'create a new file'")
+
+    table.add_row("- Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -101,16 +109,23 @@ Gehele 'inventory' bestand leeg maken. DEZE CODE DOET HET!!! Per dinsdag 02-04-2
 
 def clear_file():
 
-    print("- Hello user, and welcome to the 'clear file' option. With this option you can clear a choosen file from all it's products.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'clear file'[/bright_cyan] option. With this option you can clear a choosen file from all it's products.\n")
 
     print("- Follow the step(s) below to clear a choosen file from all it's products. Have fun clearing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Step 2 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'clear a file'")
+        
+    table.add_row("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -128,7 +143,7 @@ def clear_file():
             
         else:
             print('\n')
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -139,7 +154,7 @@ def clear_file():
         
     if yes_or_no == 'Y' or yes_or_no == 'y':
         print('\n')
-        print(F"Great! The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.\n")
+        rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.\n[/green]")
         print('\n')
 
         if file_name == 'inventory.csv':
@@ -180,15 +195,22 @@ Een door jou gekozen csv bestand converteren naar een Excel bestand. DEZE CODE D
 
 def export_file_to_excel():
 
-    print("- Hello user, and welcome to the 'export file to Excel' option. With this option, you can export a choosen file to an Excel file.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'export file to Excel'[/bright_cyan] option. With this option, you can export a choosen file to an Excel file.\n")
 
     print("- Follow the step(s) below to export a choosen file to an 'Excel' file. Have fun exporting!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
     
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Done!.\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'export a file to Excel'")
+        
+    table.add_row("- Step 1 = Enter one of the following file names to export it to Excel: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -198,18 +220,18 @@ def export_file_to_excel():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n")
+            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -295,7 +317,7 @@ def convert_to_dutch_date(date_format: datetime):
 # print(convert_to_dutch_date())
 # print('\n')
 
-
+# HIER BEN IK MET RICH!!!
 # User functions – use or modify dates in the system.
 
 
