@@ -65,7 +65,7 @@ def create_new_file():
         print('\n')
 
         if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
-            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()}' file has been created.[/green]")
+            rprint(F"[green] Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
 
         else:
             rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
@@ -154,7 +154,7 @@ def clear_file():
         
     if yes_or_no == 'Y' or yes_or_no == 'y':
         print('\n')
-        rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.\n[/green]")
+        rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.\n[/green]")
         print('\n')
 
         if file_name == 'inventory.csv':
@@ -220,15 +220,15 @@ def export_file_to_excel():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]:thumbs_up: Great! The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
 
         else:
             rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
@@ -317,7 +317,7 @@ def convert_to_dutch_date(date_format: datetime):
 # print(convert_to_dutch_date())
 # print('\n')
 
-# HIER BEN IK MET RICH!!!
+
 # User functions – use or modify dates in the system.
 
 
@@ -331,31 +331,38 @@ Ik ben ook met deze functie begonnen op vrijdag 15-03-2024.
 
 def update_system_date():
     
-    print("- Hello user, and welcome to the 'update system date' option. With this option you can update the system date to the current date.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'update system date'[/bright_cyan] option. With this option you can update the system date to the current date.\n")
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive).")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'update the system date'")
+        
+    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
     while True:
-        update_system = (input("Step 1 = Enter 'Y' if you 'do' want to 'update the system date to the current date'. Or enter 'N' if you 'don't' want to update the system date to the current date (not case sensitive): ")).lower()
+        update_system = (input("Step 1 = Enter 'Y' if you 'do' want to 'update the system date'. Or enter 'N' if you 'don't' want to update the system date (not case sensitive): ")).lower()
         print('\n')
 
         if update_system == "y":
-            print("Great! The date of the system is updated to the current date. You can see the current date below.\n")
+            rprint("[green]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.\n[/green]")
 
         elif update_system == "n":
             print("Oké! The date of the system will not be updated to the current date.\n")
         
         else:
-            print(F"Hello user! '{update_system}' isn't the correct input for updating the system to the 'current date'. Please enter 'Y' if you 'do' want to update the system to the 'current date'. Or enter 'N' if you 'don't' want to\
- update the system to the 'current date' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! '{update_system}' isn't the correct input for updating the system date to the 'current date'. Please enter 'Y' if you 'do' want to update the system date to the 'current date'. Or enter 'N'\
+ if you 'don't' want to update the system date to the 'current date' (not case sensitive).\n[/orange3]")
             
             continue
         break
@@ -393,17 +400,24 @@ BEVONDEN DOOR EEN WINC MENTOR.
 
 def change_system_date(): # Met deze functie moet je de datum van je systeem aanpassen door de datum in het 'date_file.txt' bestand aan te passen.
 
-    print("- Hello user, and welcome to the 'change system date' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'change system date'[/bright_cyan] option.\n")
         
-    print("- Follow the step(s) below to change the system date by entering the number of days or weeks that you want to change the system date with. Have fun changing!\n")
+    print("- Follow the step(s) below to change the system date by entering the number of 'days' or 'weeks' that you want to change the system date with. Have fun changing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter 'days' if you want to change the system date in a period of days. Or enter 'weeks' if you want to change the system date in a period of weeks (not case sensitive).")
-    print("- Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive).")
-    print("- Step 3 = Enter a 'number' for the couple of days or weeks that you want to change the system date with.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'change the system date'")
+        
+    table.add_row("- Step 1 = Enter 'days' if you want to change the system date in a period of 'days'. Or enter 'weeks' if you want to change the system date in a period of 'weeks' (not case sensitive).")
+    table.add_row("- Step 2 = Enter 'past' if you want the system date to go in the 'past' or enter 'future' if you want the system date to go in to the 'future' (not case sensitive).")
+    table.add_row("- Step 3 = Enter a 'number' for the couple of 'days' or 'weeks' that you want to change the system date with.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -412,26 +426,24 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
         print('\n')
 
         if days_or_weeks == 'days' or days_or_weeks == 'weeks':
-        # if days_or_weeks in date_periode_choice:
-            print(F"Great! Let's change the system date for a couple of '{days_or_weeks}'.\n")
+            rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}'.\n[/green]")
 
         else:
-            print(F"Hello user! '{days_or_weeks}' isn't the correct input to modify the system date. Please enter 'days' or 'weeks' for the correct system date modification.\n")
+            rprint(F"[orange3]:scream: Hello user! '{days_or_weeks}' isn't the correct input to modify the system date. Please enter 'days' or 'weeks' for the correct system date modification.\n[/orange3]")
 
             continue
         break
 
 
     while True:
-            past_or_future = input("Step 2 = Enter 'past' if you want the system date to go in the past or enter 'future' if you want the system date to go in to the future (not case sensitive): ").lower()
+            past_or_future = input("Step 2 = Enter 'past' if you want the system date to go in the 'past' or enter 'future' if you want the system date to go in to the 'future' (not case sensitive): ").lower()
             print('\n')
 
             if past_or_future == 'past' or past_or_future == 'future':
-            # if past_or_future in date_travel_choice:
-                print(F"Great! Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.\n")
+                rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.\n[/green]")
 
             else:
-                print(F"Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.\n")
+                rprint(F"[orange3]:scream: Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.\n[/orange3] ")
 
                 continue
             break
@@ -445,17 +457,17 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             int(number)
             
         except ValueError:
-            print(F"Hello user! The number of '{days_or_weeks}' can only contain a 'number'. '{number}' doesn't only contain a number. Please enter a number to continue with the system date modification.\n")
+            rprint(F"[orange3]:scream: Hello user! The number of '{days_or_weeks}' can only contain a 'number'. '{number}' doesn't only contain a number. Please enter a 'number' to continue with the system date modification.\n[/orange3]")
             
             continue
 
-        if int(number) > 105000 and days_or_weeks == 'weeks': # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
-            print(F"Hello user! The number you entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.\n")
+        if int(number) > 738958 and days_or_weeks == 'days': # Python geeft een foutmelding bij meer dan 738958 dagen in het verleden.
+            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 738958.\n[/orange3]")
 
             continue
 
-        elif int(number) > 738958 and days_or_weeks == 'days': # Python geeft een foutmelding bij meer dan 738958 dagen in het verleden.
-            print(F"Hello user! The number you entered '{number}' is to far in the '{past_or_future}' Please enter a number below 738958.\n")
+        elif int(number) > 105000 and days_or_weeks == 'weeks': # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
+            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.\n[/orange3]")
             
             continue
         break
@@ -487,7 +499,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
 
         date_file.write(string_date)
 
-    return F"If we go '{number}' '{days_or_weeks}' in the '{past_or_future}', the date = '{string_date}'" # LET OP!!! Ik wil ook nog de dag vóór de datum hebben (dus b.v. Monday of Tuesday etc.).
+    return rprint(F"[green]Great!:thumbs_up: If we go '{number}' '{days_or_weeks}' into the '{past_or_future}', the date = '{string_date}'\n[/green]") # LET OP!!! Ik wilde eigenlijk ook nog de dag vóór de datum hebben (dus b.v. Monday etc.).
 
 # print(change_system_date())
 # print('\n')
@@ -505,15 +517,22 @@ Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET H
 
 def go_to_specific_date():
     
-    print("- Hello user, and welcome to the 'choose a specific system date' option. With this option you can go to a specific date in the system. Have fun choosing!\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'choose a specific system date'[/bright_cyan] option. With this option you can go to a specific date in the system. Have fun choosing!\n")
     
     print("- Follow the step(s) below to go to a specific date in the system. Have fun choosing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter the 'date' you want the system to go to.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'choose a specific system date'")
+        
+    table.add_row("- Step 1 = Enter the 'date' you want the system to go to.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -525,7 +544,7 @@ def go_to_specific_date():
             convert_to_dutch_date(specific_date)
             
         except ValueError:
-            print(F"Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         break
@@ -534,7 +553,7 @@ def go_to_specific_date():
     with open('date_file.txt', 'w') as date_file:
 
         date_file.write(specific_date)
-        print("Great! The date of the system has been changed to the specific date. You can see the specific date below.\n")
+        rprint("[green]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the specific date below.\n[/green]")
 
     return specific_date
 
@@ -554,65 +573,76 @@ Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Pe
 
 def special_occasion_date():
 
-    print("- Hello user, and welcome to the 'special occasion countdown' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'special occasion countdown'[/bright_cyan] option.\n")
 
-    print("- Follow the step(s) below to create a countdown for a special occasion. Have fun with the countdown!\n")
+    print("- Follow the step(s) below to create a countdown for a 'special occasion'. Have fun with the countdown!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
     
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Step 1 = Enter the date of the special occasion in the following format: dd-mm-yyyy).")
-    print("- Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!! ).")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'start a special occasion countdown'")
+
+    table.add_row("- Step 1 = Enter the 'date' of the 'special occasion countdown' in the following format: dd-mm-yyyy.")
+    table.add_row("- Step 2 = Type a 'sentence' that you want to add to the 'special occasion countdown' (for instance: Until Christmas!!!).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
     while True:
-        special_occasion_date = input("Step 1 = Enter the 'date' of the special occasion in the following format: dd-mm-yyyy): ")
-        
+        special_occasion_date = input("Step 1 = Enter the 'date' of the 'special occasion countdown' in the following format: dd-mm-yyyy): ")
+        print('\n')
+
         try:
             convert_to_dutch_date(special_occasion_date)
-            print('\n')
-            print(F"Great! The special occasion date '{special_occasion_date}' has been filled in correctly.\n")
-
+            
         except ValueError:
-            print('\n')
-            print(F"Hello user! '{special_occasion_date}' Isn't the correct format to fill in the special occasion date. Please enter the correct special occasion date in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct format to fill in the 'date' for the 'special occasion countdown'. Please enter the correct 'date' for the 'special occasion countdown' in the\
+ following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         
-        print(type(special_occasion_date))                      # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een\
-        input_date = convert_to_strptime(special_occasion_date) # 'datetime object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan zie je dat\
-        todays_date = current_date()                            # het hier nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer vergelijken met een andere\
-        print(type(input_date))                                 # 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel.
-        print(type(todays_date))                                        
-        
-        if input_date < todays_date:                                    
-            print(F"Hello user! The 'date' you just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet. ;-). Please enter the correct special occasion date to continue the special occasion\
- countdown: dd-mm-yyyy.\n")
+
+        input_date = convert_to_strptime(special_occasion_date) # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen is als een 'datetime\
+        todays_date = current_date()                            # object' in / door Python, maar nog steeds als een 'string'. Dit kan je testen door de 'type' van mijn 'special_occasion_date' variabel te printen en dan zie je dat het hier\
+                                                                # nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer vergelijken met een andere 'datetime\
+                                                                # 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel.
+        if input_date > todays_date:
+            rprint(F"[green]Great!:thumbs_up: The 'date' for the 'special occasion countdown': '{special_occasion_date}', has been filled in correctly.\n[/green]")
+
+        elif input_date < todays_date:                                    
+            rprint(F"[orange3]:scream: Hello user! The 'date' you've just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet.:wink: Please enter the correct 'date' for the 'special occasion\
+ countdown' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         break
 
 
-    special_occasion_sentence = input("Step 2 = Type a 'sentence' that you want to add to the special occasion countdown (for instance: Until Christmas!!!): ")
+    special_occasion_sentence = input("Step 2 = Type a 'sentence' that you want to add to the 'special occasion countdown' (for instance: Until Christmas!!!): ")
     print('\n')
     
 
     with open('special_occasion.txt', 'w') as file:
     
-        datetime_countdown = input_date - todays_date       # Dit zijn de variabelen die ik in de 'while loop' heb gebruikt. En omdat ik van deze variabelen 'datetime objecten' heb gemaakt, kan ik hier ook met ze 'rekenen', dus de datums\
-        print(F"Original countdown = {datetime_countdown}") # op- of aftrekken. En met deze print statement kan je zien hoe de uitkomst van mijn 'datetime_countdown' code er normaal gesproken uit ziet.
-        print('\n')                                         
+        datetime_countdown = input_date - todays_date                                                           # Dit zijn de variabelen die ik in de 'while loop' heb gebruikt. En omdat ik van deze variabelen 'datetime objecten' heb gemaakt\
+        print(F"Original countdown in days, hours, minutes, seconds and micro seconds= {datetime_countdown}")   # kan ik hier ook met ze 'rekenen', dus de datums op- of aftrekken. En met deze print statement kan je zien hoe de uitkomst van\
+        print('\n')                                                                                             # mijn 'datetime_countdown' code er normaal gesproken uit ziet.
 
         full_string_countdown = str(datetime_countdown)     # Om mijn 'datetime_countdown' variabel (bestaande uit mijn 'input_date' en 'todays_date' variabelen) te kunnen gebruiken als 'strings', heb ik ze hier 'gecast' naar een 'string'.\
                                                             # En zo kan ik beide 'datetime objecten' ('input_date' en 'todays_date') ook als string gebruiken.
         short_string_countdown = full_string_countdown[0:full_string_countdown.find(",")]   # Met deze index geef ik aan waar mijn 'string_countdown' variabel begint (= bij '0') en waar mijn 'string_countdown' variabel eindigt (= bij de\
-                                                                                            # komma). Dit omdat wanneer je de 'datetime_countdown' variabel volledig (dus zonder te slicen / te indexen) print (zie de print statement hierboven\
-        file.write(F"{short_string_countdown.upper()} {special_occasion_sentence}")         # bij de 'F-string', dan zie je dat Python een komma plaatst tussen het aantal dagen en het tijdstip. Dus wanneer je wilt dat de komma en het\
+        file.write(F"{short_string_countdown.upper()} {special_occasion_sentence}")         # komma). Dit omdat wanneer je de 'datetime_countdown' variabel volledig (dus zonder te slicen / te indexen) print (zie de print statement hierboven\
+                                                                                            # bij de 'F-string'), dan zie je dat Python een komma plaatst tussen het aantal dagen en het tijdstip. Dus wanneer je wilt dat de komma en het\
                                                                                             # tijdstip niet zichtbaar zijn wanneer je de code print, moet je 'slicen' door een index te gebruiken. En met deze code kwam ik erachter dat je dus\
-    return F"{short_string_countdown} {special_occasion_sentence}"                          # ook kan slicen door een getal én een variabel in combinatie met de 'find()' code kunt gebruiken 'binnen een index'.
+                                                                                            # ook kan slicen door een getal én een variabel in combinatie met de 'find()' code kunt gebruiken 'binnen een index'.
+    
+    return rprint(F"[green]Great!:thumbs_up: You can see the 'date' for the 'special occasion countdown' below.\n\n{short_string_countdown.upper()} {special_occasion_sentence}[/green]\n")
 
+    
 # print(special_occasion_date())
 # print('\n')
 
@@ -635,7 +665,7 @@ def column_name_check(file_name: str):
                                             # 'for loop'.
         check_column_name = next(reader)    # Met de 'next' code pak je altijd de 'gehele regel' / 'alle waardes die op de eerst iteratie' / 'regel' staan. Met andere woorden: alles wat in de eerst volgende iteratie staat. In deze code\
                                             # houdt dat dus in dat ik met de 'next' code in combinatie met de 'reader' code alle kolomnamen pak omdat die op de eerste regel van het bestand staan.
-        print(F"These are the all the product detail names in the '{file_name.capitalize()[:-4]}' file:")
+        rprint(F"[green]These are the all the 'product detail names' in the '{file_name.capitalize()[:-4]}' file:[/green]")
         print(check_column_name)
         print('\n')
 
@@ -664,7 +694,7 @@ def product_in_file_check(file_name: str, search_type: str):
         
         product_in_file = False
 
-        print(F"Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:")
+        rprint(F"[green]Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
 
         for row in rows:
             if row['name'] == search_type or row['id'] == search_type:
@@ -749,7 +779,7 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
         reader = csv.DictReader(file)
         rows = list(reader)
         
-        print(F"Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:")
+        rprint(F"[green]Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
 
         for categorize, row in enumerate(rows, start=2):
             
@@ -758,10 +788,13 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
 
     print('\n')
 
+# print(show_product_details('inventory.csv', 'koek', '24-01-2025'))
+# print('\n')
+
 # print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
 # print('\n')
 
-
+# HIER BEN IK MET RICH TESTEN!!!
 # User functions – view and find products and product details and avoid wasting products.
 
 '''
