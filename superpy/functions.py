@@ -794,7 +794,7 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
 # print(show_product_details('sales.csv', 'pindakaas', '01-03-2024'))
 # print('\n')
 
-# HIER BEN IK MET RICH TESTEN!!!
+
 # User functions – view and find products and product details and avoid wasting products.
 
 '''
@@ -804,15 +804,22 @@ Alle producten van een zelf gekozen bestand / 1 van de 3 bestanden laten zien. D
 
 def view_all_products():
 
-    print("- Hello user, and welcome to the 'view all products' option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'view all products'[/bright_cyan] option. You can view all the products from one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
 
     print("- Follow the step(s) below to view all products from a choosen file. Have fun viewing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'view all of the products from a chosen file'")
+        
+    table.add_row("- Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -822,18 +829,18 @@ def view_all_products():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]} below!\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]} below!\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]} below!\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -842,11 +849,11 @@ def view_all_products():
     with open(file_name, 'r+') as file:
             reader = csv.reader(file) # Deze code plaatst elke regel van het csv bestand in een lijst.
             
-            print(next(reader)) # Met de 'next' code zorg je er voor dat de eerste regel van een bestand (dus in dit geval is het een csv bestand) word overgeslagen wanneer je een nummering gebruikt. Hierdoor kan ik in deze functie bij de\
-                                # 'enumerate' code dus wel 'start=1' gebruiken i.p.v. 'start=2' zoals ik dit in mijn andere functies gebruik.
+            print(F"   {next(reader)}") # Met de 'next' code zorg je er voor dat de eerste regel van een bestand (dus in dit geval is het een csv bestand) word overgeslagen wanneer je een nummering gebruikt. Hierdoor kan ik in deze functie bij de\
+                                        # 'enumerate' code dus wel 'start=1' gebruiken i.p.v. 'start=2' zoals ik dit in mijn andere functies gebruik.
 
             for categorize, row in enumerate(reader, start=1):
-                print(F"{categorize}. {row}\n") # LET OP!!! De punt na de variabel 'categorize' zorgt ervoor dat er na de nummering van de 'enumerate' code een punt komt te staan.
+                rprint(F"{categorize}. {row}\n") # LET OP!!! De punt na de variabel 'categorize' zorgt ervoor dat er na de nummering van de 'enumerate' code een punt komt te staan.
                 
 # print(view_all_products())
 # print('\n')
@@ -862,18 +869,25 @@ Met de 'view_products_within_period' functie kan je de 'inventory', 'sold' en lo
 
 def view_products_within_period():
 
-    print("- Hello user, and welcome to the 'view products within a certain period' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'view products within a certain period'[/bright_cyan] option.\n")
 
     print("- Follow the step(s) below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
-    print("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
-    print("- Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'view products within a certain period'")
+        
+    table.add_row("- Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
+    table.add_row("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
+    table.add_row("- Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -883,18 +897,18 @@ def view_products_within_period():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -920,14 +934,14 @@ def view_products_within_period():
             date_in_file = 'expiration date'
         
         if date_type == "other":
-            print(F"Great! It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n")
+            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n[/green]")
 
         elif date_type == 'expiration':
-            print(F"Great! It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n")
+            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n[/green]")
 
         else:
-            print(F"Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period. Please enter 'other' or 'expiration' to view the\
- '{date_in_file}' within a certain period (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period. Please enter 'other' or 'expiration'\
+ to view the '{date_in_file}' within a certain period (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -941,7 +955,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! '{from_date}' Isn't the correct format to fill in the 'from date'. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from date'. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n[/orange3]")
 
             continue
         break
@@ -955,7 +969,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! '{until_date}' Isn't the correct format to fill in the 'until date'. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until date'. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n[/orange3]")
         
             continue
         break    
@@ -980,14 +994,16 @@ def view_products_within_period():
 
 
         if date_type == 'other':
-            print(F"Great! Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.\n")
+            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
+ '{file_name.capitalize()[:-4]}' file.\n[/green]")
             
         elif date_type == 'expiration':
-            print(F"Great! Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.\n")
+            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
+ '{file_name.capitalize()[:-4]}' file.\n[/green]")
 
         relevant_date_list = []
 
-        for categorize, row in enumerate(reader, start=2):
+        for categorize, row in enumerate(reader, start=1):
         
             input_date = convert_to_strptime(row[relevant_date]) # Met de 'convert_to_strptime(row[relevant_date])' code zorg ik er voor dat alle relevante datums waarover je itereerd worden omgezet naar een datetime object.
             
@@ -997,15 +1013,15 @@ def view_products_within_period():
             
             if date_type == 'other' and input_from_date <= input_date and input_until_date >= input_date:
                 relevant_date_list.append(row)
-                print(F"{categorize}. {row}")
+                rprint(F"{categorize}. {row}")
             
             elif date_type == 'expiration' and input_from_date <= input_date and input_until_date >= input_date:
                 relevant_date_list.append(row)
-                print(F"{categorize}. {row}")
+                rprint(F"{categorize}. {row}")
         print('\n')
         
         if len(relevant_date_list) == 0: # Met deze 'if' statement geef je aan dat als een lijst leeg is, onderstaande moet gebeuren.
-            print(F"- There were no products found with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.\n")
+            rprint(F"[orange3]:scream: There were no products found with '{date_in_file}'s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.\n[/orange3]")
 
 # print(view_products_within_period())
 # print('\n')
@@ -1019,16 +1035,23 @@ Algemene zoek-functie 'MET menu / input statements' voor het zoeken op 'product 
 
 def find_products():
     
-    print("- Hello user, and welcome to the 'find products' option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'find products'[/bright_cyan] option. You can search for a product in one of the following files: 'Inventory', 'Sales' or 'Losses'.\n")
     
     print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    print("- Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
-    print("- Done!.\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'find products in a chosen file'")
+
+    table.add_row("- Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -1038,18 +1061,18 @@ def find_products():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            print(F"Great! The '{file_name.capitalize()[:-4]}' file is found.\n")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
 
         else:
-            print(F"Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
             
             continue
         break
@@ -1057,12 +1080,13 @@ def find_products():
 
     while True:
         search_type = (input("Enter the product 'ID' or 'name' (the product name is not case sensitive): ")).lower()
+        print('\n')
         
         if product_in_file_check(file_name, search_type) == True:
-            print(F"Great! Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can check the product details above.\n")
+            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the product details of product '{search_type}' above.\n[/green]")
         
         else:
-            print(F"Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).\n[/orange3]")
             
             continue
         break
@@ -1081,15 +1105,23 @@ Checken welke producten over 3 dagen niet meer houdbaar zijn. Deze code doet het
 
 def	avoid_expired_products():
 
-    print("- Hello user, and welcome to the 'avoid expired products' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
     
-    print("- Please follow the step(s) below every day to avoid expired products. In this way you can help our planet by not wasting products and you can help people who are less fortunate. Have fun in helping to make our world a better place!\n")
+    rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can help people who are less fortunate.\
+:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better place!:muscle:\n[/bright_cyan]")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'avoid expired products'")
+        
+    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -1098,14 +1130,15 @@ def	avoid_expired_products():
         print('\n')
 
         if yes_or_no == "y":
-            print("Great! You can see all the products that will expire in 3 days below. Please think of a way not to waste these products. Thanks in advance for helping to make our world a better and durable place.\n")
+            rprint("[green]Great!:thumbs_up: You can see all the products that will expire in 3 days below. Please think of a way not to waste these products. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a\
+ better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red]\n[/green]")
 
         elif yes_or_no == "n":
-            print("Oké! The products that will expire in 3 days will not be shown.\n")
+            rprint("Oké! The products that will expire in 3 days will not be shown.\n")
         
         else:
-            print(F"Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3\
- days (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that\
+ will expire in 3 days (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -1129,10 +1162,10 @@ def	avoid_expired_products():
             
             if yes_or_no == 'y' and expire_date > day_after_tomorrow and expire_date <= expire_days:
                 avoid_waste_list.append(row)
-                print(F" {categorize}. {row}\n")
+                rprint(F" {categorize}. {row}\n")
 
-        if len(avoid_waste_list) == 0:
-            print(F"There are no products found that will expire in 3 days. So good job on helping to make the world a better place.\n")
+        if len(avoid_waste_list) == 0 and yes_or_no == 'y':
+            rprint(F"There are no products found that will expire in 3 days. [green]So good job on helping to make the world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red]\n[/green]")
                 
 # print(avoid_expired_products())
 # print('\n')
@@ -1158,20 +1191,27 @@ functies nog een keer testen :-(.
 
 def add_inventory_products():
     
-    print("- Hello user, and welcome to the 'add inventory products' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'add inventory products'[/bright_cyan] option.\n")
     
     print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter the product 'ID'.")
-    print("- Step 2 = Enter the product 'name'.")
-    print("- Step 3 = Enter the product 'purchase quantity'.")
-    print("- Step 4 = Enter the product 'purchase amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("- Step 5 = Enter the product 'purchase date' as follows: dd-mm-yyyy.")
-    print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'add products to the Inventory file'")
+        
+    table.add_row("- Step 1 = Enter the product 'ID'.")
+    table.add_row("- Step 2 = Enter the product 'name'.")
+    table.add_row("- Step 3 = Enter the product 'purchase quantity'.")
+    table.add_row("- Step 4 = Enter the product 'purchase amount' and use a dot in stead of a comma to seperate any decimals.")
+    table.add_row("- Step 5 = Enter the product 'purchase date' as follows: dd-mm-yyyy.")
+    table.add_row("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -1183,7 +1223,7 @@ def add_inventory_products():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
             
             continue 
         break        
@@ -1200,7 +1240,7 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{quantity}' Doesn't only contain numbers. Please enter the correct quantity for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{quantity}' Doesn't only contain numbers. Please enter the correct quantity for product '{name}'.\n[/orange3]")
             
             continue
         break      
@@ -1214,13 +1254,17 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! '{purchase_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot in stead of a comma to seperate any decimals.\n")
+            rprint(F"[orange3]:scream: Hello user! '{purchase_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot in stead of a comma to\
+ seperate any decimals.\n[/orange3]")
 
             continue
 
-        if len(purchase_amount) > 4:
+        input_amount = float(purchase_amount)
+        decimal_quantity = round(input_amount, 2)
+        
+        if input_amount != decimal_quantity:
             print('\n')
-            print(F"Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.\n")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.\n[/orange3]")
 
             continue
         break
@@ -1234,7 +1278,7 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         
@@ -1242,7 +1286,8 @@ def add_inventory_products():
 
         if input_date > current_date():
             print('\n')
-            print(F"Hello user! The date you just entered: '{purchase_date}', is a date in the future. And we're not able to time travel... yet. ;-). Please enter the correct 'purchase date' for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The date you just entered: '{purchase_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'purchase date' for product '{name}'.\n\
+[/orange3]")
 
             continue
         break
@@ -1263,7 +1308,7 @@ def add_inventory_products():
         
         except ValueError:
             print('\n')
-            print(F"Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
 
@@ -1271,19 +1316,20 @@ def add_inventory_products():
 
         if input_date == current_date().strftime("%d-%m-%Y"):   # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
             print('\n')                                         # (dat ook een string is) te kunnen maken.
-            print(F"Hello user! The 'expiration date' of product '{name}' is today. So you can either: 1: enter the correct expiration date, 2: put it on sale, 3: think of a durable way not to waste it.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'expiration date' of product '{name}' is today. So you can either: 1: enter the correct expiration date, 2: put it on sale, 3: think of a durable way not to waste it.\n[/orange3]")
 
             continue
         
         elif input_date == tomorrow_date:
             print('\n')
-            print(F"Hello user! The 'expiration date' of product '{name}' is tomorrow. So you can either: 1: enter the correct expiration date, 2: put product '{name}' on sale, or 3: think of a durable way not to waste product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'expiration date' of product '{name}' is tomorrow.:scream: So you can either: 1: enter the correct expiration date, 2: put product '{name}' on sale, or 3: think of a durable way not to\
+ waste product '{name}'.\n[/orange3]")
 
             continue
 
         elif input_date < current_date().strftime("%d-%m-%Y"):
             print('\n')
-            print(F"Hello user! Product '{name}' is rotton. So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n[/orange3]")
 
             continue
         break
@@ -1318,8 +1364,9 @@ def add_inventory_products():
         if already_exists == True:
             writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
             print('\n')                        
-            print(F"Great! The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product details below.\n")
-            print(row)
+            rprint(F"[green]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product\
+ details below.\n[/green]")
+            rprint(row)
 
         else:
             with open('inventory.csv', 'a+', newline='') as inventory_file:
@@ -1327,8 +1374,8 @@ def add_inventory_products():
                 writer.writerow(product_details)
 
                 print('\n')
-                print(F"Great! Product '{name}' has been added to the 'inventory' file. You can check the product details below.\n")
-                print(product_details)
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the product details below.\n[/green]")
+                rprint(product_details)
                 print('\n')
 
 # print(add_inventory_products())
@@ -1342,45 +1389,51 @@ Sold products. DEZE CODE DOET HET!!! Ik heb deze functie aangepast en getest op 
 
 def add_sold_products():
 
-    print("- Hello user, and welcome to the 'add sold products' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'add sold products'[/bright_cyan] option.\n")
     
-    print("- By adding a sold product to the Sales file, your Inventory file will automatically be reduced with the same quantity of the products that you've sold.\n")
+    print("- By adding a sold product to the 'Sales' file, your 'Inventory' file will automatically be reduced with the same quantity of the products that you've sold.\n")
     
     print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter the product 'ID'.")
-    print("- Step 2 = Enter the product 'name'.")
-    print("- Step 3 = Enter the product 'sold quantity'.")
-    print("- Step 4 = Enter the product 'sales amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("- Step 5 = Enter the product 'sales date' as follows: dd-mm-yyyy.")
-    print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'add sold products to the Sales file'")
+        
+    table.add_row("- Step 1 = Enter the product 'ID'.")
+    table.add_row("- Step 2 = Enter the product 'name'.")
+    table.add_row("- Step 3 = Enter the product 'sold quantity'.")
+    table.add_row("- Step 4 = Enter the product 'sales amount' and use a dot in stead of a comma to seperate any decimals.")
+    table.add_row("- Step 5 = Enter the product 'sales date' as follows: dd-mm-yyyy.")
+    table.add_row("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
     while True:
         id = (input("Step 1 = Enter the product 'ID': "))
-        print('\n')
-
+        
         try:
             int(id)
             
         except ValueError:
             print('\n')
-            print(F"Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
             
             continue 
-
+        
+        print('\n')
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n[/green]")
         
         else:
-            print('\n')
-            print(F"Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file. Please check the product\
- details above for the correct product 'ID'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file. Please\
+ enter the correct product 'ID'.\n[/orange3]")
 
             continue
         break 
@@ -1389,17 +1442,15 @@ def add_sold_products():
     while True:
         name = (input("Step 2 = Enter the product 'name' (not case sensitive): ")).lower()
         print('\n')
-        
-        input_name = product_detail_check('inventory.csv', name, "name")
 
-        if name in input_name:
+        if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n")
-        
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n[/green]")
+
         else:
             product_in_file_check('inventory.csv', id)
-            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if the product 'name' matches the\
- name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the product\
+ 'name' matches the name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n[/orange3]")
 
             continue
         break
@@ -1413,7 +1464,7 @@ def add_sold_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.\n[/orange3]")
             
             continue
         break  
@@ -1427,14 +1478,17 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! The 'sales amount' for product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the\
- decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to seperate any decimals.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'sales amount' for product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to\
+ seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to seperate any decimals.\n[/orange3]")
 
             continue
         
-        if len(sales_amount) > 4:
+        input_amount = float(sales_amount)
+        decimal_quantity = round(input_amount, 2)
+
+        if input_amount != decimal_quantity:
             print('\n')
-            print(F"Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.\n")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.\n[/orange3]")
 
             continue
         break
@@ -1448,15 +1502,16 @@ def add_sold_products():
         
         except ValueError:
             print('\n')
-            print(F"Hello user! '{sales_date}' Isn't the correct format to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct format to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         
-        input_date = convert_to_strptime(sales_date)  # Met deze code maak ik van mijn 'special_occasion_date' variabel een datetime object. Dit omdat het aan het begin van deze while loop nog niet opgeslagen\
-        
+        input_date = convert_to_strptime(sales_date)    # Met de variabel 'input_date' maak ik van mijn variabel 'sales_date' een datetime object. Dit omdat het aan het begin van deze while loop (dus bij de 'try' code) niet opgeslagen wordt als\
+                                                        # als een datetime object.
         if input_date > current_date():
             print('\n')
-            print(F"Hello user! The 'sales date' you just entered: '{sales_date}', is a date in the future. And we're not able to time travel... yet. ;-). Please enter the correct 'sales date' for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'sales date' you just entered: '{sales_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'sales date' for product '{name}'.\n\
+ [/orange3]")
 
             continue
         break
@@ -1470,7 +1525,7 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
         
@@ -1479,19 +1534,20 @@ def add_sold_products():
         if expiration_date in expiration_date_check:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory file'. You can check the 'expiration date' in the product details shown above.\n")
+            rprint(F"[green]Great!:thumbs_up: The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory file'. You can check the 'expiration date' in the product details\
+ shown above.\n[/green]")
 
             if input_date == current_date():
-                    print(F"Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
 
             if input_date < current_date():
-                    print(F"Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")
 
         else:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the product details above for the correct 'expiration\
- date'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the product details above for the\
+ correct 'expiration date'.\n[/orange3]")
 
             continue
         break
@@ -1525,16 +1581,18 @@ def add_sold_products():
         
         if already_exists == True:
             writer.writerows(rows)
-            print(F"Great! The 'quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the details below.\n")
-            print(row)
+            rprint(F"[green]Great!:thumbs_up: The 'quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the details below.\
+\n[/green]")            
+            rprint(row)
             print('\n')
             
         else:    
             with open('sales.csv', 'a+', newline='') as sales_file:
                 writer = csv.DictWriter(sales_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
-                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Sales' file. You can check the details below.\n")
-                print(product_details)
+                print('\n')
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.\n[/green]")
+                rprint(product_details)
                 print('\n')
 
 
@@ -1546,26 +1604,26 @@ def add_sold_products():
             
             if row['id'] == id and row['name'] == name and row['expiration_date'] == expiration_date:
                 row['purchase_quantity'] = int(row['purchase_quantity']) - int(sold_quantity)   # Omdat ik op deze regel de dictonary ['purchase_quantity'] al heb gecast naar een 'integer' / 'int' binnen de for loop, hoef ik dat in\
-                                                                                                # onderstaande 'indented' / 'getabte' 'if' statements niet meer te doen omdat Python dit onthoudt. LET OP!!! Ik heb de 'break' statement op\
-                                                                                                # regel 1370 hieronder uitgecommentarieerd omdat Python anders alleen het eerste product die gevonden wordt in het csv bestand aanpast. Dit\
-                if row['purchase_quantity'] >= 4 and row['purchase_quantity'] < 6:              # omdat er met deze 'if' statement alleen maar wordt gekeken of het 'id', de 'naam' en de 'houdbaarheidsdatum' hetzelfde zijn. Dus als er\
+                                                                                                # onderstaande 'indented' / 'getabte' 'if' statements niet meer te doen omdat Python dit onthoudt. LET OP!!! Ik heb de 'break' statement aan\
+                                                                                                # het einde van deze for loop uitgecommentarieerd omdat Python anders alleen het eerste product die gevonden wordt in het csv bestand aanpast.\
+                if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3:                # Dit omdat er met deze 'if' statement alleen maar wordt gekeken of het 'id', de 'naam' en de 'houdbaarheidsdatum' hetzelfde zijn. Dus als er\
                                                                                                 # meerdere producten zijn met hetzelfde 'id', 'naam' en 'houdbaarheidsdatum', dan zouden die niet worden aangepast met deze 'if' statement.
-                    print(F"STOCK UPDATE!!! The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is '{row['purchase_quantity']}' left in\
- stock.\n")
+                    rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
+ '{row['purchase_quantity']}' left in stock.:astonished_face:\n[/orange3]")
 
                 elif row['purchase_quantity'] <= 0:
                         row['purchase_quantity'] = 0
-                        print(F"STOCK UPDATE!!! Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}' / 'nothing'\
- left in stock. Maybe your customers love this product so much, that you should start thinking about a big sale for this product. ;-)\n")
+                        rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
+ / 'nothing' left in stock.:scream:\n[/orange3]")
         
-        # print(type(row['purchase_quantity']))  # LET OP!!! Bij bovenstaande 'if' statement kreeg ik eerst 2 foutmeldingen: 1= TypeError: '<=' not supported between instances of 'str' and 'int'. 2= ValueError: invalid literal for int() with\
+        # print(type(row['purchase_quantity'])) # LET OP!!! Bij bovenstaande 'if' statement kreeg ik eerst 2 foutmeldingen: 1= TypeError: '<=' not supported between instances of 'str' and 'int'. 2= ValueError: invalid literal for int() with\
                                                 # base 10: 'purchase_quantity'. Deze foutmeldingen werden o.a. veroorzaakt doordat ik de code '(row['purchase_quantity']))' had gecast in een integer terwijl dit al een integer was. Door het\
                                                 # gebruik van dit soort print statements (dus door de 'type' ervoor te zetten) kan je als programmeur ook achterhalen wat de mogelijke oorzaak is van een foutmelding én hoe je dit vervolgens\
                                                 # kunt oplossen. De output van deze print statement was namelijk '<class 'int'>', waardoor je dus weet dat het casten naar een integer niet nodig is omdat de key van de dictionary al een\
                                                 # integer is. Zie voor meer uitleg over deze code mijn Excel doc.: Foutmeldingen inc. oplossingen.
                 else:
-                    print(F"STOCK UPDATE!!! Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}' left in\
- stock.\n")           
+                    rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
+ left in stock.:grinning_face_with_big_eyes:\n[/green]")
                 # break
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1575,7 +1633,7 @@ def add_sold_products():
 # print(add_sold_products())
 # print('\n')
 
-
+# HIER BEN IK MET RICH TESTEN!!!
 '''
 DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 - Maandagavond 02-04-2024 rond 23:17 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
@@ -1674,7 +1732,10 @@ def add_loss_products():
 
             continue
 
-        if len(loss_amount) > 4:
+        input_amount = float(loss_amount)
+        decimal_quantity = round(input_amount, 2)
+        
+        if input_amount != decimal_quantity:
             print('\n')
             print(F"Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.\n")
             
@@ -2200,8 +2261,11 @@ def modify_product_details():
  doesn't only contain an amount or a dot to seperate the decimals. Please enter the correct modification for product detail '{column_name}' for product '{search_type}' and use a dot in stead of a comma to seperate any decimals.\n")
                 
                 continue
-
-            if len(product_detail) > 4:
+            
+            input_amount = float(product_detail)
+            decimal_quantity = round(input_amount, 2)
+            
+            if input_amount != decimal_quantity:
                 print('\n')
                 print(F"Hello user! You can only add '2 decimals' after the dot. Please enter the '{column_name}' again and only add '2 decimals' when necessary.\n")
 
