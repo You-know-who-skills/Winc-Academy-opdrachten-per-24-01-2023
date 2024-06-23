@@ -666,7 +666,7 @@ def column_name_check(file_name: str):
         check_column_name = next(reader)    # Met de 'next' code pak je altijd de 'gehele regel' / 'alle waardes die op de eerst iteratie' / 'regel' staan. Met andere woorden: alles wat in de eerst volgende iteratie staat. In deze code\
                                             # houdt dat dus in dat ik met de 'next' code in combinatie met de 'reader' code alle kolomnamen pak omdat die op de eerste regel van het bestand staan.
         rprint(F"[green]These are the all the 'product detail names' in the '{file_name.capitalize()[:-4]}' file:[/green]")
-        print(check_column_name)
+        rprint(F"[bright_cyan]{check_column_name}[/bright_cyan]")
         print('\n')
 
     return check_column_name
@@ -694,13 +694,13 @@ def product_in_file_check(file_name: str, search_type: str):
         
         product_in_file = False
 
-        rprint(F"[green]Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
+        rprint(F"[green]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
 
         for row in rows:
             if row['name'] == search_type or row['id'] == search_type:
             
                 product_in_file = True
-                print(row)
+                rprint(F"[bright_cyan]{row}[/bright_cyan]")
 
         print('\n')
         
@@ -779,12 +779,12 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
         reader = csv.DictReader(file)
         rows = list(reader)
         
-        rprint(F"[green]Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
+        rprint(F"[green]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/green]")
 
         for categorize, row in enumerate(rows, start=2):
             
             if (row['name'] == search_type or row['id'] == search_type) and row['expiration_date'] == expiration_date:
-                print(F"{categorize}. {row}")
+                rprint(F"[bright_cyan]{categorize}. {row}[/bright_cyan]")
 
     print('\n')
 
@@ -1633,7 +1633,7 @@ def add_sold_products():
 # print(add_sold_products())
 # print('\n')
 
-# HIER BEN IK MET RICH TESTEN!!!
+
 '''
 DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 - Maandagavond 02-04-2024 rond 23:17 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
@@ -1645,7 +1645,7 @@ overeenkomen. LET OP!!! Ik heb deze functie aangepast én weer getest op maandag
 
 def add_loss_products():
 
-    print("- Hello user, and welcome to the 'add product losses' option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'add product losses'[/bright_cyan] option.\n")
 
     print("- By adding a product loss to the Losses file, the Inventory file will automatically be reduced with the same quantity of the added product loss.\n")
 
@@ -1653,15 +1653,22 @@ def add_loss_products():
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
 
-    rprint("[green]Number of steps:[/green]")
-    print("- Step 1 = Enter the product 'ID'.")
-    print("- Step 2 = Enter the product 'name' (not case sensitive).")
-    print("- Step 3 = Enter the product 'loss quantity'.")
-    print("- Step 4 = Enter the product 'loss amount' and use a dot in stead of a comma to seperate any decimals.")
-    print("- Step 5 = Enter the product 'loss date' as follows: dd-mm-yyyy.")
-    print("- Step 6 = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
-    print("- Step 7 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
-    print("- Done!\n")
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'add products to the Losses file'")
+        
+    table.add_row("- Step 1 = Enter the product 'ID'.")
+    table.add_row("- Step 2 = Enter the product 'name' (not case sensitive).")
+    table.add_row("- Step 3 = Enter the product 'loss quantity'.")
+    table.add_row("- Step 4 = Enter the product 'loss amount' and use a dot in stead of a comma to seperate any decimals.")
+    table.add_row("- Step 5 = Enter the product 'loss date' as follows: dd-mm-yyyy.")
+    table.add_row("- Step 6 = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
+    table.add_row("- Step 7 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
+    table.add_row("- Done!")
+
+    console.print(table)
     print('\n')
 
 
@@ -1673,16 +1680,16 @@ def add_loss_products():
             int(id)
             
         except ValueError:
-            print(F"Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
             
             continue
 
         if product_in_file_check('inventory.csv', id) == True:
-            print(F"Great! Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n[/green]")
         
         else:
-            print(F"Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a loss product to the 'Losses' file if this product is also in the 'Inventory' file. Please check the product details\
- above for the correct product 'ID'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a loss product to the 'Losses' file if this product is also found in the 'Inventory' file. Please\
+ enter the correct product 'ID'.\n[/orange3]")
 
             continue
         break 
@@ -1694,12 +1701,12 @@ def add_loss_products():
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            print(F"Great! Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n")
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n[/green]")
 
         else:
             product_in_file_check('inventory.csv', id)
-            print(F"Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product 'name' matches the\
- name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product\
+ 'name' matches the name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n[/orange3]")
 
             continue
         break
@@ -1713,7 +1720,7 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.\n[/orange3]")
             
             continue
         break  
@@ -1727,8 +1734,8 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user! The 'loss amount' for product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{loss_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the\
- decimals. Please enter the correct 'loss amount' for product '{name}' and use a 'dot' in stead of a comma to seperate any decimals.\n")
+            rprint(F"[orange3]:scream: Hello user! The 'loss amount' for product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{loss_amount}' Doesn't contain an 'amount' and / or a 'dot' to\
+ seperate the decimals. Please enter the correct 'loss amount' for product '{name}' and use a 'dot' in stead of a comma to seperate any decimals.\n[/orange3]")
 
             continue
 
@@ -1737,7 +1744,7 @@ def add_loss_products():
         
         if input_amount != decimal_quantity:
             print('\n')
-            print(F"Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.\n")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.\n[/orange3]")
             
             continue
         break
@@ -1751,7 +1758,7 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            print(F"Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct loss date for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct loss date for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
 
@@ -1759,7 +1766,7 @@ def add_loss_products():
 
         if input_date > current_date():
             print('\n')
-            print(F"Hello user. The date you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet. ;-). Please enter the correct 'loss date' for product '{name}'.\n")
+            rprint(F"[orange3]:scream: Hello user. The date you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'loss date' for product '{name}'.\n[/orange3]")
         
             continue
         break
@@ -1772,12 +1779,12 @@ def add_loss_products():
 
         if loss_cause in loss_cause_options:
             print('\n')
-            print(F"Great! '{loss_cause.capitalize()}' is a correct cause of loss.\n")
+            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct cause of loss.\n[/green]")
 
         else:
             print('\n')
-            print(F"Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option for product '{name}'. Please enter one of the following causes of loss: 'broken', 'damaged', 'expired', 'missing',\
- 'theft' or 'other' (not case sensitive).\n")
+            rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option for product '{name}'. Please enter one of the following causes of loss: 'broken', 'damaged',\
+ 'expired', 'missing', 'theft' or 'other' (not case sensitive).\n[/orange3]")
 
             continue
         break
@@ -1791,7 +1798,8 @@ def add_loss_products():
             
         except ValueError:
             print('\n')
-            print(F"Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' in the following format:\
+ dd-mm-yyyy.\n[/orange3]")
         
             continue
         
@@ -1804,13 +1812,14 @@ def add_loss_products():
                                                         # i.p.v. de '==' operator, want met de 'in' operator kijk je of er iets 'wel' of 'niet' in een lijst zit.
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            print(F"Great! The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory' file. You can check the 'expiration date' in the product details shown above.\n")
-            
+            rprint(F"[green]Great!:thumbs_up: The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory' file. You can check the 'expiration date' in the product details\
+ shown above.\n[/green]")
+                        
         else:
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            print(F"Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the correct\
- 'expiration date'.\n")
+            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the\
+ correct 'expiration date'.\n[/orange3]")
 
             continue
         break
@@ -1847,9 +1856,9 @@ def add_loss_products():
             writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de\
                                     # iterabele.
         
-            print(F"Great! The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can check the details\
- below.\n")
-            print(row)
+            rprint(F"[green]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can\
+ check the details below.\n[/green]")
+            rprint(row)
             print('\n')
 
         else:
@@ -1857,8 +1866,8 @@ def add_loss_products():
                 writer = csv.DictWriter(losses_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
 
-                print(F"Great! Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.\n")
-                print(product_details)
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.\n[/green]")
+                rprint(product_details)
                 print('\n')
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1870,14 +1879,14 @@ def add_loss_products():
             if row['id'] == id and row['name'] == name and row['expiration_date'] == expiration_date:
                 row['purchase_quantity'] = int(row['purchase_quantity']) - int(loss_quantity)
                 
-                if row['purchase_quantity'] >= 4 and row['purchase_quantity'] < 6: # If the quantity of a product is 5 or less, it will trigger the print statement shown below.
-                    print(F"STOCK UPDATE!!! The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is '{row['purchase_quantity']}' left in\
- stock.\n")
+                if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3: # If the quantity of a product is 5 or less, it will trigger the print statement shown below.
+                    rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
+ '{row['purchase_quantity']}' left in stock.:astonished_face:\n[orange3]")
 
                 elif row['purchase_quantity'] <= 0: # Met deze code / 'elif statement' geef je aan dat als een berekening onder de nul / 0 uit komt, de berekening nul / 0 moet blijven.
                         row['purchase_quantity'] = 0
-                        print(F"STOCK UPDATE!!! Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}' / 'nothing'\
- left in stock. Maybe your customers love this product so much, that you should start thinking about a big sale for this product. ;-)\n")
+                        rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
+ / 'nothing' left in stock.:scream:\n[/orange3]")
         
         # print(type(row['purchase_quantity'])) # LET OP!!! Bij bovenstaande 'if' statement kreeg ik eerst 2 foutmeldingen: 1= TypeError: '<=' not supported between instances of 'str' and 'int'. 2= ValueError: invalid literal for int() with\
                                                 # base 10: 'purchase_quantity'. Deze foutmeldingen werden o.a. veroorzaakt doordat ik de code '(row['purchase_quantity']))' had gecast in een integer terwijl dit al een integer was. Door het\
@@ -1885,9 +1894,9 @@ def add_loss_products():
                                                 # kunt oplossen. De output van deze print statement was namelijk '<class 'int'>', waardoor je dus weet dat het casten naar een integer niet nodig is omdat de key van de dictionary al een\
                                                 # integer is. Zie voor meer uitleg over deze code mijn Excel doc.: Foutmeldingen inc. oplossingen.
                 else:
-                    print(F"STOCK UPDATE!!! Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}' left in\
- stock.\n")           
-                break
+                    rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
+ left in stock.:grinning_face_with_big_eyes:\n[/green]")
+                # break
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
         writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
