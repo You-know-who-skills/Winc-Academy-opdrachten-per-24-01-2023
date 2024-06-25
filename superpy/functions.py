@@ -177,8 +177,8 @@ def clear_file():
 
     elif yes_or_no == 'N' or yes_or_no == 'n':
         print('\n')
-        print(F"Oké. The '{file_name.capitalize()[:-4]}' file has not been cleared of all it's products.\n")
-        print('\n')
+        # rprint(F"[wheat1]Okay. The '{file_name.capitalize()[:-4]}' file will not be cleared of all it's products.\n[/wheat1]")
+        # print('\n')
         
 
 # print(clear_file())
@@ -358,7 +358,7 @@ def update_system_date():
             rprint("[green]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.\n[/green]")
 
         elif update_system == "n":
-            print("Oké! The date of the system will not be updated to the current date.\n")
+            rprint("[wheat1]Okay! The date of the system will not be updated to the current date.\n[/wheat1]")
         
         else:
             rprint(F"[orange3]:scream: Hello user! '{update_system}' isn't the correct input for updating the system date to the 'current date'. Please enter 'Y' if you 'do' want to update the system date to the 'current date'. Or enter 'N'\
@@ -1134,7 +1134,7 @@ def	avoid_expired_products():
  better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red]\n[/green]")
 
         elif yes_or_no == "n":
-            rprint("Oké! The products that will expire in 3 days will not be shown.\n")
+            rprint("[wheat1]Okay! The products that will expire in 3 days will not be shown.\n[/wheat1]")
         
         else:
             rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that\
@@ -1315,7 +1315,7 @@ def add_inventory_products():
         input_date = convert_to_dutch_date(expiration_date)     # Met de 'input_date' variabel zet ik de 'expiration_date' variabel (dat dus ook de input statement van stap 6 is) om naar de Nederlandse datum format.
 
         if input_date == current_date().strftime("%d-%m-%Y"):   # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
-            print('\n')                                         # (dat ook een string is) te kunnen maken.
+            print('\n')                                         # (dat ook een string is) te kunnen maken. En met de '.strftime("%d-%m-%Y")' code erachter wordt de datum format de Nederlandse datum format.
             rprint(F"[orange3]:scream: Hello user! The 'expiration date' of product '{name}' is today. So you can either: 1: enter the correct expiration date, 2: put it on sale, 3: think of a durable way not to waste it.\n[/orange3]")
 
             continue
@@ -1517,11 +1517,13 @@ def add_sold_products():
         break
 
 
+    (product_in_file_check('inventory.csv', name))
+
     while True:
-        expiration_date = (input(F"Step 6 = Enter the 'expiration date' of product '{name}' as follows: dd-mm-yyyy: "))
+        expiration_date = (input(F"Step 6 = Enter the 'expiration date' of product '{name}' (as shown above in the 'product details') as follows: dd-mm-yyyy: "))
 
         try:
-            input_date = convert_to_strptime(expiration_date)
+            convert_to_dutch_date(expiration_date)
             
         except ValueError:
             print('\n')
@@ -1529,24 +1531,26 @@ def add_sold_products():
             
             continue
         
+        input_date = convert_to_strptime(expiration_date)
+
         expiration_date_check = product_detail_check('inventory.csv', name, "expiration_date")
 
         if expiration_date in expiration_date_check:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            rprint(F"[green]Great!:thumbs_up: The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory file'. You can check the 'expiration date' in the product details\
- shown above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory file'. You can see all the 'expiration dates' of product '{name}'\
+ in the 'product details' shown above.\n[/green]")
 
             if input_date == current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
 
             if input_date < current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{input_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")
 
         else:
             print('\n')
             product_in_file_check('inventory.csv', name)
-            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the product details above for the\
+            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the 'product details' above for the\
  correct 'expiration date'.\n[/orange3]")
 
             continue
@@ -1583,7 +1587,7 @@ def add_sold_products():
             writer.writerows(rows)
             rprint(F"[green]Great!:thumbs_up: The 'quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the details below.\
 \n[/green]")            
-            rprint(row)
+            rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
             
         else:    
@@ -1592,7 +1596,7 @@ def add_sold_products():
                 writer.writerow(product_details)
                 print('\n')
                 rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.\n[/green]")
-                rprint(product_details)
+                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
 
@@ -1688,7 +1692,7 @@ def add_loss_products():
             rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the product details of product ID '{id}' from the 'Inventory' file above.\n[/green]")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a loss product to the 'Losses' file if this product is also found in the 'Inventory' file. Please\
+            rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if this product is also found in the 'Inventory' file. Please\
  enter the correct product 'ID'.\n[/orange3]")
 
             continue
@@ -1758,7 +1762,7 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct loss date for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
 
@@ -1779,19 +1783,21 @@ def add_loss_products():
 
         if loss_cause in loss_cause_options:
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct cause of loss.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss'.\n[/green]")
 
         else:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following causes of loss for product '{name}':\
+            rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following 'causes of loss' for product '{name}':\
  'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).\n[/orange3]")
 
             continue
         break
 
 
+    (product_in_file_check('inventory.csv', name))
+    
     while True:
-        expiration_date = (input(F"Step 7 = Enter the 'expiration date' of product '{name}': "))
+        expiration_date = (input(F"Step 7 = Enter the 'expiration date' of product '{name}' (as shown above in the 'product details') as follows: dd-mm-yyyy: "))
         
         try:
             convert_to_dutch_date(expiration_date)
@@ -1803,8 +1809,10 @@ def add_loss_products():
         
             continue
         
-        expiration_date_check = product_detail_check('inventory.csv', name, "expiration_date")   # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven\
-                                                                                                            # ingevulde variabel: 'search_type' dat het door de gebruiker ingevulde product is.
+        input_date = convert_to_strptime(expiration_date)
+
+        expiration_date_check = product_detail_check('inventory.csv', name, "expiration_date")  # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven\
+                                                                                                # ingevulde variabel: 'search_type' dat het door de gebruiker ingevulde product is.
         
         if expiration_date in expiration_date_check:    # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
                                                         # code namelijk gepropeerd om mijn 'input' statement 'expiration_date' in deze while loop dat een 'string' is te vergelijken met mijn return statement van mijn 'product_detail_check' functie\
@@ -1812,14 +1820,20 @@ def add_loss_products():
                                                         # i.p.v. de '==' operator, want met de 'in' operator kijk je of er iets 'wel' of 'niet' in een lijst zit.
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            rprint(F"[green]Great!:thumbs_up: The entered expiration date '{expiration_date}' of product '{name}' matches one of the 'expiration dates' in the 'Inventory' file. You can check the 'expiration date' in the product details\
- shown above.\n[/green]")
-                        
+            rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory' file. You can see all the 'expiration dates' of product '{name}'\
+ in the 'product details' shown above.\n[/green]")
+            
+            if input_date == current_date():
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
+
+            if input_date < current_date():
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")  
+            
         else:
             print('\n')
             (product_in_file_check('inventory.csv', name))
-            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the product details above for the\
- correct 'expiration date'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match with one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the 'product details' above for\
+ the correct 'expiration date'.\n[/orange3]")
 
             continue
         break
@@ -1858,7 +1872,7 @@ def add_loss_products():
         
             rprint(F"[green]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can\
  check the details below.\n[/green]")
-            rprint(row)
+            rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
         else:
@@ -1867,7 +1881,7 @@ def add_loss_products():
                 writer.writerow(product_details)
 
                 rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.\n[/green]")
-                rprint(product_details)
+                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1905,7 +1919,7 @@ def add_loss_products():
 # print(add_loss_products())
 # print('\n')
 
-
+# HIER BEN IK MET RICH TESTEN!!!
 # User functions – modify product details.
 
 
@@ -2200,7 +2214,7 @@ def modify_product_details():
         print('\n')
         
         # Below are all the unique column names from the 3 CSV files. I've put these column names in a 'column_name' variable for 2 reasons:
-        # 1 = The user doesn't have to type the underscore. 2 = So that I can use them in my 'column_name_check()' function.
+        # 1 = The user doesn't have to type the underscore. 2 = So that I can use them in my 'column_name_check()' function where the underscore is needed.
         if column_name == 'purchase quantity':
             column_name = 'purchase_quantity'
 
@@ -2386,7 +2400,7 @@ def modify_product_details():
                         break
                         
                     elif yes_or_no == 'N' or yes_or_no == 'n':
-                        rprint(F"Oké. The product detail '{column_name}' of product '{search_type}' with expiration date '{expiration_date}' in the '{file_name.capitalize()[:-4]}' file will not be modified from '{row[column_name]}' to\
+                        rprint(F"Okay. The product detail '{column_name}' of product '{search_type}' with expiration date '{expiration_date}' in the '{file_name.capitalize()[:-4]}' file will not be modified from '{row[column_name]}' to\
  '{product_detail}'. You can see the current 'product details' of product '{search_type}' below.\n")
                         rprint(F"[bright_cyan]{row}[/bright_cyan]")
                         print('\n')
@@ -2797,7 +2811,7 @@ def modify_product_quantity():
 
                     elif yes_or_no == 'N' or yes_or_no == 'n':
                         print('\n')
-                        print(F"Oké. Product '{search_type}' with the current '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}', and 'expiration date': '{expiration_date}' in the\
+                        print(F"Okay. Product '{search_type}' with the current '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}', and 'expiration date': '{expiration_date}' in the\
  '{file_name.capitalize()[:-4]}' file, wil not be 'increased' with a quantity of '{modification}'. You can see the details below.\n")
                         print(F"Result = {row}")
                         print('\n')
@@ -2830,7 +2844,7 @@ def modify_product_quantity():
             
                     elif yes_or_no == 'N' or yes_or_no == 'n':
                         print('\n')
-                        print(F"Oké. Product '{search_type}' with the current '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}', and 'expiration date': '{expiration_date}' in the\
+                        print(F"Okay. Product '{search_type}' with the current '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}', and 'expiration date': '{expiration_date}' in the\
  '{file_name.capitalize()[:-4]}' file, wil not be 'decreased' with a quantity of '{modification}'. You can see the details below.\n")
                         print(F"Result = {row}")
                         print('\n')
@@ -3186,7 +3200,7 @@ def remove_product():
                         break
                         
                     elif yes_or_no == 'N' or yes_or_no == 'n':
-                        print(F"Oké. Product '{search_type}' with expiration date '{expiration_date}' has not been removed from the '{file_name.capitalize()[:-4]}' file.\n")
+                        print(F"Okay. Product '{search_type}' with expiration date '{expiration_date}' will not be removed from the '{file_name.capitalize()[:-4]}' file.\n")
                         break
 
                     else:
