@@ -708,7 +708,7 @@ def product_in_file_check(file_name: str, search_type: str):
             return True
         
         elif product_in_file == False:
-            return False
+            return rprint("[bright_cyan]{No product found}[/bright_cyan]\n")
 
 # print(product_in_file_check('sales.csv', "ei"))
 # print('\n')
@@ -1516,8 +1516,8 @@ def add_sold_products():
             continue
         break
 
-
-    (product_in_file_check('inventory.csv', name))
+    print('\n')
+    product_in_file_check('inventory.csv', name)
 
     while True:
         expiration_date = (input(F"Step 6 = Enter the 'expiration date' of product '{name}' (as shown above in the 'product details') as follows: dd-mm-yyyy: "))
@@ -1542,10 +1542,10 @@ def add_sold_products():
  in the 'product details' shown above.\n[/green]")
 
             if input_date == current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.[/orange3]")
 
             if input_date < current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")
+                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.[/orange3]")
 
         else:
             print('\n')
@@ -1634,8 +1634,8 @@ def add_sold_products():
         writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
         writer.writerows(rows)
         
-# print(add_sold_products())
-# print('\n')
+print(add_sold_products())
+print('\n')
 
 
 '''
