@@ -708,7 +708,7 @@ def product_in_file_check(file_name: str, search_type: str):
             return True
         
         elif product_in_file == False:
-            return rprint("[bright_cyan]{No product found}[/bright_cyan]\n")
+            rprint("[bright_cyan]{No products found}[/bright_cyan]\n")
 
 # print(product_in_file_check('sales.csv', "ei"))
 # print('\n')
@@ -1214,6 +1214,7 @@ def add_inventory_products():
     console.print(table)
     print('\n')
 
+    maximum_digits = '15'
 
     while True:
         id = (input("Step 1 = Enter the product 'ID': "))
@@ -1225,23 +1226,54 @@ def add_inventory_products():
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
             
-            continue 
-        break        
+            continue
 
+        if len(id) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'ID' can't contain more than '{maximum_digits}' digits. The entered ID: '{id}', contains more than '{maximum_digits}' digits. Please enter an 'ID' that contains no more than\
+ '{maximum_digits}' digits.\n[/orange3]")
 
-    name = input(F"Step 2 = Enter the 'name' for product ID {id} (not case sensitive): ").lower()
+            continue
+        
+        print('\n')
+        id_check = product_in_file_check('inventory.csv', id)
+        
+        if id_check == True:
+            rprint(F"[wheat1]:thinking_face: Please note that product ID '{id}' already exists in the 'Inventory' file. You can see the 'product details' of the existing product ID '{id}' above.[/wheat1]\n")
+        break   # Deze 'break' statement staat nu 1 'tab' / 'indent' naar links waardoor je de gehele 'while loop' stopt, want het staat dan ook buiten de 'if' statement. En dat is in deze functie geen probleem omdat je verder niks doet met\
+                # de variabel 'id_check'. Je kan deze 'break' statement ook 1 tab / indent naar rechts plaatsen en dan stopt de 'while loop' alleen wanneer bovenstaande conditie (dus de variabel 'id_check') 'True' is. Dat is hier dus niet\
+                # nodig omdat je dus verder niks doet met de variabel 'id_check'.
 
 
     while True:
-        quantity = input(F"Step 3 = Enter the 'purchase quantity' for product '{name}': ")
+        name = input(F"Step 2 = Enter the 'name' for product ID '{id}' (not case sensitive): ").lower()
+
+        print('\n')
+        name_check = product_in_file_check('inventory.csv', name)
+        
+        if name_check == True:
+            rprint(F"[wheat1]:thinking_face: Please note that product name '{name}' already exists in the 'Inventory' file. You can see the 'product details' of the existing product name '{name}' above.'[/wheat1]\n")
+        break
+
+
+    while True:
+        purchase_quantity = input(F"Step 3 = Enter the 'purchase quantity' for product '{name}': ")
         
         try:
-            int(quantity)
+            int(purchase_quantity)
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{quantity}' Doesn't only contain numbers. Please enter the correct quantity for product '{name}'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{purchase_quantity}' Doesn't only contain numbers. Please enter the correct 'purchase quantity' for product\
+ '{name}'.\n[/orange3]")            
             
+            continue
+
+        if len(purchase_quantity) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' can't contain more than '{maximum_digits}' digits. The entered 'purchase quantity': '{purchase_quantity}', contains more than '{maximum_digits}' digits. Please enter\
+ a 'purchase quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+
             continue
         break      
 
@@ -1261,11 +1293,18 @@ def add_inventory_products():
 
         input_amount = float(purchase_amount)
         decimal_quantity = round(input_amount, 2)
-        
+
         if input_amount != decimal_quantity:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.\n[/orange3]")
 
+            continue
+
+        elif len(purchase_amount) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'purchase amount' can't contain more than '{maximum_digits}' digits. The entered 'purchase amount': '{purchase_amount}', contains more than '{maximum_digits}' digits. Please enter a\
+ 'purchase amount' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+            
             continue
         break
 
@@ -1311,34 +1350,33 @@ def add_inventory_products():
             rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
             
             continue
-
+        
         input_date = convert_to_dutch_date(expiration_date)     # Met de 'input_date' variabel zet ik de 'expiration_date' variabel (dat dus ook de input statement van stap 6 is) om naar de Nederlandse datum format.
 
-        if input_date == current_date().strftime("%d-%m-%Y"):   # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
+        if input_date < current_date().strftime("%d-%m-%Y"):    # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
+                                                                # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
             print('\n')                                         # (dat ook een string is) te kunnen maken. En met de '.strftime("%d-%m-%Y")' code erachter wordt de datum format de Nederlandse datum format.
-            rprint(F"[orange3]:scream: Hello user! The 'expiration date' of product '{name}' is today. So you can either: 1: enter the correct expiration date, 2: put it on sale, 3: think of a durable way not to waste it.\n[/orange3]")
-
-            continue
+            rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n[/orange3]")
+            
+            continue # Als bovenstaande 'if' statement / conditie 'True' is blijf je door de 'continue' statement in de loop hangen. En wanneer die 'False' is, ga je door naar de volgende stap.
         
+        elif input_date == current_date().strftime("%d-%m-%Y"):
+            print('\n')
+            rprint(F"[wheat1]:astonished_face: Hello user! The 'expiration date' of product '{name}' is today.:astonished_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to use\
+ it.[/wheat1]")        
+
         elif input_date == tomorrow_date:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The 'expiration date' of product '{name}' is tomorrow.:scream: So you can either: 1: enter the correct expiration date, 2: put product '{name}' on sale, or 3: think of a durable way not to\
- waste product '{name}'.\n[/orange3]")
+            rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product '{name}' is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to use\
+ it.[/wheat1]")
 
-            continue
-
-        elif input_date < current_date().strftime("%d-%m-%Y"):
-            print('\n')
-            rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n[/orange3]")
-
-            continue
         break
 
 
     product_details = {
         'id': id,
         'name' : name,
-        'purchase_quantity' : quantity,
+        'purchase_quantity' : purchase_quantity,
         'purchase_amount': purchase_amount,
         'purchase_date' : purchase_date,
         'expiration_date' : expiration_date,
@@ -1350,7 +1388,7 @@ def add_inventory_products():
         
         for row in rows:
             if row['id'] == id and row['name'] == name and row['purchase_amount'] and row['purchase_date'] and row['expiration_date'] == expiration_date:
-                row['purchase_quantity'] = int(row['purchase_quantity']) + int(quantity)
+                row['purchase_quantity'] = int(row['purchase_quantity']) + int(purchase_quantity)
                 
                 already_exists = True
                 break
@@ -1362,20 +1400,21 @@ def add_inventory_products():
         writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
         
         if already_exists == True:
-            writer.writerows(rows)  # Deze code doet het. Writerow verwacht een dictionary en kijkt naar de key (op de achtergrond). Writerows doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
+            writer.writerows(rows)                  # 'Writerow' verwacht een dictionary en kijkt naar de key (op de achtergrond). 'Writerows' doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
             print('\n')                        
-            rprint(F"[green]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the product\
- details below.\n[/green]")
-            rprint(row)
+            rprint(F"[green]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the 'product\
+ details' below.\n[/green]")
+            rprint(F"[bright_cyan]{row}[/bright_cyan]")
+            print('\n')
 
         else:
             with open('inventory.csv', 'a+', newline='') as inventory_file:
                 writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
-                writer.writerow(product_details)
+                writer.writerow(product_details)    # 'Writerow' verwacht een dictionary en kijkt naar de key (op de achtergrond). 'Writerows' doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
 
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the product details below.\n[/green]")
-                rprint(product_details)
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the 'product details' below.\n[/green]")
+                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
 # print(add_inventory_products())
@@ -1414,6 +1453,7 @@ def add_sold_products():
     console.print(table)
     print('\n')
 
+    maximum_digits = '15'
 
     while True:
         id = (input("Step 1 = Enter the product 'ID': "))
@@ -1439,8 +1479,11 @@ def add_sold_products():
         break 
 
 
+    print('\n')
+    product_in_file_check('inventory.csv', id)
+
     while True:
-        name = (input("Step 2 = Enter the product 'name' (not case sensitive): ")).lower()
+        name = (input("Step 2 = Enter the product 'name' as shown above in the 'product details' (not case sensitive): ")).lower()
         print('\n')
 
         if name in product_detail_check('inventory.csv', id, 'name'):
@@ -1449,7 +1492,7 @@ def add_sold_products():
 
         else:
             product_in_file_check('inventory.csv', id)
-            rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the product\
+            rprint(F"[orange3]:scream: Hello user! The entered product 'name': '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the product\
  'name' matches the name of this product in the 'Inventory' file. Please check the product details above for the correct product 'name' for product ID '{id}'.\n[/orange3]")
 
             continue
@@ -1467,6 +1510,13 @@ def add_sold_products():
             rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.\n[/orange3]")
             
             continue
+
+        if len(sold_quantity) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can't contain more than '{maximum_digits}' digits. The entered 'sold quantity': '{sold_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'sold\
+ quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+        
+            continue
         break  
 
 
@@ -1478,7 +1528,7 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The 'sales amount' for product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to\
+            rprint(F"[orange3]:scream: Hello user! The 'sales amount' of product '{name}' can only contain an amount and a dot (in stead of a comma) to seperate any decimals. '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to\
  seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to seperate any decimals.\n[/orange3]")
 
             continue
@@ -1489,6 +1539,13 @@ def add_sold_products():
         if input_amount != decimal_quantity:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.\n[/orange3]")
+
+            continue
+
+        elif len(sales_amount) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'sales amount' can't contain more than '{maximum_digits}' digits. The entered 'sales amount': '{sales_amount}', contains more than '{maximum_digits}' digits. Please enter a 'sales\
+ amount' that contains no more than '{maximum_digits}' digits.\n[/orange3]")        
 
             continue
         break
@@ -1516,11 +1573,12 @@ def add_sold_products():
             continue
         break
 
+
     print('\n')
     product_in_file_check('inventory.csv', name)
 
     while True:
-        expiration_date = (input(F"Step 6 = Enter the 'expiration date' of product '{name}' (as shown above in the 'product details') as follows: dd-mm-yyyy: "))
+        expiration_date = (input(F"Step 6 = Enter the 'expiration date' of product '{name}' as shown above in the 'product details' as follows: dd-mm-yyyy: "))
 
         try:
             convert_to_dutch_date(expiration_date)
@@ -1541,11 +1599,11 @@ def add_sold_products():
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory file'. You can see all the 'expiration dates' of product '{name}'\
  in the 'product details' shown above.\n[/green]")
 
-            if input_date == current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.[/orange3]")
+            if input_date == current_date():    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
+                    rprint(F"[wheat1]:astonished_face: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.:astonished_face:[/wheat1]")
 
-            if input_date < current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.[/orange3]")
+            if input_date < current_date():     # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
+                    rprint(F"[wheat1]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.[/wheat1]")
 
         else:
             print('\n')
@@ -1634,8 +1692,8 @@ def add_sold_products():
         writer = csv.DictWriter(inventory_file, fieldnames= reader.fieldnames)
         writer.writerows(rows)
         
-print(add_sold_products())
-print('\n')
+# print(add_sold_products())
+# print('\n')
 
 
 '''
@@ -1675,6 +1733,7 @@ def add_loss_products():
     console.print(table)
     print('\n')
 
+    maximum_digits = '15'
 
     while True:
         id = (input("Step 1 = Enter the product 'ID': "))
@@ -1699,13 +1758,16 @@ def add_loss_products():
         break 
 
 
+    print('\n')
+    product_in_file_check('inventory.csv', id)
+
     while True:
-        name = (input("Step 2 = Enter the product 'name' (not case sensitive): ")).lower()
+        name = (input("Step 2 = Enter the product 'name' as shown above in the 'product details' (not case sensitive): ")).lower()
         print('\n')
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the product details of product '{name}' from the 'Inventory' file above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.\n[/green]")
 
         else:
             product_in_file_check('inventory.csv', id)
@@ -1725,6 +1787,13 @@ def add_loss_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.\n[/orange3]")
+            
+            continue
+
+        if len(loss_quantity) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can't contain more than '{maximum_digits}' digits. The entered 'loss quantity': '{loss_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'loss\
+ quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
             
             continue
         break  
@@ -1750,6 +1819,13 @@ def add_loss_products():
             print('\n')
             rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.\n[/orange3]")
             
+            continue
+
+        elif len(loss_amount) > 15:
+            print('\n')
+            rprint(F"[orange3]:scream: Hello user! The 'loss amount' can't contain more than '{maximum_digits}' digits. The entered 'loss amount': '{loss_amount}', contains more than '{maximum_digits}' digits. Please enter a 'loss amount'\
+ that contains no more than '{maximum_digits}' digits.\n[/orange3]")        
+
             continue
         break
 
@@ -1794,10 +1870,10 @@ def add_loss_products():
         break
 
 
-    (product_in_file_check('inventory.csv', name))
+    product_in_file_check('inventory.csv', name)
     
     while True:
-        expiration_date = (input(F"Step 7 = Enter the 'expiration date' of product '{name}' (as shown above in the 'product details') as follows: dd-mm-yyyy: "))
+        expiration_date = (input(F"Step 7 = Enter the 'expiration date' of product '{name}' as shown above in the 'product details' as follows: dd-mm-yyyy: "))
         
         try:
             convert_to_dutch_date(expiration_date)
@@ -1823,11 +1899,11 @@ def add_loss_products():
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory' file. You can see all the 'expiration dates' of product '{name}'\
  in the 'product details' shown above.\n[/green]")
             
-            if input_date == current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.\n[/orange3]")
+            if input_date == current_date():    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
+                    rprint(F"[wheat1]:astonished_face: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' was today.:astonished_face:[/wheat1]")
 
-            if input_date < current_date():
-                    rprint(F"[orange3]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.\n[/orange3]")  
+            if input_date < current_date():     # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
+                    rprint(F"[wheat1]:scream: Hello user! The expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.[/wheat1]")
             
         else:
             print('\n')
@@ -2127,7 +2203,7 @@ def modify_product_details():
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_date = input(F"Step 5 = Enter the current '{relevant_date}' of product '{search_type}' (as shown above) as follows: dd-mm-yyyy: ")
+        input_date = input(F"Step 5 = Enter the current '{relevant_date}' of product '{search_type}' as shown above as follows: dd-mm-yyyy: ")
         print('\n')
 
         try:
@@ -2209,7 +2285,7 @@ def modify_product_details():
     print('\n')
 
     while True:
-        column_name = (input(F"Step 7 = Enter the 'product detail name' for product '{search_type}' that you want to modify, for instance 'expiration date' etc. (not case sensitive and you don't have to put an underscore in the 'product\
+        column_name = (input(F"Step 7 = Enter the 'product detail name' of product '{search_type}' that you want to modify, for instance 'expiration date' etc. (not case sensitive and you don't have to put an underscore in the 'product\
  detail name'). You can see all the 'product detail names' from the '{file_name.capitalize()[:-4]}' file above: ")).lower()
         print('\n')
         
@@ -2876,7 +2952,7 @@ def modify_product_quantity():
 # print(modify_product_quantity())
 # print('\n')
 
-
+# HIER BEN IK MET RICH TESTEN!!!
 # User function – remove product from a file.
 
 '''
