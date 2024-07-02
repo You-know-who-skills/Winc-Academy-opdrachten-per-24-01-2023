@@ -30,6 +30,8 @@ date_option = subparsers.add_parser("date", help= "- Use this option to 'update'
 product_option = subparsers.add_parser("product", help= "- Use this option to 'view', 'find', 'add', 'modify' and 'remove' products. With this option you can also 'avoid expired products' and calculate the 'costs', 'losses', 'revenue' or\
  'profit'. The 'product options menu' will show you which options you can choose. When you've chosen an option, a step by step explination will guide you through the chosen product option.\n") 
 
+calculate_option = subparsers.add_parser('calculate', help= "- Use this option to calculate the 'costs', 'losses', 'revenue' or 'profit' in a selected file. The 'calculate options menu' will show you which options you can select. When\
+ you've selected an option, a step by step explination will guide you through the selected calculate option.\n")
 
 # Parse arguments
 args = parser.parse_args()          # De '.parse_args' code bevat alle argumenten die ik in de hierboven vermelde subparser argumenten heb geplaatst. En in dit geval zijn het de argumenten: 
@@ -42,6 +44,9 @@ if args.command == "date":
 
 if args.command == "product":       # Met deze code geef je aan wat de 'command' code moet zijn die ik hierboven bij en de 'subparsers = parser.add_subparsers(dest= "command")' heb gedefinieerd. En in dit geval is het 'file'.
     display_product_options()
+
+if args.command == "calculate":
+    display_calculation_options()
     
     
 # LET OP!!! Omdat ik alleen maar met 'input statements' heb gewerkt in mijn 'functions.py' bestand, heb ik in geen één van mijn 'gebruikers functies' argumenten gebruikt. Daarom hoef ik in mijn 'main.py' bestand ook geen '.add_argument'
