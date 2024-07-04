@@ -1154,7 +1154,7 @@ def	avoid_expired_products():
 
             today_date = current_date()
             
-            expire_date = convert_to_strptime(row["expiration_date"])
+            expire_date = convert_to_strptime(row['expiration_date'])
             
             day_after_tomorrow = today_date + timedelta(2)
             
@@ -1593,7 +1593,7 @@ def add_sold_products():
         
         input_date = convert_to_dutch_date(expiration_date)
         
-        expiration_date_check = product_detail_check('inventory.csv', name, "expiration_date")
+        expiration_date_check = product_detail_check('inventory.csv', name, 'expiration_date')
 
         if expiration_date in expiration_date_check:
             print('\n')
@@ -1895,7 +1895,7 @@ def add_loss_products():
         
         input_date = convert_to_dutch_date(expiration_date)
 
-        expiration_date_check = product_detail_check('inventory.csv', name, "expiration_date")  # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven\
+        expiration_date_check = product_detail_check('inventory.csv', name, 'expiration_date')  # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven\
                                                                                                 # ingevulde variabel: 'search_type' dat het door de gebruiker ingevulde product is.
         
         if expiration_date in expiration_date_check:    # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
@@ -2281,7 +2281,7 @@ def modify_product_details():
         expiration = convert_to_dutch_date(expiration_date)
         # expiration = convert_to_strptime(expiration_date)
         
-        expiration_date_check = product_detail_check(file_name, search_type, "expiration_date") # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
+        expiration_date_check = product_detail_check(file_name, search_type, 'expiration_date') # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
                                                                                                 # variabel: 'search_type' dat het door de gebruiker ingevulde product is.
         if expiration_date in expiration_date_check:
                                                         # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
@@ -2408,7 +2408,7 @@ def modify_product_details():
 
                 continue
 
-        elif column_name == 'purchase_date' or column_name == 'sales_date' or column_name == "expiration_date" or column_name == 'loss_date':
+        elif column_name == 'purchase_date' or column_name == 'sales_date' or column_name == 'expiration_date' or column_name == 'loss_date':
             
             try:
                 convert_to_dutch_date(product_detail)
@@ -2486,7 +2486,7 @@ def modify_product_details():
 
         for row in rows:
             
-            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row["expiration_date"] == expiration_date:
+            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date:
             
                 print('\n')
                 show_product_details(file_name, search_type, expiration_date)
@@ -2498,8 +2498,8 @@ def modify_product_details():
                     
                     if yes_or_no == 'Y' or yes_or_no == 'y':
                         row[column_name] = product_detail
-                        rprint(F"[green]Great!:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can check the 'modified product\
- detail' of product '{search_type}' below.\n[/green]")
+                        rprint(F"[green]Great![/green]:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can check the 'modified product\
+ detail' of product '{search_type}' below.\n")
                         rprint(F"[bright_cyan]{row}[/bright_cyan]")
                         print('\n')
                         break
@@ -2797,7 +2797,7 @@ def modify_product_quantity():
             
             continue
         
-        expiration_date_check = product_detail_check(file_name, search_type, "expiration_date")
+        expiration_date_check = product_detail_check(file_name, search_type, 'expiration_date')
         
         if expiration_date in expiration_date_check:    
             product_in_file_check(file_name, search_type)
@@ -3072,7 +3072,7 @@ def remove_product():
     product_in_file_check(file_name, search_type)
 
     while True:
-        quantity = (input(F"Step 3 = Enter the '{relevant_quantity}' of product '{search_type}' as shown above in the 'product details': "))
+        quantity = (input(F"Step 3 = Enter the '{relevant_quantity}' of product '{search_type}' that you want to remove, you can see the 'product details' above: "))
         print('\n')
 
         try:
@@ -3243,9 +3243,10 @@ def remove_product():
             continue
 
 
-        expiration = convert_to_strptime(expiration_date)
+        expiration = convert_to_dutch_date(expiration_date)
+        # expiration = convert_to_strptime(expiration_date)
 
-        expiration_date_check = product_detail_check(file_name, search_type, "expiration_date") # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
+        expiration_date_check = product_detail_check(file_name, search_type, 'expiration_date')   # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
                                                                                                 # 'search_type' product.
 
         if expiration_date in expiration_date_check:    # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
@@ -3258,19 +3259,20 @@ def remove_product():
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the 'expiration\
  dates' of product '{search_type}' in the 'product details' shown above.\n[/green]")
             
-            if expiration.date() == current_date().date():          # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
-                print(F"Dit is expiration: {expiration.date()}")    # 'else' statement. LET OP!!! Na overleg met een Winc mentor heb ik de '.date()' method achter mijn current_date() funtie gezet. Dit omdat de '.today()' method in mijn\
-                print(type(expiration))                             # 'current_date()' functie ook de exacte tijd meegeeft. En mijn 'expiration' variabel geeft ook de tijd mee, maar die staat op nul / 0. En hierdoor onstaat er een afwijking\
-                print(type(current_date()))                         # waardoor de vergelijking niet werkt / Python geen vergelijking kan maken en hierdoor krijg je onderstaande 'rprint statement' / 'string' ook niet te zien. De '.date()'\
-                print(current_date().date())                        # method geeft enkel en alleen de datum weer, maar dan op de Engelse manier. Dus diekan ik beter gebruiken de volgende keer en dan de 'strftime()' class gebruiken om er de nederlandse tijdsaanduiding van te maken.
+            if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente 'if' & 'elif' statements inc. de print statements werken alleen als de 'if' statement hierboven 'True' is. Zo niet, dan werkt onderstaande\
+                print(F"Dit is expiration: {expiration}")           # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
+                print(type(expiration))                             # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd. LET OP!!! Na overleg met een Winc mentor had ik eerst de '.date()'\
+                print(type(current_date().strftime("%d-%m-%Y")))    # method achter mijn 'current_date()' funtie gezet. Dit omdat de '.today()' method in mijn 'current_date()' functie ook de exacte tijd meegeeft. En mijn 'expiration'\
+                                                                    # variabel geeft ook de tijd mee, maar die staat op nul / 0. En hierdoor onstond er een afwijking waardoor de vergelijking niet werkt / Python geen vergelijking kan maken\
+                                                                    # en hierdoor kreeg ik onderstaande 'rprint statement' / 'string' ook niet te zien. De '.date()' method geeft enkel en alleen de datum weer, maar dan op de Engelse manier.\
+                                                                    # Dus die kan ik beter gebruiken de volgende keer en dan de 'strftime()' method gebruiken om er de nederlandse tijdsaanduiding van te maken in mijn 'current_date()' functie.
                 rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:\n[/wheat1]")
 
-
-            elif expiration < current_date():                       # LET OP!!! Bij deze 'elif' statement hoef je niet de '.date()' method achter de 'expiration' variabel en de 'current_date()' functie te zetten omdat je niet aan het\
-                print(F"Dit is expiration: {expiration}")           # vergelijken bent of 2 codes 'hetzelfde' zijn. Dit omdat je aan het kijken bent of iets 'groter' of 'kleiner' dan is en dan hoeven beide codes dus niet exact hetzelfde te\
-                print(type(expiration))                             # zijn. LET OP!!! Ook deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'elif' statement van hierboven 'True' is. Zo niet, dan werkt\
-                print(type(current_date()))                         # onderstaande 'else' statement.
-                print(current_date())
+            elif expiration < current_date().strftime("%d-%m-%Y"):
+                print(F"Dit is expiration: {expiration}")
+                print(type(expiration))
+                print(type(current_date()))
+                print(current_date().strftime("%d-%m-%Y"))
                 rprint(F"[wheat1]:scream: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', has expired.:scream:\n[/wheat1]")
 
         else:
@@ -3319,22 +3321,29 @@ def remove_product():
 
         for row in rows:
 
-            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row["expiration_date"] == expiration_date:
+            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date:
             
                 print('\n')
-                show_product_details(file_name, search_type, expiration_date)
+                rprint(F"[bright_magenta]Product details of product '{search_type}' that you want to remove from the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
+                rprint(F"[bright_cyan]{row}[/bright_cyan]")
+                print('\n')
 
                 while True:
-                    yes_or_no = input(F"Step 7 = Are you sure you want to remove product '{search_type}' with the 'product details' shown above from the '{file_name.capitalize()[:-4]}' file? Press 'Y' for Yes or 'N' for No (not case sensitive): ")
+                    yes_or_no = input(F"Step 7 = Are you sure you want to remove product '{search_type}' with product 'ID': '{row['id']}' and the 'product details' shown above from the '{file_name.capitalize()[:-4]}' file? Press 'Y' for Yes\
+ or 'N' for No (not case sensitive): ")
                     print('\n')
 
                     if yes_or_no == 'Y' or yes_or_no == 'y':
                         rows.remove(row)
-                        rprint(F"[green]Great!:thumbs_up: Product '{search_type}' with expiration date '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n[/green]")
+                        rprint(F"[green]Great![/green]:thumbs_up: Product '{search_type}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}' and\
+ 'expiration date': '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n")
                         break
                         
                     elif yes_or_no == 'N' or yes_or_no == 'n':
-                        rprint(F"[wheat1]Okay. Product '{search_type}' with expiration date '{expiration_date}' has not been removed from the '{file_name.capitalize()[:-4]}' file.\n[/wheat1]")
+                        rprint(F"Okay. Product '{search_type}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}' and 'expiration date':\
+ '{expiration_date}' has not been removed from the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' below.\n")
+                        rprint(F"[bright_cyan]{row}[/bright_cyan]")
+                        print('\n')
                         break
 
                     else:
