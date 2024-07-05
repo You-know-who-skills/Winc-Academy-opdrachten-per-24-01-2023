@@ -2997,7 +2997,9 @@ def remove_product():
     
     print("- Follow the step(s) below to remove a product from a selected file. Have fun removing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    
+    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.\n[/bright_magenta]")
     
     console = Console()
 
@@ -3010,6 +3012,7 @@ def remove_product():
     table.add_row("- Step 3 = Enter the product 'quantity'.")
     table.add_row("- Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
     table.add_row("- Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
+    table.add_row("- Step 5a = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
     table.add_row("- Step 6 = Enter the product 'expiration date'.")
     table.add_row("- Step 7 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!\n")
@@ -3022,15 +3025,15 @@ def remove_product():
         file_name = input("Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses': ").lower()
         print('\n')
 
-        if file_name == 'inventory'.lower():
+        if file_name == 'inventory':
             file_name = 'inventory.csv'
             rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
         
-        elif file_name == 'sales'.lower():
+        elif file_name == 'sales':
             file_name = 'sales.csv'
             rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
         
-        elif file_name == 'losses'.lower():
+        elif file_name == 'losses':
             file_name = 'losses.csv'
             rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
 
@@ -3128,7 +3131,8 @@ def remove_product():
     product_in_file_check(file_name, search_type)
     
     while True:
-        input_amount = input(F"Step 4 = Enter the 'exact' '{relevant_amount}' of product '{search_type}' including any decimals as shown above in the 'product details' and use a dot (instead of a comma) to seperate any decimals: ")
+        input_amount = input(F"Step 4 = Enter the 'exact' '{relevant_amount}' of product '{search_type}' that you want to remove including any decimals as shown above in the 'product details'. And use a dot (instead of a comma) to seperate\
+ any decimals: ")
         print('\n')
 
         try:
@@ -3186,7 +3190,7 @@ def remove_product():
     product_in_file_check(file_name, search_type)
     
     while True:
-        input_date = input(F"Step 5 = Enter the '{relevant_date}' of product '{search_type}' as shown above in the 'product details' as follows: dd-mm-yyyy: ")
+        input_date = input(F"Step 5 = Enter the '{relevant_date}' of product '{search_type}' that you want to remove (as shown above in the 'product details') as follows: dd-mm-yyyy: ")
         print('\n')
 
         try:
@@ -3227,11 +3231,34 @@ def remove_product():
         break
 
 
+    if file_name == 'losses.csv':
+
+        print('\n')
+        product_in_file_check('losses.csv', search_type)
+
+        while True:
+            loss_cause = (input(F"Step 5a = Enter the relevant 'cause of loss' of product '{search_type}' (as shown above in the 'product details') that you want to remove (not case sensitive): ")).lower()
+            print('\n')
+            
+            if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
+                (product_in_file_check('losses.csv', search_type))
+                rprint(F"[green]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of product\
+ '{search_type}' in the 'product details' shown above.\n[/green]")
+            
+            else:
+                (product_in_file_check('losses.csv', search_type))
+                rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following 'causes of loss' for product\
+ '{search_type}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' as shown above in the 'product details' (not case sensitive).\n[/orange3]")
+                
+                continue
+            break
+
+
     print('\n')
     product_in_file_check(file_name, search_type)
 
     while True:
-        expiration_date = input(F"Step 6 = Enter the 'expiration date' of product '{search_type}' as shown above in the 'product details' as follows: dd-mm-yyyy: ")
+        expiration_date = input(F"Step 6 = Enter the 'expiration date' of product '{search_type}' (as shown above in the 'product details') that you want to remove as follows: dd-mm-yyyy: ")
         
         try:
             convert_to_dutch_date(expiration_date)
@@ -3244,9 +3271,8 @@ def remove_product():
 
 
         expiration = convert_to_dutch_date(expiration_date)
-        # expiration = convert_to_strptime(expiration_date)
-
-        expiration_date_check = product_detail_check(file_name, search_type, 'expiration_date')   # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
+        
+        expiration_date_check = product_detail_check(file_name, search_type, 'expiration_date') # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven ingevulde\
                                                                                                 # 'search_type' product.
 
         if expiration_date in expiration_date_check:    # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
@@ -3260,19 +3286,19 @@ def remove_product():
  dates' of product '{search_type}' in the 'product details' shown above.\n[/green]")
             
             if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente 'if' & 'elif' statements inc. de print statements werken alleen als de 'if' statement hierboven 'True' is. Zo niet, dan werkt onderstaande\
-                print(F"Dit is expiration: {expiration}")           # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
-                print(type(expiration))                             # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd. LET OP!!! Na overleg met een Winc mentor had ik eerst de '.date()'\
-                print(type(current_date().strftime("%d-%m-%Y")))    # method achter mijn 'current_date()' funtie gezet. Dit omdat de '.today()' method in mijn 'current_date()' functie ook de exacte tijd meegeeft. En mijn 'expiration'\
+                # print(F"Dit is expiration: {expiration}")           # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
+                # print(type(expiration))                             # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd. LET OP!!! Na overleg met een Winc mentor had ik eerst de '.date()'\
+                # print(type(current_date().strftime("%d-%m-%Y")))    # method achter mijn 'current_date()' funtie gezet. Dit omdat de '.today()' method in mijn 'current_date()' functie ook de exacte tijd meegeeft. En mijn 'expiration'\
                                                                     # variabel geeft ook de tijd mee, maar die staat op nul / 0. En hierdoor onstond er een afwijking waardoor de vergelijking niet werkt / Python geen vergelijking kan maken\
                                                                     # en hierdoor kreeg ik onderstaande 'rprint statement' / 'string' ook niet te zien. De '.date()' method geeft enkel en alleen de datum weer, maar dan op de Engelse manier.\
                                                                     # Dus die kan ik beter gebruiken de volgende keer en dan de 'strftime()' method gebruiken om er de nederlandse tijdsaanduiding van te maken in mijn 'current_date()' functie.
                 rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:\n[/wheat1]")
 
             elif expiration < current_date().strftime("%d-%m-%Y"):
-                print(F"Dit is expiration: {expiration}")
-                print(type(expiration))
-                print(type(current_date()))
-                print(current_date().strftime("%d-%m-%Y"))
+                # print(F"Dit is expiration: {expiration}")
+                # print(type(expiration))
+                # print(type(current_date()))
+                # print(current_date().strftime("%d-%m-%Y"))
                 rprint(F"[wheat1]:scream: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', has expired.:scream:\n[/wheat1]")
 
         else:
@@ -3318,10 +3344,18 @@ def remove_product():
         elif file_name == 'losses.csv':
             date_in_file = 'loss_date'
 
-
+        
         for row in rows:
 
-            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and row['expiration_date'] == expiration_date:
+            loss_cause_check = True # Om ervoor te zorgen dat de kolomnaam 'loss_cause' alleen wordt meegenomen (in de iteratie van deze for loop) wanneer het 'losses' bestand wordt gekozen, moet je eerst een bijpassende variabel aanmaken\
+                                    # die altijd 'True' is. Ik heb hiervoor de variabel 'loss_cause_check' aangemaakt.
+
+            if file_name == 'losses.csv':           # Vervolgens moet je binnen je 'for loop' met een 'if' statement aangeven op welk bestand de variabel 'loss_cause_check' van toepassing moet zijn. Vervolgens geef je met nog een 'if'\
+                if row['loss_cause'] != loss_cause: # statement aan dat wanneer de inhoud van de kolomnaam 'loss_cause' niet gelijk is aan wat de gebruiker invult (bij stap 5a) / de input statement 'loss_cause', de bijpassende variabel\
+                    loss_cause_check = False        # 'loss_cause_check' 'False' is. En wanneer je dit hebt gedaan, kan je de variabel 'loss_cause_check' toevoegen aan onderstaande 'if' statement op de volgende manier:\
+                                                    # loss_cause_check == True.
+            if (row['name'] == search_type or row['id'] == search_type) and row[quantity_in_file] == quantity and row[amount_in_file] == input_amount and row[date_in_file] == input_date and loss_cause_check == True\
+ and row['expiration_date'] == expiration_date:
             
                 print('\n')
                 rprint(F"[bright_magenta]Product details of product '{search_type}' that you want to remove from the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
@@ -3340,8 +3374,8 @@ def remove_product():
                         break
                         
                     elif yes_or_no == 'N' or yes_or_no == 'n':
-                        rprint(F"Okay. Product '{search_type}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}' and 'expiration date':\
- '{expiration_date}' has not been removed from the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' below.\n")
+                        rprint(F"[wheat1]Okay. Product [green]'{search_type}'[/green] with product [green]'ID'[/green]: [green]'{row['id']}'[/green] has not been removed from the [green]'{file_name.capitalize()[:-4]}'[/green] file. You can\
+ see the [green]'product details'[/green] of product '{search_type}' below.\n[/wheat1]")
                         rprint(F"[bright_cyan]{row}[/bright_cyan]")
                         print('\n')
                         break
@@ -3352,12 +3386,12 @@ def remove_product():
 
                         continue
                 break
-            
+
         else:
             print('\n')
             rprint(':scream:')
             rprint("[wheat1]Entered product details:[/wheat1]")
-            rprint(F"[bright_cyan]Product 'ID' or 'name' = '{search_type}', product {relevant_quantity} = '{quantity}', product '{relevant_amount}' = '{input_amount}', product '{relevant_date}' = '{input_date}', product 'expiration date' = \
+            rprint(F"[bright_cyan]Product 'ID' or 'name' = '{search_type}', {relevant_quantity} = '{quantity}', '{relevant_amount}' = '{input_amount}', '{relevant_date}' = '{input_date}', 'loss couse' = '{loss_cause}' 'expiration date' =\
  '{expiration_date}'.[/bright_cyan]")
             
             print('\n')
