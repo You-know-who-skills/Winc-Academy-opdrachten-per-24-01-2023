@@ -4,3 +4,9 @@ id,name,loss_quantity,loss_amount,loss_date,loss_cause,expiration_date
 1215,ei,40,4,16-03-2024,expired,24-01-2026
 1215,ei,2,3,08-04-2024,damaged,24-01-2027
 1211,kaas,10,2,17-5-2024,damaged,24-01-2025
+2029,boter,50,1.00,21-06-2024,theft,20-06-2026
+2029,boter,25,1.00,21-06-2024,broken,20-06-2025
+2031,bessen,5,1.80,27-06-2024,other,29-06-2024
+2032,hagelslag,5,2.19,04-07-2024,damaged,04-07-2024
+2032,hagelslag,10,2.19,04-07-2024,expired,05-07-2024
+2032,hagelslag,15,2.19,04-07-2024,damaged,05-07-2024
