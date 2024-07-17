@@ -177,8 +177,8 @@ def clear_file():
 
     elif yes_or_no == 'N' or yes_or_no == 'n':
         print('\n')
-        # rprint(F"[wheat1]Okay. The '{file_name.capitalize()[:-4]}' file will not be cleared of all it's products.\n[/wheat1]")
-        # print('\n')
+        rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.\n[/wheat1]")
+        print('\n')
         
 
 # print(clear_file())
@@ -331,7 +331,7 @@ Ik ben ook met deze functie begonnen op vrijdag 15-03-2024.
 
 def update_system_date():
     
-    rprint("- Hello user, and welcome to the [bright_cyan]'update system date'[/bright_cyan] option. With this option you can update the system date to the current date.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'update the system date'[/bright_cyan] option. With this option you can update the system date to the current date.\n")
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
@@ -400,7 +400,7 @@ BEVONDEN DOOR EEN WINC MENTOR.
 
 def change_system_date(): # Met deze functie moet je de datum van je systeem aanpassen door de datum in het 'date_file.txt' bestand aan te passen.
 
-    rprint("- Hello user, and welcome to the [bright_cyan]'change system date'[/bright_cyan] option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'change the system date'[/bright_cyan] option.\n")
         
     print("- Follow the step(s) below to change the system date by entering the number of 'days' or 'weeks' that you want to change the system date with. Have fun changing!\n")
     
@@ -515,7 +515,7 @@ Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET H
   zie mijn 'change_system_date()' functie waarin ik de timedelta code heb verwerkt.
 '''
 
-def go_to_specific_date():
+def select_specific_date():
     
     rprint("- Hello user, and welcome to the [bright_cyan]'select a specific system date'[/bright_cyan] option. With this option you can go to a specific date in the system. Have fun selecting!\n")
     
@@ -557,7 +557,7 @@ def go_to_specific_date():
 
     return specific_date
 
-# print(go_to_specific_date())
+# print(select_specific_date())
 # print('\n')
 
 
@@ -3687,7 +3687,7 @@ def display_file_options():
 
     rprint("- Hello user, and welcome to the [bright_cyan]'file options'[/bright_cyan] menu.\n")
     
-    print("- After you have entered a valid choice, you will be directed to the selected option. Have fun with the files!\n")
+    print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the files!\n")
 
     console = Console()
 
@@ -3696,11 +3696,13 @@ def display_file_options():
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'file options'[/bright_cyan] below to get started!")
     
-    table.add_row("1", "Create a new file.")
-    table.add_row("2", "Clear a file.")
-    table.add_row("3", "Export a file to Excel.")
-    table.add_row("4", "Exit")
+    # Met onderstaande code maak je tabellen zonder lijnen.
+    table.add_row('1', "Create a new file.")
+    table.add_row('2', "Clear a file.")
+    table.add_row('3', "Export a file to Excel.")
+    table.add_row('4', "Exit")
 
+    # LET OP!!! Met onderstaande code maak je tabellen met lijnen.
     # table.add_row("1", "Create a new file.")
     # table.add_row(Rule(style='white'), Rule(style='white'))
     # table.add_row("2", "Clear a file.")
@@ -3709,29 +3711,39 @@ def display_file_options():
     # table.add_row(Rule(style='white'), Rule(style='white'))
     # table.add_row("4", "Exit")
 
-    console.print(table)
-    print('\n')
-
 
     while True:
-        choice = input("Enter your choice (1, 2, 3 or 4): ")
+
+        console.print(table)
         print('\n')
 
-        if choice == "1":
+        option = input("Enter one of the 4 options: ")
+        print('\n')
+
+        if option == '1':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             create_new_file()
             
-        elif choice == "2":
+        elif option == '2':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             clear_file()
 
-        elif choice == "3":
+        elif option == '3':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             export_file_to_excel()
 
-        elif choice == "4":
+        elif option == '4':
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'file options'[/green] menu. See you next time![/wheat1]\n")
             break
 
         else:
-            rprint("[orange3]:scream: Hello user! You have entered an invalid choice. Please enter a valid choice from 1 to 4.\n[/orange3]")
-
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 4.[/orange3]\n")
+            
+            continue
+        break
 
 # print(display_file_options())
 # print('\n')
@@ -3739,38 +3751,64 @@ def display_file_options():
 
 def display_date_options():
 
-    rprint("Hello user, and welcome to the 'date options' menu.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'date options'[/bright_cyan] menu.\n")
 
-    rprint("Select one of the 'date options' below to get started!\n")
+    print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the dates!\n")
+
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("#")
+    table.add_column("Select one of the [bright_cyan]'date options'[/bright_cyan] below to get started!")
     
-    print("1 = Update the system date.")
-    print("2 = Change the system date.")
-    print("3 = Go to a specific date.")
-    print("4 = Special occasion date / countdown.")
-    print("5 = Exit \n")
+    table.add_row('1', "Update the system date.")
+    table.add_row('2', "Change the system date.")
+    table.add_row('3', "Select a specific system date.")
+    table.add_row('4', "Special occasion date / countdown.")
+    table.add_row('5', "Exit")
 
 
     while True:
-        choice = input("Enter your choice (1, 2, 3, 4 or 5): ")
+        
+        console.print(table)
         print('\n')
 
-        if choice == "1":
+        option = input("Enter one of the 5 options: ")
+        print('\n')
+
+        if option == '1':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             update_system_date()
 
-        elif choice == "2":
+        elif option == '2':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             change_system_date()
 
-        elif choice == "3":
-            go_to_specific_date()
+        elif option == '3':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
+            print(select_specific_date())
+            # select_specific_date()        # LET OP!!! Wanneer je enkel en alleen de functie aanroept (dus zonder de functie te printen), krijg je 'None' als return i.p.v. de datum zoals ik dit in mijn 'select_specific_date()' functie heb\
+                                            # aangegeven. FF uitzoeken waarom dit zo is.
+            print('\n')
         
-        elif choice == "4":
+        elif option == '4':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             special_occasion_date()
 
-        elif choice == "5":
+        elif option == '5':
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'date options'[/green] menu. See you next time![/wheat1]\n")
             break
 
         else:
-            print("Hello user! You have entered an invalid choice. Please enter a valid option from 1 to 4.\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 5.[/orange3]\n")
+
+            continue
+        break
 
 # print(display_date_options())
 # print('\n')
@@ -3778,62 +3816,91 @@ def display_date_options():
 
 def display_product_options():
 
-    rprint("Hello user, and welcome to the 'product options' menu.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'product options'[/bright_cyan] menu.\n")
 
-    rprint("Select one of the 'product options' below to get started!\n")
+    print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the products!\n")
+
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
     
-    print("1 = View all products.")
-    print("2 = View products within a certain period.")
-    print("3 = Find products.")
-    print("4 = Avoid expired products.")
-    print("5 = Add inventory products.")
-    print("6 = Add sold products.")
-    print("7 = Add loss products.")
-    print("8 = Modify product details.")
-    print("9 = Modify product quantity.")
-    print("10 = Remove product.")
-    print("11 = Exit \n")
+    table.add_column("#")
+    table.add_column("Select one of the [bright_cyan]'product options'[/bright_cyan] below to get started!")
+
+    table.add_row('1', "View all products.")
+    table.add_row('2', "View products within a certain period.")
+    table.add_row('3', "Find products.")
+    table.add_row('4', "Avoid expired products.")
+    table.add_row('5', "Add inventory products.")
+    table.add_row('6', "Add sold products.")
+    table.add_row('7', "Add loss products.")
+    table.add_row('8', "Modify product details.")
+    table.add_row('9', "Remove product.")
+    table.add_row('10', "Exit")
 
 
     while True:
-        choice = input("Enter your choice (from 1 to 11): ")
+        
+        console.print(table)
         print('\n')
 
-        if choice == "1":
+        option = input("Enter one of the 10 options: ")
+        print('\n')
+
+        if option == '1':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             view_all_products()
 
-        elif choice == "2":
+        elif option == '2':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             view_products_within_period()
 
-        elif choice == "3":
+        elif option == '3':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             find_products()
         
-        elif choice == "4":
+        elif option == '4':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             avoid_expired_products()
         
-        elif choice == "5":
+        elif option == '5':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             add_inventory_products()
         
-        elif choice == "6":
+        elif option == '6':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             add_sold_products()
         
-        elif choice == "7":
+        elif option == '7':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             add_loss_products()
         
-        elif choice == "8":
+        elif option == '8':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             modify_product_details()
         
-        elif choice == "9":
-            modify_product_quantity()
-        
-        elif choice == "10":
+        elif option == '9':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             remove_product()
         
-        elif choice == "11":
+        elif option == '10':
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'product options'[/green] menu. See you next time![/wheat1]\n")
             break
 
         else:
-            print("Hello user! You have entered an invalid choice. Please enter a valid option from 1 to 12.\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 10.[/orange3]\n")
+
+            continue
+        break
 
 # print(display_product_options())
 # print('\n')
@@ -3841,26 +3908,39 @@ def display_product_options():
 
 def display_calculation_options():
 
-    rprint("Hello user, and welcome to the 'calculate options' menu.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'calculation options'[/bright_cyan] menu.\n")
 
-    rprint("Select one of the 'calculate options' below to get started!\n")
+    print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the calculations!\n")
+
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
     
-    print("1 = Calculate the 'costs', 'losses', 'revenue' or 'profit'.")
-    print("2 = Exit \n")
+    table.add_column("#")
+    table.add_column("Select one of the [bright_cyan]'calculation options'[/bright_cyan] below to get started!")
+    
+    table.add_row('1', "Calculate the 'costs', 'losses', 'revenue' or 'profit'.")
+    table.add_row('2', "Exit")
 
 
     while True:
-        choice = input("Enter your choice (1 or 2): ")
+        console.print(table)
         print('\n')
 
-        if choice == "1":
+        option = input("Enter one of the 2 options: ")
+        print('\n')
+
+        if option == '1':
+            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            print('\n')
             calculations()
 
-        elif choice == "2":
+        elif option == '2':
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'calculation options'[/green] menu. See you next time![/wheat1]\n")
             break
         
         else:
-            print("Hello user! You have entered an invalid choice. Please enter a valid option.\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 2.[/orange3]\n")
 
 # print(display_calculation_options())
 # print('\n')
