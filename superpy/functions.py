@@ -45,7 +45,7 @@ def create_new_file():
 
     print("- Follow the step(s) below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -68,7 +68,7 @@ def create_new_file():
             rprint(F"[green] Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -84,12 +84,10 @@ def create_new_file():
                                                                                                                                                                         # 'fieldnames' in.
             writer.writeheader()
 
-
     elif file_name == 'sales':
         with open('sales.csv', 'w', newline='') as sales_file:
-            writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sold_amount', 'sold_date', 'expiration_date'])
+            writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sales_amount', 'sales_date', 'expiration_date'])
             writer.writeheader()
-
 
     elif file_name == 'losses':
         with open('losses.csv', 'w', newline='') as losses_file:
@@ -113,7 +111,7 @@ def clear_file():
 
     print("- Follow the step(s) below to clear a selected file from all it's products. Have fun clearing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -143,7 +141,7 @@ def clear_file():
             
         else:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -154,7 +152,7 @@ def clear_file():
         
     if yes_or_no == 'Y' or yes_or_no == 'y':
         print('\n')
-        rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.\n[/green]")
+        rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.[/green]\n")
         print('\n')
 
         if file_name == 'inventory.csv':
@@ -177,7 +175,7 @@ def clear_file():
 
     elif yes_or_no == 'N' or yes_or_no == 'n':
         print('\n')
-        rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.\n[/wheat1]")
+        rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.[/wheat1]\n")
         print('\n')
         
 
@@ -199,7 +197,7 @@ def export_file_to_excel():
 
     print("- Follow the step(s) below to export a selected file to an 'Excel' file. Have fun exporting!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
     
     console = Console()
 
@@ -220,18 +218,18 @@ def export_file_to_excel():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -335,7 +333,7 @@ def update_system_date():
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -355,14 +353,14 @@ def update_system_date():
         print('\n')
 
         if update_system == "y":
-            rprint("[green]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.\n[/green]")
+            rprint("[green]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.[/green]\n")
 
         elif update_system == "n":
-            rprint("[wheat1]Okay! The date of the system will not be updated to the current date.\n[/wheat1]")
+            rprint("[wheat1]Okay! The date of the system will not be updated to the current date.[/wheat1]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! '{update_system}' isn't the correct input for updating the system date to the 'current date'. Please enter 'Y' if you 'do' want to update the system date to the 'current date'. Or enter 'N'\
- if you 'don't' want to update the system date to the 'current date' (not case sensitive).\n[/orange3]")
+ if you 'don't' want to update the system date to the 'current date' (not case sensitive).[/orange3]\n")
             
             continue
         break
@@ -404,7 +402,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
         
     print("- Follow the step(s) below to change the system date by entering the number of 'days' or 'weeks' that you want to change the system date with. Have fun changing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -426,10 +424,10 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
         print('\n')
 
         if days_or_weeks == 'days' or days_or_weeks == 'weeks':
-            rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}'.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}'.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! '{days_or_weeks}' isn't the correct input to modify the system date. Please enter 'days' or 'weeks' for the correct system date modification.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{days_or_weeks}' isn't the correct input to modify the system date. Please enter 'days' or 'weeks' for the correct system date modification.[/orange3]\n")
 
             continue
         break
@@ -440,10 +438,10 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             print('\n')
 
             if past_or_future == 'past' or past_or_future == 'future':
-                rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.\n[/green]")
+                rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.[/green]\n")
 
             else:
-                rprint(F"[orange3]:scream: Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.\n[/orange3] ")
+                rprint(F"[orange3]:scream: Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.[/orange3]\n ")
 
                 continue
             break
@@ -457,17 +455,17 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             int(number)
             
         except ValueError:
-            rprint(F"[orange3]:scream: Hello user! The number of '{days_or_weeks}' can only contain a 'number'. '{number}' doesn't only contain a number. Please enter a 'number' to continue with the system date modification.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The number of '{days_or_weeks}' can only contain a 'number'. '{number}' doesn't only contain a number. Please enter a 'number' to continue with the system date modification.[/orange3]\n")
             
             continue
 
         if int(number) > 738958 and days_or_weeks == 'days': # Python geeft een foutmelding bij meer dan 738958 dagen in het verleden.
-            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 738958.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 738958.[/orange3]\n")
 
             continue
 
         elif int(number) > 105000 and days_or_weeks == 'weeks': # Python geeft een foutmelding bij meer dan 105000 weken in het verleden.
-            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The number you've entered '{number}' is to far in the '{past_or_future}' Please enter a number below 105000.[/orange3]\n")
             
             continue
         break
@@ -499,7 +497,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
 
         date_file.write(string_date)
 
-    return rprint(F"[green]Great!:thumbs_up: If we go '{number}' '{days_or_weeks}' into the '{past_or_future}', the date = '{string_date}'\n[/green]") # LET OP!!! Ik wilde eigenlijk ook nog de dag vóór de datum hebben (dus b.v. Monday etc.).
+    return rprint(F"[green]Great!:thumbs_up: If we go '{number}' '{days_or_weeks}' into the '{past_or_future}', the date = '{string_date}'[/green]\n") # LET OP!!! Ik wilde eigenlijk ook nog de dag vóór de datum hebben (dus b.v. Monday etc.).
 
 # print(change_system_date())
 # print('\n')
@@ -521,7 +519,7 @@ def select_specific_date():
     
     print("- Follow the step(s) below to go to a specific date in the system. Have fun selecting!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -544,7 +542,7 @@ def select_specific_date():
             convert_to_dutch_date(specific_date)
             
         except ValueError:
-            rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         break
@@ -553,7 +551,7 @@ def select_specific_date():
     with open('date_file.txt', 'w') as date_file:
 
         date_file.write(specific_date)
-        rprint("[green]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the specific date below.\n[/green]")
+        rprint("[green]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the specific date below.[/green]\n")
 
     return specific_date
 
@@ -577,7 +575,7 @@ def special_occasion_date():
 
     print("- Follow the step(s) below to create a countdown for a 'special occasion'. Have fun with the countdown!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
     
     console = Console()
 
@@ -602,7 +600,7 @@ def special_occasion_date():
             
         except ValueError:
             rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct format to fill in the 'date' for the 'special occasion countdown'. Please enter the correct 'date' for the 'special occasion countdown' in the\
- following format: dd-mm-yyyy.\n[/orange3]")
+ following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -612,11 +610,11 @@ def special_occasion_date():
                                                                 # nog steeds een 'string' is. En door het met mijn variabel 'input_date' om te zetten naar een 'datetime object', kan je het dus wel weer vergelijken met een andere 'datetime\
                                                                 # 'datetime objecten'. En in dit geval is dat mijn 'todays_date' variabel.
         if input_date > todays_date:
-            rprint(F"[green]Great!:thumbs_up: The 'date' for the 'special occasion countdown': '{special_occasion_date}', has been filled in correctly.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The 'date' for the 'special occasion countdown': '{special_occasion_date}', has been filled in correctly.[/green]\n")
 
         elif input_date < todays_date:                                    
             rprint(F"[orange3]:scream: Hello user! The 'date' you've just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet.:wink: Please enter the correct 'date' for the 'special occasion\
- countdown' in the following format: dd-mm-yyyy.\n[/orange3]")
+ countdown' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         break
@@ -808,7 +806,7 @@ def view_all_products():
 
     print("- Follow the step(s) below to view all products from a selected file. Have fun viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -829,18 +827,18 @@ def view_all_products():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below!\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -873,7 +871,7 @@ def view_products_within_period():
 
     print("- Follow the step(s) below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -897,18 +895,18 @@ def view_products_within_period():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -934,14 +932,14 @@ def view_products_within_period():
             date_in_file = 'expiration date'
         
         if date_type == "other":
-            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
 
         elif date_type == 'expiration':
-            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
 
         else:
             rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period. Please enter 'other' or 'expiration'\
- to view the '{date_in_file}' within a certain period (not case sensitive).\n[/orange3]")
+ to view the '{date_in_file}' within a certain period (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -955,7 +953,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from date'. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from date'. Please enter the correct 'from' date in the following format: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break
@@ -969,7 +967,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until date'. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until date'. Please enter the correct 'until' date in the following format: dd-mm-yyyy.[/orange3]\n")
         
             continue
         break    
@@ -995,11 +993,11 @@ def view_products_within_period():
 
         if date_type == 'other':
             rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
- '{file_name.capitalize()[:-4]}' file.\n[/green]")
+ '{file_name.capitalize()[:-4]}' file.[/green]\n")
             
         elif date_type == 'expiration':
             rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
- '{file_name.capitalize()[:-4]}' file.\n[/green]")
+ '{file_name.capitalize()[:-4]}' file.[/green]\n")
 
         relevant_date_list = []
 
@@ -1021,7 +1019,7 @@ def view_products_within_period():
         print('\n')
         
         if len(relevant_date_list) == 0: # Met deze 'if' statement geef je aan dat als een lijst leeg is, onderstaande moet gebeuren.
-            rprint(F"[orange3]:scream: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.\n[/orange3]")
+            rprint(F"[orange3]:scream: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.[/orange3]\n")
 
 # print(view_products_within_period())
 # print('\n')
@@ -1039,7 +1037,7 @@ def find_products():
     
     print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -1061,18 +1059,18 @@ def find_products():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
             
             continue
         break
@@ -1083,10 +1081,10 @@ def find_products():
         print('\n')
         
         if product_in_file_check(file_name, search_type) == True:
-            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/green]\n")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).[/orange3]\n")
             
             continue
         break
@@ -1108,9 +1106,9 @@ def	avoid_expired_products():
     rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
     
     rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can help people who are less fortunate.\
-:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better place!:muscle:\n[/bright_cyan]")
+:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better place!:muscle:[/bright_cyan]\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -1131,14 +1129,14 @@ def	avoid_expired_products():
 
         if yes_or_no == "y":
             rprint("[green]Great!:thumbs_up: You can see all the products that will expire in 3 days below. Please think of a way not to waste these products. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a\
- better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red]\n[/green]")
+ better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red][/green]\n")
 
         elif yes_or_no == "n":
-            rprint("[wheat1]Okay! The products that will expire in 3 days will not be shown.\n[/wheat1]")
+            rprint("[wheat1]Okay! The products that will expire in 3 days will not be shown.[/wheat1]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that\
- will expire in 3 days (not case sensitive).\n[/orange3]")
+ will expire in 3 days (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -1165,7 +1163,7 @@ def	avoid_expired_products():
                 rprint(F" {categorize}. {row}\n")
 
         if len(avoid_waste_list) == 0 and yes_or_no == 'y':
-            rprint(F"There are no products found that will expire in 3 days. [green]So good job on helping to make the world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red]\n[/green]")
+            rprint(F"There are no products found that will expire in 3 days. [green]So good job on helping to make the world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
                 
 # print(avoid_expired_products())
 # print('\n')
@@ -1195,7 +1193,7 @@ def add_inventory_products():
     
     print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -1225,14 +1223,14 @@ def add_inventory_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
             
             continue
 
         if len(id) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'ID' can't contain more than '{maximum_digits}' digits. The entered ID: '{id}', contains more than '{maximum_digits}' digits. Please enter an 'ID' that contains no more than\
- '{maximum_digits}' digits.\n[/orange3]")
+ '{maximum_digits}' digits.[/orange3]\n")
 
             continue
         
@@ -1266,14 +1264,14 @@ def add_inventory_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{purchase_quantity}' Doesn't only contain numbers. Please enter the correct 'purchase quantity' for product\
- '{name}'.\n[/orange3]")            
+ '{name}'.[/orange3]\n")            
             
             continue
 
         if len(purchase_quantity) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' can't contain more than '{maximum_digits}' digits. The entered 'purchase quantity': '{purchase_quantity}', contains more than '{maximum_digits}' digits. Please enter\
- a 'purchase quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+ a 'purchase quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
 
             continue
         break      
@@ -1288,7 +1286,7 @@ def add_inventory_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! '{purchase_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot (in stead of a comma) to\
- seperate any decimals.\n[/orange3]")
+ seperate any decimals.[/orange3]\n")
 
             continue
 
@@ -1297,14 +1295,14 @@ def add_inventory_products():
 
         if input_amount != decimal_quantity:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.[/orange3]\n")
 
             continue
 
         elif len(purchase_amount) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'purchase amount' can't contain more than '{maximum_digits}' digits. The entered 'purchase amount': '{purchase_amount}', contains more than '{maximum_digits}' digits. Please enter a\
- 'purchase amount' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+ 'purchase amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
             
             continue
         break
@@ -1318,7 +1316,7 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1348,25 +1346,24 @@ def add_inventory_products():
         
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
-        input_date = convert_to_dutch_date(expiration_date)     # Met de 'input_date' variabel zet ik de 'expiration_date' variabel (dat dus ook de input statement van stap 6 is) om naar de Nederlandse datum format.
+        expiration = convert_to_dutch_date(expiration_date)     # Met de 'expiration' variabel zet ik de 'expiration_date' variabel (dat dus ook de input statement van stap 6 is) om naar de Nederlandse datum format.
 
-        if input_date < current_date().strftime("%d-%m-%Y"):    # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
-                                                                # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
+        if expiration < current_date().strftime("%d-%m-%Y"):    # Met de '.strftime("%d-%m-%Y")' code zet ik mijn 'current_date()' functie (dat geen string is) om naar een string. Dit is nodig om de vergelijking met de 'input_date' variabel\
             print('\n')                                         # (dat ook een string is) te kunnen maken. En met de '.strftime("%d-%m-%Y")' code erachter wordt de datum format de Nederlandse datum format.
-            rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.[/orange3]\n")
             
             continue # Als bovenstaande 'if' statement / conditie 'True' is blijf je door de 'continue' statement in de loop hangen. En wanneer die 'False' is, ga je door naar de volgende stap.
         
-        elif input_date == current_date().strftime("%d-%m-%Y"):
+        elif expiration == current_date().strftime("%d-%m-%Y"):
             print('\n')
             rprint(F"[wheat1]:astonished_face: Hello user! The 'expiration date' of product '{name}' is today.:astonished_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to do\
 something with product '{name}'.[/wheat1]")        
 
-        elif input_date == tomorrow_date:
+        elif expiration == tomorrow_date:
             print('\n')
             rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product '{name}' is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to do\
 something with product '{name}'.[/wheat1]")
@@ -1404,7 +1401,7 @@ something with product '{name}'.[/wheat1]")
             writer.writerows(rows)                  # 'Writerow' verwacht een dictionary en kijkt naar de key (op de achtergrond). 'Writerows' doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
             print('\n')                        
             rprint(F"[green]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the 'product\
- details' below.\n[/green]")
+ details' below.[/green]\n")
             rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
@@ -1414,7 +1411,7 @@ something with product '{name}'.[/wheat1]")
                 writer.writerow(product_details)    # 'Writerow' verwacht een dictionary en kijkt naar de key (op de achtergrond). 'Writerows' doet eigenlijk hetzelfde, maar die kijkt naar de iterabele.
 
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the 'product details' below.\n[/green]")
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the 'product details' below.[/green]\n")
                 rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
@@ -1435,7 +1432,7 @@ def add_sold_products():
     
     print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -1465,17 +1462,17 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
             
             continue 
         
         print('\n')
         if product_in_file_check('inventory.csv', id) == True:
-            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.[/green]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file. Please\
- enter the correct product 'ID'.\n[/orange3]")
+ enter the correct product 'ID'.[/orange3]\n")
 
             continue
         break 
@@ -1490,12 +1487,12 @@ def add_sold_products():
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.[/green]\n")
 
         else:
             product_in_file_check('inventory.csv', id)
             rprint(F"[orange3]:scream: Hello user! The entered product 'name': '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the product\
- 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.\n[/orange3]")
+ 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.[/orange3]\n")
 
             continue
         break
@@ -1509,14 +1506,14 @@ def add_sold_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.[/orange3]\n")
             
             continue
 
         if len(sold_quantity) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can't contain more than '{maximum_digits}' digits. The entered 'sold quantity': '{sold_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'sold\
- quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+ quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
         
             continue
         break  
@@ -1531,7 +1528,7 @@ def add_sold_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! '{sales_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to\
- seperate any decimals.\n[/orange3]")
+ seperate any decimals.[/orange3]\n")
 
             continue
         
@@ -1540,14 +1537,14 @@ def add_sold_products():
 
         if input_amount != decimal_quantity:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.[/orange3]\n")
 
             continue
 
         elif len(sales_amount) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'sales amount' can't contain more than '{maximum_digits}' digits. The entered 'sales amount': '{sales_amount}', contains more than '{maximum_digits}' digits. Please enter a 'sales\
- amount' that contains no more than '{maximum_digits}' digits.\n[/orange3]")        
+ amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n")        
 
             continue
         break
@@ -1561,7 +1558,7 @@ def add_sold_products():
         
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct format to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct format to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1587,11 +1584,11 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
-        input_date = convert_to_dutch_date(expiration_date)
+        expiration = convert_to_dutch_date(expiration_date)
         
         expiration_date_check = product_detail_check('inventory.csv', name, 'expiration_date')
 
@@ -1599,14 +1596,14 @@ def add_sold_products():
             print('\n')
             product_in_file_check('inventory.csv', name)
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory file'. You can see all the 'expiration dates' of product '{name}'\
- in the 'product details' shown above.\n[/green]")
+ in the 'product details' shown above.[/green]\n")
 
-            if input_date == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+            if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
                                                                     # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
                                                                     # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd.
                 rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
 
-            if input_date < current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+            if expiration < current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
                                                                     # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
                                                                     # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd.
                 rprint(F"[wheat1]:scream: Please note that the entered expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.:scream:[/wheat1]")
@@ -1615,7 +1612,7 @@ def add_sold_products():
             print('\n')
             product_in_file_check('inventory.csv', name)
             rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the 'product details' above for the\
- correct 'expiration date'.\n[/orange3]")
+ correct 'expiration date'.[/orange3]\n")
 
             continue
         break
@@ -1651,7 +1648,7 @@ def add_sold_products():
             writer.writerows(rows)
             print('\n')
             rprint(F"[green]Great!:thumbs_up: The 'sold quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the updated\
- details below.\n[/green]")            
+ details below.[/green]\n")            
             rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
             
@@ -1660,7 +1657,7 @@ def add_sold_products():
                 writer = csv.DictWriter(sales_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.\n[/green]")
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.[/green]\n")
                 rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
@@ -1678,12 +1675,12 @@ def add_sold_products():
                 if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3:                # Dit omdat er met deze 'if' statement alleen maar wordt gekeken of het 'id', de 'naam' en de 'houdbaarheidsdatum' hetzelfde zijn. Dus als er\
                                                                                                 # meerdere producten zijn met hetzelfde 'id', 'naam' en 'houdbaarheidsdatum', dan zouden die niet worden aangepast met deze 'if' statement.
                     rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
- '{row['purchase_quantity']}' left in stock.:astonished_face:\n[/orange3]")
+ '{row['purchase_quantity']}' left in stock.:astonished_face:[/orange3]\n")
 
                 elif row['purchase_quantity'] <= 0:
                         row['purchase_quantity'] = 0
                         rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
- / 'nothing' left in stock.:scream:\n[/orange3]")
+ / 'nothing' left in stock.:scream:[/orange3]\n")
         
         # print(type(row['purchase_quantity'])) # LET OP!!! Bij bovenstaande 'if' statement kreeg ik eerst 2 foutmeldingen: 1= TypeError: '<=' not supported between instances of 'str' and 'int'. 2= ValueError: invalid literal for int() with\
                                                 # base 10: 'purchase_quantity'. Deze foutmeldingen werden o.a. veroorzaakt doordat ik de code '(row['purchase_quantity']))' had gecast in een integer terwijl dit al een integer was. Door het\
@@ -1692,7 +1689,7 @@ def add_sold_products():
                                                 # integer is. Zie voor meer uitleg over deze code mijn Excel doc.: Foutmeldingen inc. oplossingen.
                 else:
                     rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
- left in stock.:grinning_face_with_big_eyes:\n[/green]")
+ left in stock.:grinning_face_with_big_eyes:[/green]\n")
                 # break
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1720,7 +1717,7 @@ def add_loss_products():
 
     print("- Follow the step(s) below to add a product loss. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -1751,16 +1748,16 @@ def add_loss_products():
             int(id)
             
         except ValueError:
-            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
             
             continue
 
         if product_in_file_check('inventory.csv', id) == True:
-            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.[/green]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if this product is also found in the 'Inventory' file. Please\
- enter the correct product 'ID'.\n[/orange3]")
+ enter the correct product 'ID'.[/orange3]\n")
 
             continue
         break 
@@ -1775,12 +1772,12 @@ def add_loss_products():
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.[/green]\n")
 
         else:
             product_in_file_check('inventory.csv', id)
             rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product\
- 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.\n[/orange3]")
+ 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.[/orange3]\n")
 
             continue
         break
@@ -1794,14 +1791,14 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.[/orange3]\n")
             
             continue
 
         if len(loss_quantity) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can't contain more than '{maximum_digits}' digits. The entered 'loss quantity': '{loss_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'loss\
- quantity' that contains no more than '{maximum_digits}' digits.\n[/orange3]")
+ quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
             
             continue
         break  
@@ -1816,7 +1813,7 @@ def add_loss_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! '{loss_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'loss amount' for product '{name}' and use a 'dot' (in stead of a comma) to\
- seperate any decimals.\n[/orange3]")
+ seperate any decimals.[/orange3]\n")
             continue
 
         input_amount = float(loss_amount)
@@ -1824,14 +1821,14 @@ def add_loss_products():
         
         if input_amount != decimal_quantity:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.[/orange3]\n")
             
             continue
 
         elif len(loss_amount) > 15:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The 'loss amount' can't contain more than '{maximum_digits}' digits. The entered 'loss amount': '{loss_amount}', contains more than '{maximum_digits}' digits. Please enter a 'loss amount'\
- that contains no more than '{maximum_digits}' digits.\n[/orange3]")        
+ that contains no more than '{maximum_digits}' digits.[/orange3]\n")        
 
             continue
         break
@@ -1845,7 +1842,7 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -1853,7 +1850,7 @@ def add_loss_products():
 
         if input_date > current_date():
             print('\n')
-            rprint(F"[orange3]:scream: Hello user. The date you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'loss date' for product '{name}'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user. The date you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'loss date' for product '{name}'.[/orange3]\n")
         
             continue
         break
@@ -1866,12 +1863,12 @@ def add_loss_products():
 
         if loss_cause in loss_cause_options:
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss'.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss'.[/green]\n")
 
         else:
             print('\n')
             rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following 'causes of loss' for product '{name}':\
- 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).\n[/orange3]")
+ 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -1889,39 +1886,39 @@ def add_loss_products():
         except ValueError:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' in the following format:\
- dd-mm-yyyy.\n[/orange3]")
+ dd-mm-yyyy.[/orange3]\n")
         
             continue
         
-        input_date = convert_to_dutch_date(expiration_date)
+        expiration = convert_to_dutch_date(expiration_date)
 
         expiration_date_check = product_detail_check('inventory.csv', name, 'expiration_date')  # Met deze code zorg ik ervoor dat de ingevoerde 'houdbaarheidsdatum' altijd overeenkomt met de houdbaarheidsdatum van de hierboven\
                                                                                                 # ingevulde variabel: 'search_type' dat het door de gebruiker ingevulde product is.
         
         if expiration_date in expiration_date_check:    # LET OP!!! Wanneer je 2 verschillende types (in dit geval: een string met een lijst) probeert te vergelijken, zal dit nooit 'True' zijn / gaat je code niet werken. Ik had bij deze\
-                                                        # code namelijk gepropeerd om mijn 'input' statement 'expiration_date' in deze while loop dat een 'string' is te vergelijken met mijn return statement van mijn 'product_detail_check' functie\
+                                                        # code namelijk gepropeerd om mijn variabel 'expiration_date' in deze while loop dat een 'string' is te vergelijken met mijn return statement van mijn 'product_detail_check' functie\
                                                         # dat een 'lijst' is. Door deze verkeerde vergelijking met 2 verschillende type code, werkte ondersaande print statement niet. Dit heb ik opgelost door de 'in' operator te gebruiken\
-                                                        # i.p.v. de '==' operator, want met de 'in' operator kijk je of er iets 'wel' of 'niet' in een lijst zit.
+                                                        # i.p.v. de '==' operator, want met de 'in' operator kijk je of iets 'wel' of 'niet' in een lijst zit.
             print('\n')
-            (product_in_file_check('inventory.csv', name))
+            product_in_file_check('inventory.csv', name)
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory' file. You can see all the 'expiration dates' of product '{name}'\
- in the 'product details' shown above.\n[/green]")
+ in the 'product details' shown above.[/green]\n")
             
-            if input_date == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+            if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
                                                                     # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
                                                                     # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd.
                 rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the loss product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
 
-            if input_date < current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+            if expiration < current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
                                                                     # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
                                                                     # 'current_date()' functie niet zichtbaar is én dat de Nederlandse datum volgorde wordt gehanteerd.
                 rprint(F"[wheat1]:scream: Please note that the entered expiration date '{expiration_date}' of the loss product with product ID '{id}' and product name '{name}' has expired.:scream:[/wheat1]")
             
         else:
             print('\n')
-            (product_in_file_check('inventory.csv', name))
+            product_in_file_check('inventory.csv', name)
             rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match with one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the 'product details' above for\
- the correct 'expiration date'.\n[/orange3]")
+ the correct 'expiration date'.[/orange3]\n")
 
             continue
         break
@@ -1959,7 +1956,7 @@ def add_loss_products():
                                     # iterabele.
             print('\n')
             rprint(F"[green]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can\
- check the updated details below.\n[/green]")
+ check the updated details below.[/green]\n")
             rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
@@ -1968,7 +1965,7 @@ def add_loss_products():
                 writer = csv.DictWriter(losses_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.\n[/green]")
+                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.[/green]\n")
                 rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
@@ -1983,12 +1980,12 @@ def add_loss_products():
                 
                 if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3: # If the quantity of a product is 5 or less, it will trigger the print statement shown below.
                     rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
- '{row['purchase_quantity']}' left in stock.:astonished_face:\n[orange3]")
+ '{row['purchase_quantity']}' left in stock.:astonished_face:[orange3]\n")
 
                 elif row['purchase_quantity'] <= 0: # Met deze code / 'elif statement' geef je aan dat als een berekening onder de nul / 0 uit komt, de berekening nul / 0 moet blijven.
                         row['purchase_quantity'] = 0
                         rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
- / 'nothing' left in stock.:scream:\n[/orange3]")
+ / 'nothing' left in stock.:scream:[/orange3]\n")
         
         # print(type(row['purchase_quantity'])) # LET OP!!! Bij bovenstaande 'if' statement kreeg ik eerst 2 foutmeldingen: 1= TypeError: '<=' not supported between instances of 'str' and 'int'. 2= ValueError: invalid literal for int() with\
                                                 # base 10: 'purchase_quantity'. Deze foutmeldingen werden o.a. veroorzaakt doordat ik de code '(row['purchase_quantity']))' had gecast in een integer terwijl dit al een integer was. Door het\
@@ -1997,7 +1994,7 @@ def add_loss_products():
                                                 # integer is. Zie voor meer uitleg over deze code mijn Excel doc.: Foutmeldingen inc. oplossingen.
                 else:
                     rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
- left in stock.:grinning_face_with_big_eyes:\n[/green]")
+ left in stock.:grinning_face_with_big_eyes:[/green]\n")
                 # break
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -2028,9 +2025,9 @@ def modify_product_details():
 
     print("- Follow the step(s) below to modify the details of a product in a selected file. Have fun modifying!\n")
     
-    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
-    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
 
     console = Console()
 
@@ -2060,18 +2057,18 @@ def modify_product_details():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
             
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
             
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
             
             continue
         break
@@ -2082,17 +2079,17 @@ def modify_product_details():
         print('\n')
 
         if product_in_file_check(file_name, search_type) == True:
-            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/green]\n")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct current 'ID' or 'name' of the product (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct current 'ID' or 'name' of the product (not case sensitive).[/orange3]\n")
 
             continue
         break
 
 
     # Names for the relevant 'quantity' in the relevant file for 'step 3' in the while loop below.
-    relevant_quantity = ""
+    relevant_quantity = ''
     
     if file_name == 'inventory.csv':
         relevant_quantity = 'purchase quantity'
@@ -2118,29 +2115,29 @@ def modify_product_details():
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
- see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
- see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
- see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_quantity}': '{quantity}', doesn't match with one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
- file. Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_quantity}'.\n[/orange3]")
+ file. Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_quantity}'.[/orange3]\n")
 
             continue
         break
 
 
     # Names for the relevant 'amount' in the relevant file for 'step 4' in the while loop below.
-    relevant_amount = ""
+    relevant_amount = ''
     
     if file_name == 'inventory.csv':
         relevant_amount = 'purchase amount'
@@ -2167,29 +2164,29 @@ def modify_product_details():
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'sales.csv' and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_amount}': '{input_amount}', doesn't match with one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
- Please check the 'product details' of product '{search_type}' shown above for the 'exact' correct current '{relevant_amount}'.\n[/orange3]")
+ Please check the 'product details' of product '{search_type}' shown above for the 'exact' correct current '{relevant_amount}'.[/orange3]\n")
 
             continue
         break
 
 
     # Names for the relevant 'date' in the relevant file for 'step 5' in the while loop below.
-    relevant_date = ""
+    relevant_date = ''
 
     if file_name == 'inventory.csv':
         relevant_date = 'purchase date'
@@ -2215,22 +2212,22 @@ def modify_product_details():
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_date}': '{input_date}', doesn't match with one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
- Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_date}'.\n[/orange3]")
+ Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_date}'.[/orange3]\n")
 
             continue
         break
@@ -2248,12 +2245,12 @@ def modify_product_details():
             if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
                 (product_in_file_check('losses.csv', search_type))
                 rprint(F"[green]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of product\
- '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{search_type}' in the 'product details' shown above.[/green]\n")
             
             else:
                 (product_in_file_check('losses.csv', search_type))
                 rprint(F"[orange3]:scream: Hello user! The entered 'cause of loss': '{loss_cause}', doesn't match with one of the 'causes of loss' options in the 'Losses' file. Please enter the correct 'cause of loss' for product\
- '{search_type}' that you want to modify as shown above in the 'product details' (not case sensitive).\n[/orange3]")
+ '{search_type}' that you want to modify as shown above in the 'product details' (not case sensitive).[/orange3]\n")
                 
                 continue
             break
@@ -2272,7 +2269,7 @@ def modify_product_details():
             print('\n')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current 'expiration date': '{expiration_date}', isn't the correct format to fill in the 'expiration date' for product '{search_type}' from the '{file_name.capitalize()[:-4]}'\
- file. Please enter the current 'expiration date' as shown above in the following format: dd-mm-yyyy.\n[/orange3]")
+ file. Please enter the current 'expiration date' as shown above in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -2287,19 +2284,21 @@ def modify_product_details():
             print('\n')                                 # gebruiken i.p.v. de '==' operator, want met de 'in' operator kijk je of er iets 'wel' of 'niet' in een lijst zit.
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered current 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- 'expiration dates' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ 'expiration dates' of product '{search_type}' in the 'product details' shown above.[/green]\n")
             
-            if expiration == current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
-                rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:\n[/wheat1]")
+            if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+                                                                    # 'else' statement.
+                rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:[/wheat1]\n")
 
-            if expiration < current_date().strftime("%d-%m-%Y"):     # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande 'else' statement.
-                rprint(F"[wheat1]:scream: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', has expired.:scream:\n[/wheat1]")
+            if expiration < current_date().strftime("%d-%m-%Y"):    # LET OP!!! Deze getabte / geïndente functie i.c.m. onderstaande print statement werkt alleen als de 'if' statement van hierboven 'True' is. Zo niet, dan werkt onderstaande\
+                                                                    # 'else' statement.
+                rprint(F"[wheat1]:scream: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', has expired.:scream:[/wheat1]\n")
 
         else:
             print('\n')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current 'expiration date': '{expiration_date}', doesn't match with one of the current 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
- Please check the 'product details' above for the correct current 'expiration date'.\n[/orange3]")
+ Please check the 'product details' above for the correct current 'expiration date'.[/orange3]\n")
 
             continue
         break
@@ -2353,12 +2352,12 @@ def modify_product_details():
         if column_name in column_name_check(file_name):
             print('\n')
             rprint(F"[green]Great!:thumbs_up: The entered product detail name '{column_name}' for product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see all the 'product detail names' from the\
- '{file_name.capitalize()[:-4]}' file above.\n[/green]")
+ '{file_name.capitalize()[:-4]}' file above.[/green]\n")
 
         else:
             print('\n')
             rprint(F"[orange3]:scream: Hello user! The entered current 'product detail name': '{column_name}', doesn't match with one of the current 'product detail names' of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
- file. Please check the 'product detail names' above for the correct current 'product detail name'.\n[/orange3]")
+ file. Please check the 'product detail names' above for the correct current 'product detail name'.[/orange3]\n")
             
 
             continue
@@ -2382,14 +2381,14 @@ def modify_product_details():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'modification' for product detail name '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file can only contain numbers. '{product_detail}' doesn't\
- only contain numbers. Please enter the correct modification for 'product detail name': '{column_name}'.\n[/orange3]")
+ only contain numbers. Please enter the correct modification for 'product detail name': '{column_name}'.[/orange3]\n")
             
                 continue
 
             if len(product_detail) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The '{column_name}' can't contain more than '{maximum_digits}' digits. The entered '{column_name}': '{product_detail}', contains more than '{maximum_digits}' digits. Please enter the\
- modification for the '{column_name}' with a limit of '{maximum_digits}' digits.\n[/orange3]")
+ modification for the '{column_name}' with a limit of '{maximum_digits}' digits.[/orange3]\n")
                 
                 continue
 
@@ -2402,7 +2401,7 @@ def modify_product_details():
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'modification' for product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file can only contain an amount or a dot to seperate any\
  decimals. '{product_detail}' doesn't only contain an amount or a dot to seperate the decimals. Please enter the correct modification for product detail '{column_name}' of product '{search_type}' and use a dot in stead of a comma to\
- seperate any decimals.\n[/orange3]")
+ seperate any decimals.[/orange3]\n")
                 
                 continue
             
@@ -2411,14 +2410,14 @@ def modify_product_details():
             
             if product_detail_amount != decimal_quantity:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the '{column_name}' again and only add '2 decimals' when necessary.\n[/orange3]")
+                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the '{column_name}' again and only add '2 decimals' when necessary.[/orange3]\n")
 
                 continue
 
             elif len(product_detail) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The '{column_name}' can't contain more than '{maximum_digits}' digits. The entered '{column_name}': '{product_detail}', contains more than '{maximum_digits}' digits. Please enter the\
- '{column_name}' with a limit of '{maximum_digits}' digits.\n[/orange3]")
+ '{column_name}' with a limit of '{maximum_digits}' digits.[/orange3]\n")
                 
                 continue
 
@@ -2430,7 +2429,7 @@ def modify_product_details():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! '{product_detail}' isn't the correct format to fill in the '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please enter the '{relevant_date}'\
- in the following format: dd-mm-yyyy.\n[/orange3]")
+ in the following format: dd-mm-yyyy.[/orange3]\n")
                 
                 continue
 
@@ -2439,7 +2438,7 @@ def modify_product_details():
             if column_name == 'purchase_date' and avoid_future_date > current_date() or column_name == 'sales_date' and avoid_future_date > current_date() or column_name == 'loss_date' and avoid_future_date > current_date():
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The date you just entered: '{product_detail}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct '{relevant_date}' of product\
- '{search_type}' in the following format: dd-mm-yyyy.\n[/orange3]")
+ '{search_type}' in the following format: dd-mm-yyyy.[/orange3]\n")
                 
                 continue
 
@@ -2449,12 +2448,12 @@ def modify_product_details():
 
             if product_detail in loss_cause_options:
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: '{product_detail.capitalize()}' is a correct cause of loss option in the '{file_name.capitalize()[:-4]}' file.\n[/green]")
+                rprint(F"[green]Great!:thumbs_up: '{product_detail.capitalize()}' is a correct cause of loss option in the '{file_name.capitalize()[:-4]}' file.[/green]\n")
 
             else:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{product_detail}', isn't a correct 'cause of loss' option in the '{file_name.capitalize()[:-4]}' file. Please enter one of the following causes\
- of loss options for product '{search_type}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).\n[/orange3]")
+ of loss options for product '{search_type}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).[/orange3]\n")
 
                 continue
         break
@@ -2523,8 +2522,8 @@ and row['expiration_date'] == expiration_date:
                     
                     if yes_or_no == 'Y' or yes_or_no == 'y':
                         row[column_name] = product_detail
-                        rprint(F"[green]Great![/green]:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can check the 'modified\
- product detail' of product '{search_type}' below.\n")
+                        rprint(F"[green]Great![/green]:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can check the\
+ modification of product '{search_type}' below.\n")
                         rprint(F"[bright_cyan]{row}[/bright_cyan]")
                         print('\n')
                         break
@@ -2538,7 +2537,7 @@ and row['expiration_date'] == expiration_date:
                     
                     else:
                         rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' Isn't the correct input to modify the product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please enter 'Y' for\
- Yes or 'N' for No for the correct modification (not case sensitive).\n[/orange3]")
+ Yes or 'N' for No for the correct modification (not case sensitive).[/orange3]\n")
                         continue
                 break
 
@@ -2564,7 +2563,7 @@ and row['expiration_date'] == expiration_date:
             rprint(':thumbs_up:')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! One or more of the entered 'product details' of product '{search_type}' wasn't filled in correctly. Please check the differences between the [wheat1]'Entered product details'[/wheat1]\
- shown above and the [bright_magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/bright_magenta] also shown above. And then try it again.\n[/orange3]")
+ shown above and the [bright_magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/bright_magenta] also shown above. And then try it again.[/orange3]\n")
 
 
     with open(file_name, 'r+', newline='') as file:
@@ -2599,7 +2598,7 @@ def modify_product_quantity():
 
     print("- Follow the step(s) below to modify the quantity of a product in a selected file. Have fun modifying!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     print("- Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
@@ -2652,7 +2651,7 @@ def modify_product_quantity():
 
 
     # Names for the relevant 'quantity' in the relevant file for 'step 3' in the while loop below.
-    relevant_quantity = ""
+    relevant_quantity = ''
     
     if file_name == 'inventory.csv':
         relevant_quantity = 'purchase quantity'
@@ -2707,7 +2706,7 @@ def modify_product_quantity():
 
 
     # Names for the relevant 'amount' in the relevant file for 'step 3' in the while loop below.
-    relevant_amount = ""
+    relevant_amount = ''
     
     if file_name == 'inventory.csv':
         relevant_amount = 'purchase amount'
@@ -2766,7 +2765,7 @@ def modify_product_quantity():
 
 
     # Names for the relevant 'date' in the relevant file for 'step 4' in the while loop below.
-    relevant_date = ""
+    relevant_date = ''
 
     if file_name == 'inventory.csv':
         relevant_date = 'purchase date'
@@ -2851,7 +2850,7 @@ def modify_product_quantity():
 
 
 # Names for the relevant 'quantity' in the relevant file for 'step 3' in the while loop below.
-    relevant_quantity = ""
+    relevant_quantity = ''
     
     if file_name == 'inventory.csv':
         relevant_quantity = 'purchase quantity'
@@ -3034,9 +3033,9 @@ def remove_product():
     
     print("- Follow the step(s) below to remove a product from a selected file. Have fun removing!\n")
     
-    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
     
-    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
     
     console = Console()
 
@@ -3064,18 +3063,18 @@ def remove_product():
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
         
         elif file_name == 'sales':
             file_name = 'sales.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
         
         elif file_name == 'losses':
             file_name = 'losses.csv'
-            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter the correct file name (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter the correct file name (not case sensitive).[/orange3]\n")
             
             continue
         break
@@ -3087,17 +3086,17 @@ def remove_product():
         
         
         if product_in_file_check(file_name, search_type) == True:
-            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' above.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' above.[/green]\n")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'ID' or 'name' (not case sensitive).\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'ID' or 'name' (not case sensitive).[/orange3]\n")
 
             continue
         break
 
 
 # Names for the relevant 'quantity' in the relevant file for 'step 3' in the while loop below.
-    relevant_quantity = ""
+    relevant_quantity = ''
     
     if file_name == 'inventory.csv':
         relevant_quantity = 'purchase quantity'
@@ -3123,28 +3122,28 @@ def remove_product():
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
             
         elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_quantity}': '{quantity}', doesn't match with one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please\
- check the 'product details' of product '{search_type}' shown above for the correct '{relevant_quantity}'.\n[/orange3]")            
+ check the 'product details' of product '{search_type}' shown above for the correct '{relevant_quantity}'.[/orange3]\n")            
             continue
         break
 
 
     # Names for the relevant 'amount' in the relevant file for 'step 4' in the while loop below.
-    relevant_amount = ""
+    relevant_amount = ''
     
     if file_name == 'inventory.csv':
         relevant_amount = 'purchase amount'
@@ -3172,28 +3171,28 @@ def remove_product():
             product_in_file_check(file_name, search_type)                               # 'NoneType' is not iterable'. Dit kwam omdat ik eerst met een 'if' statement moest aangeven dat de variabel 'file_name' gelijk moest zijn aan het\
                                                                                         # betreffende bestand én omdat ik in mijn oude code mijn input statement 'relevant_amount' niet in mijn if statement had verwerkt. En nu dus wel.
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
             
         elif file_name == 'sales.csv' and input_amount in sales_amount_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and input_amount in loss_amount_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_amount}': '{input_amount}', doesn't match with one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check\
- the 'product details' of product '{search_type}' shown above for the 'exact' correct '{relevant_amount}'.\n[/orange3]")
+ the 'product details' of product '{search_type}' shown above for the 'exact' correct '{relevant_amount}'.[/orange3]\n")
             continue
         break
 
 
     # Names for the relevant 'date' in the relevant file for 'step 5' in the while loop below.
-    relevant_date = ""
+    relevant_date = ''
 
     if file_name == 'inventory.csv':
         relevant_date = 'purchase date'
@@ -3219,22 +3218,22 @@ def remove_product():
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
             
         elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
         
         elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
 
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_date}': '{input_date}', doesn't match with one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the\
- 'product details' of product '{search_type}' shown above for the correct '{relevant_date}'.\n[/orange3]")            
+ 'product details' of product '{search_type}' shown above for the correct '{relevant_date}'.[/orange3]\n")            
             continue
         break
 
@@ -3251,12 +3250,12 @@ def remove_product():
             if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
                 (product_in_file_check('losses.csv', search_type))
                 rprint(F"[green]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of product\
- '{search_type}' in the 'product details' shown above.\n[/green]")
+ '{search_type}' in the 'product details' shown above.[/green]\n")
             
             else:
                 (product_in_file_check('losses.csv', search_type))
                 rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following 'causes of loss' for product\
- '{search_type}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' as shown above in the 'product details' (not case sensitive).\n[/orange3]")
+ '{search_type}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' as shown above in the 'product details' (not case sensitive).[/orange3]\n")
                 
                 continue
             break
@@ -3273,7 +3272,7 @@ def remove_product():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' isn't the correct format to fill in the 'expiration date' for product '{search_type}'. Please enter the expiration date in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' isn't the correct format to fill in the 'expiration date' for product '{search_type}'. Please enter the expiration date in the following format: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -3291,7 +3290,7 @@ def remove_product():
             print('\n')
             product_in_file_check(file_name, search_type)
             rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the 'expiration\
- dates' of product '{search_type}' in the 'product details' shown above.\n[/green]")
+ dates' of product '{search_type}' in the 'product details' shown above.[/green]\n")
             
             if expiration == current_date().strftime("%d-%m-%Y"):   # LET OP!!! Deze getabte / geïndente 'if' & 'elif' statements inc. de print statements werken alleen als de 'if' statement hierboven 'True' is. Zo niet, dan werkt onderstaande\
                 # print(F"Dit is expiration: {expiration}")           # 'else' statement. LET OP!!! Door de '.strftime("%d-%m-%Y")' method / code achter mijn 'current_date()' functie te plaatsen zorg ik ervoor dat het 'tijdstip' van mijn\
@@ -3390,14 +3389,14 @@ def remove_product():
 
                     elif yes_or_no == 'N' or yes_or_no == 'n':
                         rprint(F"[wheat1]Okay. Product [green]'{row['name']}'[/green] with product [green]'ID'[/green]: [green]'{row['id']}'[/green] has not been removed from the [green]'{file_name.capitalize()[:-4]}'[/green] file. You can\
- see the [green]'product details'[/green] of product [green]'{search_type}'[/green] below.\n[/wheat1]") # Bij deze elif statement heb ik er bewust voor gekozen om aan het begin van de 'rprint statement' de code '{row['name']}' te plaatsen\
+ see the [green]'product details'[/green] of product [green]'{search_type}'[/green] below.[/wheat1]\n") # Bij deze elif statement heb ik er bewust voor gekozen om aan het begin van de 'rprint statement' de code '{row['name']}' te plaatsen\
                         rprint(F"[bright_cyan]{row}[/bright_cyan]")                                     # en aan het einde van de 'rprint statement' de '{search_type}' code te plaatsen zodat je als programmeur toch een dubbele / extra check\
                         print('\n')                                                                     # hebt of de product 'ID' en de product 'naam' hetzelfde zijn. In bovenstaande codes binnen de 'while loop' heb ik op bepaalde plekken\
                         break                                                                           # mijn 'search_type' code ook vervangen door de '{row['name']}' code om te voorkomen dat je in de print statement 2X het product 'ID' te\
                                                                                                         # te zien krijgt, b.v. in de volgende zin: "Okay. Product '2032' with product 'ID': '2032' has not been removed from the Inventory file."
                     else:
                         rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' Isn't the correct input to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file. Please enter 'Y' for Yes if you 'do' or N for No if you\
- 'don't' want to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file (not case sensitive).\n[/orange3]")
+ 'don't' want to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file (not case sensitive).[/orange3]\n")
 
                         continue
                 break
@@ -3602,7 +3601,7 @@ def calculations():
 
     rprint("- Follow the [grey78]step(s)[/grey78] below to select which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).\n[/bright_magenta]")
+    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -3625,11 +3624,11 @@ def calculations():
         
         if calculation_type == 'costs' or calculation_type == 'losses' or calculation_type == 'revenue' or calculation_type == 'profit':
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: It is noted that you want to calculate the '{calculation_type}'.\n[/green]")
+            rprint(F"[green]Great!:thumbs_up: It is noted that you want to calculate the '{calculation_type}'.[/green]\n")
 
         else:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{calculation_type}' Isn't the correct input for selecting a calculation. Please enter one of the following calculations: 'costs', 'losses', 'revenue' or 'profit'.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{calculation_type}' Isn't the correct input for selecting a calculation. Please enter one of the following calculations: 'costs', 'losses', 'revenue' or 'profit'.[/orange3]\n")
             continue
         break
 
@@ -3642,7 +3641,7 @@ def calculations():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break
@@ -3656,7 +3655,7 @@ def calculations():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'until' date in the following format: dd-mm-yyyy.\n[/orange3]")
+            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'until' date in the following format: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break    
