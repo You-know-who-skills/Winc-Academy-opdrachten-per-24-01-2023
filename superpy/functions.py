@@ -120,7 +120,7 @@ def clear_file():
     table.add_column("Steps to: 'clear a file'")
         
     table.add_row("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' or 'N'")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' for Yes or 'N' for No (not case sensitive)")
     table.add_row("- Done!")
 
     console.print(table)
@@ -349,7 +349,7 @@ def update_system_date():
 
 
     while True:
-        update_system = (input("Step 1 = Enter 'Y' if you 'do' want to 'update the system date'. Or enter 'N' if you 'don't' want to update the system date (not case sensitive): ")).lower()
+        update_system = (input("Step 1 = Enter 'Y' for Yes if you 'do' want to 'update the system date'. Or enter 'N' for No if you 'don't' want to update the system date (not case sensitive): ")).lower()
         print('\n')
 
         if update_system == "y":
@@ -526,8 +526,8 @@ def select_specific_date():
     table = Table(show_header = True, header_style = 'bold green')
 
     table.add_column("Steps to: 'select a specific system date'")
-        
-    table.add_row("- Step 1 = Enter the 'date' you want the system to go to.")
+
+    table.add_row("- Step 1 = Enter the 'date' you want the system to go to as follows 'dd-mm-yyyy'.")
     table.add_row("- Done!")
 
     console.print(table)
@@ -535,14 +535,14 @@ def select_specific_date():
 
 
     while True:
-        specific_date = (input("Enter the 'date' you want the system to go to in the following format 'dd-mm-yyyy': "))
+        specific_date = (input("Enter the 'date' you want the system to go to as follows 'dd-mm-yyyy': "))
         print('\n')
 
         try:
             convert_to_dutch_date(specific_date)
             
         except ValueError:
-            rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct format to fill in the 'specific date'. Please enter the 'specific date' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct way to fill in the 'specific date'. Please enter the 'specific date' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         break
@@ -583,7 +583,7 @@ def special_occasion_date():
 
     table.add_column("Steps to: 'start a special occasion countdown'")
 
-    table.add_row("- Step 1 = Enter the 'date' of the 'special occasion countdown' in the following format: dd-mm-yyyy.")
+    table.add_row("- Step 1 = Enter the 'date' of the 'special occasion countdown' as follows: dd-mm-yyyy.")
     table.add_row("- Step 2 = Type a 'sentence' that you want to add to the 'special occasion countdown' (for instance: Until Christmas!!!).")
     table.add_row("- Done!")
 
@@ -592,15 +592,15 @@ def special_occasion_date():
 
 
     while True:
-        special_occasion_date = input("Step 1 = Enter the 'date' of the 'special occasion countdown' in the following format: dd-mm-yyyy): ")
+        special_occasion_date = input("Step 1 = Enter the 'date' of the 'special occasion countdown' as follows: dd-mm-yyyy): ")
         print('\n')
 
         try:
             convert_to_dutch_date(special_occasion_date)
             
         except ValueError:
-            rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct format to fill in the 'date' for the 'special occasion countdown'. Please enter the correct 'date' for the 'special occasion countdown' in the\
- following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct way to fill in the 'date' for the 'special occasion countdown'. Please enter the correct 'date' for the 'special occasion countdown' as follows:\
+ dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -614,7 +614,7 @@ def special_occasion_date():
 
         elif input_date < todays_date:                                    
             rprint(F"[orange3]:scream: Hello user! The 'date' you've just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet.:wink: Please enter the correct 'date' for the 'special occasion\
- countdown' in the following format: dd-mm-yyyy.[/orange3]\n")
+ countdown' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         break
@@ -953,7 +953,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from date'. Please enter the correct 'from' date in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct way to fill in the 'from date'. Please enter the correct 'from' date as follows: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break
@@ -967,7 +967,7 @@ def view_products_within_period():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until date'. Please enter the correct 'until' date in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct way to fill in the 'until date'. Please enter the correct 'until' date as follows: dd-mm-yyyy.[/orange3]\n")
         
             continue
         break    
@@ -1316,7 +1316,7 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct format to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct way to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1346,7 +1346,7 @@ def add_inventory_products():
         
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1558,7 +1558,7 @@ def add_sold_products():
         
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct format to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct way to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1584,7 +1584,7 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
         
@@ -1842,7 +1842,7 @@ def add_loss_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct format to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct way to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -1885,7 +1885,7 @@ def add_loss_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' in the following format:\
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' as follows:\
  dd-mm-yyyy.[/orange3]\n")
         
             continue
@@ -2268,8 +2268,8 @@ def modify_product_details():
         except ValueError:
             print('\n')
             product_in_file_check(file_name, search_type)
-            rprint(F"[orange3]:scream: Hello user! The entered current 'expiration date': '{expiration_date}', isn't the correct format to fill in the 'expiration date' for product '{search_type}' from the '{file_name.capitalize()[:-4]}'\
- file. Please enter the current 'expiration date' as shown above in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! The entered current 'expiration date': '{expiration_date}', isn't the correct way to fill in the 'expiration date' for product '{search_type}' from the '{file_name.capitalize()[:-4]}'\
+ file. Please enter the current 'expiration date' as shown above as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -2428,8 +2428,8 @@ def modify_product_details():
                 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{product_detail}' isn't the correct format to fill in the '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please enter the '{relevant_date}'\
- in the following format: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{product_detail}' isn't the correct way to fill in the '{relevant_date}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please enter the '{relevant_date}'\
+ as follows: dd-mm-yyyy.[/orange3]\n")
                 
                 continue
 
@@ -2438,7 +2438,7 @@ def modify_product_details():
             if column_name == 'purchase_date' and avoid_future_date > current_date() or column_name == 'sales_date' and avoid_future_date > current_date() or column_name == 'loss_date' and avoid_future_date > current_date():
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The date you just entered: '{product_detail}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct '{relevant_date}' of product\
- '{search_type}' in the following format: dd-mm-yyyy.[/orange3]\n")
+ '{search_type}' as follows: dd-mm-yyyy.[/orange3]\n")
                 
                 continue
 
@@ -2683,17 +2683,17 @@ def modify_product_quantity():
         
         if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can compare the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the 'product details'.\n")
 
         elif file_name == 'sales.csv' and quantity in sold_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can compare the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the 'product details'.\n")
         
         elif file_name == 'losses.csv' and quantity in loss_quantity_check:
             product_in_file_check(file_name, search_type)
-            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can double check the entered\
+            print(F"Great! The entered {relevant_quantity} '{quantity}' of product '{search_type}' matches one of the current '{relevant_quantity}s' in the '{file_name.capitalize()[:-4]}' file. You can compare the entered\
  '{relevant_quantity}' with the current '{relevant_quantity}' shown above in the 'product details'.\n")
 
         else:
@@ -2721,7 +2721,7 @@ def modify_product_quantity():
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_amount = input(F"Step 4 = Enter the '{relevant_amount}' for product '{search_type}' and use a dot to seperate any decimals. You can double check the '{relevant_amount}' for product '{search_type}' in the 'product details'\
+        input_amount = input(F"Step 4 = Enter the '{relevant_amount}' for product '{search_type}' and use a dot to seperate any decimals. You can double check the '{relevant_amount}' of product '{search_type}' in the 'product details'\
  shown above: ")
         print('\n')
 
@@ -2779,15 +2779,15 @@ def modify_product_quantity():
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_date = input(F"Step 5 = Enter the '{relevant_date}' for product '{search_type}' as follows: dd-mm-yyyy. You can double check the '{relevant_date}' in the 'product details' shown above: ")
+        input_date = input(F"Step 5 = Enter the '{relevant_date}' for product '{search_type}' as follows: dd-mm-yyyy. You can double check the '{relevant_date}' of product '{search_type}' in the 'product details' shown above: ")
         print('\n')
 
         try:
             convert_to_dutch_date(input_date)
             
         except ValueError:
-            print(F"Hello user! The entered {relevant_date}: '{input_date}', isn't the correct format to fill in the '{relevant_date}' for product '{search_type}'. Please enter the correct '{relevant_date}' for product '{search_type}' in the\
- following format: dd-mm-yyyy.\n")
+            print(F"Hello user! The entered {relevant_date}: '{input_date}', isn't the correct way to fill in the '{relevant_date}' for product '{search_type}'. Please enter the correct '{relevant_date}' for product '{search_type}' as\
+ follows: dd-mm-yyyy.\n")
         
             continue
         
@@ -2829,7 +2829,7 @@ def modify_product_quantity():
             convert_to_dutch_date(expiration_date)
             
         except ValueError:
-            print(F"Hello user! '{expiration_date}' Isn't the correct format to fill in the 'expiration date' for product '{search_type}'. Please enter the 'expiration date' in the following format: dd-mm-yyyy.\n")
+            print(F"Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date' for product '{search_type}'. Please enter the 'expiration date' as follows: dd-mm-yyyy.\n")
             
             continue
         
@@ -3272,7 +3272,7 @@ def remove_product():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' isn't the correct format to fill in the 'expiration date' for product '{search_type}'. Please enter the expiration date in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{expiration_date}' isn't the correct way to fill in the 'expiration date' for product '{search_type}'. Please enter the expiration date as follows: dd-mm-yyyy.[/orange3]\n")
             
             continue
 
@@ -3641,7 +3641,7 @@ def calculations():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct format to fill in the 'from' date. Please enter the correct 'from' date in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{from_date}' Isn't the correct way to fill in the 'from' date. Please enter the correct 'from' date as follows: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break
@@ -3655,7 +3655,7 @@ def calculations():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct format to fill in the 'until' date. Please enter the correct 'until' date in the following format: dd-mm-yyyy.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{until_date}' Isn't the correct way to fill in the 'until' date. Please enter the correct 'until' date as follows: dd-mm-yyyy.[/orange3]\n")
 
             continue
         break    
