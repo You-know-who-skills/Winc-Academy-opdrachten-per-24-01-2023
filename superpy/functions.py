@@ -1285,8 +1285,8 @@ def add_inventory_products():
 
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{purchase_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot (in stead of a comma) to\
- seperate any decimals.[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{purchase_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot (in stead of a comma)\
+ to seperate any decimals.[/orange3]\n")
 
             continue
 
@@ -1457,18 +1457,9 @@ def add_sold_products():
     while True:
         id = (input("Step 1 = Enter the product 'ID': "))
         
-        try:
-            int(id)
-            
-        except ValueError:
-            print('\n')
-            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
-            
-            continue 
-        
         print('\n')
         if product_in_file_check('inventory.csv', id) == True:
-            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.[/green]\n")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/green]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file. Please\
@@ -1487,12 +1478,12 @@ def add_sold_products():
 
         if name in product_detail_check('inventory.csv', id, 'name'):
             product_in_file_check('inventory.csv', name)
-            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.[/green]\n")
+            rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/green]\n")
 
         else:
             product_in_file_check('inventory.csv', id)
             rprint(F"[orange3]:scream: Hello user! The entered product 'name': '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the product\
- 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.[/orange3]\n")
+ 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name'.[/orange3]\n")
 
             continue
         break
@@ -1527,7 +1518,7 @@ def add_sold_products():
             
         except ValueError:
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! '{sales_amount}' Doesn't contain an 'amount' or a 'dot' to seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to\
+            rprint(F"[orange3]:scream: Hello user! '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma) to\
  seperate any decimals.[/orange3]\n")
 
             continue
@@ -1744,16 +1735,8 @@ def add_loss_products():
         id = (input("Step 1 = Enter the product 'ID': "))
         print('\n')
 
-        try:
-            int(id)
-            
-        except ValueError:
-            rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
-            
-            continue
-
         if product_in_file_check('inventory.csv', id) == True:
-            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' matches the product 'ID' of this product in the 'Inventory' file. You can see the 'product details' of product ID '{id}' from the 'Inventory' file above.[/green]\n")
+            rprint(F"[green]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/green]\n")
         
         else:
             rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if this product is also found in the 'Inventory' file. Please\
@@ -2130,7 +2113,7 @@ def modify_product_details():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_quantity}': '{quantity}', doesn't match with one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
- file. Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_quantity}'.[/orange3]\n")
+ file. Please check the 'product details' above for the correct current '{relevant_quantity}'.[/orange3]\n")
 
             continue
         break
@@ -2179,7 +2162,7 @@ def modify_product_details():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_amount}': '{input_amount}', doesn't match with one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
- Please check the 'product details' of product '{search_type}' shown above for the 'exact' correct current '{relevant_amount}'.[/orange3]\n")
+ Please check the 'product details' above for the 'exact' correct current '{relevant_amount}'.[/orange3]\n")
 
             continue
         break
@@ -2227,7 +2210,7 @@ def modify_product_details():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered current '{relevant_date}': '{input_date}', doesn't match with one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
- Please check the 'product details' of product '{search_type}' shown above for the correct current '{relevant_date}'.[/orange3]\n")
+ Please check the 'product details' above for the correct current '{relevant_date}'.[/orange3]\n")
 
             continue
         break
@@ -3137,7 +3120,7 @@ def remove_product():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_quantity}': '{quantity}', doesn't match with one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please\
- check the 'product details' of product '{search_type}' shown above for the correct '{relevant_quantity}'.[/orange3]\n")            
+ check the 'product details' above for the correct '{relevant_quantity}'.[/orange3]\n")            
             continue
         break
 
@@ -3186,7 +3169,7 @@ def remove_product():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_amount}': '{input_amount}', doesn't match with one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check\
- the 'product details' of product '{search_type}' shown above for the 'exact' correct '{relevant_amount}'.[/orange3]\n")
+ the 'product details' above for the 'exact' correct '{relevant_amount}'.[/orange3]\n")
             continue
         break
 
@@ -3233,7 +3216,7 @@ def remove_product():
         else:
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered '{relevant_date}': '{input_date}', doesn't match with one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the\
- 'product details' of product '{search_type}' shown above for the correct '{relevant_date}'.[/orange3]\n")            
+ 'product details' above for the correct '{relevant_date}'.[/orange3]\n")            
             continue
         break
 
@@ -3312,7 +3295,7 @@ def remove_product():
             print('\n')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! The entered 'expiration date': '{expiration_date}', doesn't match with one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. Please check the\
- 'product details' of product '{search_type}' shown above for the correct 'expiration date'.[/orange3]\n")
+ 'product details' above for the correct 'expiration date'.[/orange3]\n")
             continue
         break
 
