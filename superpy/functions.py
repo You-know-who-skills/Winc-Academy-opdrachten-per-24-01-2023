@@ -119,7 +119,7 @@ def clear_file():
 
     table.add_column("Steps to: 'clear a file'")
         
-    table.add_row("- Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 1 = Enter one of the following file names to clear it from all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' for Yes or 'N' for No (not case sensitive)")
     table.add_row("- Done!")
 
@@ -128,7 +128,7 @@ def clear_file():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to clear all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to clear it from all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
 
         if file_name == 'inventory':
             file_name = 'inventory.csv'
@@ -148,7 +148,7 @@ def clear_file():
 
 
     print('\n')
-    yes_or_no = input(F"Are you sure you want to clear the '{file_name.capitalize()[:-4]}' file from all it's products? Press 'Y' for Yes or 'N' for No (not case sensitive): ")
+    yes_or_no = input(F"Step 2 = Are you sure you want to clear the '{file_name.capitalize()[:-4]}' file from all its products? Press 'Y' for Yes or 'N' for No (not case sensitive): ")
         
     if yes_or_no == 'Y' or yes_or_no == 'y':
         print('\n')
