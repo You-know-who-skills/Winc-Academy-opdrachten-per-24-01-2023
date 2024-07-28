@@ -349,7 +349,7 @@ def update_system_date():
 
 
     while True:
-        update_system = (input("Step 1 = Enter 'Y' for Yes if you 'do' want to 'update the system date'. Or enter 'N' for No if you 'don't' want to update the system date (not case sensitive): ")).lower()
+        update_system = (input("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive): ")).lower()
         print('\n')
 
         if update_system == "y":
@@ -410,9 +410,9 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
 
     table.add_column("Steps to: 'change the system date'")
         
-    table.add_row("- Step 1 = Enter 'days' if you want to change the system date in a period of 'days'. Or enter 'weeks' if you want to change the system date in a period of 'weeks' (not case sensitive).")
+    table.add_row("- Step 1 = Enter 'days' if you want to change the system date in a period of 'days', or enter 'weeks' if you want to change the system date in a period of 'weeks' (not case sensitive).")
     table.add_row("- Step 2 = Enter 'past' if you want the system date to go in the 'past' or enter 'future' if you want the system date to go in to the 'future' (not case sensitive).")
-    table.add_row("- Step 3 = Enter a 'number' for the couple of 'days' or 'weeks' that you want to change the system date with.")
+    table.add_row("- Step 3 = Enter a 'number' for the couple of 'days' or 'weeks' that you want to change the system date with in the 'past' or 'future'.")
     table.add_row("- Done!")
 
     console.print(table)
@@ -527,7 +527,7 @@ def select_specific_date():
 
     table.add_column("Steps to: 'select a specific system date'")
 
-    table.add_row("- Step 1 = Enter the 'date' you want the system to go to as follows 'dd-mm-yyyy'.")
+    table.add_row("- Step 1 = Enter the 'date' you want the system to go to as follows: 'dd-mm-yyyy'.")
     table.add_row("- Done!")
 
     console.print(table)
@@ -814,7 +814,7 @@ def view_all_products():
 
     table.add_column("Steps to: 'view all of the products from a selected file'")
         
-    table.add_row("- Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 1 = Enter one of the following file names to view all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -822,7 +822,7 @@ def view_all_products():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the following file names to view all the products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the following file names to view all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory':
@@ -858,18 +858,18 @@ def view_all_products():
 
 
 '''
-Met de 'view_products_within_period' functie kan je de 'inventory', 'sold' en losses producten binnen een bepaalde periode zien. BEGONNEN OP MAANDAG 13-05-2024.
+Met de 'view_product_dates()' functie kan je de 'inventory', 'sold' en losses producten binnen een bepaalde periode zien. BEGONNEN OP MAANDAG 13-05-2024.
 
 - Donderdag 16-05-2024 rond 18:19 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'.\
   En hij doet het nog prima!!!
 - Ik moet deze code nog goed testen per dinsdag 14-05-2024.
 ''' 
 
-def view_products_within_period():
+def view_product_dates():
 
-    rprint("- Hello user, and welcome to the [bright_cyan]'view products within a certain period'[/bright_cyan] option.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'view products based on a specific date'[/bright_cyan] option.\n")
 
-    print("- Follow the step(s) below to see the 'purchased', 'sold', 'loss' or 'expiration' dates of products within a certain period. Have fun viewing!\n")
+    rprint("- Follow the [grey78]step(s)[/grey78] below to view the products from a selected file based on one of the following dates: 'purchased', 'sold', 'loss' or 'expiration', within a selected period. Have fun viewing!\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
@@ -877,10 +877,10 @@ def view_products_within_period():
 
     table = Table(show_header = True, header_style = 'bold green')
 
-    table.add_column("Steps to: 'view products within a certain period'")
+    table.add_column("Steps to: 'view products based on a specific date'")
         
-    table.add_row("- Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    table.add_row("- Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products in a certain periode (not case sensitive).")
+    table.add_row("- Step 1 = Enter one of the followoing file names to view its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
+    table.add_row("- Step 2 = Enter 'other' if you want to view the products based on the 'purchase', 'sold' or 'loss' date. Or enter 'expiration' if you want to view the products based on the 'expiration' date (not case sensitive).")
     table.add_row("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
     table.add_row("- Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
     table.add_row("- Done!")
@@ -890,7 +890,7 @@ def view_products_within_period():
 
 
     while True:
-        file_name = input("Step 1 = Enter one of the followoing file names to see the products within a certain period: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+        file_name = input("Step 1 = Enter one of the followoing file names to view its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
         print('\n')
 
         if file_name == 'inventory':
@@ -924,7 +924,7 @@ def view_products_within_period():
 
 
     while True:
-        date_type = input("Step 2 = Enter 'other' if you want to view the 'purchased', 'sold' or 'loss' dates of the products. Or enter 'expiration' if you want to view the expiration dates of the products within a certain periode (not case\
+        date_type = input("Step 2 = Enter 'other' if you want to view the products based on the 'purchase', 'sold' or 'loss' date. Or enter 'expiration' if you want to view the products based on the 'expiration' date (not case\
  sensitive): ").lower()
         print('\n')
 
@@ -938,8 +938,8 @@ def view_products_within_period():
             rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
 
         else:
-            rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period. Please enter 'other' or 'expiration'\
- to view the '{date_in_file}' within a certain period (not case sensitive).[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file. Please enter 'other' or 'expiration' to view the products\
+ based on the '{date_in_file}' (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -1021,7 +1021,7 @@ def view_products_within_period():
         if len(relevant_date_list) == 0: # Met deze 'if' statement geef je aan dat als een lijst leeg is, onderstaande moet gebeuren.
             rprint(F"[orange3]:scream: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.[/orange3]\n")
 
-# print(view_products_within_period())
+# print(view_product_dates())
 # print('\n')
 
 
@@ -1046,7 +1046,7 @@ def find_products():
     table.add_column("Steps to: 'find products in a selected file'")
 
     table.add_row("- Step 1 = Enter one of the following file names to find the product you are looking for: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    table.add_row("- Step 2 = Enter the product 'ID' or 'name' (not case sensitive).")
+    table.add_row("- Step 2 = Enter the product 'ID' or 'name' (the product name is not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -1077,7 +1077,7 @@ def find_products():
     
 
     while True:
-        search_type = (input("Enter the product 'ID' or 'name' (the product name is not case sensitive): ")).lower()
+        search_type = (input("Step 2= Enter the product 'ID' or 'name' (the product name is not case sensitive): ")).lower()
         print('\n')
         
         if product_in_file_check(file_name, search_type) == True:
@@ -1105,8 +1105,8 @@ def	avoid_expired_products():
 
     rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
     
-    rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can help people who are less fortunate.\
-:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better place!:muscle:[/bright_cyan]\n")
+    rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
+:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
     
     rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
 
@@ -1116,7 +1116,7 @@ def	avoid_expired_products():
 
     table.add_column("Steps to: 'avoid expired products'")
         
-    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive).")
+    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products in the 'Inventory' file that will expire in 3 days (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -1124,19 +1124,19 @@ def	avoid_expired_products():
 
 
     while True:
-        yes_or_no = input("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that will expire in 3 days (not case sensitive): ").lower()
+        yes_or_no = input("Step 1 = Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products in the 'Inventory' file that will expire in 3 days (not case sensitive): ").lower()
         print('\n')
 
         if yes_or_no == "y":
-            rprint("[green]Great!:thumbs_up: You can see all the products that will expire in 3 days below. Please think of a way not to waste these products. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a\
- better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red][/green]\n")
+            rprint("[green]Great!:thumbs_up: You can see all the products that will expire in [bright_cyan]3[/bright_cyan] days below. Please think of a durable way to use these products. Thanks in advance for helping to make our world\
+ :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red][/green]\n")
 
         elif yes_or_no == "n":
-            rprint("[wheat1]Okay! The products that will expire in 3 days will not be shown.[/wheat1]\n")
+            rprint("[wheat1]Okay! The products that will expire in [bright_cyan]3[/bright_cyan] days will not be shown.[/wheat1]\n")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to check for products that\
- will expire in 3 days (not case sensitive).[/orange3]\n")
+            rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products\
+ that will expire in 3 days (not case sensitive).[/orange3]\n")
 
             continue
         break
@@ -1163,7 +1163,8 @@ def	avoid_expired_products():
                 rprint(F" {categorize}. {row}\n")
 
         if len(avoid_waste_list) == 0 and yes_or_no == 'y':
-            rprint(F"There are no products found that will expire in 3 days. [green]So good job on helping to make the world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+            rprint(F"There are no products found that will expire in [bright_cyan]3[/bright_cyan] days. [green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle:\
+ [red]:red_heart:[/red][/green]\n")
                 
 # print(avoid_expired_products())
 # print('\n')
@@ -3837,7 +3838,7 @@ def display_product_options():
         elif option == '2':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
-            view_products_within_period()
+            view_product_dates()
 
         elif option == '3':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
@@ -3956,7 +3957,7 @@ if __name__ == "__main__":
     # print(view_all_products())
     # print('\n')
 
-    # print(view_products_within_period())
+    # print(view_product_dates())
     # print('\n')
 
     # print(find_products())
