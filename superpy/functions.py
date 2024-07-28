@@ -1241,8 +1241,8 @@ def add_inventory_products():
         if id_check == True:
             rprint(F"[wheat1]:thinking_face: Please note that product ID '{id}' already exists in the 'Inventory' file. You can see the 'product details' of the existing product ID '{id}' above.[/wheat1]\n")
         break   # Deze 'break' statement staat nu 1 'tab' / 'indent' naar links waardoor je de gehele 'while loop' stopt, want het staat dan ook buiten de 'if' statement. En dat is in deze functie geen probleem omdat je verder niks doet met\
-                # de variabel 'id_check'. Je kan deze 'break' statement ook 1 tab / indent naar rechts plaatsen en dan stopt de 'while loop' alleen wanneer bovenstaande conditie (dus de variabel 'id_check') 'True' is. Dat is hier dus niet\
-                # nodig omdat je dus verder niks doet met de variabel 'id_check'.
+                # de variabel 'id_check'. Je kan deze 'break' statement ook 1 tab / indent naar rechts plaatsen en dan stopt de 'while loop' alleen wanneer bovenstaande conditie (dus de 'if' statement met de variabel 'id_check') 'True' is.\
+                # Dat is hier dus niet nodig omdat je dus verder niks doet met de variabel 'id_check'.
 
 
     while True:
@@ -1310,7 +1310,7 @@ def add_inventory_products():
 
 
     while True:
-        purchase_date = input(F"Step 5 = Enter the 'purchase date' for product '{name}' as follows: dd-mm-yyyy: ")
+        purchase_date = input(F"Step 5 = Enter the 'purchase date' of product '{name}' as follows: dd-mm-yyyy: ")
         
         try:
             convert_to_dutch_date(purchase_date)
@@ -1331,8 +1331,8 @@ def add_inventory_products():
             continue
         break
 
-    # The 3 variables below are to create the 'tomorrow_date' variable which is a notification code for when the expiration date of a product is tomorrow. This will help the user to avoid wasting products. See the 1st 'elif statement' in\
-    # 'step 6' below.
+    # The 3 variables below are to create the 'tomorrow_date' variable which is a notification code for when the expiration date of a product is tomorrow. This will help the user to avoid wasting products. See the from the 1st 'elif\
+    # statement' in 'step 6' below.
     today_date = current_date()
     
     calculate_tomorrow = today_date + timedelta(1)          # Met de 'calculate_tomorrow' variabel tel ik 1 dag op bij de huidige datum. LET OP!!! Beide variabelen zijn datetime objecten en dat is nodgi om te kunnen rekeken met de datums.
@@ -1340,7 +1340,7 @@ def add_inventory_products():
     tomorrow_date = convert_to_strftime(calculate_tomorrow) # Met de 'tomorrow_date' variabel zet ik 'calculate_tomorrow' variabel om naar een string zodat ik deze bij de input statement van stap 6 hieronder (dat ook een string is) kan\
                                                             # gebruiken om de nodige vergelijking te kunnen maken.
     while True:
-        expiration_date = input(F"Step 6 = Enter the 'expiration date' for product '{name}' as follows: dd-mm-yyyy: ")
+        expiration_date = input(F"Step 6 = Enter the 'expiration date' of product '{name}' as follows: dd-mm-yyyy: ")
         
         try:
             convert_to_dutch_date(expiration_date)
@@ -1722,7 +1722,7 @@ def add_loss_products():
     table.add_row("- Step 3 = Enter the product 'loss quantity'.")
     table.add_row("- Step 4 = Enter the product 'loss amount' and use a dot in stead of a comma to seperate any decimals.")
     table.add_row("- Step 5 = Enter the product 'loss date' as follows: dd-mm-yyyy.")
-    table.add_row("- Step 6 = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
+    table.add_row("- Step 6 = Enter one of the following 'causes of loss' options: 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
     table.add_row("- Step 7 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
     table.add_row("- Done!")
 
@@ -1789,7 +1789,7 @@ def add_loss_products():
 
 
     while True:
-        loss_amount = (input(F"Step 4 = Enter the 'loss amount' of product '{name}' and use a dot (in stead of a comma) to seperate any decimals: "))
+        loss_amount = (input(F"Step 4 = Enter the 'loss amount' of product '{name}' and use a dot in stead of a comma to seperate any decimals: "))
         
         try:
             float(loss_amount)
@@ -1847,7 +1847,7 @@ def add_loss_products():
 
         if loss_cause in loss_cause_options:
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss'.[/green]\n")
+            rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss' option.[/green]\n")
 
         else:
             print('\n')
@@ -2022,12 +2022,12 @@ def modify_product_details():
     table.add_row("- Step 1 = Enter one of the following file names to modify a product detail: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     table.add_row("- Step 2 = Enter the current 'ID' or 'name' of the product that you want to modify (the product name is not case sensitive)")
     table.add_row("- Step 3 = Enter the current product 'quantity'.")
-    table.add_row("- Step 4 = Enter the current product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
+    table.add_row("- Step 4 = Enter the 'exact' current product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot (instead of a comma) to seperate any decimals.")
     table.add_row("- Step 5 = Enter the current product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
-    table.add_row("- Step 5a = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
+    table.add_row("- Step 5a = Enter one of the following 'causes of loss' options: 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
     table.add_row("- Step 6 = Enter the current product 'expiration date' as follows: dd-mm-yyyy.")
-    table.add_row("- Step 7 = Enter the current product 'detail name' that you want to modify, for instance 'expiration date' etc. (not case sensitive and you don't have to use an underscore in the 'product detail name).")
-    table.add_row("- Step 8 = Enter the 'modification' you want to make for the product (not case sensitive).")
+    table.add_row("- Step 7 = Enter the current product 'detail name' that you want to modify, for instance 'expiration date' etc. (not case sensitive and you don't have to put an underscore in the 'product detail name).")
+    table.add_row("- Step 8 = Enter the 'modification' you would like to make for the product (not case sensitive).")
     table.add_row("- Step 9 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
 
@@ -2185,7 +2185,7 @@ def modify_product_details():
     product_in_file_check(file_name, search_type)
 
     while True:
-        input_date = input(F"Step 5 = Enter the current '{relevant_date}' of product '{search_type}' as shown above as follows: dd-mm-yyyy: ")
+        input_date = input(F"Step 5 = Enter the current '{relevant_date}' of product '{search_type}' as shown above in the 'product details' as follows: dd-mm-yyyy: ")
         print('\n')
 
         # 3 Variables to check for the relevant date of the product in the relevant file with my 'product_detail_check()' function.
@@ -2223,7 +2223,7 @@ def modify_product_details():
         product_in_file_check('losses.csv', search_type)
 
         while True:
-            loss_cause = (input(F"Step 5a = Enter the relevant 'cause of loss' of product '{search_type}' (as shown above in the 'product details') that you want to modify (not case sensitive): ")).lower()
+            loss_cause = (input(F"Step 5a = Enter the relevant 'cause of loss' option of product '{search_type}' (as shown above in the 'product details') that you want to modify (not case sensitive): ")).lower()
             print('\n')
             
             if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
@@ -3029,12 +3029,12 @@ def remove_product():
 
     table.add_row("- Step 1 = Enter one of the following file names in which you want to remove a product: 'Inventory', 'Sales' or 'Losses'.")
     table.add_row("- Step 2 = Enter the 'ID' or the 'name' of the product that you want to remove (not case sensitive).")
-    table.add_row("- Step 3 = Enter the product 'quantity'.")
-    table.add_row("- Step 4 = Enter the product 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) and use a dot to seperate any decimals.")
-    table.add_row("- Step 5 = Enter the product 'relevant date' (for instance 'purchase date' or 'sales date' etc.) as follows: dd-mm-yyyy.")
-    table.add_row("- Step 5a = Enter one of the following 'causes of loss': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
-    table.add_row("- Step 6 = Enter the product 'expiration date'.")
-    table.add_row("- Step 7 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    table.add_row("- Step 3 = Enter the 'quantity' of the product that you want to remove.")
+    table.add_row("- Step 4 = Enter the 'exact' 'relevant amount' (for instance 'purchase amount' or 'sales amount' etc.) of the product that you want to remove and use a dot to seperate any decimals.")
+    table.add_row("- Step 5 = Enter the 'relevant date' (for instance 'purchase date' or 'sales date' etc.) of the product that you want to remove as follows: dd-mm-yyyy.")
+    table.add_row("- Step 5a = Enter the 'cause of loss' of the product that you want to remove: 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
+    table.add_row("- Step 6 = Enter the 'expiration date' of the product that you want to remove as follows: dd-mm-yyyy.")
+    table.add_row("- Step 7 = Confirm if you 'do' or 'don't' want to remove the product from the selected file by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
     
     console.print(table)
@@ -3142,7 +3142,7 @@ def remove_product():
     product_in_file_check(file_name, search_type)
     
     while True:
-        input_amount = input(F"Step 4 = Enter the 'exact' '{relevant_amount}' of product '{search_type}' that you want to remove including any decimals as shown above in the 'product details'. And use a dot (instead of a comma) to seperate\
+        input_amount = input(F"Step 4 = Enter the 'exact' '{relevant_amount}' of product '{search_type}' that you want to remove, including any decimals as shown above in the 'product details'. And use a dot (instead of a comma) to seperate\
  any decimals: ")
         print('\n')
 
