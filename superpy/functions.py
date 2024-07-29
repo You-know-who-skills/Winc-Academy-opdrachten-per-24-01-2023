@@ -15,7 +15,7 @@ import pandas as pd
 
 print('\n')
 
-# User functions - create or clear files.
+# User function - create files.
 
 '''
 Één van de 3 bestanden opnieuw maken: 'Inventory', 'Sales' en 'Losses'. DEZE CODE DOET HET!!! Per maandag 03-06-2024 rond 22:45 uur.\
@@ -45,7 +45,7 @@ def create_new_file():
 
     print("- Follow the step(s) below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press the letter 's' (for stop, not case sensitive) followed by 'Enter' on your keyboard if you want to stop filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -66,6 +66,10 @@ def create_new_file():
 
         if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
             rprint(F"[green] Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
+
+        elif file_name == 's'.lower():
+            rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+            break
 
         else:
             rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -98,6 +102,7 @@ def create_new_file():
 # print('\n')
 
 
+# User function - clear files.
 '''
 Gehele 'inventory' bestand leeg maken. DEZE CODE DOET HET!!! Per dinsdag 02-04-2024 rond 15:48 uur.
 - Dinsdag 02-04-2024 rond 15:48 uur = Ik heb de 3 losse 'clear_file()' functies samengevoegd in 1 functie. Ik heb de functie\
@@ -111,7 +116,7 @@ def clear_file():
 
     print("- Follow the step(s) below to clear a selected file from all it's products. Have fun clearing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press the letter 's' (for stop, not case sensitive) followed by 'Enter' on your keyboard if you want to stop filling in the step(s).[/bright_magenta]\n")
 
     console = Console()
 
@@ -120,7 +125,7 @@ def clear_file():
     table.add_column("Steps to: 'clear a file'")
         
     table.add_row("- Step 1 = Enter one of the following file names to clear it from all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products with 'Y' for Yes or 'N' for No (not case sensitive)")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to clear the file of all it's products, by entering 'Y' for Yes or 'N' for No (not case sensitive)")
     table.add_row("- Done!")
 
     console.print(table)
@@ -316,8 +321,7 @@ def convert_to_dutch_date(date_format: datetime):
 # print('\n')
 
 
-# User functions – use or modify dates in the system.
-
+# User function – update system date.
 
 '''
 De huidige datum returnen MET menu. DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
@@ -341,7 +345,7 @@ def update_system_date():
 
     table.add_column("Steps to: 'update the system date'")
         
-    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive).")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to update the system date to the current date, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -349,7 +353,7 @@ def update_system_date():
 
 
     while True:
-        update_system = (input("Step 1 = Enter 'Y' for Yes if you 'do' or 'N' for No if you 'don't' want to update the system date to the current date (not case sensitive): ")).lower()
+        update_system = (input("Step 1 = Confirm if you 'do' or 'don't' want to update the system date to the current date, by entering 'Y' for Yes or 'N' for No (not case sensitive): ")).lower()
         print('\n')
 
         if update_system == "y":
@@ -382,6 +386,7 @@ def update_system_date():
 # print('\n')
 
 
+# User function – change system date.
 '''
 Systeem datum aanpassen. DEZE AANGEPASTE FUNCTIE DOET HET PER DONDERDAG 14-03-2024 ÉN IS OP VRIJDAG 15-03-2024 ALS 'PRIMA'\
 BEVONDEN DOOR EEN WINC MENTOR.
@@ -503,6 +508,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
 # print('\n')
 
 
+# User function – select specific date.
 '''
 Naar een specifieke datum gaan door deze ook zelf in te voeren. DEZE CODE DOET HET PER ZATERDAGNACHT 16-03-2024!!!
 
@@ -559,6 +565,7 @@ def select_specific_date():
 # print('\n')
 
 
+# User function – special occasion date.
 '''
 Aftellen tot een bepaalde / speciale gelegenheidsdatum. DEZE CODE DOET HET!!! Per zaterdagnacht 30-03-2024 rond 01:12 uur.
 - Woensdagnacht 08-05-2024 rond 02:15 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en\
@@ -645,7 +652,7 @@ def special_occasion_date():
 # print('\n')
 
 
-# Help functions – check and show products and product details.
+# Help function – column name check.
 
 '''
 Checken of een kolomnaam voor komt in een bestand. DEZE CODE DEED HET PER DONDERDAG 07-03-2024 rond 22:10 uur!!!
@@ -673,6 +680,7 @@ def column_name_check(file_name: str):
 # print('\n')
 
 
+# Help function – product in file check.
 '''
 Checken (op voorhand) of een product 'wel' of 'niet' in een bestand voor komt (b.v. bij mijn input statements 'Enter the product 'name' or 'id'. DEZE CODE DOET HET PER WOENSDAG 28-02-2024.
 - Dinsdagnacht 28-05-2024 rond 00:08 uur = Ik heb deze funtie aangepast door de print statement 'print(F"Product details for product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
@@ -712,6 +720,7 @@ def product_in_file_check(file_name: str, search_type: str):
 # print('\n')
 
 
+# Help function – product detail check.
 '''
 DEZE CODE DOET HET PER MAANDAG 04-03-2024.
 - Maandagnacht 01-04-2024 rond 00:51 uur = Functie getest na de start van mijn taak: kolom- en bestandsnamen aanpassen (door ze korter te maken). En hij doet het nog prima!!!
@@ -765,6 +774,7 @@ def product_detail_check(file_name: str, search_type: str, column_name: str):
 # print('\n')
 
 
+# Help function – show product details.
 '''
 Alle product details van een product in een gekozen bestand laten zien. DEZE CODE DOET HET PER VRIJDAG 19-04-2024 rond 17:38 uur.
 - Maandag 27-05-2024 = Ik heb deze functie aangepast zodat enkel en alleen de product details te zien zijn zoals ze in het csv\
@@ -793,7 +803,7 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
 # print('\n')
 
 
-# User functions – view and find products and product details and avoid wasting products.
+# User function – view all products.
 
 '''
 Alle producten van een zelf gekozen bestand / 1 van de 3 bestanden laten zien. DEZE CODE DOET HET!!! Per maandag 18-03-2024 rond 22:30 uur!!!
@@ -857,6 +867,7 @@ def view_all_products():
 # print('\n')
 
 
+# User function – view product dates.
 '''
 Met de 'view_product_dates()' functie kan je de 'inventory', 'sold' en losses producten binnen een bepaalde periode zien. BEGONNEN OP MAANDAG 13-05-2024.
 
@@ -1025,6 +1036,7 @@ def view_product_dates():
 # print('\n')
 
 
+# User function – find products.
 '''
 Algemene zoek-functie 'MET menu / input statements' voor het zoeken op 'product naam' en 'product id' in alle bestanden. DEZE CODE DOET HET PER MAANDAG 18-03-2024 ROND 19:45 UUR!!!
 - Maandagavond 01-04-2024 rond 01:02 uur = Functie getest na de start van mijn taak: kolom- en bestandsnamen aanpassen (door ze korter te maken). En hij doet het nog prima!!!
@@ -1093,6 +1105,7 @@ def find_products():
 # print('\n')
 
 
+# User function – avoid expired products.
 '''
 Checken welke producten over 3 dagen niet meer houdbaar zijn. Deze code doet het per vrijdag 10-05-2024 rond 21:33 uur.
 - Zondag 02-06-2024 rond 23:24 uur: Functie aangepast én getest na de start van mijn taak: kolom- en bestandsnamen\
@@ -1116,7 +1129,7 @@ def	avoid_expired_products():
 
     table.add_column("Steps to: 'avoid expired products'")
         
-    table.add_row("- Step 1 = Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products in the 'Inventory' file that will expire in 3 days (not case sensitive).")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire in 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -1124,7 +1137,7 @@ def	avoid_expired_products():
 
 
     while True:
-        yes_or_no = input("Step 1 = Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products in the 'Inventory' file that will expire in 3 days (not case sensitive): ").lower()
+        yes_or_no = input("Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire in 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive): ").lower()
         print('\n')
 
         if yes_or_no == "y":
@@ -1135,7 +1148,7 @@ def	avoid_expired_products():
             rprint("[wheat1]Okay! The products that will expire in [bright_cyan]3[/bright_cyan] days will not be shown.[/wheat1]\n")
         
         else:
-            rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please Enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products\
+            rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products\
  that will expire in 3 days (not case sensitive).[/orange3]\n")
 
             continue
@@ -1170,8 +1183,7 @@ def	avoid_expired_products():
 # print('\n')
 
 
-# User functions – add or remove products.
-
+# User function – add inventory products.
 '''
 Product toevoegen of de producthoeveelheid aanpassen in inventory bestand indien product 'id',
 'naam' en 'houdbaarheidsdatum' overeenkomen. DEZE CODE DOET HET PER WOENSDAG 24-01-2024!!!
@@ -1420,6 +1432,7 @@ something with product '{name}'.[/wheat1]")
 # print('\n')
 
 
+# User function – add sold products.
 '''
 Sold products. DEZE CODE DOET HET!!! Ik heb deze functie aangepast en getest op zaterdagnacht 23-03-2024 rond 01:05 uur.
 - Zaterdagnacht 06-04-2024 rond 01:53 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
@@ -1692,6 +1705,7 @@ def add_sold_products():
 # print('\n')
 
 
+# User function – add loss products.
 '''
 DEZE CODE DOET HET PER VRIJDAG 15-03-2024!!!
 - Maandagavond 02-04-2024 rond 23:17 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen aanpassen (door ze korter te maken)'. En hij doet het nog prima!!!
@@ -1989,9 +2003,7 @@ def add_loss_products():
 # print('\n')
 
 
-# User functions – modify product details.
-
-
+# User function – modify product details.
 '''
 Wijzigen van de productdetails. Begonnen op maandag 26-02-2024. DEZE FUNCTIE DOET HET VOLLEDIG PER WOENSDAG 13-03-2024.
 - Dinsdag 28-05-2024 rond 16:03 uur = Mijn aangepaste functie 'show_product_details() toegevoegd aan deze functie én deze functie weer getest\
@@ -2028,7 +2040,7 @@ def modify_product_details():
     table.add_row("- Step 6 = Enter the current product 'expiration date' as follows: dd-mm-yyyy.")
     table.add_row("- Step 7 = Enter the current product 'detail name' that you want to modify, for instance 'expiration date' etc. (not case sensitive and you don't have to put an underscore in the 'product detail name).")
     table.add_row("- Step 8 = Enter the 'modification' you would like to make for the product (not case sensitive).")
-    table.add_row("- Step 9 = Confirm if you 'do' or 'don't' want to modify the product detail by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    table.add_row("- Step 9 = Confirm if you 'do' or 'don't' want to modify the product detail, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -2592,7 +2604,7 @@ def modify_product_quantity():
     print("- Step 6 = Enter the product 'expiration date' as follows: dd-mm-yyyy.")
     print("- Step 7 = Enter 'increase' or 'decrease' to modify the quantity (not case sensitive).")
     print("- Step 8 = Enter the 'number' you want to modify ('increase' or 'decrease') the quantity with.")
-    print("- Step 9 = Confirm if you 'do' or 'don't' want to modify the relevant quantity by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    print("- Step 9 = Confirm if you 'do' or 'don't' want to modify the relevant quantity, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     print("- Done!\n")
     print('\n')
 
@@ -3001,9 +3013,8 @@ def modify_product_quantity():
 # print(modify_product_quantity())
 # print('\n')
 
-# HIER BEN IK MET RICH TESTEN!!!
-# User function – remove product from a file.
 
+# User function – remove product.
 '''
 Product verwijderen op bais van 'naam' of 'id' én in combinatie met de houdbaarheidsdatum. DEZE CODE DOET HET PER ZATERDAGNACHT 09-03-2024 ROND 02:39 UUR.
 - Dinsdagavond 30-04-2024 én woensdagnacht 01-05-2024 rond 01:18 uur = Functie aangepast én getest na de start van mijn taak: 'kolom- en bestandsnamen\
@@ -3034,7 +3045,7 @@ def remove_product():
     table.add_row("- Step 5 = Enter the 'relevant date' (for instance 'purchase date' or 'sales date' etc.) of the product that you want to remove as follows: dd-mm-yyyy.")
     table.add_row("- Step 5a = Enter the 'cause of loss' of the product that you want to remove: 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).")
     table.add_row("- Step 6 = Enter the 'expiration date' of the product that you want to remove as follows: dd-mm-yyyy.")
-    table.add_row("- Step 7 = Confirm if you 'do' or 'don't' want to remove the product from the selected file by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    table.add_row("- Step 7 = Confirm if you 'do' or 'don't' want to remove the product from the selected file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
     
     console.print(table)
@@ -3379,7 +3390,7 @@ def remove_product():
                         break                                                                           # mijn 'search_type' code ook vervangen door de '{row['name']}' code om te voorkomen dat je in de print statement 2X het product 'ID' te\
                                                                                                         # te zien krijgt, b.v. in de volgende zin: "Okay. Product '2032' with product 'ID': '2032' has not been removed from the Inventory file."
                     else:
-                        rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' Isn't the correct input to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file. Please enter 'Y' for Yes if you 'do' or N for No if you\
+                        rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' Isn't the correct input to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file. Please enter 'Y' for Yes if you 'do' or 'N' for No if you\
  'don't' want to remove product '{search_type}' from the '{file_name.capitalize()[:-4]}' file (not case sensitive).[/orange3]\n")
 
                         continue
@@ -3414,8 +3425,7 @@ def remove_product():
 # print('\n')
 
 
-# Help functions – calculate costs, revenue and profit.
-
+# Help functions – calculate costs.
 '''
 Met de 'calculate_costs' functie kan je de totale kosten / inkoopprijs van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
@@ -3464,6 +3474,7 @@ def calculate_costs(from_date: datetime, until_date: datetime):
 # print('\n')
 
 
+# Help function – calculate losses.
 '''
 Met de 'calculate_losses' functie kan je de totale verliezen van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER MAANDAG 13-05-2024 rond 17:17 uur.
 
@@ -3496,6 +3507,7 @@ def calculate_losses(from_date: datetime, until_date: datetime):
 # print('\n')
 
 
+# Help function – calculate revenue.
 '''
 Met de 'calculate_revenue' functie kan je de totale omzet van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
@@ -3534,6 +3546,7 @@ def calculate_revenue(from_date: datetime, until_date: datetime):
 # print('\n')
 
 
+# Help function – calculate profit.
 '''
 Met de 'calculate_profit' functie kan je de totale winst van een door jou opgegeven periode uitrekenen. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
 
@@ -3567,8 +3580,7 @@ def calculate_profit(from_date: datetime, until_date: datetime):
 # print('\n')
 
 
-# User functions – calculate costs, revenue and profit.
-
+# User function – calculations.
 '''
 Met de 'calculations' functie (oude naam was 'time_frame_calculation()' functie) kan je de zelf kiezen wat je wilt\
 uitrekenen in een door jou opgegeven periode: kosten, omzet of de winst. DEZE CODE DOET HET PER WOENSDAG 21-02-2024.
@@ -3664,7 +3676,7 @@ def calculations():
 # print('\n')
 
 
-# User functions - display menu options: 'file', 'date' and 'product'.
+# User function - display file options.
 
 def display_file_options():
 
@@ -3732,9 +3744,11 @@ def display_file_options():
 # print('\n')
 
 
+# User function - display date options.
+
 def display_date_options():
 
-    rprint("- Hello user, and welcome to the [bright_cyan]'date options'[/bright_cyan] menu.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'product date options'[/bright_cyan] menu.\n")
 
     print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the dates!\n")
 
@@ -3796,6 +3810,8 @@ def display_date_options():
 # print(display_date_options())
 # print('\n')
 
+
+# User function - display product options.
 
 def display_product_options():
 
@@ -3888,6 +3904,8 @@ def display_product_options():
 # print(display_product_options())
 # print('\n')
 
+
+# User function - display calculation options.
 
 def display_calculation_options():
 
