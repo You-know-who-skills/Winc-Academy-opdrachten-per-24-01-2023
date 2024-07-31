@@ -2,6 +2,8 @@
 # Imports
 
 import csv
+import signal
+import sys
 from argparse import *
 from datetime import timedelta
 from datetime import datetime
@@ -60,22 +62,23 @@ def create_new_file():
     print('\n')
 
 
-    while True:
-        file_name = input("Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
-        print('\n')
+    try:
+        while True:
+            file_name = input("Step 1 = Enter one of the following file names to create the file: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
+            print('\n')
 
-        if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
-            rprint(F"[green] Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
+            if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
+                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
+            
+            else:
+                rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
-        elif file_name == 's'.lower():
-            rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+                continue
             break
-
-        else:
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
-
-            continue
-        break
+    
+    except KeyboardInterrupt:
+        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        sys.exit(0)
 
     print('\n')
 
@@ -98,7 +101,7 @@ def create_new_file():
             writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
             writer.writeheader()
 
-# print(create_new_file())
+print(create_new_file())
 # print('\n')
 
 
@@ -132,56 +135,80 @@ def clear_file():
     print('\n')
 
 
-    while True:
-        file_name = input("Step 1 = Enter one of the following file names to clear it from all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
-
-        if file_name == 'inventory':
-            file_name = 'inventory.csv'
-            
-        elif file_name == 'sales':
-            file_name = 'sales.csv'
-            
-        elif file_name == 'losses':
-            file_name = 'losses.csv'
-            
-        else:
+    try:
+        while True:
+            file_name = input("Step 1 = Enter one of the following file names to clear it from all its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive): ").lower()
             print('\n')
-            rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
 
-            continue
-        break
+            if file_name == 'inventory':
+                file_name = 'inventory.csv'
+                
+            elif file_name == 'sales':
+                file_name = 'sales.csv'
+                
+            elif file_name == 'losses':
+                file_name = 'losses.csv'
+
+            elif file_name == 's':
+                rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+                break
+
+            else:
+                rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
+                
+                continue
+            break
+    
+    except KeyboardInterrupt:
+        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        sys.exit(0)
 
 
-    print('\n')
-    yes_or_no = input(F"Step 2 = Are you sure you want to clear the '{file_name.capitalize()[:-4]}' file from all its products? Press 'Y' for Yes or 'N' for No (not case sensitive): ")
-        
-    if yes_or_no == 'Y' or yes_or_no == 'y':
-        print('\n')
-        rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all it's products.[/green]\n")
-        print('\n')
+    try:    
+        while True:
+            yes_or_no = input(F"Step 2 = Are you sure you want to clear the '{file_name.capitalize()[:-4]}' file from all its products? Press 'Y' for Yes or 'N' for No (not case sensitive): ")
+            print('\n')
 
-        if file_name == 'inventory.csv':
-            with open('inventory.csv', 'w', newline='') as inventory_file:
+            if yes_or_no == 'Y' or yes_or_no == 'y':
+                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all its products.[/green]\n")
+                print('\n')
+
+                if file_name == 'inventory.csv':
+                    with open('inventory.csv', 'w', newline='') as inventory_file:
+                        writer = csv.DictWriter(inventory_file, fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])
+                        writer.writeheader()
+                        break
+
+                elif file_name == 'sales.csv':
+                    with open('sales.csv', 'w', newline='') as sales_file:
+                        writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sales_amount', 'sales_date', 'expiration_date'])
+                        writer.writeheader()
+                        break
+                
+                elif file_name == 'losses.csv':
+                    with open('losses.csv', 'w', newline='') as losses_file:
+                        writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
+                        writer.writeheader()
+                        break
             
-                writer = csv.DictWriter(inventory_file, fieldnames=['id', 'name', 'purchase_quantity', 'purchase_amount', 'purchase_date', 'expiration_date'])
-                writer.writeheader()
+            elif yes_or_no == 'N' or yes_or_no == 'n':
+                rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.[/wheat1]\n")
+                print('\n')
+                break
 
-        elif file_name == 'sales.csv':
-            with open('sales.csv', 'w', newline='') as sales_file:
-            
-                writer = csv.DictWriter(sales_file, fieldnames=['id', 'name', 'sold_quantity', 'sales_amount', 'sales_date', 'expiration_date'])
-                writer.writeheader()
-        
-        elif file_name == 'losses.csv':
-            with open('losses.csv', 'w', newline='') as losses_file:
-            
-                writer = csv.DictWriter(losses_file, fieldnames=['id', 'name', 'loss_quantity', 'loss_amount', 'loss_date', 'loss_cause', 'expiration_date'])
-                writer.writeheader()
+            elif yes_or_no == 's'.lower():
+                rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+                break
 
-    elif yes_or_no == 'N' or yes_or_no == 'n':
-        print('\n')
-        rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.[/wheat1]\n")
-        print('\n')
+            else:
+                rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' Isn't the correct input to clear the '{file_name.capitalize()[:-4]}' file of all its products. Please enter 'Y' for Yes if you 'do' or 'N' for no if you 'don't want to clear\
+    the '{file_name.capitalize()[:-4]}' file of all its products (not case sensitive).[/orange3]\n")
+                continue
+            break
+
+    except KeyboardInterrupt:
+        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        sys.exit(0)
         
 
 # print(clear_file())
