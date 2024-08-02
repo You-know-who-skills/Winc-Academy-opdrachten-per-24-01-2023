@@ -76,7 +76,7 @@ def create_new_file():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
     print('\n')
@@ -159,7 +159,7 @@ def clear_file():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -206,7 +206,7 @@ def clear_file():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
         
 
@@ -228,7 +228,7 @@ def export_file_to_excel():
 
     print("- Follow the step(s) below to export a selected file to an 'Excel' file. Have fun exporting!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
     
     console = Console()
 
@@ -267,7 +267,7 @@ def export_file_to_excel():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -368,7 +368,7 @@ def update_system_date():
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -402,7 +402,7 @@ def update_system_date():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -443,7 +443,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
         
     print("- Follow the step(s) below to change the system date by entering the number of 'days' or 'weeks' that you want to change the system date with. Have fun changing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -475,7 +475,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -494,7 +494,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
                 break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -523,7 +523,7 @@ def change_system_date(): # Met deze functie moet je de datum van je systeem aan
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -576,7 +576,7 @@ def select_specific_date():
     
     print("- Follow the step(s) below to go to a specific date in the system. Have fun selecting!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -606,7 +606,7 @@ def select_specific_date():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -638,7 +638,7 @@ def special_occasion_date():
 
     print("- Follow the step(s) below to create a countdown for a 'special occasion'. Have fun with the countdown!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
     
     console = Console()
 
@@ -684,7 +684,7 @@ def special_occasion_date():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -693,7 +693,7 @@ def special_occasion_date():
         print('\n')
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
     
 
@@ -885,7 +885,7 @@ def view_all_products():
 
     print("- Follow the step(s) below to view all products from a selected file. Have fun viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -924,7 +924,7 @@ def view_all_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -956,7 +956,7 @@ def view_product_dates():
 
     rprint("- Follow the [grey78]step(s)[/grey78] below to view the products from a selected file based on one of the following dates: 'purchased', 'sold', 'loss' or 'expiration', within a selected period. Have fun viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -998,7 +998,7 @@ def view_product_dates():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1036,7 +1036,7 @@ def view_product_dates():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1055,7 +1055,7 @@ def view_product_dates():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1074,7 +1074,7 @@ def view_product_dates():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0) 
 
 
@@ -1143,7 +1143,7 @@ def find_products():
     
     print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -1183,7 +1183,7 @@ def find_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
     
 
@@ -1202,7 +1202,7 @@ def find_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 # print(find_products())
@@ -1225,7 +1225,7 @@ def	avoid_expired_products():
     rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
 :handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -1260,7 +1260,7 @@ def	avoid_expired_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1315,7 +1315,7 @@ def add_inventory_products():
     
     print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -1367,7 +1367,7 @@ def add_inventory_products():
                     # 'True' is. Dat is hier dus niet nodig omdat je dus verder niks doet met de variabel 'id_check'.
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1383,7 +1383,7 @@ def add_inventory_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1410,7 +1410,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1446,7 +1446,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1474,7 +1474,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
     # The 3 variables below are to create the 'tomorrow_date' variable which is a notification code for when the expiration date of a product is tomorrow. This will help the user to avoid wasting products. See the from the 1st 'elif\
@@ -1519,7 +1519,7 @@ def add_inventory_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1585,7 +1585,7 @@ def add_sold_products():
     
     print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -1623,7 +1623,7 @@ def add_sold_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1648,7 +1648,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1674,7 +1674,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1710,7 +1710,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1738,7 +1738,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1788,7 +1788,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1892,7 +1892,7 @@ def add_loss_products():
 
     print("- Follow the step(s) below to add a product loss. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -1931,7 +1931,7 @@ def add_loss_products():
             break 
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1957,7 +1957,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -1983,7 +1983,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2019,7 +2019,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2046,7 +2046,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2069,7 +2069,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2124,7 +2124,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2227,7 +2227,7 @@ def modify_product_details():
 
     print("- Follow the step(s) below to modify the details of a product in a selected file. Have fun modifying!\n")
     
-    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
 
@@ -2277,7 +2277,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2296,7 +2296,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2349,7 +2349,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2404,7 +2404,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2480,7 +2480,7 @@ def modify_product_details():
                 break
         
         except KeyboardInterrupt:
-            rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
             sys.exit(0)
 
 
@@ -2533,7 +2533,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2597,7 +2597,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2696,7 +2696,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -2784,7 +2784,7 @@ and row['expiration_date'] == expiration_date:
                     break
 
                 except KeyboardInterrupt:
-                    rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+                    rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
                     sys.exit(0)
 
         else:
@@ -2844,7 +2844,7 @@ def modify_product_quantity():
 
     print("- Follow the step(s) below to modify the quantity of a product in a selected file. Have fun modifying!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     print("- Step 1 = Enter one of the following files in which you want to modify the quantity: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
     print("- Step 2 = Enter the product 'name' or 'ID' (the product name is not case sensitive).")
@@ -3278,7 +3278,7 @@ def remove_product():
     
     print("- Follow the step(s) below to remove a product from a selected file. Have fun removing!\n")
     
-    rprint("-[bright_magenta] Note 1! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
     
     rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
     
@@ -3326,7 +3326,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
     
     
@@ -3346,7 +3346,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3398,7 +3398,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3452,7 +3452,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3504,7 +3504,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3532,7 +3532,7 @@ def remove_product():
                 break
         
         except KeyboardInterrupt:
-            rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
             sys.exit(0)
 
 
@@ -3594,7 +3594,7 @@ def remove_product():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3685,7 +3685,7 @@ def remove_product():
                     break
 
                 except KeyboardInterrupt:
-                    rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+                    rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
                     sys.exit(0)
 
         else:
@@ -3889,7 +3889,7 @@ def calculations():
 
     rprint("- Follow the [grey78]step(s)[/grey78] below to select which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
     
-    rprint("-[bright_magenta] Note! Press 'Ctrl' + 'C' on your keyboard if you want to exit / quit filling in the step(s).[/bright_magenta]\n")
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
     console = Console()
 
@@ -3924,7 +3924,7 @@ def calculations():
             break
     
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3943,7 +3943,7 @@ def calculations():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -3962,7 +3962,7 @@ def calculations():
             break
 
     except KeyboardInterrupt:
-        rprint("[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
         sys.exit(0)
 
 
@@ -4040,7 +4040,7 @@ def display_file_options():
             export_file_to_excel()
 
         elif option == '4':
-            rprint("[wheat1]Okay. You have chosen to exit the [green]'file options'[/green] menu. See you next time![/wheat1]\n")
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'file options'[/green] menu. See you next time!:person_raising_hand:[/wheat1]\n")
             break
 
         else:
@@ -4107,7 +4107,7 @@ def display_date_options():
             special_occasion_date()
 
         elif option == '5':
-            rprint("[wheat1]Okay. You have chosen to exit the [green]'date options'[/green] menu. See you next time![/wheat1]\n")
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'date options'[/green] menu. See you next time!:person_raising_hand:[/wheat1]\n")
             break
 
         else:
@@ -4201,7 +4201,7 @@ def display_product_options():
             remove_product()
         
         elif option == '10':
-            rprint("[wheat1]Okay. You have chosen to exit the [green]'product options'[/green] menu. See you next time![/wheat1]\n")
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'product options'[/green] menu. See you next time!:person_raising_hand:[/wheat1]\n")
             break
 
         else:
@@ -4246,7 +4246,7 @@ def display_calculation_options():
             calculations()
 
         elif option == '2':
-            rprint("[wheat1]Okay. You have chosen to exit the [green]'calculation options'[/green] menu. See you next time![/wheat1]\n")
+            rprint("[wheat1]Okay. You have chosen to exit the [green]'calculation options'[/green] menu. See you next time!:person_raising_hand:[/wheat1]\n")
             break
         
         else:

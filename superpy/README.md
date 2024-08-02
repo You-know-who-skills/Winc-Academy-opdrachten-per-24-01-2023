@@ -1,14 +1,20 @@
-# Hello user and welcome to my __Superpy__ project!
+# Hello user and welcome to my Superpy project!
 
-## With this project you can practice managing products as if it is your own supermarket.
+## With this project you can practice managing supermarket products as if it is your own supermarket.
 
 
 
-This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal, for example 'Windows terminal'.
+This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal; for example 'Windows terminal'.
 
-I've written my code in such a way that you only have to follow the steps in each chosen menu. And if you accidentally typed something wrong, no worries. My code will guide you in how to correct it.
+I've written my code in such a way that you only have to follow the steps in a selected menu. And if you accidentally typed something wrong, no worries. My code will guide you in how to correct it.
 
-You can copy de codes below and paste them in your terminal te get started with my Superpy project. Have fun managing!
+You can copy de codes below and paste them in your terminal as shown below in the screenshot.
+
+to get started with my Superpy project. Have fun managing!
+
+
+![Screenshot example for where to paste the code.](image.png)
+
 
 
 * If you want to manage **existing files** which already contain products or if you want to create **new files** to add products, please copy the code below.
@@ -35,3 +41,6 @@ py .\main.py products
 ```sh
 py .\main.py calculations
 ```
+
+
+![Test](image-1.png)
