@@ -10,7 +10,8 @@ I've written my code in such a way that you only have to follow the steps in a s
 
 You can copy de codes below and paste them in your terminal as shown below in the screenshot.
 
-to get started with my Superpy project. Have fun managing!
+Have fun managing with Superpy!
+
 
 
 ![Screenshot example for where to paste the code.](image.png)
