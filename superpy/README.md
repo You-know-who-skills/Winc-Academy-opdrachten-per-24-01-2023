@@ -35,3 +35,7 @@ py .\main.py products
 ```sh
 py .\main.py calculations
 ```
+
+
+![image](https://github.com/user-attachments/assets/71e6dfc6-e448-4de8-a979-586f66fa0bc4)
+
