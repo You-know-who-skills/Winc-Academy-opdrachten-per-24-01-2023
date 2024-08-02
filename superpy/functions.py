@@ -4057,7 +4057,7 @@ def display_file_options():
 
 def display_date_options():
 
-    rprint("- Hello user, and welcome to the [bright_cyan]'product date options'[/bright_cyan] menu.\n")
+    rprint("- Hello user, and welcome to the [bright_cyan]'date options'[/bright_cyan] menu.\n")
 
     print("- After you have entered a valid option from below, you will be directed to the selected option. Have fun with the dates!\n")
 

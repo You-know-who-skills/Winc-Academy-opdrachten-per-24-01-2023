@@ -19,33 +19,33 @@ parser = ArgumentParser(description = "Hello user, and welcome to SuperPy: your 
 subparsers = parser.add_subparsers(dest= "command")
 
 # File options menu.
-file_option = subparsers.add_parser("file", help= "- Use this option to 'create' or 'clear' a file, or to 'export' a file to Excel. The 'file options menu' will show you which options you can choose. When you've chosen an option, a step by\
+file_option = subparsers.add_parser("files", help= "- Use this option to 'create' or 'clear' a file, or to 'export' a file to Excel. The 'file options menu' will show you which options you can choose. When you've chosen an option, a step by\
  step explination will guide you through the chosen file option.\n")  # Met de 'add_parser' code geef je met een 'argument' aan wat de 'command' code moet zijn (+ de helptekst). En in dit geval is de command code 'file'.
 
 # Date options menu.
-date_option = subparsers.add_parser("date", help= "- Use this option to 'update' or 'change' the system date. Or to go to a specific date. Or to create a special occasion date. The 'date options menu' will show you which options you can choose.\
+date_option = subparsers.add_parser("dates", help= "- Use this option to 'update' or 'change' the system date. Or to go to a specific date. Or to create a special occasion date. The 'date options menu' will show you which options you can choose.\
  When you've chosen an option, a step by step explination will guide you through the chosen date option.\n")
 
 # Product options menu.
-product_option = subparsers.add_parser("product", help= "- Use this option to 'view', 'find', 'add', 'modify' and 'remove' products. With this option you can also 'avoid expired products' and calculate the 'costs', 'losses', 'revenue' or\
+product_option = subparsers.add_parser("products", help= "- Use this option to 'view', 'find', 'add', 'modify' and 'remove' products. With this option you can also 'avoid expired products' and calculate the 'costs', 'losses', 'revenue' or\
  'profit'. The 'product options menu' will show you which options you can choose. When you've chosen an option, a step by step explination will guide you through the chosen product option.\n") 
 
-calculate_option = subparsers.add_parser('calculate', help= "- Use this option to calculate the 'costs', 'losses', 'revenue' or 'profit' in a selected file. The 'calculate options menu' will show you which options you can select. When\
+calculate_option = subparsers.add_parser('calculations', help= "- Use this option to calculate the 'costs', 'losses', 'revenue' or 'profit' in a selected file. The 'calculate options menu' will show you which options you can select. When\
  you've selected an option, a step by step explination will guide you through the selected calculate option.\n")
 
 # Parse arguments
 args = parser.parse_args()          # De '.parse_args' code bevat alle argumenten die ik in de hierboven vermelde subparser argumenten heb geplaatst. En in dit geval zijn het de argumenten: 
 
-if args.command == "file".lower():  # Met de 'args.command' code geef je aan wat de 'command' code moet zijn die ik hierboven bij de 'subparsers = parser.add_subparsers(dest= "command")' heb gedefinieerd. En in dit geval is het 'file'.
+if args.command == "files".lower():  # Met de 'args.command' code geef je aan wat de 'command' code moet zijn die ik hierboven bij de 'subparsers = parser.add_subparsers(dest= "command")' heb gedefinieerd. En in dit geval is het 'file'.
     display_file_options()
 
-if args.command == "date":
+if args.command == "dates":
     display_date_options()
 
-if args.command == "product":       # Met deze code geef je aan wat de 'command' code moet zijn die ik hierboven bij en de 'subparsers = parser.add_subparsers(dest= "command")' heb gedefinieerd. En in dit geval is het 'file'.
+if args.command == "products":       # Met deze code geef je aan wat de 'command' code moet zijn die ik hierboven bij en de 'subparsers = parser.add_subparsers(dest= "command")' heb gedefinieerd. En in dit geval is het 'file'.
     display_product_options()
 
-if args.command == "calculate":
+if args.command == "calculations":
     display_calculation_options()
     
     
