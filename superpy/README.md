@@ -31,7 +31,7 @@ Have fun managing with **Superpy**!
 
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
-* Copy the code below by klicking on this icon '**![copy icon](image-2.png)**' below
+* Copy the code below by klicking on this icon below: ![copy icon](image-2.png)
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
