@@ -31,7 +31,7 @@ Have fun managing with **Superpy**!
 
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
-* Copy the code below as shown above in the screenshot
+* Copy the code below by klicking on this icon '**![copy icon](image-2.png)**' below
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
@@ -55,7 +55,7 @@ py .\main.py dates
 
 
 
-If you want to manage the **products**, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
+If you want to manage the **products**:
 * Copy the code below as shown above in the screenshot
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
@@ -67,7 +67,7 @@ py .\main.py products
 
 
 
-If you want to manage the **calculations** such as **costs**, **losses**, **revenue** or **profit**, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
+If you want to manage the **calculations** such as **costs**, **losses**, **revenue** or **profit**:
 * Copy the code below as shown above in the screenshot
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
