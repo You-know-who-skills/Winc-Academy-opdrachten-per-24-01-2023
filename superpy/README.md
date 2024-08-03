@@ -31,7 +31,6 @@ Have fun managing with **Superpy**!
 
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
-<!-- * Copy the code below by klicking on this icon below: ![copy icon](image-2.png) -->
 * Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
@@ -45,7 +44,7 @@ py .\main.py files
 
 
 If you want to manage **system dates** or a **special occasion date**:
-* Copy the code below as shown above in the screenshot
+* Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
@@ -57,7 +56,7 @@ py .\main.py dates
 
 
 If you want to manage the **products**:
-* Copy the code below as shown above in the screenshot
+* Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
@@ -69,7 +68,7 @@ py .\main.py products
 
 
 If you want to manage the **calculations** such as **costs**, **losses**, **revenue** or **profit**:
-* Copy the code below as shown above in the screenshot
+* Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
