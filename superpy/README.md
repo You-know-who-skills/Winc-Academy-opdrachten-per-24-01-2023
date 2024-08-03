@@ -1,6 +1,6 @@
 # Hello user and welcome to my 'Superpy' project!
 
-## With this project you can practice managing supermarket products as if it is your own supermarket. And most importantly, this project will also show you how to avoid wasting products.
+## With this project you can practice managing supermarket products as if it is your own supermarket. And most importantly, this project will also show you how to avoid wasting products to help making our world a better and durable place.
 
 
 
