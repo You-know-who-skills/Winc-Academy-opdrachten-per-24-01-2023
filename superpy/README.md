@@ -15,13 +15,17 @@ Have fun managing with **Superpy**!
 
 
 
-<ins>Screenshot of where to paste the code</ins>
+***<ins>Screenshot of where to paste the code</ins>***
 
 ![Screenshot example for where to paste the code.](image.png)
 
 
 
-* If you want to manage **existing files** which already contain products or if you want to create **new files** to add products, please copy the code below and paste it in your terminal as shown above in the screenshot.
+- If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
+* copy the code below
+* paste it in your terminal as shown above in the screenshot
+* press Enter on your keyboard
+
 
 ```sh
 py .\main.py files
