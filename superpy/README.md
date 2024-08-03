@@ -44,7 +44,7 @@ py .\main.py files
 
 
 
-If you want to manage **system dates** or a **special occasion date**:
+If you want to manage **system dates** or a **special occasion / countdown date**:
 * Copy the code shown below by klicking on this icon also shown below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
