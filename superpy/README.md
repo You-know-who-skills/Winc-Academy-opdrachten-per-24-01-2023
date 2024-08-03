@@ -1,4 +1,4 @@
-# Hello user and welcome to my Superpy project!
+# Hello user and welcome to my 'Superpy' project!
 
 ## With this project you can practice managing supermarket products as if it is your own supermarket.
 
@@ -6,12 +6,16 @@
 
 This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal; for example 'Windows terminal'.
 
-I've written my code in such a way that you only have to follow the steps in a selected option. And if you accidentally typed something wrong, no worries. My code will guide you in how to correct it.
+If you want to use my project, the only thing you have to do is:
 
-You can copy de codes below and paste them in your terminal as shown below in the screenshot.
+* copy de code below
+* paste it in your terminal as shown below in the screenshot
+* press 'Enter' on your keyboard
+
+
+After pressing 'Enter' on your keyboard, my code will guide you step by step on all the things you can do. And if you accidentally typed something wrong, no worries. My code will also guide you on how to correct it.
 
 Have fun managing with **Superpy**!
-
 
 
 
@@ -21,10 +25,7 @@ Have fun managing with **Superpy**!
 
 
 
-- If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
-* copy the code below
-* paste it in your terminal as shown above in the screenshot
-* press Enter on your keyboard
+If you want to manage **existing files** which already contain products or if you want to create **new files** to add products, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
 
 
 ```sh
@@ -32,20 +33,23 @@ py .\main.py files
 ```
 
 
-* If you want to manage **system dates** or a **special occasion date**, please copy the code below and paste it in your terminal as shown above in the screenshot.
+
+* If you want to manage **system dates** or a **special occasion date**, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
 
 ```sh
 py .\main.py dates
 ```
 
 
-* If you want to manage the **products**, please copy the code below and paste it in your terminal as shown above in the screenshot.
+
+* If you want to manage the **products**, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
 ```sh
 py .\main.py products
 ```
 
 
-* If you want to manage the **calculations** such as **costs**, **losses**, **revenue** or **profit**, please copy the code below and paste it in your terminal as shown above in the screenshot.
+
+* If you want to manage the **calculations** such as **costs**, **losses**, **revenue** or **profit**, please copy the code below and paste it in your terminal as shown above in the screenshot and press 'Enter' on your keyboard.
 ```sh
 py .\main.py calculations
 ```
