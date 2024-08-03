@@ -32,8 +32,7 @@ Have fun managing with **Superpy**!
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
 <!-- * Copy the code below by klicking on this icon below: ![copy icon](image-2.png) -->
-<!-- * Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%"> # Deze code doet het!!! -->
-* Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="25" height="25">
+* Copy the code below by klicking on this icon below: <img src="/superpy/image-2.png" alt="copy icon" width="2%" height="2%"> # Deze code doet het!!!
 * Paste the code in your terminal as shown above in the screenshot
 * Press 'Enter' on your keyboard
 * Done!
