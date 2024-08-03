@@ -4,7 +4,7 @@
 
 
 
-This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal; for example 'Windows terminal'.
+This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal; for example 'Windows terminal' / 'Windows PowerShell'.
 
 If you want to use my project, the only thing you have to do is:
 
@@ -18,10 +18,15 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step on 
 Have fun managing with **Superpy**!
 
 
+***<ins>Screenshot of how to copy the code</ins>***
+
+![Screenshot example of how to copy the code](image.png)
+
+
 
 ***<ins>Screenshot of where to paste the code</ins>***
 
-![Screenshot example for where to paste the code.](image.png)
+![Screenshot example of where to paste the code](image-1.png)
 
 
 
