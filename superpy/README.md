@@ -26,6 +26,7 @@ Have fun managing with **Superpy**!
 
 
 ***<ins>Screenshot of where to 'paste' the code</ins>***
+* ***Note!*** The directory in your terminal will be different than the one shown on the screenshot below, because it depends on from which folder on your device (desktop, laptop, tablet etc.) you will open my project.
 
 ![Screenshot of where to paste the code](image-1.png)
 
