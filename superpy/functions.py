@@ -511,7 +511,7 @@ def select_specific_date():
         date_file.write(specific_date)
         rprint("[green]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the specific date below.[/green]\n")
 
-    return specific_date
+    return rprint(F"[bright_cyan]{specific_date}[/bright_cyan]\n")
 
 
 # User function – special occasion date.
@@ -725,15 +725,15 @@ def view_all_products():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products from the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -1011,7 +1011,7 @@ def	avoid_expired_products():
     rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
     
     rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
- :handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
+:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
     
     rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
@@ -3174,7 +3174,7 @@ def display_file_options():
         console.print(table)
         print('\n')
 
-        option = input("Enter one of the 5 options: ")
+        option = input("Enter 1 of the 5 options: ")
         print('\n')
 
         if option == '1':
@@ -3236,7 +3236,7 @@ def display_date_options():
         console.print(table)
         print('\n')
 
-        option = input("Enter one of the 6 options: ")
+        option = input("Enter 1 of the 6 options: ")
         print('\n')
 
         if option == '1':
@@ -3307,7 +3307,7 @@ def display_product_options():
         console.print(table)
         print('\n')
 
-        option = input("Enter one of the 10 options: ")
+        option = input("Enter 1 of the 10 options: ")
         print('\n')
 
         if option == '1':
@@ -3390,7 +3390,7 @@ def display_calculation_options():
         console.print(table)
         print('\n')
 
-        option = input("Enter one of the 3 options: ")
+        option = input("Enter 1 of the 3 options: ")
         print('\n')
 
         if option == '1':
