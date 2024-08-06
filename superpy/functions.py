@@ -760,7 +760,8 @@ def view_product_dates():
 
     rprint("- Hello user, and welcome to the [bright_cyan]'view products based on a specific date'[/bright_cyan] option.\n")
 
-    rprint("- Follow the [grey78]step(s)[/grey78] below to view the products from a selected file based on one of the following dates: 'purchased', 'sold', 'loss' or 'expiration', within a selected period. Have fun viewing!\n")
+    rprint("- Follow the [grey78]step(s)[/grey78] below to view the products from a selected file based on one of the following dates: 'purchase date', 'sales date', 'loss date' or 'expiration date', within a selected period. Have fun\
+ viewing!\n")
     
     rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
 
@@ -771,7 +772,7 @@ def view_product_dates():
     table.add_column("Steps to: 'view products based on a specific date'")
         
     table.add_row("- Step 1 = Enter one of the followoing file names to view its products: 'Inventory', 'Sales' or 'Losses' (not case sensitive).")
-    table.add_row("- Step 2 = Enter 'other' if you want to view the products based on the 'purchase', 'sold' or 'loss' date. Or enter 'expiration' if you want to view the products based on the 'expiration' date (not case sensitive).")
+    table.add_row("- Step 2 = Enter one of the followoing dates that you would like to view within a certain period: 'purchase date', 'sales date', 'loss date' or 'expiration date' (not case sensitive).")
     table.add_row("- Step 3 = Enter the 'from date' as follows: dd-mm-yyyy.")
     table.add_row("- Step 4 = Enter the 'until date' as follows dd-mm-yyyy.")
     table.add_row("- Done!")
@@ -808,7 +809,7 @@ def view_product_dates():
         sys.exit(0)
 
 
-    # Variables to select the correct 'relevant date' in the while loop for 'step 2' below.
+    # Variables to select the correct 'relevant date' in the 'while loop' / 'step 2' below.
     if file_name == 'inventory.csv':
         date_in_file = 'purchase date'
 
@@ -818,25 +819,20 @@ def view_product_dates():
     elif file_name == 'losses.csv':
         date_in_file = 'loss date'
 
-
     try:
         while True:
-            date_type = input("Step 2 = Enter 'other' if you want to view the products based on the 'purchase', 'sold' or 'loss' date. Or enter 'expiration' if you want to view the products based on the 'expiration' date (not case\
- sensitive): ").lower()
+            date_type = input(F"Step 2 = Enter one of the following dates from the '{file_name.capitalize()[:-4]}' file that you would like to view within a certain period: '{date_in_file}' or 'expiration date' (not case sensitive): ").lower()
             print('\n')
 
-            if date_type == 'expiration':
+            if date_type == 'expiration date':
                 date_in_file = 'expiration date'
             
-            if date_type == "other":
+            if date_type == date_in_file:
                 rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
 
-            elif date_type == 'expiration':
-                rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the 'expiration date' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
-
             else:
-                rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct input to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file. Please enter 'other' or 'expiration' to view the\
- products based on the '{date_in_file}' (not case sensitive).[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct 'input date' to view the products from the '{file_name.capitalize()[:-4]}' file. Please enter '{date_in_file}' or 'expiration date' to view the products\
+ within a certain period (not case sensitive).[/orange3]\n")
 
                 continue
             break
@@ -881,54 +877,47 @@ def view_product_dates():
     
     except KeyboardInterrupt:
         rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
-        sys.exit(0) 
+        sys.exit(0)
 
 
     with open(file_name, 'r') as relevant_file:
         reader = csv.DictReader(relevant_file)
         print('\n')
 
-        # Variables to select the correct 'relevant date' in the relevant file.
-        if file_name == 'inventory.csv' and date_type == 'other':
+        # Variables to select the correct 'relevant date' in the 'relevant file' for the 'for loop' below.
+        if file_name == 'inventory.csv':
             relevant_date = 'purchase_date'
+            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/green]\n")
 
-        elif file_name == 'sales.csv' and date_type == 'other':
+        elif file_name == 'sales.csv':
             relevant_date = 'sales_date'
+            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/green]\n")
 
-        elif file_name == 'losses.csv' and date_type == 'other':
+        elif file_name == 'losses.csv':
             relevant_date = 'loss_date'
+            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/green]\n")
         
-        if date_type == 'expiration':
+        if date_type == 'expiration date':
             relevant_date = 'expiration_date'
 
-
-        if date_type == 'other':
-            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
- '{file_name.capitalize()[:-4]}' file.[/green]\n")
-            
-        elif date_type == 'expiration':
-            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the\
- '{file_name.capitalize()[:-4]}' file.[/green]\n")
 
         relevant_date_list = []
 
         for categorize, row in enumerate(reader, start=1):
         
-            input_date = convert_to_strptime(row[relevant_date])
+            file_date = convert_to_strptime(row[relevant_date])
             
             input_from_date = convert_to_strptime(from_date)
             
             input_until_date = convert_to_strptime(until_date)
             
-            if date_type == 'other' and input_from_date <= input_date and input_until_date >= input_date:
+            if input_from_date <= file_date and input_until_date >= file_date:
                 relevant_date_list.append(row)
-                rprint(F"{categorize}. {row}")
+                rprint(F"[bright_cyan]{categorize}. {row}[/bright_cyan]\n")
             
-            elif date_type == 'expiration' and input_from_date <= input_date and input_until_date >= input_date:
-                relevant_date_list.append(row)
-                rprint(F"{categorize}. {row}")
-        print('\n')
-        
         if len(relevant_date_list) == 0:
             rprint(F"[orange3]:scream: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.[/orange3]\n")
 
