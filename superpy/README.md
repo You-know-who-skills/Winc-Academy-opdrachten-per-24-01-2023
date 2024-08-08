@@ -16,14 +16,18 @@ If you want to start using my project, the only things you have to do is:
 
 After pressing 'Enter' on your keyboard, my code will guide you step by step on all the things you can do with my project. And if you accidentally typed something wrong, no worries. My code will also guide you on how to correct it.
 
-**Note! I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown on the screenshot below.**
+## Have fun managing with Superpy! ##
+
+
+## SCREENSHOTS ##
+
+<!-- ***<ins>Screenshot of how to 'copy' the code</ins>*** -->
+
+***Screenshot of daily message and how to continue with my project***
+
+**Note!** I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown on the screenshot below.
 
 ![Daily automated message](image-3.png)
-
-
-
-## Have fun managing with **Superpy**! ##
-
 
 
 ***<ins>Screenshot of how to 'copy' the code</ins>***
@@ -33,11 +37,12 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step on 
 
 
 ***<ins>Screenshot of where to 'paste' the code</ins>***
-* ***Note!*** The directory in your terminal will be different than the one shown on the screenshot below, because it depends on from which folder on your device (desktop, laptop, tablet etc.) you will open my project.
+* **Note!** The directory in your terminal will be different than the one shown on the screenshot below, because it depends on from which folder on your device (desktop, laptop, tablet etc.) you will open my project.
 
 ![Screenshot of where to paste the code](image-1.png)
 
 
+## CODES ##
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
 * Copy the code shown below by klicking on this icon also shown below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
