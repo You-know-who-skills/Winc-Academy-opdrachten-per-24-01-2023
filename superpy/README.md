@@ -6,14 +6,20 @@
 
 This project is a **Command Line Interface** (CLI) project, which means that you can only use this project in a terminal; for example 'Windows terminal' / 'Windows PowerShell'.
 
-If you want to use my project, the only things you have to do is:
+If you want to start using my project, the only things you have to do is:
 
 * Copy one of the codes as shown below in the screenshot
 * Paste the code in your terminal as shown below in the screenshot
 * Press 'Enter' on your keyboard
+* Follow the steps that will we displayed on your screen
 
 
 After pressing 'Enter' on your keyboard, my code will guide you step by step on all the things you can do with my project. And if you accidentally typed something wrong, no worries. My code will also guide you on how to correct it.
+
+Note! I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown on the screenshot below.
+
+![Daily automated message](image-3.png)
+
 
 Have fun managing with **Superpy**!
 

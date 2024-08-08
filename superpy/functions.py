@@ -748,7 +748,7 @@ def view_all_products():
 
     with open(file_name, 'r+') as file:
             reader = csv.reader(file)
-            print(F"   {next(reader)}")
+            rprint(F"   [bright_cyan]{next(reader)}[/bright_cyan]")
 
             for categorize, row in enumerate(reader, start=1):
                 rprint(F"{categorize}. {row}\n")
@@ -919,7 +919,8 @@ def view_product_dates():
                 rprint(F"[bright_cyan]{categorize}. {row}[/bright_cyan]\n")
             
         if len(relevant_date_list) == 0:
-            rprint(F"[orange3]:scream: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}' file.[/orange3]\n")
+            rprint(F"[wheat1]:person_gesturing_NO: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}'\
+ file.[/wheat1]\n")
 
 
 # User function – find products.
@@ -1010,7 +1011,7 @@ def	avoid_expired_products():
 
     table.add_column("Steps to: 'avoid expired products'")
         
-    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire in 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
     table.add_row("- Done!")
 
     console.print(table)
@@ -1019,19 +1020,21 @@ def	avoid_expired_products():
 
     try:
         while True:
-            yes_or_no = input("Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire in 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive): ").lower()
+            yes_or_no = input("Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive): ").lower()
             print('\n')
 
             if yes_or_no == "y":
-                rprint("[green]Great!:thumbs_up: You can see the search result of the products that will expire in [bright_cyan]3[/bright_cyan] days below. Please think of a durable way to use these products. Thanks in advance for helping\
- to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up: [red]:red_heart:[/red][/green]\n")
+                rprint("[green]Great!:thumbs_up: You can see the search result(s) of the products that will expire within [bright_cyan]3[/bright_cyan] days below.[/green]\n")
+                
+                rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/green]\n")
 
             elif yes_or_no == "n":
-                rprint("[wheat1]Okay! The products that will expire in [bright_cyan]3[/bright_cyan] days will not be shown.[/wheat1]\n")
+                rprint("[wheat1]Okay! The products that will expire within [green]3[/green] days will not be shown.[/wheat1]\n")
             
             else:
-                rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire in 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for products\
- that will expire in 3 days (not case sensitive).[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire within 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for\
+ products that will expire within 3 days (not case sensitive).[/orange3]\n")
 
                 continue
             break
@@ -1053,17 +1056,62 @@ def	avoid_expired_products():
             
             expire_date = convert_to_strptime(row['expiration_date'])
             
-            day_after_tomorrow = today_date + timedelta(2)
+            expire_days = today_date + timedelta(3)
+            
+            today_date_string = convert_to_strftime(today_date)
+            
+            expire_date_string = convert_to_strftime(expire_date)
+            
+            expire_days_string = convert_to_strftime(expire_days)
+            
+            if yes_or_no == 'y' and expire_date_string >= today_date_string and expire_date_string < expire_days_string:
+                avoid_waste_list.append(row)
+                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+
+        if yes_or_no == 'y' and len(avoid_waste_list) == 0:
+            rprint(F"   [bright_cyan]There are no products found that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            
+            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+
+
+# Help function – daily expiration check.
+
+def	daily_expiration_check():
+
+    with open('inventory.csv', 'r') as inventory_file:
+        reader = csv.DictReader(inventory_file)
+        rows = list(reader)
+
+        avoid_waste_list = []
+
+        rprint("[green]This is your daily automated [bright_cyan]'product expiration date check'[/bright_cyan]. If there are products in your 'Inventory' file that will expire within [bright_cyan]3[/bright_cyan] days including today, they\
+ will appear below.\n")
+                
+        rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/green]\n")
+        
+        for categorize, row in enumerate(rows, start=2):
+
+            today_date = current_date()
+            
+            expire_date = convert_to_strptime(row['expiration_date'])
             
             expire_days = today_date + timedelta(3)
             
-            if yes_or_no == 'y' and expire_date > day_after_tomorrow and expire_date <= expire_days:
+            today_date_string = convert_to_strftime(today_date)
+            
+            expire_date_string = convert_to_strftime(expire_date)
+            
+            expire_days_string = convert_to_strftime(expire_days)
+            
+            if expire_date_string >= today_date_string and expire_date_string < expire_days_string:
                 avoid_waste_list.append(row)
-                rprint(F" {categorize}. {row}\n")
-
-        if len(avoid_waste_list) == 0 and yes_or_no == 'y':
-            rprint(F"There are no products found that will expire in [bright_cyan]3[/bright_cyan] days. [green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle:\
- [red]:red_heart:[/red][/green]\n")
+                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+            
+        if len(avoid_waste_list) == 0:
+            rprint("[bright_cyan]   There are no products found in the 'Inventory' file that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            
+            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
 
 
 # User function – add inventory products.
@@ -3151,47 +3199,44 @@ def display_file_options():
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'file options'[/bright_cyan] below to get started!")
     
-    table.add_row('1', "Avoid expired products")
-    table.add_row('2', "Create a new file")
-    table.add_row('3', "Clear a file")
-    table.add_row('4', "Export a file to Excel")
-    table.add_row('5', "Exit this menu")
+    table.add_row('1', "Create a new file")
+    table.add_row('2', "Clear a file")
+    table.add_row('3', "Export a file to Excel")
+    table.add_row('4', "Exit this menu")
 
-
+    
     while True:
 
         console.print(table)
         print('\n')
 
-        option = input("Enter 1 of the 5 options: ")
+        (daily_expiration_check())
+        print('\n')
+
+        option = input("Enter 1 of the 4 options: ")
         print('\n')
 
         if option == '1':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
-            avoid_expired_products()
-        
-        elif option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
-            print('\n')
             create_new_file()
             
-        elif option == '3':
+        elif option == '2':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             clear_file()
 
-        elif option == '4':
+        elif option == '3':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             export_file_to_excel()
 
-        elif option == '5':
+        elif option == '4':
             rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
             break
 
         else:
-            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 5.[/orange3]\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 4.[/orange3]\n")
             
             continue
         break
@@ -3212,12 +3257,11 @@ def display_date_options():
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'date options'[/bright_cyan] below to get started!")
     
-    table.add_row('1', "Avoid expired products")
-    table.add_row('2', "Update the system date")
-    table.add_row('3', "Change the system date")
-    table.add_row('4', "Select a specific system date")
-    table.add_row('5', "Special occasion date / countdown")
-    table.add_row('6', "Exit this menu")
+    table.add_row('1', "Update the system date")
+    table.add_row('2', "Change the system date")
+    table.add_row('3', "Select a specific system date")
+    table.add_row('4', "Special occasion date / countdown")
+    table.add_row('5', "Exit this menu")
 
 
     while True:
@@ -3225,40 +3269,39 @@ def display_date_options():
         console.print(table)
         print('\n')
 
-        option = input("Enter 1 of the 6 options: ")
+        (daily_expiration_check())
+        print('\n')
+
+        option = input("Enter 1 of the 5 options: ")
         print('\n')
 
         if option == '1':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
-            avoid_expired_products()
-        
-        elif option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
-            print('\n')
             update_system_date()
 
-        elif option == '3':
+        elif option == '2':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             change_system_date()
 
-        elif option == '4':
+        elif option == '3':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             print(select_specific_date())
-
-        elif option == '5':
+            print('\n')
+        
+        elif option == '4':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             special_occasion_date()
 
-        elif option == '6':
+        elif option == '5':
             rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
             break
 
         else:
-            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 6.[/orange3]\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 5.[/orange3]\n")
 
             continue
         break
@@ -3294,6 +3337,9 @@ def display_product_options():
     while True:
         
         console.print(table)
+        print('\n')
+
+        (daily_expiration_check())
         print('\n')
 
         option = input("Enter 1 of the 10 options: ")
@@ -3370,16 +3416,18 @@ def display_calculation_options():
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'calculation options'[/bright_cyan] below to get started!")
     
-    table.add_row('1', "Avoid expired products")
-    table.add_row('2', "Calculate the 'costs', 'losses', 'revenue' or 'profit'.")
-    table.add_row('3', "Exit this menu")
+    table.add_row('1', "Calculate the 'costs', 'losses', 'revenue' or 'profit'.")
+    table.add_row('2', "Exit this menu")
 
 
     while True:
         console.print(table)
         print('\n')
 
-        option = input("Enter 1 of the 3 options: ")
+        (daily_expiration_check())
+        print('\n')
+
+        option = input("Enter 1 of the 2 options: ")
         print('\n')
 
         if option == '1':
@@ -3397,13 +3445,16 @@ def display_calculation_options():
             break
         
         else:
-            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 3.[/orange3]\n")
+            rprint("[orange3]:scream: Hello user! You have entered an invalid option. Please enter a valid option from 1 to 2.[/orange3]\n")
 
 
 if __name__ == "__main__":
 
     print('\n')
     
+    # All user functions.
+
+    # File functions.
     print(create_new_file())
     print('\n')
 
@@ -3413,6 +3464,8 @@ if __name__ == "__main__":
     print(export_file_to_excel())
     print('\n')
 
+
+    # Date functions.
     print(update_system_date())
     print('\n')
 
@@ -3425,6 +3478,8 @@ if __name__ == "__main__":
     print(special_occasion_date())
     print('\n')
 
+
+    # Product functions.
     print(view_all_products())
     print('\n')
 
@@ -3452,10 +3507,13 @@ if __name__ == "__main__":
     print(remove_products())
     print('\n')
 
+    
+    # Calculation functions.
     print(calculations())
     print('\n')
-    
 
+
+    # Display / menu functions.
     print(display_file_options())
     print('\n')
 
