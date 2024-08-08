@@ -21,9 +21,8 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step on 
 
 ## <ins>SCREENSHOTS</ins> ##
 
-<!-- ***<ins>Screenshot of how to 'copy' the code</ins>*** -->
 
-***<ins>Screenshot of daily message and how to continue with my project</ins>***
+***<ins>Screenshot of 'daily message' and 'how to continue with my project'</ins>***
 
 **Note!** I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown on the screenshot below.
 
@@ -42,7 +41,7 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step on 
 ![Screenshot of where to paste the code](image-1.png)
 
 
-## CODES ##
+## <ins>CODES</ins> ##
 
 If you want to manage **existing files** which already contain products or if you want to create **new files** to add products:
 * Copy the code shown below by klicking on this icon also shown below: <img src="/superpy/image-2.png" alt="copy icon" width="3%" height="3%">
