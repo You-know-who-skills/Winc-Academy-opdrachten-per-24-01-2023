@@ -24,7 +24,7 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step on 
 
 ***<ins>Screenshot of 'daily message' and 'how to continue with my project'</ins>***
 
-**Note!** I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown on the screenshot below.
+**Note!** I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown in the screenshot below.
 
 ![Daily automated message](image-3.png)
 
