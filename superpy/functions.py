@@ -695,6 +695,121 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
     print('\n')
 
 
+# User function – avoid expired products.
+
+def	avoid_expired_products():
+
+    rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
+    
+    rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
+:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
+    
+    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+
+    console = Console()
+
+    table = Table(show_header = True, header_style = 'bold green')
+
+    table.add_column("Steps to: 'avoid expired products'")
+        
+    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
+    table.add_row("- Done!")
+
+    console.print(table)
+    print('\n')
+
+
+    try:
+        while True:
+            yes_or_no = input("Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive): ").lower()
+            print('\n')
+
+            if yes_or_no == "y":
+                rprint("[green]Great!:thumbs_up: You can see the search result(s) of the products that will expire within [bright_cyan]3[/bright_cyan] days below.[/green]\n")
+                
+                rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/green]\n\n")
+                
+
+            elif yes_or_no == "n":
+                rprint("[wheat1]Okay! The products that will expire within [green]3[/green] days will not be shown.[/wheat1]\n")
+                
+            else:
+                rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire within 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for\
+ products that will expire within 3 days (not case sensitive).[/orange3]\n")
+
+                continue
+            break
+
+    except KeyboardInterrupt:
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        sys.exit(0)
+
+
+    with open('inventory.csv', 'r') as inventory_file:
+        reader = csv.DictReader(inventory_file)
+        rows = list(reader)
+
+        avoid_waste_list = []
+        
+        for categorize, row in enumerate(rows, start=2):
+
+            today_date = current_date().strftime("%d-%m-%Y")
+            
+            today_date_without_time = convert_to_strptime(today_date)
+            
+            expire_date = convert_to_strptime(row['expiration_date'])
+            
+            expire_days = today_date_without_time + timedelta(3)
+            
+            if yes_or_no == 'y' and expire_date >= today_date_without_time and expire_date < expire_days:
+                avoid_waste_list.append(row)
+                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+
+        if yes_or_no == 'y' and len(avoid_waste_list) == 0:
+            rprint(F"   [bright_cyan]There are no products found that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            
+            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+            
+        print('\n')
+
+
+# Help function – daily expiration check.
+
+def	daily_expiration_check():
+
+    with open('inventory.csv', 'r') as inventory_file:
+        reader = csv.DictReader(inventory_file)
+        rows = list(reader)
+
+        avoid_waste_list = []
+
+        rprint("[green]This is your daily automated [bright_cyan]'product expiration date check'[/bright_cyan]. If there are products in your 'Inventory' file that will expire within [bright_cyan]3[/bright_cyan] days including today, they\
+ will appear below.\n")
+                
+        rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/green]\n\n")
+        
+        for categorize, row in enumerate(rows, start=2):
+
+            today_date = current_date().strftime("%d-%m-%Y")
+            
+            today_date_without_time = convert_to_strptime(today_date)
+            
+            expire_date = convert_to_strptime(row['expiration_date'])
+            
+            expire_days = today_date_without_time + timedelta(3)
+            
+            if expire_date >= today_date_without_time and expire_date < expire_days:
+                avoid_waste_list.append(row)
+                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+            
+        if len(avoid_waste_list) == 0:
+            rprint("[bright_cyan]   There are no products found in the 'Inventory' file that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            
+            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+
+
 # User function – view all products.
 
 def view_all_products():
@@ -752,6 +867,8 @@ def view_all_products():
 
             for categorize, row in enumerate(reader, start=1):
                 rprint(F"{categorize}. {row}\n")
+            
+            print('\n')
 
 
 # User function – view product dates.
@@ -917,10 +1034,12 @@ def view_product_dates():
             if input_from_date <= file_date and input_until_date >= file_date:
                 relevant_date_list.append(row)
                 rprint(F"[bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+                print('\n')
             
         if len(relevant_date_list) == 0:
             rprint(F"[wheat1]:person_gesturing_NO: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}'\
  file.[/wheat1]\n")
+            print('\n')
 
 
 # User function – find products.
@@ -994,124 +1113,7 @@ def find_products():
         sys.exit(0)
 
 
-# User function – avoid expired products.
 
-def	avoid_expired_products():
-
-    rprint("- Hello user, and welcome to the [bright_cyan]'avoid expired products'[/bright_cyan] option.\n")
-    
-    rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
-:handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
-    
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
-
-    console = Console()
-
-    table = Table(show_header = True, header_style = 'bold green')
-
-    table.add_column("Steps to: 'avoid expired products'")
-        
-    table.add_row("- Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive).")
-    table.add_row("- Done!")
-
-    console.print(table)
-    print('\n')
-
-
-    try:
-        while True:
-            yes_or_no = input("Step 1 = Confirm if you 'do' or 'don't' want to check for products that will expire within 3 days in the 'Inventory' file, by entering 'Y' for Yes or 'N' for No (not case sensitive): ").lower()
-            print('\n')
-
-            if yes_or_no == "y":
-                rprint("[green]Great!:thumbs_up: You can see the search result(s) of the products that will expire within [bright_cyan]3[/bright_cyan] days below.[/green]\n")
-                
-                rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
- [red]:red_heart:[/red][/green]\n")
-
-            elif yes_or_no == "n":
-                rprint("[wheat1]Okay! The products that will expire within [green]3[/green] days will not be shown.[/wheat1]\n")
-            
-            else:
-                rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire within 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for\
- products that will expire within 3 days (not case sensitive).[/orange3]\n")
-
-                continue
-            break
-
-    except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
-        sys.exit(0)
-
-
-    with open('inventory.csv', 'r') as inventory_file:
-        reader = csv.DictReader(inventory_file)
-        rows = list(reader)
-
-        avoid_waste_list = []
-        
-        for categorize, row in enumerate(rows, start=2):
-
-            today_date = current_date()
-            
-            expire_date = convert_to_strptime(row['expiration_date'])
-            
-            expire_days = today_date + timedelta(3)
-            
-            today_date_string = convert_to_strftime(today_date)
-            
-            expire_date_string = convert_to_strftime(expire_date)
-            
-            expire_days_string = convert_to_strftime(expire_days)
-            
-            if yes_or_no == 'y' and expire_date_string >= today_date_string and expire_date_string < expire_days_string:
-                avoid_waste_list.append(row)
-                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
-
-        if yes_or_no == 'y' and len(avoid_waste_list) == 0:
-            rprint(F"   [bright_cyan]There are no products found that will expire within [green]3[/green] days.[/bright_cyan]\n")
-            
-            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
-
-
-# Help function – daily expiration check.
-
-def	daily_expiration_check():
-
-    with open('inventory.csv', 'r') as inventory_file:
-        reader = csv.DictReader(inventory_file)
-        rows = list(reader)
-
-        avoid_waste_list = []
-
-        rprint("[green]This is your daily automated [bright_cyan]'product expiration date check'[/bright_cyan]. If there are products in your 'Inventory' file that will expire within [bright_cyan]3[/bright_cyan] days including today, they\
- will appear below.\n")
-                
-        rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
- [red]:red_heart:[/red][/green]\n")
-        
-        for categorize, row in enumerate(rows, start=2):
-
-            today_date = current_date()
-            
-            expire_date = convert_to_strptime(row['expiration_date'])
-            
-            expire_days = today_date + timedelta(3)
-            
-            today_date_string = convert_to_strftime(today_date)
-            
-            expire_date_string = convert_to_strftime(expire_date)
-            
-            expire_days_string = convert_to_strftime(expire_days)
-            
-            if expire_date_string >= today_date_string and expire_date_string < expire_days_string:
-                avoid_waste_list.append(row)
-                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
-            
-        if len(avoid_waste_list) == 0:
-            rprint("[bright_cyan]   There are no products found in the 'Inventory' file that will expire within [green]3[/green] days.[/bright_cyan]\n")
-            
-            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
 
 
 # User function – add inventory products.
@@ -3349,6 +3351,7 @@ def display_product_options():
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
             print('\n')
             avoid_expired_products()
+            break
         
         if option == '2':
             rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
@@ -3480,6 +3483,9 @@ if __name__ == "__main__":
 
 
     # Product functions.
+    print(avoid_expired_products())
+    print('\n')
+
     print(view_all_products())
     print('\n')
 
@@ -3487,9 +3493,6 @@ if __name__ == "__main__":
     print('\n')
 
     print(find_products())
-    print('\n')
-
-    print(avoid_expired_products())
     print('\n')
 
     print(add_inventory_products())
