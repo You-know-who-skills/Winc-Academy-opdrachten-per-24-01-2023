@@ -23,11 +23,11 @@ def create_new_file():
 
     print("- Follow the step(s) below to create one of the following files: 'Inventory', 'Sales' or 'Losses' (not case sensitive).\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'create a new file'")
 
@@ -44,7 +44,7 @@ def create_new_file():
             print('\n')
 
             if file_name == 'inventory' or file_name == 'sales' or file_name == 'losses':
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/green]")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()}' file has been created.[/dark_sea_green4]")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names to create it: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -53,7 +53,7 @@ def create_new_file():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
     print('\n')
@@ -82,11 +82,11 @@ def clear_file():
 
     print("- Follow the step(s) below to clear a selected file from all it's products. Have fun clearing!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'clear a file'")
         
@@ -113,7 +113,7 @@ def clear_file():
                 file_name = 'losses.csv'
 
             elif file_name == 's':
-                rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+                rprint("[wheat1]Okay. You have chosen to [dark_sea_green4]stop[/dark_sea_green4] with filling in these steps. See you next time![/wheat1]\n")
                 break
 
             else:
@@ -123,7 +123,7 @@ def clear_file():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -133,7 +133,7 @@ def clear_file():
             print('\n')
 
             if yes_or_no == 'Y' or yes_or_no == 'y':
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all its products.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file has been cleared of all its products.[/dark_sea_green4]\n")
                 print('\n')
 
                 if file_name == 'inventory.csv':
@@ -155,12 +155,12 @@ def clear_file():
                         break
             
             elif yes_or_no == 'N' or yes_or_no == 'n':
-                rprint(F"[wheat1]Okay. The [green]'{file_name.capitalize()[:-4]}'[/green] file will not be cleared of all it's products.[/wheat1]\n")
+                rprint(F"[wheat1]Okay. The [dark_sea_green4]'{file_name.capitalize()[:-4]}'[/dark_sea_green4] file will not be cleared of all it's products.[/wheat1]\n")
                 print('\n')
                 break
 
             elif yes_or_no == 's'.lower():
-                rprint("[wheat1]Okay. You have chosen to [green]stop[/green] with filling in these steps. See you next time![/wheat1]\n")
+                rprint("[wheat1]Okay. You have chosen to [dark_sea_green4]stop[/dark_sea_green4] with filling in these steps. See you next time![/wheat1]\n")
                 break
 
             else:
@@ -170,7 +170,7 @@ def clear_file():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -182,11 +182,11 @@ def export_file_to_excel():
 
     print("- Follow the step(s) below to export a selected file to an 'Excel' file. Have fun exporting!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
     
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'export a file to Excel'")
         
@@ -204,15 +204,15 @@ def export_file_to_excel():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/dark_sea_green4]\n")
 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/dark_sea_green4]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found and it is exported to an Excel file.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -221,7 +221,7 @@ def export_file_to_excel():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -292,11 +292,11 @@ def update_system_date():
     
     print("- Follow the step(s) below to update the system date. Have fun updating!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'update the system date'")
         
@@ -313,10 +313,10 @@ def update_system_date():
             print('\n')
 
             if update_system == "y":
-                rprint("[green]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.[/green]\n")
+                rprint("[dark_sea_green4]Great!:thumbs_up: The date of the system has been updated to the current date. You can see the current date below.[/dark_sea_green4]\n")
 
             elif update_system == "n":
-                rprint("[wheat1]Okay! The date of the system will not be updated to the current date.[/wheat1]\n")
+                rprint("[wheat1]:person_gesturing_NO: Okay! The date of the system will not be updated to the current date.[/wheat1]\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! '{update_system}' isn't the correct input for updating the system date to the 'current date'. Please enter 'Y' if you 'do' or 'N' if you 'don't' want to update the system date to the\
@@ -326,7 +326,7 @@ def update_system_date():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -351,11 +351,11 @@ def change_system_date():
         
     print("- Follow the step(s) below to change the system date by entering the number of 'days' or 'weeks' that you want to change the system date with. Have fun changing!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'change the system date'")
         
@@ -374,7 +374,7 @@ def change_system_date():
             print('\n')
 
             if days_or_weeks == 'days' or days_or_weeks == 'weeks':
-                rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}'.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}'.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! '{days_or_weeks}' isn't the correct input to modify the system date. Please enter 'days' or 'weeks' for the correct system date modification.[/orange3]\n")
@@ -383,7 +383,7 @@ def change_system_date():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -393,7 +393,7 @@ def change_system_date():
                 print('\n')
 
                 if past_or_future == 'past' or past_or_future == 'future':
-                    rprint(F"[green]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.[/green]\n")
+                    rprint(F"[dark_sea_green4]Great!:thumbs_up: Let's change the system date for a couple of '{days_or_weeks}' in the '{past_or_future}'.[/dark_sea_green4]\n")
 
                 else:
                     rprint(F"[orange3]:scream: Hello user! '{past_or_future}' isn't the correct input to modify the system date. Please enter 'past' or 'future' for the correct system date modification.[/orange3]\n ")
@@ -402,7 +402,7 @@ def change_system_date():
                 break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -431,7 +431,7 @@ def change_system_date():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -461,7 +461,7 @@ def change_system_date():
 
         date_file.write(string_date)
 
-    return rprint(F"[green]Great!:thumbs_up: If we go '{number}' '{days_or_weeks}' into the '{past_or_future}', the date = '{string_date}'[/green]\n")
+    return rprint(F"[dark_sea_green4]Great!:thumbs_up: If we go '{number}' '{days_or_weeks}' into the '{past_or_future}', the date = [bright_cyan]'{string_date}'[/bright_cyan][/dark_sea_green4]\n\n")
 
 
 # User function – select specific date.
@@ -472,11 +472,11 @@ def select_specific_date():
     
     print("- Follow the step(s) below to go to a specific date in the system. Have fun selecting!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'select a specific system date'")
 
@@ -496,22 +496,22 @@ def select_specific_date():
                 convert_to_dutch_date(specific_date)
                 
             except ValueError:
-                rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct way to fill in the 'specific date'. Please enter the 'specific date' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{specific_date}' isn't the correct way to fill in the 'specific system date'. Please enter the 'specific date' as follows: dd-mm-yyyy.[/orange3]\n")
                 
                 continue
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
     with open('date_file.txt', 'w') as date_file:
 
         date_file.write(specific_date)
-        rprint("[green]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the specific date below.[/green]\n")
+        rprint("[dark_sea_green4]Great!:thumbs_up: The date of the system has been changed to the specific date. You can see the 'specific system date' below.[/dark_sea_green4]\n")
 
-    return rprint(F"[bright_cyan]{specific_date}[/bright_cyan]\n")
+    return rprint(F"[bright_cyan]{specific_date}[/bright_cyan]\n\n")
 
 
 # User function – special occasion date.
@@ -522,11 +522,11 @@ def special_occasion_date():
 
     print("- Follow the step(s) below to create a countdown for a 'special occasion'. Have fun with the countdown!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
     
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'start a special occasion countdown'")
 
@@ -547,8 +547,8 @@ def special_occasion_date():
                 convert_to_dutch_date(special_occasion_date)
                 
             except ValueError:
-                rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct way to fill in the 'date' for the 'special occasion countdown'. Please enter the correct 'date' for the 'special occasion countdown' as\
- follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{special_occasion_date}' Isn't the correct way to fill in the 'date' for the 'special occasion countdown'. Please enter the 'date' for the 'special occasion countdown' as follows:\
+ dd-mm-yyyy.[/orange3]\n")
                 
                 continue
             
@@ -557,7 +557,7 @@ def special_occasion_date():
             todays_date = current_date()                           
 
             if input_date > todays_date:
-                rprint(F"[green]Great!:thumbs_up: The 'date' for the 'special occasion countdown': '{special_occasion_date}', has been filled in correctly.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The 'date' for the 'special occasion countdown': '{special_occasion_date}', has been filled in correctly.[/dark_sea_green4]\n")
 
             elif input_date < todays_date:                                    
                 rprint(F"[orange3]:scream: Hello user! The 'date' you've just entered: '{special_occasion_date}', is a date in the past. And we're not able to time travel... yet.:wink: Please enter the correct 'date' for the 'special\
@@ -567,7 +567,7 @@ def special_occasion_date():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -576,7 +576,7 @@ def special_occasion_date():
         print('\n')
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
     
 
@@ -591,7 +591,8 @@ def special_occasion_date():
         short_string_countdown = full_string_countdown[0:full_string_countdown.find(",")]
         file.write(F"{short_string_countdown.upper()} {special_occasion_sentence}")
 
-    return rprint(F"[green]Great!:thumbs_up: You can see the 'date' and 'sentence' for the 'special occasion countdown' below.\n\n[bright_cyan]{short_string_countdown.upper()} {special_occasion_sentence}[/bright_cyan][/green]\n")
+    return rprint(F"[dark_sea_green4]Great!:thumbs_up: You can see the 'date' and 'sentence' for the 'special occasion countdown' below.\n\n[bright_cyan]{short_string_countdown.upper()} {special_occasion_sentence}[/bright_cyan]\
+[/dark_sea_green4]\n\n")
 
 
 # Help function – column name check.
@@ -606,7 +607,7 @@ def column_name_check(file_name: str):
 
         check_column_name = next(reader)
 
-        rprint(F"[bright_magenta]These are the all the 'product detail names' in the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
+        rprint(F"[magenta]These are the all the 'product detail names' in the '{file_name.capitalize()[:-4]}' file:[/magenta]")
         rprint(F"[bright_cyan]{check_column_name}[/bright_cyan]")
         print('\n')
 
@@ -628,7 +629,7 @@ def product_in_file_check(file_name: str, search_type: str):
         
         product_in_file = False
 
-        rprint(F"[bright_magenta]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
+        rprint(F"[magenta]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/magenta]")
 
         for row in rows:
             if row['name'] == search_type or row['id'] == search_type:
@@ -685,7 +686,7 @@ def show_product_details(file_name: str, search_type: str, expiration_date: str)
         reader = csv.DictReader(file)
         rows = list(reader)
         
-        rprint(F"[bright_magenta]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
+        rprint(F"[magenta]Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file:[/magenta]")
 
         for categorize, row in enumerate(rows, start=2):
             
@@ -704,11 +705,11 @@ def	avoid_expired_products():
     rprint("- [bright_cyan]Please follow the step(s) below every day to avoid expired products. In this way you can help our planet :globe_showing_Europe-Africa: by not wasting products and you can also help people who are less fortunate.\
 :handshake: Have fun in helping to make our world :globe_showing_Europe-Africa: a better and durable place!:muscle:[/bright_cyan]\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'avoid expired products'")
         
@@ -725,14 +726,14 @@ def	avoid_expired_products():
             print('\n')
 
             if yes_or_no == "y":
-                rprint("[green]Great!:thumbs_up: You can see the search result(s) of the products that will expire within [bright_cyan]3[/bright_cyan] days below.[/green]\n")
+                rprint("[dark_sea_green4]Great!:thumbs_up: You can see the search result(s) of the products that will expire within [bright_cyan]3[/bright_cyan] days below.[/dark_sea_green4]\n")
                 
-                rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
- [red]:red_heart:[/red][/green]\n\n")
+                rprint("[dark_sea_green4]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/dark_sea_green4]\n\n")
                 
 
             elif yes_or_no == "n":
-                rprint("[wheat1]Okay! The products that will expire within [green]3[/green] days will not be shown.[/wheat1]\n")
+                rprint("[wheat1]:person_gesturing_NO: Okay! The products that will expire within [dark_sea_green4]3[/dark_sea_green4] days will not be shown.[/wheat1]\n")
                 
             else:
                 rprint(F"[orange3]:scream: Hello user! '{yes_or_no}' isn't the correct input for checking the products that will expire within 3 days. Please enter 'Y' for Yes if you 'do', or 'N' for No if you 'don't' want to check for\
@@ -742,7 +743,7 @@ def	avoid_expired_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -767,9 +768,9 @@ def	avoid_expired_products():
                 rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
 
         if yes_or_no == 'y' and len(avoid_waste_list) == 0:
-            rprint(F"   [bright_cyan]There are no products found that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            rprint(F"   [bright_cyan]There are no products found that will expire within [dark_sea_green4]3[/dark_sea_green4] days.[/bright_cyan]\n")
             
-            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+            rprint("[dark_sea_green4]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/dark_sea_green4]\n")
             
         print('\n')
 
@@ -784,11 +785,11 @@ def	daily_expiration_check():
 
         avoid_waste_list = []
 
-        rprint("[green]This is your daily automated [bright_cyan]'product expiration date check'[/bright_cyan]. If there are products in your 'Inventory' file that will expire within [bright_cyan]3[/bright_cyan] days including today, they\
- will appear below.\n")
+        rprint("[dark_sea_green4]This is your daily automated [bright_cyan]'product expiration date check'[/bright_cyan]. If there are products in your 'Inventory' file that will expire within [bright_cyan]3[/bright_cyan] days including\
+ today, they will appear below.[/dark_sea_green4]\n")
                 
-        rprint("[green]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
- [red]:red_heart:[/red][/green]\n\n")
+        rprint("[dark_sea_green4]Please think of a durable way to use these products before they expire. Thanks in advance for helping to make our world :globe_showing_Europe-Africa: a better and durable place.:muscle: :thumbs_up:\
+ [red]:red_heart:[/red][/dark_sea_green4]\n\n")
         
         for categorize, row in enumerate(rows, start=2):
 
@@ -805,9 +806,9 @@ def	daily_expiration_check():
                 rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
             
         if len(avoid_waste_list) == 0:
-            rprint("[bright_cyan]   There are no products found in the 'Inventory' file that will expire within [green]3[/green] days.[/bright_cyan]\n")
+            rprint("[bright_cyan]   There are no products found in the 'Inventory' file that will expire within [dark_sea_green4]3[/dark_sea_green4] days.[/bright_cyan]\n")
             
-            rprint("[green]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/green]\n")
+            rprint("[dark_sea_green4]So good job on helping to make our world :globe_showing_Europe-Africa: a better and durable place.:thumbs_up: :muscle: [red]:red_heart:[/red][/dark_sea_green4]\n")
 
 
 # User function – view all products.
@@ -818,11 +819,11 @@ def view_all_products():
 
     print("- Follow the step(s) below to view all products from a selected file. Have fun viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'view all of the products from a selected file'")
         
@@ -840,15 +841,15 @@ def view_all_products():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/dark_sea_green4]\n")
 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/dark_sea_green4]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found. You can see all the products of the '{file_name.capitalize()[:-4]}' file below![/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -857,7 +858,7 @@ def view_all_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -866,7 +867,7 @@ def view_all_products():
             rprint(F"   [bright_cyan]{next(reader)}[/bright_cyan]")
 
             for categorize, row in enumerate(reader, start=1):
-                rprint(F"{categorize}. {row}\n")
+                rprint(F"[bright_cyan]{categorize}[/bright_cyan]. [dark_sea_green4]{row}[dark_sea_green4]\n")
             
             print('\n')
 
@@ -880,11 +881,11 @@ def view_product_dates():
     rprint("- Follow the [grey78]step(s)[/grey78] below to view the products from a selected file based on one of the following dates: 'purchase date', 'sales date', 'loss date' or 'expiration date', within a selected period. Have fun\
  viewing!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'view products based on a specific date'")
         
@@ -905,15 +906,15 @@ def view_product_dates():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -922,7 +923,7 @@ def view_product_dates():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -945,7 +946,7 @@ def view_product_dates():
                 date_in_file = 'expiration date'
             
             if date_type == date_in_file:
-                rprint(F"[green]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: It's noted that you want to view the '{date_in_file}' of the products from the '{file_name.capitalize()[:-4]}' file within a certain period.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! '{date_type}' Isn't the correct 'input date' to view the products from the '{file_name.capitalize()[:-4]}' file. Please enter '{date_in_file}' or 'expiration date' to view the products\
@@ -955,7 +956,7 @@ def view_product_dates():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -974,7 +975,7 @@ def view_product_dates():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -993,7 +994,7 @@ def view_product_dates():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1004,18 +1005,18 @@ def view_product_dates():
         # Variables to select the correct 'relevant date' in the 'relevant file' for the 'for loop' below.
         if file_name == 'inventory.csv':
             relevant_date = 'purchase_date'
-            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
- '{file_name.capitalize()[:-4]}' file.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/dark_sea_green4]\n")
 
         elif file_name == 'sales.csv':
             relevant_date = 'sales_date'
-            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
- '{file_name.capitalize()[:-4]}' file.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/dark_sea_green4]\n")
 
         elif file_name == 'losses.csv':
             relevant_date = 'loss_date'
-            rprint(F"[green]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
- '{file_name.capitalize()[:-4]}' file.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: Below you can see the search results of all the products with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' from the\
+ '{file_name.capitalize()[:-4]}' file.[/dark_sea_green4]\n")
         
         if date_type == 'expiration date':
             relevant_date = 'expiration_date'
@@ -1033,13 +1034,13 @@ def view_product_dates():
             
             if input_from_date <= file_date and input_until_date >= file_date:
                 relevant_date_list.append(row)
-                rprint(F"[bright_cyan]{categorize}. {row}[/bright_cyan]\n")
-                print('\n')
-            
+                rprint(F"   [bright_cyan]{categorize}. {row}[/bright_cyan]\n")
+                
         if len(relevant_date_list) == 0:
-            rprint(F"[wheat1]:person_gesturing_NO: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}'\
+            rprint(F"   [wheat1]:person_gesturing_NO: There were no products found with '{date_in_file}s' between '{convert_to_dutch_date(from_date)}' and '{convert_to_dutch_date(until_date)}' in the '{file_name.capitalize()[:-4]}'\
  file.[/wheat1]\n")
-            print('\n')
+        
+        print('\n')
 
 
 # User function – find products.
@@ -1050,11 +1051,11 @@ def find_products():
     
     print("- Follow the step(s) below to find the product you are looking for. Have fun finding!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'find products in a selected file'")
 
@@ -1073,15 +1074,15 @@ def find_products():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -1090,7 +1091,7 @@ def find_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
     
 
@@ -1100,7 +1101,7 @@ def find_products():
             print('\n')
             
             if product_in_file_check(file_name, search_type) == True:
-                rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/dark_sea_green4]\n\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'name' or 'ID' (the product name is not case sensitive).[/orange3]\n")
@@ -1109,11 +1110,8 @@ def find_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
-
-
-
 
 
 # User function – add inventory products.
@@ -1124,11 +1122,11 @@ def add_inventory_products():
     
     print("- Follow the step(s) below to add products to the Inventory file. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'add products to the Inventory file'")
         
@@ -1170,11 +1168,15 @@ def add_inventory_products():
             id_check = product_in_file_check('inventory.csv', id)
             
             if id_check == True:
-                rprint(F"[wheat1]:thinking_face: Please note that product ID '{id}' already exists in the 'Inventory' file. You can see the 'product details' of the existing product ID '{id}' above.[/wheat1]\n")
+                rprint(F"[wheat1]:thinking_face: Please note that product ID [bright_cyan]{id}[/bright_cyan] already exists in the 'Inventory' file. You can see the 'product details' of the existing product ID [bright_cyan]{id}[/bright_cyan]\
+ above.[/wheat1]\n")
+
+            else:
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The product ID '{id}' hasn't been used before in the 'Inventory' file.[/dark_sea_green4]\n\n")
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1186,11 +1188,15 @@ def add_inventory_products():
             name_check = product_in_file_check('inventory.csv', name)
             
             if name_check == True:
-                rprint(F"[wheat1]:thinking_face: Please note that product name '{name}' already exists in the 'Inventory' file. You can see the 'product details' of the existing product name '{name}' above.'[/wheat1]\n")
+                rprint(F"[wheat1]:thinking_face: Please note that product name [bright_cyan]{name}[/bright_cyan] already exists in the 'Inventory' file. You can see the 'product details' of the existing product name [bright_cyan]{name}\
+[/bright_cyan] above.'[/wheat1]\n")
+                
+            else:
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The product name '{name}' hasn't been used before in the 'Inventory' file.[/dark_sea_green4]\n\n")
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1217,7 +1223,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1253,7 +1259,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1281,7 +1287,7 @@ def add_inventory_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
     # The 3 variables below are to create the 'tomorrow_date' variable which is a notification code for when the expiration date of a product is tomorrow. This will help the user to avoid wasting products. See from the 1st 'elif statement'\
@@ -1315,18 +1321,18 @@ def add_inventory_products():
             
             elif expiration == current_date().strftime("%d-%m-%Y"):
                 print('\n')
-                rprint(F"[wheat1]:astonished_face: Hello user! The 'expiration date' of product '{name}' is today.:astonished_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to\
- do something with product '{name}'.[/wheat1]")        
+                rprint(F"[wheat1]:astonished_face: Hello user! The 'expiration date' of product [bright_cyan]{name}[/bright_cyan] is today.:astonished_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3:\
+ think of a durable way to do something with product [bright_cyan]{name}[/bright_cyan].[/wheat1]")
 
             elif expiration == tomorrow_date:
                 print('\n')
-                rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product '{name}' is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to do\
- something with product '{name}'.[/wheat1]")
+                rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product [bright_cyan]{name}[/bright_cyan] is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to do\
+ something with product [bright_cyan]{name}[/bright_cyan].[/wheat1]")
 
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1359,9 +1365,9 @@ def add_inventory_products():
         if already_exists == True:
             writer.writerows(rows)
             print('\n')                        
-            rprint(F"[green]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the 'product\
- details' below.[/green]\n")
-            rprint(F"[bright_cyan]{row}[/bright_cyan]")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The quantity of product '{name}' has been updated, because the 'ID', the 'name', the 'purchase amount', 'the purchase date' and the 'expiration date' are the same. You can check the\
+ 'product details' below.[/dark_sea_green4]\n")
+            rprint(F"   [bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
         else:
@@ -1370,8 +1376,8 @@ def add_inventory_products():
                 writer.writerow(product_details)
                 
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the 'product details' below.[/green]\n")
-                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{name}' has been added to the 'Inventory' file. You can check the 'product details' below.[/dark_sea_green4]\n")
+                rprint(F"   [bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
 
@@ -1385,11 +1391,11 @@ def add_sold_products():
     
     print("- Follow the step(s) below to add your sold products. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'add sold products to the Sales file'")
         
@@ -1413,7 +1419,7 @@ def add_sold_products():
             print('\n')
             
             if product_in_file_check('inventory.csv', id) == True:
-                rprint(F"[green]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/dark_sea_green4]\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file.\
@@ -1423,7 +1429,7 @@ def add_sold_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1437,7 +1443,7 @@ def add_sold_products():
 
             if name in product_detail_check('inventory.csv', id, 'name'):
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check('inventory.csv', id)
@@ -1448,7 +1454,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1474,7 +1480,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1510,7 +1516,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1538,7 +1544,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1565,8 +1571,8 @@ def add_sold_products():
             if expiration_date in expiration_date_check:
                 print('\n')
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory file'. You can see all the 'expiration dates' of product\
- '{name}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory file'. You can see all the 'expiration dates' of\
+ product '{name}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
                 if expiration == current_date().strftime("%d-%m-%Y"):
                     rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
@@ -1584,7 +1590,7 @@ def add_sold_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1617,8 +1623,8 @@ def add_sold_products():
         if already_exists == True:
             writer.writerows(rows)
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: The 'sold quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the updated\
- details below.[/green]\n")            
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The 'sold quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the\
+ updated details below.[/dark_sea_green4]\n")
             rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
             
@@ -1627,7 +1633,7 @@ def add_sold_products():
                 writer = csv.DictWriter(sales_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.[/dark_sea_green4]\n")
                 rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
@@ -1651,8 +1657,8 @@ def add_sold_products():
  / 'nothing' left in stock.:scream:[/orange3]\n")
         
                 else:
-                    rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
- left in stock.:grinning_face_with_big_eyes:[/green]\n")
+                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are\
+ '{(row['purchase_quantity'])}' left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n")
 
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1670,11 +1676,11 @@ def add_loss_products():
 
     print("- Follow the step(s) below to add a product loss. Have fun adding!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'add products to the Losses file'")
         
@@ -1699,7 +1705,7 @@ def add_loss_products():
             print('\n')
 
             if product_in_file_check('inventory.csv', id) == True:
-                rprint(F"[green]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/dark_sea_green4]\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if this product is also found in the 'Inventory' file.\
@@ -1709,7 +1715,7 @@ def add_loss_products():
             break 
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1723,8 +1729,8 @@ def add_loss_products():
 
             if name in product_detail_check('inventory.csv', id, 'name'):
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[green]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file above.\
-[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file\
+ above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check('inventory.csv', id)
@@ -1735,7 +1741,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1761,7 +1767,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1797,7 +1803,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1824,7 +1830,7 @@ def add_loss_products():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1836,7 +1842,7 @@ def add_loss_products():
 
             if loss_cause in loss_cause_options:
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss' option.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss' option.[/dark_sea_green4]\n")
 
             else:
                 print('\n')
@@ -1847,7 +1853,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1875,8 +1881,8 @@ def add_loss_products():
             if expiration_date in expiration_date_check:
                 print('\n')
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory' file. You can see all the 'expiration dates' of product\
- '{name}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{name}' in the 'Inventory' file. You can see all the 'expiration dates' of\
+ product '{name}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 if expiration == current_date().strftime("%d-%m-%Y"):
                     rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the loss product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
@@ -1894,7 +1900,7 @@ def add_loss_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -1929,8 +1935,8 @@ def add_loss_products():
             writer.writerows(rows)
             
             print('\n')
-            rprint(F"[green]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same. You can\
- check the updated details below.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same.\
+ You can check the updated details below.[/dark_sea_green4]\n")
             rprint(F"[bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
@@ -1940,7 +1946,7 @@ def add_loss_products():
                 writer.writerow(product_details)
                 
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.[/dark_sea_green4]\n")
                 rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
@@ -1963,8 +1969,8 @@ def add_loss_products():
  / 'nothing' left in stock.:scream:[/orange3]\n")
 
                 else:
-                    rprint(F"[green]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are '{(row['purchase_quantity'])}'\
- left in stock.:grinning_face_with_big_eyes:[/green]\n")
+                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are\
+ '{(row['purchase_quantity'])}' left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n")
 
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1980,13 +1986,13 @@ def modify_product_details():
 
     print("- Follow the step(s) below to modify any detail of a product in a selected file. Have fun modifying!\n")
     
-    rprint("-[bright_magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
-    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
+    rprint("-[magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'modify the product details in a selected file'")
         
@@ -2013,15 +2019,15 @@ def modify_product_details():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
                 
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
                 
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter one of the following file names: 'Inventory', 'Sales' or 'Losses' (not case sensitive).[/orange3]\n")
@@ -2030,7 +2036,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2040,7 +2046,7 @@ def modify_product_details():
             print('\n')
 
             if product_in_file_check(file_name, search_type) == True:
-                rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' of product '{search_type}' above.[/dark_sea_green4]\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct current 'ID' or 'name' of the product (not case sensitive).[/orange3]\n")
@@ -2049,7 +2055,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2080,18 +2086,18 @@ def modify_product_details():
             
             if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You\
- can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
+ file. You can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             elif file_name == 'sales.csv' and quantity in sold_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You\
- can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
+ file. You can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'losses.csv' and quantity in loss_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You\
- can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_quantity}': '{quantity}', matches one of the current '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}'\
+ file. You can see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check(file_name, search_type)
@@ -2102,7 +2108,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2134,18 +2140,18 @@ def modify_product_details():
 
             if file_name == 'inventory.csv' and input_amount in purchase_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
+ You can see all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'sales.csv' and input_amount in sales_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
+ You can see all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'losses.csv' and input_amount in loss_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
- all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_amount}': '{input_amount}', matches one of the current '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file.\
+ You can see all the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check(file_name, search_type)
@@ -2156,7 +2162,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2186,18 +2192,18 @@ def modify_product_details():
         
         if file_name == 'inventory.csv' and input_date in purchase_date_check:
             product_in_file_check(file_name, search_type)
-            rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
+ all the '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
         elif file_name == 'sales.csv' and input_date in sales_date_check:
             product_in_file_check(file_name, search_type)
-            rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
+ all the '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
         
         elif file_name == 'losses.csv' and input_date in loss_date_check:
             product_in_file_check(file_name, search_type)
-            rprint(F"[green]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+            rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current '{relevant_date}': '{input_date}', matches one of the current '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see\
+ all the '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
         else:
             product_in_file_check(file_name, search_type)
@@ -2219,12 +2225,12 @@ def modify_product_details():
                 print('\n')
                 
                 if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
-                    (product_in_file_check('losses.csv', search_type))
-                    rprint(F"[green]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of product\
- '{search_type}' in the 'product details' shown above.[/green]\n")
+                    product_in_file_check('losses.csv', search_type)
+                    rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of\
+ product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 else:
-                    (product_in_file_check('losses.csv', search_type))
+                    product_in_file_check('losses.csv', search_type)
                     rprint(F"[orange3]:scream: Hello user! The entered 'cause of loss': '{loss_cause}', doesn't match with one of the 'causes of loss' options in the 'Losses' file. Please enter the correct 'cause of loss' for product\
  '{search_type}' that you want to modify as shown above in the 'product details' (not case sensitive).[/orange3]\n")
                     
@@ -2232,7 +2238,7 @@ def modify_product_details():
                 break
         
         except KeyboardInterrupt:
-            rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
             sys.exit(0)
 
 
@@ -2261,8 +2267,8 @@ def modify_product_details():
             if expiration_date in expiration_date_check:
                 print('\n')
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered current 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- 'expiration dates' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered current 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
+ see all the 'expiration dates' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 if expiration == current_date().strftime("%d-%m-%Y"):
                     rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:[/wheat1]\n")
@@ -2280,7 +2286,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2332,8 +2338,8 @@ def modify_product_details():
 
             if column_name in column_name_check(file_name):
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: The entered product detail name '{column_name}' for product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see all the 'product detail names' from the\
- '{file_name.capitalize()[:-4]}' file above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered product detail name '{column_name}' for product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see all the 'product detail names' from\
+ the '{file_name.capitalize()[:-4]}' file above.[/dark_sea_green4]\n")
 
             else:
                 print('\n')
@@ -2344,7 +2350,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2432,7 +2438,7 @@ def modify_product_details():
 
                 if product_detail in loss_cause_options:
                     print('\n')
-                    rprint(F"[green]Great!:thumbs_up: '{product_detail.capitalize()}' is a correct cause of loss option in the '{file_name.capitalize()[:-4]}' file.[/green]\n")
+                    rprint(F"[dark_sea_green4]Great!:thumbs_up: '{product_detail.capitalize()}' is a correct cause of loss option in the '{file_name.capitalize()[:-4]}' file.[/dark_sea_green4]\n")
 
                 else:
                     print('\n')
@@ -2443,7 +2449,7 @@ def modify_product_details():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2494,7 +2500,7 @@ def modify_product_details():
 and row['expiration_date'] == expiration_date:
             
                 print('\n')
-                rprint(F"[bright_magenta]Product details of product '{search_type}' from the '{file_name.capitalize()[:-4]}' file that you want to modify:[/bright_magenta]")
+                rprint(F"[magenta]Product details of product '{search_type}' from the '{file_name.capitalize()[:-4]}' file that you want to modify:[/magenta]")
                 rprint(F"[bright_cyan]{row}[/bright_cyan]")
                 print('\n')
                 
@@ -2506,15 +2512,16 @@ and row['expiration_date'] == expiration_date:
                         
                         if yes_or_no == 'Y' or yes_or_no == 'y':
                             row[column_name] = product_detail
-                            rprint(F"[green]Great![/green]:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You can check the\
- modification of product '{search_type}' below.\n")
+                            rprint(F"[dark_sea_green4]Great![/dark_sea_green4]:thumbs_up: The product detail '{column_name}' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file has been modified to '{product_detail}'. You\
+ can check the modification of product '{search_type}' below.\n")
                             rprint(F"[bright_cyan]{row}[/bright_cyan]")
                             print('\n')
                             break
                             
                         elif yes_or_no == 'N' or yes_or_no == 'n':
-                            rprint(F"[wheat1]Okay. The product detail [green]'{column_name}'[/green] of product [green]'{search_type}'[/green] in the [green]'{file_name.capitalize()[:-4]}'[/green] file will not be modified from\
- [green]'{row[column_name]}'[/green] to [green]'{product_detail}'[/green]. You can see the current [green]'product details'[/green] below.\n")
+                            rprint(F"[wheat1]:person_gesturing_NO: Okay. The product detail [dark_sea_green4]'{column_name}'[/dark_sea_green4] of product [dark_sea_green4]'{search_type}'[/dark_sea_green4] in the\
+ [dark_sea_green4]'{file_name.capitalize()[:-4]}'[/dark_sea_green4] file will not be modified from [dark_sea_green4]'{row[column_name]}'[/dark_sea_green4] to [dark_sea_green4]'{product_detail}'[/dark_sea_green4]. You can see the current\
+ [dark_sea_green4]'product details'[/dark_sea_green4] below.\n")
                             rprint(F"[bright_cyan]{row}[/bright_cyan]")
                             print('\n')
                             break
@@ -2526,14 +2533,14 @@ and row['expiration_date'] == expiration_date:
                     break
 
                 except KeyboardInterrupt:
-                    rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+                    rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
                     sys.exit(0)
 
         else:
             if file_name == 'losses.csv':
                 loss_cause_input = 'loss cause'
                 print('\n')
-                rprint(':scream:')
+                rprint(':person_gesturing_NO:')
                 rprint("[wheat1]Entered product details:[/wheat1]")
                 rprint(F"[bright_cyan]Product: 'ID' or 'name' = [wheat1]'{search_type}'[/wheat1], '{relevant_quantity}' = [wheat1]'{quantity}'[/wheat1], '{relevant_amount}' = [wheat1]'{input_amount}'[/wheat1], '{relevant_date}' =\
  [wheat1]'{input_date}'[/wheat1], '{loss_cause_input}' = [wheat1]'{loss_cause}'[/wheat1] 'expiration date' = [wheat1]'{expiration_date}'[/wheat1], name of the product detail that you want to modify = [wheat1]'{column_name}'[/wheat1] and the\
@@ -2541,7 +2548,7 @@ and row['expiration_date'] == expiration_date:
 
             elif file_name == 'inventory.csv' or file_name == 'sales.csv':
                 print('\n')
-                rprint(':scream:')
+                rprint(':person_gesturing_NO:')
                 rprint("[wheat1]Entered product details:[/wheat1]")
                 rprint(F"[bright_cyan]Product: 'ID' or 'name' = [wheat1]'{search_type}'[/wheat1], '{relevant_quantity}' = [wheat1]'{quantity}'[/wheat1], '{relevant_amount}' = [wheat1]'{input_amount}'[/wheat1], '{relevant_date}' =\
  [wheat1]'{input_date}'[/wheat1], 'expiration date' = [wheat1]'{expiration_date}'[/wheat1], name of the product detail you want to modify = [wheat1]'{column_name}'[/wheat1] and the modification you would like to make for product detail\
@@ -2551,7 +2558,7 @@ and row['expiration_date'] == expiration_date:
             rprint(':thumbs_up:')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! One or more of the entered 'product details' of product '{search_type}' wasn't filled in correctly. Please check the differences between the [wheat1]'Entered product details'[/wheat1]\
- shown above and the [bright_magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/bright_magenta] also shown above. And then try it again.[/orange3]\n")
+ shown above and the [magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/magenta] also shown above. And then try it again.[/orange3]\n")
 
 
     with open(file_name, 'r+', newline='') as file:
@@ -2568,13 +2575,13 @@ def remove_products():
     
     print("- Follow the step(s) below to remove a product from a selected file. Have fun removing!\n")
     
-    rprint("-[bright_magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note 1! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
     
-    rprint("-[bright_magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/bright_magenta]\n")
+    rprint("-[magenta] Note 2! Step 5a will only appear when you select the 'Losses' file.[/magenta]\n")
     
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'remove products from a selected file'")
 
@@ -2599,15 +2606,15 @@ def remove_products():
 
             if file_name == 'inventory':
                 file_name = 'inventory.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
             
             elif file_name == 'sales':
                 file_name = 'sales.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
             
             elif file_name == 'losses':
                 file_name = 'losses.csv'
-                rprint(F"[green]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The '{file_name.capitalize()[:-4]}' file is found.[/dark_sea_green4]\n")
 
             else:
                 rprint(F"[orange3]:scream: Hello user! There is no file named '{file_name}'. Please enter the correct file name (not case sensitive).[/orange3]\n")
@@ -2616,7 +2623,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
     
     
@@ -2627,7 +2634,7 @@ def remove_products():
             
             
             if product_in_file_check(file_name, search_type) == True:
-                rprint(F"[green]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{search_type}' is found in the '{file_name.capitalize()[:-4]}' file. You can see the 'product details' above.[/dark_sea_green4]\n")
             
             else:
                 rprint(F"[orange3]:scream: Hello user! Product '{search_type}' was not found in the '{file_name.capitalize()[:-4]}' file. Please enter the correct product 'ID' or 'name' (not case sensitive).[/orange3]\n")
@@ -2636,7 +2643,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2667,18 +2674,18 @@ def remove_products():
             
             if file_name == 'inventory.csv' and quantity in purchase_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
             elif file_name == 'sales.csv' and quantity in sold_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'losses.csv' and quantity in loss_quantity_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_quantity}': '{quantity}', matches one of the '{relevant_quantity}' details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can\
+ see all the '{relevant_quantity}' details of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check(file_name, search_type)
@@ -2688,7 +2695,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2720,18 +2727,18 @@ def remove_products():
 
             if file_name == 'inventory.csv' and input_amount in purchase_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all\
+ the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
             elif file_name == 'sales.csv' and input_amount in sales_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all\
+ the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'losses.csv' and input_amount in loss_amount_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_amount}': '{input_amount}', matches one of the '{relevant_amount}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all\
+ the '{relevant_amount}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check(file_name, search_type)
@@ -2741,7 +2748,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2772,18 +2779,18 @@ def remove_products():
             
             if file_name == 'inventory.csv' and input_date in purchase_date_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
             elif file_name == 'sales.csv' and input_date in sales_date_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
             
             elif file_name == 'losses.csv' and input_date in loss_date_check:
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered '{relevant_date}': '{input_date}', matches one of the '{relevant_date}s' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
+ '{relevant_date}s' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
             else:
                 product_in_file_check(file_name, search_type)
@@ -2793,7 +2800,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2809,8 +2816,8 @@ def remove_products():
                 
                 if loss_cause in product_detail_check('losses.csv', search_type, 'loss_cause'):
                     (product_in_file_check('losses.csv', search_type))
-                    rprint(F"[green]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of product\
- '{search_type}' in the 'product details' shown above.[/green]\n")
+                    rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered 'cause of loss': '{loss_cause}', matches one of the 'causes of loss' of product '{search_type}' in the 'Losses' file. You can see all the 'causes of loss' of\
+ product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 else:
                     (product_in_file_check('losses.csv', search_type))
@@ -2821,7 +2828,7 @@ def remove_products():
                 break
         
         except KeyboardInterrupt:
-            rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
             sys.exit(0)
 
 
@@ -2849,8 +2856,8 @@ def remove_products():
             if expiration_date in expiration_date_check:
                 print('\n')
                 product_in_file_check(file_name, search_type)
-                rprint(F"[green]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all the\
- 'expiration dates' of product '{search_type}' in the 'product details' shown above.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: The entered 'expiration date': '{expiration_date}', matches one of the 'expiration dates' of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file. You can see all\
+ the 'expiration dates' of product '{search_type}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 if expiration == current_date().strftime("%d-%m-%Y"):
                     rprint(F"[wheat1]:astonished_face: Please note that the entered 'expiration date' of product '{search_type}': '{expiration_date}', is today.:astonished_face:[/wheat1]\n")
@@ -2867,7 +2874,7 @@ def remove_products():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -2915,7 +2922,7 @@ def remove_products():
  and row['expiration_date'] == expiration_date:
             
                 print('\n')
-                rprint(F"[bright_magenta]Product details of product '{search_type}' that you want to remove from the '{file_name.capitalize()[:-4]}' file:[/bright_magenta]")
+                rprint(F"[magenta]Product details of product '{search_type}' that you want to remove from the '{file_name.capitalize()[:-4]}' file:[/magenta]")
                 rprint(F"[bright_cyan]{row}[/bright_cyan]")
                 print('\n')
 
@@ -2928,19 +2935,20 @@ def remove_products():
                         if file_name == 'losses.csv' and (yes_or_no == 'Y' or yes_or_no == 'y'):
                             loss_cause_input = 'loss cause'
                             rows.remove(row)
-                            rprint(F"[green]Great![/green]:thumbs_up: Product '{row['name']}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}',\
- 'loss cause': '{loss_cause}' and 'expiration date': '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n")
+                            rprint(F"[dark_sea_green4]Great![/dark_sea_green4]:thumbs_up: Product '{row['name']}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}',\
+ '{relevant_date}': '{input_date}', 'loss cause': '{loss_cause}' and 'expiration date': '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n")
                             break
                         
                         elif (file_name == 'inventory.csv' or file_name == 'sales.csv') and yes_or_no == 'Y' or yes_or_no == 'y':
                             rows.remove(row)
-                            rprint(F"[green]Great![/green]:thumbs_up: Product '{row['name']}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}', '{relevant_date}': '{input_date}'\
- and 'expiration date': '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n")
+                            rprint(F"[dark_sea_green4]Great![/dark_sea_green4]:thumbs_up: Product '{row['name']}' with product 'ID': '{row['id']}', '{relevant_quantity}': '{quantity}', '{relevant_amount}': '{input_amount}',\
+ '{relevant_date}': '{input_date}' and 'expiration date': '{expiration_date}' has been removed from the '{file_name.capitalize()[:-4]}' file.\n")
                             break
 
                         elif yes_or_no == 'N' or yes_or_no == 'n':
-                            rprint(F"[wheat1]Okay. Product [green]'{row['name']}'[/green] with product [green]'ID'[/green]: [green]'{row['id']}'[/green] has not been removed from the [green]'{file_name.capitalize()[:-4]}'[/green] file. You\
- can see the [green]'product details'[/green] of product [green]'{search_type}'[/green] below.[/wheat1]\n")
+                            rprint(F"[wheat1]:person_gesturing_NO: Okay. Product [dark_sea_green4]'{row['name']}'[/dark_sea_green4] with product [dark_sea_green4]'ID'[/dark_sea_green4]: [dark_sea_green4]'{row['id']}'[/dark_sea_green4] has\
+ not been removed from the [dark_sea_green4]'{file_name.capitalize()[:-4]}'[/dark_sea_green4] file. You can see the [dark_sea_green4]'product details'[/dark_sea_green4] of product [dark_sea_green4]'{search_type}'[/dark_sea_green4]\
+ below.[/wheat1]\n")
                             rprint(F"[bright_cyan]{row}[/bright_cyan]")
                             print('\n')
                             break
@@ -2953,19 +2961,19 @@ def remove_products():
                     break
 
                 except KeyboardInterrupt:
-                    rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+                    rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
                     sys.exit(0)
 
         else:
             if file_name == 'losses.csv':
                 loss_cause_input = 'loss cause'
-                rprint(':scream:')
+                rprint(':person_gesturing_NO:')
                 rprint("[wheat1]Entered product details:[/wheat1]")
                 rprint(F"[bright_cyan]Product: 'ID' or 'name' = [wheat1]'{search_type}'[/wheat1], '{relevant_quantity}' = [wheat1]'{quantity}'[/wheat1], '{relevant_amount}' = [wheat1]'{input_amount}'[/wheat1], '{relevant_date}' =\
  [wheat1]'{input_date}'[/wheat1], '{loss_cause_input}' = [wheat1]'{loss_cause}'[/wheat1] 'expiration date' = [wheat1]'{expiration_date}'.[/wheat1][/bright_cyan]\n")
                 
             elif file_name == 'inventory.csv' or file_name == 'sales.csv':
-                rprint(':scream:')
+                rprint(':person_gesturing_NO:')
                 rprint("[wheat1]Entered product details:[/wheat1]")
                 rprint(F"[bright_cyan]Product: 'ID' or 'name' = [wheat1]'{search_type}'[/wheat1], '{relevant_quantity}' = [wheat1]'{quantity}'[/wheat1], '{relevant_amount}' = [wheat1]'{input_amount}'[/wheat1], '{relevant_date}' =\
  [wheat1]'{input_date}'[/wheat1], 'expiration date' = [wheat1]'{expiration_date}'[/wheat1].[/bright_cyan]\n")
@@ -2973,7 +2981,7 @@ def remove_products():
             rprint(':thumbs_up:')
             product_in_file_check(file_name, search_type)
             rprint(F"[orange3]:scream: Hello user! One or more of the entered 'product details' of product '{search_type}' wasn't filled in correctly. Please check the differences between the [wheat1]'Entered product details'[/wheat1]\
- shown above and the [bright_magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/bright_magenta] also shown above. And then try it again.[/orange3]\n")
+ shown above and the [magenta]'Product details of product '{search_type}' in the '{file_name.capitalize()[:-4]}' file'[/magenta] also shown above. And then try it again.[/orange3]\n")
 
 
     with open(file_name, 'w', newline= '') as file:
@@ -3094,11 +3102,11 @@ def calculations():
 
     rprint("- Follow the [grey78]step(s)[/grey78] below to select which calculation you would like to make: 'costs', 'losses', 'revenue' or 'profit'. Have fun calculating!\n")
     
-    rprint("-[bright_magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/bright_magenta]\n")
+    rprint("-[magenta] Note! Press [bright_cyan]'Ctrl' + 'C'[/bright_cyan] on your keyboard if you want to [bright_cyan]stop[/bright_cyan] with filling in this step / these steps.[/magenta]\n")
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("Steps to: 'calculate the costs, losses, revenue or profit'")
 
@@ -3117,7 +3125,7 @@ def calculations():
             
             if calculation_type == 'costs' or calculation_type == 'losses' or calculation_type == 'revenue' or calculation_type == 'profit':
                 print('\n')
-                rprint(F"[green]Great!:thumbs_up: It is noted that you want to calculate the '{calculation_type}'.[/green]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: It is noted that you want to calculate the '{calculation_type}'.[/dark_sea_green4]\n")
 
             else:
                 print('\n')
@@ -3128,7 +3136,7 @@ def calculations():
             break
     
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -3147,7 +3155,7 @@ def calculations():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -3166,7 +3174,7 @@ def calculations():
             break
 
     except KeyboardInterrupt:
-        rprint("\n\n[wheat1]Okay. It's noted that you want to [green]stop[/green] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n")
+        rprint("\n\n[wheat1]Okay. It's noted that you want to [dark_sea_green4]stop[/dark_sea_green4] with filling in this step / these steps. See you next time!:person_raising_hand:[/wheat1]\n\n")
         sys.exit(0)
 
 
@@ -3196,7 +3204,7 @@ def display_file_options():
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'file options'[/bright_cyan] below to get started!")
@@ -3219,22 +3227,22 @@ def display_file_options():
         print('\n')
 
         if option == '1':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             create_new_file()
             
         elif option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             clear_file()
 
         elif option == '3':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             export_file_to_excel()
 
         elif option == '4':
-            rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("[wheat1]Okay. You have selected the [dark_sea_green4]exit[/dark_sea_green4] option. See you next time!:person_raising_hand:[/wheat1]\n\n")
             break
 
         else:
@@ -3254,15 +3262,15 @@ def display_date_options():
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
 
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'date options'[/bright_cyan] below to get started!")
     
     table.add_row('1', "Update the system date")
-    table.add_row('2', "Change the system date")
+    table.add_row('2', "Change the system date by days or weeks in the past or future")
     table.add_row('3', "Select a specific system date")
-    table.add_row('4', "Special occasion date / countdown")
+    table.add_row('4', "Special occasion countdown / date")
     table.add_row('5', "Exit this menu")
 
 
@@ -3278,28 +3286,27 @@ def display_date_options():
         print('\n')
 
         if option == '1':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             update_system_date()
 
         elif option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             change_system_date()
 
         elif option == '3':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             print(select_specific_date())
-            print('\n')
-        
+            
         elif option == '4':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             special_occasion_date()
 
         elif option == '5':
-            rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("[wheat1]Okay. You have selected the [dark_sea_green4]exit[/dark_sea_green4] option. See you next time!:person_raising_hand:[/wheat1]\n\n")
             break
 
         else:
@@ -3319,7 +3326,7 @@ def display_product_options():
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
     
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'product options'[/bright_cyan] below to get started!")
@@ -3348,53 +3355,53 @@ def display_product_options():
         print('\n')
 
         if option == '1':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             avoid_expired_products()
             break
         
         if option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             view_all_products()
 
         elif option == '3':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             view_product_dates()
 
         elif option == '4':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             find_products()
         
         elif option == '5':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             add_inventory_products()
         
         elif option == '6':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             add_sold_products()
         
         elif option == '7':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             add_loss_products()
         
         elif option == '8':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             modify_product_details()
         
         elif option == '9':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             remove_products()
         
         elif option == '10':
-            rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
+            rprint("[wheat1]Okay. You have selected the [dark_sea_green4]exit[/dark_sea_green4] option. See you next time!:person_raising_hand:[/wheat1]\n\n")
             break
 
         else:
@@ -3414,7 +3421,7 @@ def display_calculation_options():
 
     console = Console()
 
-    table = Table(show_header = True, header_style = 'bold green')
+    table = Table(show_header = True, header_style = 'dark_sea_green4')
     
     table.add_column("#")
     table.add_column("Select one of the [bright_cyan]'calculation options'[/bright_cyan] below to get started!")
@@ -3434,17 +3441,12 @@ def display_calculation_options():
         print('\n')
 
         if option == '1':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
-            print('\n')
-            avoid_expired_products()
-
-        elif option == '2':
-            rprint("[green]Great!:thumbs_up: You will now be directed to the selected option.[/green]\n")
+            rprint("[dark_sea_green4]Great!:thumbs_up: You will now be directed to the selected option.[/dark_sea_green4]\n")
             print('\n')
             calculations()
 
-        elif option == '3':
-            rprint("[wheat1]Okay. You have selected the [green]exit[/green] option. See you next time!:person_raising_hand:[/wheat1]\n")
+        elif option == '2':
+            rprint("[wheat1]Okay. You have selected the [dark_sea_green4]exit[/dark_sea_green4] option. See you next time!:person_raising_hand:[/wheat1]\n\n")
             break
         
         else:
