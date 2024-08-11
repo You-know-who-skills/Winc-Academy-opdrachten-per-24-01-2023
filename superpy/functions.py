@@ -1153,14 +1153,14 @@ def add_inventory_products():
                 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The product 'ID' can only contain numbers. '{id}' Doesn't only contain numbers. Please enter a product 'ID' that only contains numbers.[/orange3]\n\n")
                 
                 continue
 
             if len(id) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'ID' can't contain more than '{maximum_digits}' digits. The entered ID: '{id}', contains more than '{maximum_digits}' digits. Please enter an 'ID' that contains no more than\
- '{maximum_digits}' digits.[/orange3]\n")
+ '{maximum_digits}' digits.[/orange3]\n\n")
 
                 continue
             
@@ -1169,7 +1169,7 @@ def add_inventory_products():
             
             if id_check == True:
                 rprint(F"[wheat1]:thinking_face: Please note that product ID [bright_cyan]{id}[/bright_cyan] already exists in the 'Inventory' file. You can see the 'product details' of the existing product ID [bright_cyan]{id}[/bright_cyan]\
- above.[/wheat1]\n")
+ above.[/wheat1]\n\n")
 
             else:
                 rprint(F"[dark_sea_green4]Great!:thumbs_up: The product ID '{id}' hasn't been used before in the 'Inventory' file.[/dark_sea_green4]\n\n")
@@ -1189,7 +1189,7 @@ def add_inventory_products():
             
             if name_check == True:
                 rprint(F"[wheat1]:thinking_face: Please note that product name [bright_cyan]{name}[/bright_cyan] already exists in the 'Inventory' file. You can see the 'product details' of the existing product name [bright_cyan]{name}\
-[/bright_cyan] above.'[/wheat1]\n")
+[/bright_cyan] above.'[/wheat1]\n\n")
                 
             else:
                 rprint(F"[dark_sea_green4]Great!:thumbs_up: The product name '{name}' hasn't been used before in the 'Inventory' file.[/dark_sea_green4]\n\n")
@@ -1210,14 +1210,14 @@ def add_inventory_products():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' for product '{name}' can only contain numbers. '{purchase_quantity}' Doesn't only contain numbers. Please enter the correct 'purchase quantity' for product\
- '{name}'.[/orange3]\n")            
+ '{name}'.[/orange3]\n\n")            
                 
                 continue
 
             if len(purchase_quantity) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'purchase quantity' can't contain more than '{maximum_digits}' digits. The entered 'purchase quantity': '{purchase_quantity}', contains more than '{maximum_digits}' digits. Please\
- enter a 'purchase quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
+ enter a 'purchase quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")
 
                 continue
             break
@@ -1237,7 +1237,7 @@ def add_inventory_products():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! '{purchase_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'purchase amount' for product '{name}' and use a dot (in stead of a\
- comma) to seperate any decimals.[/orange3]\n")
+ comma) to seperate any decimals.[/orange3]\n\n")
 
                 continue
 
@@ -1246,14 +1246,14 @@ def add_inventory_products():
 
             if input_amount != decimal_quantity:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'purchase amount' again and only add '2 decimals' when necessary.[/orange3]\n\n")
 
                 continue
 
             elif len(purchase_amount) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'purchase amount' can't contain more than '{maximum_digits}' digits. The entered 'purchase amount': '{purchase_amount}', contains more than '{maximum_digits}' digits. Please enter a\
- 'purchase amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
+ 'purchase amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")
                 
                 continue
             break
@@ -1272,7 +1272,7 @@ def add_inventory_products():
 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct way to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{purchase_date}' Isn't the correct way to fill in the 'purchase date'. Please enter the correct 'purchase date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
                 
                 continue
             
@@ -1281,7 +1281,7 @@ def add_inventory_products():
             if input_date > current_date():
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The date you just entered: '{purchase_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'purchase date' for product '{name}'.\
- [/orange3]\n")
+ [/orange3]\n\n")
 
                 continue
             break
@@ -1307,7 +1307,7 @@ def add_inventory_products():
             
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
                 
                 continue
             
@@ -1315,7 +1315,7 @@ def add_inventory_products():
 
             if expiration < current_date().strftime("%d-%m-%Y"):
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! Product '{name}' is rotton.:scream: So please throw it away a.s.a.p. or enter the correct expiration date for product '{name}'.[/orange3]\n\n")
                 
                 continue
             
@@ -1326,8 +1326,8 @@ def add_inventory_products():
 
             elif expiration == tomorrow_date:
                 print('\n')
-                rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product [bright_cyan]{name}[/bright_cyan] is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3: think of a durable way to do\
- something with product [bright_cyan]{name}[/bright_cyan].[/wheat1]")
+                rprint(F"[wheat1]:thinking_face: Hello user! The 'expiration date' of product [bright_cyan]{name}[/bright_cyan] is tomorrow.:thinking_face: So you can either: 1: enter the correct expiration date, 2: put it on sale or 3:\
+ think of a durable way to do something with product [bright_cyan]{name}[/bright_cyan].[/wheat1]")
 
             break
     
@@ -1418,12 +1418,13 @@ def add_sold_products():
             id = (input("Step 1 = Enter the product 'ID': "))
             print('\n')
             
-            if product_in_file_check('inventory.csv', id) == True:
-                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/dark_sea_green4]\n")
+            if id in product_detail_check('inventory.csv', id, 'id'):
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' below.[/dark_sea_green4]\n")
             
             else:
-                rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if this product is also found in the 'Inventory' file.\
- Please enter the correct product 'ID'.[/orange3]\n")
+                print('\n')
+                rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if the product 'ID' is also found in the 'Inventory' file.\
+ Please enter the correct product 'ID'.[/orange3]\n\n")
 
                 continue
             break
@@ -1443,12 +1444,12 @@ def add_sold_products():
 
             if name in product_detail_check('inventory.csv', id, 'name'):
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/dark_sea_green4]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/dark_sea_green4]\n\n")
 
             else:
                 product_in_file_check('inventory.csv', id)
-                rprint(F"[orange3]:scream: Hello user! The entered product 'name': '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'sold product' to the 'sales' file if the\
- product 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The entered product 'name': '{name}', doesn't match with product ID '{id}' from the 'Inventory' file. You can only add a 'sold product' to the 'Sales' file if the product 'name'\
+ matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' (not case sensitive).[/orange3]\n\n")
 
                 continue
             break
@@ -1467,14 +1468,14 @@ def add_sold_products():
 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can only contain numbers. '{sold_quantity}' Doesn't only contain numbers. Please enter the correct 'sold quantity' for product '{name}'.[/orange3]\n\n")
                 
                 continue
 
             if len(sold_quantity) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'sold quantity' can't contain more than '{maximum_digits}' digits. The entered 'sold quantity': '{sold_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'sold\
- quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
+ quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")
             
                 continue
             break
@@ -1494,7 +1495,7 @@ def add_sold_products():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! '{sales_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'sales amount' for product '{name}' and use a 'dot' (in stead of a comma)\
- to seperate any decimals.[/orange3]\n")
+ to seperate any decimals.[/orange3]\n\n")
 
                 continue
             
@@ -1503,14 +1504,14 @@ def add_sold_products():
 
             if input_amount != decimal_quantity:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'sales amount' again and only add '2 decimals' when necessary.[/orange3]\n\n")
 
                 continue
 
             elif len(sales_amount) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'sales amount' can't contain more than '{maximum_digits}' digits. The entered 'sales amount': '{sales_amount}', contains more than '{maximum_digits}' digits. Please enter a 'sales\
- amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n")        
+ amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")        
 
                 continue
             break
@@ -1529,7 +1530,7 @@ def add_sold_products():
             
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct way to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{sales_date}' Isn't the correct way to fill in the 'sales date'. Please enter the correct 'sales date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
                 
                 continue
             
@@ -1538,7 +1539,7 @@ def add_sold_products():
             if input_date > current_date():
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'sales date' you just entered: '{sales_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'sales date' for product '{name}'.\
- [/orange3]\n")
+ [/orange3]\n\n")
 
                 continue
             break
@@ -1560,7 +1561,7 @@ def add_sold_products():
                 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
                 
                 continue
             
@@ -1575,16 +1576,18 @@ def add_sold_products():
  product '{name}' in the 'product details' shown above.[/dark_sea_green4]\n")
 
                 if expiration == current_date().strftime("%d-%m-%Y"):
-                    rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
+                    rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date [bright_cyan]{expiration_date}[/bright_cyan] of the sold product with product ID [bright_cyan]{id}[/bright_cyan] and product name\
+ [bright_cyan]{name}[/bright_cyan] is today.:astonished_face:[/wheat1]")
 
                 if expiration < current_date().strftime("%d-%m-%Y"):
-                    rprint(F"[wheat1]:scream: Please note that the entered expiration date '{expiration_date}' of the sold product with product ID '{id}' and product name '{name}' has expired.:scream:[/wheat1]")
+                    rprint(F"[wheat1]:scream: Please note that the entered expiration date [bright_cyan]{expiration_date}[/bright_cyan] of the sold product with product ID [bright_cyan]{id}[/bright_cyan] and product name\
+ [bright_cyan]{name}[/bright_cyan] has expired.:scream:[/wheat1]")
 
             else:
                 print('\n')
                 product_in_file_check('inventory.csv', name)
                 rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match one of the 'expiration dates' of product '{name}' in the 'Inventory file'. Please check the 'product details' above for\
- the correct 'expiration date'.[/orange3]\n")
+ the correct 'expiration date'.[/orange3]\n\n")
 
                 continue
             break
@@ -1625,7 +1628,7 @@ def add_sold_products():
             print('\n')
             rprint(F"[dark_sea_green4]Great!:thumbs_up: The 'sold quantity' of product '{name}' has been 'updated', because: the 'ID', the 'name', the 'sales amount' the 'sales date' and the 'expiration date' are the same. You can check the\
  updated details below.[/dark_sea_green4]\n")
-            rprint(F"[bright_cyan]{row}[/bright_cyan]")
+            rprint(F"   [bright_cyan]{row}[/bright_cyan]")
             print('\n')
             
         else:    
@@ -1634,7 +1637,7 @@ def add_sold_products():
                 writer.writerow(product_details)
                 print('\n')
                 rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'sales' file. You can check the details below.[/dark_sea_green4]\n")
-                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
+                rprint(F"   [bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
 
@@ -1648,17 +1651,17 @@ def add_sold_products():
                 row['purchase_quantity'] = int(row['purchase_quantity']) - int(sold_quantity)
 
                 if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3:
-                    rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
- '{row['purchase_quantity']}' left in stock.:astonished_face:[/orange3]\n")
+                    rprint(F"[wheat1]STOCK UPDATE!!!:astonished_face: The product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date\
+ [bright_cyan]{row['expiration_date']}[/bright_cyan] needs to be reordered, because there are / is [bright_cyan]{row['purchase_quantity']}[/bright_cyan] left in stock.:astonished_face:[/wheat1]\n\n")
 
                 elif row['purchase_quantity'] <= 0:
                         row['purchase_quantity'] = 0
-                        rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
- / 'nothing' left in stock.:scream:[/orange3]\n")
+                        rprint(F"[wheat1]STOCK UPDATE!!!:scream: Product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date [bright_cyan]{row['expiration_date']}[/bright_cyan]\
+ needs to be reordered, because there is [bright_cyan]{row['purchase_quantity']}[/bright_cyan] / [bright_cyan]nothing[/bright_cyan] left in stock.:scream:[/wheat1]\n\n")
         
                 else:
-                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are\
- '{(row['purchase_quantity'])}' left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n")
+                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date\
+ [bright_cyan]{row['expiration_date']}[/bright_cyan] doesn't need to be reordered, because there are [bright_cyan]{(row['purchase_quantity'])}[/bright_cyan] left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n\n")
 
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1704,12 +1707,12 @@ def add_loss_products():
             id = (input("Step 1 = Enter the product 'ID': "))
             print('\n')
 
-            if product_in_file_check('inventory.csv', id) == True:
-                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' above.[/dark_sea_green4]\n")
+            if id in product_detail_check('inventory.csv', id, 'id'):
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product ID '{id}' is found in the 'Inventory' file. You can see the 'product details' of product ID '{id}' below.[/dark_sea_green4]\n")
             
             else:
-                rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if this product is also found in the 'Inventory' file.\
- Please enter the correct product 'ID'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The entered product ID: '{id}', was not found in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product 'ID' is also found in the 'Inventory' file.\
+ Please enter the correct product 'ID'.[/orange3]\n\n")
 
                 continue
             break 
@@ -1729,13 +1732,12 @@ def add_loss_products():
 
             if name in product_detail_check('inventory.csv', id, 'name'):
                 product_in_file_check('inventory.csv', name)
-                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' from the 'Inventory' file\
- above.[/dark_sea_green4]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: Product name '{name}' matches with the product ID '{id}' of this product in the 'Inventory' file. You can see the 'product details' of product '{name}' above.[/dark_sea_green4]\n\n")
 
             else:
                 product_in_file_check('inventory.csv', id)
-                rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with the product ID '{id}' of this product in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the\
- product 'name' matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' for product ID '{id}'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The entered product name: '{name}', doesn't match with product ID '{id}' from in the 'Inventory' file. You can only add a 'loss product' to the 'Losses' file if the product 'name'\
+ matches the name of this product in the 'Inventory' file. Please check the 'product details' above for the correct product 'name' (not case sensitive).[/orange3]\n\n")
 
                 continue
             break
@@ -1754,14 +1756,14 @@ def add_loss_products():
 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can only contain numbers. '{loss_quantity}' Doesn't only contain numbers. Please enter the correct 'loss quantity' for product '{name}'.[/orange3]\n\n")
                 
                 continue
 
             if len(loss_quantity) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'loss quantity' can't contain more than '{maximum_digits}' digits. The entered 'loss quantity': '{loss_quantity}', contains more than '{maximum_digits}' digits. Please enter a 'loss\
- quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
+ quantity' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")
                 
                 continue
             break
@@ -1781,7 +1783,7 @@ def add_loss_products():
             except ValueError:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! '{loss_amount}' Doesn't contain an 'amount' and / or a 'dot' to seperate the decimals. Please enter the correct 'loss amount' for product '{name}' and use a 'dot' (in stead of a comma)\
- to seperate any decimals.[/orange3]\n")
+ to seperate any decimals.[/orange3]\n\n")
                 
                 continue
 
@@ -1790,14 +1792,14 @@ def add_loss_products():
             
             if input_amount != decimal_quantity:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! You can only add '2 decimals' after the dot. Please enter the 'loss amount' again and only add '2 decimals' when necessary.[/orange3]\n\n")
                 
                 continue
 
             elif len(loss_amount) > 15:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user! The 'loss amount' can't contain more than '{maximum_digits}' digits. The entered 'loss amount': '{loss_amount}', contains more than '{maximum_digits}' digits. Please enter a 'loss\
- amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n")
+ amount' that contains no more than '{maximum_digits}' digits.[/orange3]\n\n")
 
                 continue
             break
@@ -1816,7 +1818,7 @@ def add_loss_products():
 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct way to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user. '{loss_date}' Isn't the correct way to fill in the 'loss date'. Please enter the correct 'loss date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
                 
                 continue
 
@@ -1824,7 +1826,8 @@ def add_loss_products():
 
             if input_date > current_date():
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user. The date you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'loss date' for product '{name}'.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user. The 'loss date' you just entered: '{loss_date}', is a date in the future. And we're not able to time travel... yet.:wink: Please enter the correct 'loss date' for product '{name}'.\
+[/orange3]\n\n")
             
                 continue
             break
@@ -1842,12 +1845,12 @@ def add_loss_products():
 
             if loss_cause in loss_cause_options:
                 print('\n')
-                rprint(F"[dark_sea_green4]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss' option.[/dark_sea_green4]\n")
+                rprint(F"[dark_sea_green4]Great!:thumbs_up: '{loss_cause.capitalize()}' is a correct 'cause of loss' option.[/dark_sea_green4]\n\n")
 
             else:
                 print('\n')
                 rprint(F"[orange3]:scream: Hello user. The 'cause of loss' you just entered: '{loss_cause}', isn't a correct 'cause of loss' option in the 'Losses' file. Please enter one of the following 'causes of loss' for product\
- '{name}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).[/orange3]\n")
+ '{name}': 'broken', 'damaged', 'expired', 'missing', 'theft' or 'other' (not case sensitive).[/orange3]\n\n")
 
                 continue
             break
@@ -1869,8 +1872,7 @@ def add_loss_products():
                 
             except ValueError:
                 print('\n')
-                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date' for product '{name}'. Please enter the correct 'expiration date' for product '{name}' as follows:\
- dd-mm-yyyy.[/orange3]\n")
+                rprint(F"[orange3]:scream: Hello user! '{expiration_date}' Isn't the correct way to fill in the 'expiration date'. Please enter the correct 'expiration date' for product '{name}' as follows: dd-mm-yyyy.[/orange3]\n\n")
             
                 continue
             
@@ -1885,16 +1887,18 @@ def add_loss_products():
  product '{name}' in the 'product details' shown above.[/dark_sea_green4]\n")
                 
                 if expiration == current_date().strftime("%d-%m-%Y"):
-                    rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date '{expiration_date}' of the loss product with product ID '{id}' and product name '{name}' is today.:astonished_face:[/wheat1]")
+                    rprint(F"[wheat1]:astonished_face: Please note that the entered expiration date [bright_cyan]{expiration_date}[/bright_cyan] of the loss product with product ID [bright_cyan]{id}[/bright_cyan] and product name\
+ [bright_cyan]{name}[/bright_cyan] is today.:astonished_face:[/wheat1]")
 
                 if expiration < current_date().strftime("%d-%m-%Y"):
-                    rprint(F"[wheat1]:scream: Please note that the entered expiration date '{expiration_date}' of the loss product with product ID '{id}' and product name '{name}' has expired.:scream:[/wheat1]")
+                    rprint(F"[wheat1]:scream: Please note that the entered expiration date [bright_cyan]{expiration_date}[/bright_cyan] of the loss product with product ID [bright_cyan]{id}[/bright_cyan] and product name\
+ [bright_cyan]{name}[/bright_cyan] has expired.:scream:[/wheat1]")
                 
             else:
                 print('\n')
                 product_in_file_check('inventory.csv', name)
                 rprint(F"[orange3]:scream: Hello user! The entered expiration date: '{expiration_date}', doesn't match with one of the 'expiration dates' of product '{name}' in the 'Inventory' file. Please check the 'product details' above\
- for the correct 'expiration date'.[/orange3]\n")
+ for the correct 'expiration date'.[/orange3]\n\n")
 
                 continue
             break
@@ -1933,21 +1937,19 @@ def add_loss_products():
         
         if already_exists == True:
             writer.writerows(rows)
-            
             print('\n')
             rprint(F"[dark_sea_green4]Great!:thumbs_up: The 'loss quantity' of product '{name}' has been 'updated', because the 'ID', the 'name', the 'loss amount', the 'loss date', the 'cause of loss' and the 'expiration date' are the same.\
  You can check the updated details below.[/dark_sea_green4]\n")
-            rprint(F"[bright_cyan]{row}[/bright_cyan]")
+            rprint(F"   [bright_cyan]{row}[/bright_cyan]")
             print('\n')
 
         else:
             with open('losses.csv', 'a+', newline='') as losses_file:
                 writer = csv.DictWriter(losses_file, fieldnames= reader.fieldnames)
                 writer.writerow(product_details)
-                
                 print('\n')
                 rprint(F"[dark_sea_green4]Great!:thumbs_up: Product '{name}' with product ID '{id}' and expiration date '{expiration_date}' has been added to the 'Losses' file. You can check the details below.[/dark_sea_green4]\n")
-                rprint(F"[bright_cyan]{product_details}[/bright_cyan]")
+                rprint(F"   [bright_cyan]{product_details}[/bright_cyan]")
                 print('\n')
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:
@@ -1959,18 +1961,18 @@ def add_loss_products():
             if row['id'] == id and row['name'] == name and row['expiration_date'] == expiration_date:
                 row['purchase_quantity'] = int(row['purchase_quantity']) - int(loss_quantity)
                 
-                if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3: # If the quantity of a product is 3 or less, it will trigger the print statement shown below.
-                    rprint(F"[orange3]STOCK UPDATE!!!:astonished_face: The product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there are / is\
- '{row['purchase_quantity']}' left in stock.:astonished_face:[orange3]\n")
+                if row['purchase_quantity'] >0 and row['purchase_quantity'] < 3: # If the 'purchase quantity' of a product is 2 or less, it will trigger the print statement shown below.
+                    rprint(F"[wheat1]STOCK UPDATE!!!:astonished_face: The product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date\
+ [bright_cyan]{row['expiration_date']}[/bright_cyan] needs to be reordered, because there are / is [bright_cyan]{row['purchase_quantity']}[/bright_cyan] left in stock.:astonished_face:[/wheat1]\n\n")
 
-                elif row['purchase_quantity'] <= 0:
-                        row['purchase_quantity'] = 0 # This code will prevent that the 'purchase quantity' goes below zero.
-                        rprint(F"[orange3]STOCK UPDATE!!!:scream: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' needs to be reordered, because there is '{row['purchase_quantity']}'\
- / 'nothing' left in stock.:scream:[/orange3]\n")
+                elif row['purchase_quantity'] <= 0: # If the 'purchase quantity' is less than zero / 0, it wil stay zero / 0 due to this code and the code below.
+                        row['purchase_quantity'] = 0
+                        rprint(F"[wheat1]STOCK UPDATE!!!:scream: Product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date [bright_cyan]{row['expiration_date']}[/bright_cyan]\
+ needs to be reordered, because there is [bright_cyan]{row['purchase_quantity']}[/bright_cyan] / [bright_cyan]nothing[/bright_cyan] left in stock.:scream:[/wheat1]\n\n")
 
                 else:
-                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product '{row['name']}' with product id '{row['id']}' and expiration date '{row['expiration_date']}' doesn't need to be reordered, because there are\
- '{(row['purchase_quantity'])}' left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n")
+                    rprint(F"[dark_sea_green4]STOCK UPDATE!!!:thumbs_up: Product [bright_cyan]{row['name']}[/bright_cyan] with product id [bright_cyan]{row['id']}[/bright_cyan] and expiration date\
+ [bright_cyan]{row['expiration_date']}[/bright_cyan] doesn't need to be reordered, because there are [bright_cyan]{(row['purchase_quantity'])}[/bright_cyan] left in stock.:grinning_face_with_big_eyes:[/dark_sea_green4]\n\n")
 
 
     with open('inventory.csv', 'r+', newline='') as inventory_file:

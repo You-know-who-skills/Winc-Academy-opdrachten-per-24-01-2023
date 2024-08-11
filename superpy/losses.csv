@@ -10,3 +10,4 @@ id,name,loss_quantity,loss_amount,loss_date,loss_cause,expiration_date
 2032,hagelslag,5,1.64,04-07-2024,damaged,04-07-2024
 2032,hagelslag,10,1.64,04-07-2024,expired,05-07-2024
 2032,hagelslag,15,1.64,04-07-2024,damaged,05-07-2024
+2035,test-2,25,2.50,11-08-2024,missing,11-08-2024
