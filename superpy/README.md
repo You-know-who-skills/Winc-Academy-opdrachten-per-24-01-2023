@@ -14,7 +14,7 @@ If you want to start using my project, the only things you have to do is:
 * Follow the steps that will we displayed on your screen
 
 
-After pressing 'Enter' on your keyboard, my code will guide you step by step on all the things you can do with my project. And if you accidentally typed something wrong, no worries. My code will also guide you on how to correct it.
+After pressing 'Enter' on your keyboard, my code will guide you step by step through all the things you can do with my project. And if you accidentally typed something wrong, no worries. My code will also guide you on how to correct it.
 
 ## Have fun managing with my Superpy project! ##
 
