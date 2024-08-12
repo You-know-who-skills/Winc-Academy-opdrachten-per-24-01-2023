@@ -22,9 +22,9 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step thr
 ## <ins>SCREENSHOTS</ins> ##
 
 
-***<ins>Screenshot of 'daily message' and 'how to continue with my project'</ins>***
-
 **Note!** I've written a code that will daily and automatically check if there are products that will expire within 3 days. The output of this code is a message that will appear in your terminal each time you use one of the codes below. Below this message you will be able to continue with using my project as shown in the screenshot below.
+
+***<ins>Screenshot of the 'daily automated message' and 'how to continue with my project'</ins>***
 
 ![Daily automated message](image-3.png)
 
@@ -34,9 +34,9 @@ After pressing 'Enter' on your keyboard, my code will guide you step by step thr
 ![Screenshot of how to copy the code](image.png)
 
 
+* **Note!** The directory in your terminal will be different than the one shown on the screenshot below, because it depends on from which folder on your device (desktop, laptop, tablet etc.) you will open my project.
 
 ***<ins>Screenshot of where to 'paste' the code</ins>***
-* **Note!** The directory in your terminal will be different than the one shown on the screenshot below, because it depends on from which folder on your device (desktop, laptop, tablet etc.) you will open my project.
 
 ![Screenshot of where to paste the code](image-1.png)
 
